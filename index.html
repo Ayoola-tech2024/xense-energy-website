@@ -53,39 +53,39 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* EXTREMELY DRASTIC, SLOW & CINEMATIC 3D FLY-IN ANIMATIONS (2.4s DURATION) */
+    /* SMOOTH & NATURAL SCROLL TRANSITIONS */
     .reveal-drastic-left, .reveal-fly-left {
       opacity: 0;
-      transform: translateX(-220px) rotate(-6deg) scale(0.82);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(-28px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
       will-change: opacity, transform;
     }
 
     .reveal-drastic-right, .reveal-fly-right {
       opacity: 0;
-      transform: translateX(220px) rotate(6deg) scale(0.82);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(28px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
       will-change: opacity, transform;
     }
 
     .reveal-drastic-up, .reveal-fly-up {
       opacity: 0;
-      transform: translateY(160px) scale(0.78);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(24px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
       will-change: opacity, transform;
     }
 
     .reveal-drastic-zoom, .reveal-scale {
       opacity: 0;
-      transform: scale(0.55) rotate(-8deg);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.96);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
       will-change: opacity, transform;
     }
 
     .reveal-drastic-flip {
       opacity: 0;
-      transform: perspective(800px) rotateY(-45deg) translateY(120px) scale(0.8);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
       will-change: opacity, transform;
     }
 
@@ -99,14 +99,14 @@
     .reveal-fly-up.active, 
     .reveal-scale.active {
       opacity: 1;
-      transform: translateX(0) translateY(0) rotate(0deg) rotateY(0deg) scale(1);
+      transform: translateX(0) translateY(0) scale(1);
     }
 
-    .delay-100 { transition-delay: 0.35s; }
-    .delay-200 { transition-delay: 0.70s; }
-    .delay-300 { transition-delay: 1.05s; }
-    .delay-400 { transition-delay: 1.40s; }
-    .delay-500 { transition-delay: 1.75s; }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+    .delay-400 { transition-delay: 0.4s; }
+    .delay-500 { transition-delay: 0.5s; }
 
     /* Light Mode Glass Utilities */
     .glass-card {
