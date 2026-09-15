@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xense Energy — Solar-Intelligent Load Control</title>
+  <title>Xense Energy — Utilitarian Solar Load Control</title>
   <link rel="icon" type="image/jpeg" href="logo.jpeg">
   
   <!-- Fonts & Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -22,16 +22,16 @@
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', '"Inter"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
           },
           colors: {
-            xenseBg: '#f8fafc',
+            xenseBg: '#f4f4f6',
             xenseCard: '#ffffff',
-            xenseNavy: '#ffffff',
-            xenseIndigo: '#4f46e5',
+            xenseNavy: '#18181b',
+            xenseIndigo: '#2563eb',
             xenseCyan: '#0284c7',
             xenseAmber: '#d97706',
-            xenseRose: '#e11d48'
+            xenseRose: '#dc2626'
           }
         }
       }
@@ -46,46 +46,54 @@
     body {
       margin: 0;
       min-width: 320px;
-      background-color: #f8fafc;
-      color: #0f172a;
+      background-color: #f4f4f6;
+      color: #09090b;
       font-family: "Plus Jakarta Sans", "Inter", sans-serif;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* EXTREMELY DRASTIC, SLOW & CINEMATIC 3D FLY-IN ANIMATIONS (2.4s DURATION) */
+    /* Utilitarian Grid Background Pattern */
+    .bg-grid-pattern {
+      background-size: 28px 28px;
+      background-image: 
+        linear-gradient(to right, rgba(24, 24, 27, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(24, 24, 27, 0.045) 1px, transparent 1px);
+    }
+
+    /* SUBTLE & FAST UTILITARIAN SCROLL ANIMATIONS */
     .reveal-drastic-left, .reveal-fly-left {
       opacity: 0;
-      transform: translateX(-220px) rotate(-6deg) scale(0.82);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(-24px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
     .reveal-drastic-right, .reveal-fly-right {
       opacity: 0;
-      transform: translateX(220px) rotate(6deg) scale(0.82);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(24px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
     .reveal-drastic-up, .reveal-fly-up {
       opacity: 0;
-      transform: translateY(160px) scale(0.78);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(20px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
     .reveal-drastic-zoom, .reveal-scale {
       opacity: 0;
-      transform: scale(0.55) rotate(-8deg);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.96);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
     .reveal-drastic-flip {
       opacity: 0;
-      transform: perspective(800px) rotateY(-45deg) translateY(120px) scale(0.8);
-      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(16px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
@@ -99,126 +107,135 @@
     .reveal-fly-up.active, 
     .reveal-scale.active {
       opacity: 1;
-      transform: translateX(0) translateY(0) rotate(0deg) rotateY(0deg) scale(1);
+      transform: translateX(0) translateY(0) scale(1);
     }
 
-    .delay-100 { transition-delay: 0.35s; }
-    .delay-200 { transition-delay: 0.70s; }
-    .delay-300 { transition-delay: 1.05s; }
-    .delay-400 { transition-delay: 1.40s; }
-    .delay-500 { transition-delay: 1.75s; }
+    .delay-100 { transition-delay: 0.08s; }
+    .delay-200 { transition-delay: 0.15s; }
+    .delay-300 { transition-delay: 0.22s; }
+    .delay-400 { transition-delay: 0.28s; }
+    .delay-500 { transition-delay: 0.35s; }
 
-    /* Light Mode Glass Utilities */
-    .glass-card {
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
-      border-radius: 1.15rem;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+    /* Utilitarian Industrial Cards */
+    .glass-card, .utilitarian-card {
+      border: 1px solid #d4d4d8;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.02);
+      border-radius: 0.6rem;
     }
 
     .brand-mark {
       display: grid;
-      height: 33px;
-      width: 33px;
+      height: 32px;
+      width: 32px;
       place-items: center;
-      border: 1px solid rgba(79, 70, 229, 0.3);
-      border-radius: 10px;
-      background: #e0e7ff;
-      box-shadow: 0 0 16px rgba(79,70,229,.15);
-      color: #4f46e5;
-      font-size: 21px;
-      font-weight: 700;
+      border: 1px solid #18181b;
+      border-radius: 6px;
+      background: #18181b;
+      color: #ffffff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      font-weight: 800;
       line-height: 1;
     }
 
     .button-primary, .button-secondary {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      border-radius: 0.7rem;
-      font-size: 0.75rem;
+      gap: 0.5rem;
+      border-radius: 0.45rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
       font-weight: 700;
-      transition: transform .16s cubic-bezier(.23,1,.32,1), background-color .18s ease, box-shadow .18s ease;
+      letter-spacing: 0.02em;
+      transition: all .16s ease;
       cursor: pointer;
     }
 
     .button-primary {
-      padding: 0.7rem 1rem;
-      background: #4f46e5;
+      padding: 0.65rem 1.1rem;
+      background: #18181b;
       color: white;
-      box-shadow: 0 10px 24px rgba(79,70,229,.22);
+      border: 1px solid #18181b;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 
     .button-primary:hover {
-      background: #4338ca;
-      box-shadow: 0 12px 30px rgba(79,70,229,.32);
+      background: #27272a;
       transform: translateY(-1px);
     }
 
     .button-secondary {
-      border: 1px solid #cbd5e1;
+      border: 1px solid #d4d4d8;
       background: #ffffff;
-      color: #334155;
-      padding: 0.7rem 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+      color: #18181b;
+      padding: 0.65rem 1.1rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
 
     .button-secondary:hover {
-      background: #f1f5f9;
-      color: #0f172a;
+      background: #f4f4f5;
+      border-color: #a1a1aa;
       transform: translateY(-1px);
     }
 
-    .nav-link { color: #475569; }
-    .nav-link:hover { color: #4f46e5; }
+    .nav-link { 
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #52525b;
+    }
+    .nav-link:hover { color: #18181b; }
 
     .live-dot {
       display: inline-block;
       height: 6px;
       width: 6px;
       border-radius: 999px;
-      background: #0284c7;
-      box-shadow: 0 0 10px #0284c7;
+      background: #16a34a;
+      box-shadow: 0 0 8px #16a34a;
     }
 
     .icon-box {
       display: inline-flex;
-      height: 37px;
-      width: 37px;
+      height: 36px;
+      width: 36px;
       flex: 0 0 auto;
       align-items: center;
       justify-content: center;
-      border: 1px solid #e2e8f0;
-      border-radius: 0.7rem;
+      border: 1px solid #e4e4e7;
+      border-radius: 0.45rem;
+      background: #f4f4f5;
+      color: #18181b;
     }
 
-    .icon-box.indigo { color: #4f46e5; background: #e0e7ff; border-color: #c7d2fe; }
-    .icon-box.cyan { color: #0284c7; background: #e0f2fe; border-color: #bae6fd; }
-    .icon-box.amber { color: #d97706; background: #fef3c7; border-color: #fde68a; }
-    .icon-box.rose { color: #e11d48; background: #ffe4e6; border-color: #fecdd3; }
-    .icon-box.slate { color: #475569; background: #f1f5f9; }
+    .icon-box.indigo { color: #2563eb; background: #eff6ff; border-color: #bfdbfe; }
+    .icon-box.cyan { color: #0284c7; background: #f0f9ff; border-color: #bae6fd; }
+    .icon-box.amber { color: #d97706; background: #fffbeb; border-color: #fde68a; }
+    .icon-box.rose { color: #dc2626; background: #fef2f2; border-color: #fecaca; }
+    .icon-box.slate { color: #27272a; background: #f4f4f5; border-color: #e4e4e7; }
 
     .section-title {
-      max-width: 700px;
-      font-size: clamp(2rem, 4.5vw, 3.85rem);
-      font-weight: 600;
-      line-height: 1.06;
-      letter-spacing: -.055em;
-      color: #0f172a;
+      max-width: 720px;
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      color: #09090b;
     }
 
     .section-copy {
       margin-top: 1.25rem;
       max-width: 620px;
-      font-size: .95rem;
-      line-height: 1.75rem;
-      color: #475569;
+      font-size: .92rem;
+      line-height: 1.7rem;
+      color: #52525b;
     }
 
     .text-gradient {
-      background: linear-gradient(105deg, #4f46e5, #0284c7 50%, #2563eb);
+      background: linear-gradient(105deg, #09090b, #2563eb 60%, #0284c7);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -226,16 +243,17 @@
 
     .mode-letter {
       display: inline-flex;
-      height: 38px;
-      width: 38px;
+      height: 36px;
+      width: 36px;
       align-items: center;
       justify-content: center;
-      border-radius: .7rem;
-      background: #f1f5f9;
-      color: #4f46e5;
-      font-family: ui-monospace, monospace;
+      border-radius: .45rem;
+      border: 1px solid #d4d4d8;
+      background: #f4f4f5;
+      color: #18181b;
+      font-family: "JetBrains Mono", monospace;
       font-size: .85rem;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .comparison-table {
@@ -243,49 +261,51 @@
       min-width: 820px;
       border-collapse: collapse;
       text-align: left;
-      font-size: .76rem;
-      color: #475569;
+      font-size: .75rem;
+      font-family: "JetBrains Mono", monospace;
+      color: #3f3f46;
     }
 
     .comparison-table th {
-      padding: 1.15rem 1.25rem;
-      border-bottom: 1px solid #e2e8f0;
-      color: #64748b;
-      font-size: .62rem;
-      font-family: ui-monospace, monospace;
-      font-weight: 600;
-      letter-spacing: .13em;
+      padding: 1rem 1.25rem;
+      border-bottom: 2px solid #e4e4e7;
+      background: #fafafa;
+      color: #18181b;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
     .comparison-table td {
-      padding: 1.15rem 1.25rem;
-      border-bottom: 1px solid #f1f5f9;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e4e4e7;
       vertical-align: middle;
     }
 
-    .comparison-table td:first-child { color: #0f172a; font-weight: 600; }
-    .xense-col { background: rgba(79, 70, 229, 0.04); }
+    .comparison-table td:first-child { color: #09090b; font-weight: 700; }
+    .xense-col { background: rgba(24, 24, 27, 0.03); }
     
     .positive-pill, .muted-pill {
       display: inline-flex;
-      border-radius: 999px;
-      padding: .32rem .58rem;
+      border-radius: 0.35rem;
+      padding: .28rem .55rem;
       font-size: .65rem;
-      font-weight: 600;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
     }
 
-    .positive-pill { background: #e0f2fe; color: #0284c7; }
-    .muted-pill { background: #f1f5f9; color: #64748b; }
+    .positive-pill { background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; }
+    .muted-pill { background: #f4f4f5; border: 1px solid #e4e4e7; color: #71717a; }
 
     .soc-slider {
-      height: 7px;
+      height: 8px;
       width: 100%;
       appearance: none;
       -webkit-appearance: none;
-      border-radius: 999px;
+      border-radius: 4px;
       outline: none;
-      background: linear-gradient(to right, #4f46e5 0%, #0284c7 var(--progress, 78%), #e2e8f0 var(--progress, 78%), #e2e8f0 100%);
+      background: linear-gradient(to right, #18181b 0%, #0284c7 var(--progress, 78%), #e4e4e7 var(--progress, 78%), #e4e4e7 100%);
       cursor: pointer;
     }
 
@@ -295,98 +315,79 @@
       appearance: none;
       -webkit-appearance: none;
       border: 3px solid #ffffff;
-      border-radius: 999px;
-      background: #4f46e5;
-      box-shadow: 0 0 0 2px rgba(79,70,229,.35), 0 4px 12px rgba(79,70,229,.3);
+      border-radius: 4px;
+      background: #18181b;
+      box-shadow: 0 0 0 2px #d4d4d8, 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    .ambient {
-      position: fixed;
-      pointer-events: none;
-      z-index: 0;
-      border-radius: 999px;
-      filter: blur(90px);
-      opacity: .25;
-    }
-
-    .ambient-one { top: 18%; left: -10%; width: 420px; height: 420px; background: #c7d2fe; }
-    .ambient-two { right: -12%; top: 58%; width: 460px; height: 460px; background: #bae6fd; }
-
-    /* Modal Overlay Animation */
+    /* Utilitarian Modal Overlay */
     .modal-overlay {
-      background: rgba(15, 23, 42, 0.45);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(9, 9, 11, 0.6);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
 
     .active-tab-btn {
-      background: #4f46e5;
+      background: #18181b;
       color: white;
-      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.25);
-    }
+      font-family: "JetBrains Mono", monospace;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
   </style>
 </head>
 
-<body class="selection:bg-indigo-500/30">
+<body class="bg-grid-pattern selection:bg-zinc-900 selection:text-white">
 
-  <!-- Ambient Light Field -->
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
-
-  <!-- Particle Mesh Canvas -->
-  <canvas id="particle-canvas" class="pointer-events-none fixed inset-0 z-0 opacity-70" aria-hidden="true"></canvas>
-
-  <!-- NAVIGATION BAR (Executive Light Mode) -->
+  <!-- NAVIGATION BAR (Utilitarian Industrial Scheme) -->
   <header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-10">
-    <nav class="mx-auto flex max-w-[1320px] items-center justify-between rounded-2xl border border-slate-200/90 bg-white/90 px-4 py-3 shadow-xl shadow-slate-200/40 backdrop-blur-xl sm:px-5">
+    <nav class="mx-auto flex max-w-[1320px] items-center justify-between rounded-lg border border-zinc-300 bg-white/95 px-4 py-2.5 shadow-sm sm:px-5">
       <a href="#top" class="flex items-center gap-3 group">
-        <img src="logo.jpeg" alt="Xense Energy Logo" class="h-9 w-9 rounded-xl object-contain bg-white border border-indigo-500/30 p-1 shadow-md group-hover:scale-105 transition-transform">
+        <img src="logo.jpeg" alt="Xense Logo" class="h-8 w-8 rounded object-contain bg-white border border-zinc-300 p-0.5 shadow-xs">
         <span class="leading-none">
-          <span class="block text-sm font-bold tracking-[0.16em] text-slate-900">XENSE</span>
-          <span class="mt-1 block text-[8px] font-bold tracking-[0.28em] text-indigo-600">ENERGY SYSTEMS</span>
+          <span class="block text-xs font-mono font-extrabold tracking-[0.18em] text-zinc-900">XENSE_ENERGY</span>
+          <span class="mt-0.5 block text-[8px] font-mono font-bold tracking-[0.25em] text-blue-600">[SYS_CTRL: AUTONOMOUS]</span>
         </span>
       </a>
 
-      <div class="hidden items-center gap-8 text-xs font-semibold text-slate-600 lg:flex">
-        <a href="#simulator" class="nav-link">Simulator</a>
-        <a href="#modes" class="nav-link">Decision engine</a>
-        <a href="#telemetry" class="nav-link">Telemetry</a>
-        <a href="#products" class="nav-link">Products</a>
-        <a href="#faq" class="nav-link">FAQ</a>
+      <div class="hidden items-center gap-7 lg:flex">
+        <a href="#simulator" class="nav-link">01_SIMULATOR</a>
+        <a href="#modes" class="nav-link">02_DECISION_ENGINE</a>
+        <a href="#relatable-stories" class="nav-link">03_IMPACT</a>
+        <a href="#products" class="nav-link">04_HARDWARE</a>
+        <a href="#faq" class="nav-link">05_FAQ</a>
       </div>
 
       <!-- Header Action Buttons -->
-      <div class="hidden items-center gap-3 sm:flex">
-        <button onclick="openModal('modal-login')" class="nav-link text-xs font-semibold px-3 py-2 text-slate-600 hover:text-slate-900 transition-colors">
-          Sign In
+      <div class="hidden items-center gap-2 sm:flex">
+        <button onclick="openModal('modal-login')" class="nav-link text-[11px] px-3 py-2 text-zinc-700 hover:text-zinc-900">
+          SIGN_IN
         </button>
-        <button onclick="openModal('modal-signup')" class="button-secondary text-xs px-3.5 py-2">
-          <span>Sign Up</span>
+        <button onclick="openModal('modal-signup')" class="button-secondary text-[11px] px-3.5 py-1.5">
+          <span>SIGN_UP</span>
         </button>
-        <button onclick="openModal('modal-demo')" class="button-primary py-2 px-3.5 text-xs">
-          <span>Request Demo</span>
-          <i data-lucide="video" class="h-3.5 w-3.5 text-cyan-200"></i>
+        <button onclick="openModal('modal-demo')" class="button-primary text-[11px] py-1.5 px-3.5">
+          <span>REQUEST_DEMO</span>
+          <i data-lucide="arrow-right" class="h-3.5 w-3.5 text-zinc-400"></i>
         </button>
       </div>
 
-      <button id="mobileMenuBtn" class="rounded-lg border border-slate-200 p-2 text-slate-700 sm:hidden" aria-label="Toggle menu">
+      <button id="mobileMenuBtn" class="rounded border border-zinc-300 p-2 text-zinc-800 sm:hidden" aria-label="Toggle menu">
         <i data-lucide="menu" class="w-5 h-5"></i>
       </button>
     </nav>
 
     <!-- Mobile Dropdown -->
-    <div id="mobileMenu" class="hidden mx-auto mt-2 max-w-[1320px] rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-2xl backdrop-blur-xl sm:hidden">
-      <div class="grid gap-1 text-sm text-slate-700">
-        <a href="#simulator" class="mobile-nav-item rounded-lg px-3 py-3 hover:bg-slate-100">Simulator</a>
-        <a href="#modes" class="mobile-nav-item rounded-lg px-3 py-3 hover:bg-slate-100">Decision engine</a>
-        <a href="#telemetry" class="mobile-nav-item rounded-lg px-3 py-3 hover:bg-slate-100">Telemetry</a>
-        <a href="#products" class="mobile-nav-item rounded-lg px-3 py-3 hover:bg-slate-100">Products</a>
-        <a href="#faq" class="mobile-nav-item rounded-lg px-3 py-3 hover:bg-slate-100">FAQ</a>
-        <div class="pt-3 border-t border-slate-200 flex flex-col gap-2">
-          <button onclick="openModal('modal-login')" class="rounded-lg px-3 py-2.5 text-center text-sm font-semibold bg-slate-100 border border-slate-200 text-slate-900">Sign In</button>
-          <button onclick="openModal('modal-signup')" class="rounded-lg px-3 py-2.5 text-center text-sm font-semibold bg-slate-200 text-slate-900">Sign Up</button>
-          <button onclick="openModal('modal-demo')" class="rounded-lg px-3 py-2.5 text-center text-sm font-semibold bg-indigo-600 text-white">Request Demo</button>
+    <div id="mobileMenu" class="hidden mx-auto mt-2 max-w-[1320px] rounded-lg border border-zinc-300 bg-white p-4 shadow-lg sm:hidden font-mono text-xs">
+      <div class="grid gap-1 text-zinc-800 font-bold">
+        <a href="#simulator" class="mobile-nav-item rounded px-3 py-2.5 hover:bg-zinc-100">01_SIMULATOR</a>
+        <a href="#modes" class="mobile-nav-item rounded px-3 py-2.5 hover:bg-zinc-100">02_DECISION_ENGINE</a>
+        <a href="#relatable-stories" class="mobile-nav-item rounded px-3 py-2.5 hover:bg-zinc-100">03_IMPACT</a>
+        <a href="#products" class="mobile-nav-item rounded px-3 py-2.5 hover:bg-zinc-100">04_HARDWARE</a>
+        <a href="#faq" class="mobile-nav-item rounded px-3 py-2.5 hover:bg-zinc-100">05_FAQ</a>
+        <div class="pt-3 border-t border-zinc-200 flex flex-col gap-2">
+          <button onclick="openModal('modal-login')" class="rounded px-3 py-2 text-center bg-zinc-100 border border-zinc-300 text-zinc-900">SIGN_IN</button>
+          <button onclick="openModal('modal-signup')" class="rounded px-3 py-2 text-center bg-white border border-zinc-300 text-zinc-900">SIGN_UP</button>
+          <button onclick="openModal('modal-demo')" class="rounded px-3 py-2 text-center bg-zinc-900 text-white">REQUEST_DEMO</button>
         </div>
       </div>
     </div>
@@ -395,118 +396,117 @@
   <!-- MAIN CONTENT -->
   <main id="top" class="relative z-10">
 
-    <!-- CORPORATE EXECUTIVE HERO -->
-    <section class="mx-auto max-w-[1320px] px-4 pb-24 pt-36 sm:px-6 lg:px-10 lg:pt-44 relative z-10">
-      <div class="relative grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
+    <!-- UTILITARIAN HERO SECTION -->
+    <section class="mx-auto max-w-[1320px] px-4 pb-20 pt-32 sm:px-6 lg:px-10 lg:pt-40 relative z-10">
+      <div class="relative grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
         
-        <!-- Left Column (Open Corporate Typography) -->
+        <!-- Left Column (Utilitarian Industrial Typography) -->
         <div class="max-w-3xl reveal-drastic-left">
-          <div class="mb-7 inline-flex items-center gap-2.5 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-[10px] font-bold tracking-[0.25em] text-indigo-700 uppercase">
-            <span class="h-1.5 w-1.5 rounded-full bg-indigo-600 shadow-[0_0_10px_#4f46e5]"></span> AUTONOMOUS LOAD MANAGEMENT
+          <div class="mb-6 inline-flex items-center gap-2 rounded border border-zinc-300 bg-zinc-100 px-3 py-1 font-mono text-[10px] font-bold tracking-wider text-zinc-900 uppercase">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-sm"></span> // SPECIFICATION: AUTONOMOUS LOAD SHEDDING
           </div>
 
-          <h1 class="max-w-4xl text-4xl font-extrabold leading-[1.03] tracking-[-0.05em] text-slate-900 sm:text-6xl lg:text-[76px]">
+          <h1 class="max-w-4xl text-4xl font-extrabold leading-[1.04] tracking-[-0.04em] text-zinc-900 sm:text-6xl lg:text-[72px]">
             Protect solar batteries <span class="text-gradient">before critical drain.</span>
           </h1>
 
-          <p class="mt-7 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 font-normal">
+          <p class="mt-6 max-w-2xl text-base leading-7 text-zinc-600 sm:text-lg sm:leading-8 font-normal">
             Xense Energy takes action, not just measurements. Our local intelligence watches PV input and battery SOC in real time—shedding non-essential heavy loads before your backup power reaches the danger zone.
           </p>
 
-          <div class="mt-9 flex flex-wrap gap-3 items-center">
-            <button onclick="openModal('modal-demo')" class="button-primary justify-center px-6 py-3.5 text-sm font-bold">
-              <span>Request Demo & Presentation</span>
-              <i data-lucide="play-circle" class="w-4 h-4 text-indigo-200"></i>
+          <div class="mt-8 flex flex-wrap gap-3 items-center">
+            <button onclick="openModal('modal-demo')" class="button-primary justify-center px-6 py-3 text-xs">
+              <span>EXECUTE_DEMO_PRESENTATION</span>
+              <i data-lucide="play-circle" class="w-3.5 h-3.5 text-zinc-400"></i>
             </button>
-            <button onclick="openModal('modal-signup')" class="button-secondary justify-center px-6 py-3.5 text-sm font-semibold">
-              <span>Create Free Account</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <button onclick="openModal('modal-signup')" class="button-secondary justify-center px-6 py-3 text-xs">
+              <span>CREATE_ACCOUNT</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
-            <a href="#simulator" class="text-xs font-semibold text-slate-500 hover:text-indigo-600 px-3 py-2 transition-colors">
-              Try Live Simulator ↓
+            <a href="#simulator" class="font-mono text-xs font-bold text-zinc-500 hover:text-zinc-900 px-2 py-2 transition-colors">
+              [RUN_SIMULATOR &darr;]
             </a>
           </div>
 
-          <!-- 3-Column Stats Bar -->
-          <div class="mt-12 grid max-w-xl grid-cols-3 divide-x divide-slate-200 border-t border-slate-200 pt-6">
+          <!-- 3-Column Stats Bar (Utilitarian Spec Grid) -->
+          <div class="mt-10 grid max-w-xl grid-cols-3 divide-x divide-zinc-300 border-t border-b border-zinc-300 py-4 font-mono">
             <div class="pr-4">
-              <div class="font-mono text-xl font-extrabold text-indigo-600">100%</div>
-              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-bold">Autonomous shedding</div>
+              <div class="text-xl font-extrabold text-zinc-900">[100%]</div>
+              <div class="mt-1 text-[9px] uppercase tracking-wider text-zinc-500 font-bold">Autonomous Shedding</div>
             </div>
             <div class="px-4">
-              <div class="font-mono text-xl font-extrabold text-cyan-600">&lt; 50ms</div>
-              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-bold">Relay trigger latency</div>
+              <div class="text-xl font-extrabold text-blue-600">[&lt;50MS]</div>
+              <div class="mt-1 text-[9px] uppercase tracking-wider text-zinc-500 font-bold">Relay Trigger Latency</div>
             </div>
             <div class="pl-4">
-              <div class="font-mono text-xl font-extrabold text-amber-600">22</div>
-              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-bold">Telemetry parameters</div>
+              <div class="text-xl font-extrabold text-amber-600">[22]</div>
+              <div class="mt-1 text-[9px] uppercase tracking-wider text-zinc-500 font-bold">Telemetry Params</div>
             </div>
           </div>
         </div>
 
-        <!-- Right Telemetry Panel (Light Mode Widget) -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 shadow-2xl shadow-slate-200/70 backdrop-blur-xl relative mx-auto w-full max-w-[460px] reveal-drastic-right delay-200 hover:border-indigo-500/40 transition-all duration-300">
+        <!-- Right Telemetry Panel (Industrial Control Console Widget) -->
+        <div class="rounded-lg border border-zinc-300 bg-white p-6 shadow-sm font-mono relative mx-auto w-full max-w-[460px] reveal-drastic-right delay-200">
           
-          <div class="flex items-center justify-between border-b border-slate-200 pb-4">
-            <div class="flex items-center gap-3">
-              <span class="icon-box cyan bg-sky-50 border-sky-200 text-sky-600 animate-pulse"><i data-lucide="cpu" class="w-4 h-4"></i></span>
+          <div class="flex items-center justify-between border-b border-zinc-200 pb-3">
+            <div class="flex items-center gap-2.5">
+              <span class="icon-box cyan bg-zinc-100 border-zinc-300 text-zinc-900"><i data-lucide="cpu" class="w-4 h-4"></i></span>
               <div>
-                <div class="text-xs font-bold text-slate-900 tracking-tight">ESP32 Telemetry Node</div>
-                <div class="mt-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-slate-500 font-semibold">XS-DONGLE / LOCAL MESH</div>
+                <div class="text-xs font-bold text-zinc-900 tracking-tight">ESP32_TELEMETRY_NODE</div>
+                <div class="text-[9px] uppercase text-zinc-500 font-bold">NODE_ID: XS-DONGLE_MESH</div>
               </div>
             </div>
-            <span class="flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-[9px] font-mono font-bold text-sky-700 shadow-sm">
-              <span class="live-dot animate-ping"></span> LIVE
+            <span class="flex items-center gap-1.5 rounded border border-emerald-300 bg-emerald-50 px-2.5 py-0.5 text-[9px] font-bold text-emerald-800">
+              <span class="live-dot"></span> SYSTEM_LIVE
             </span>
           </div>
 
-          <div class="grid grid-cols-[1fr_auto] items-center gap-4 py-6">
+          <div class="grid grid-cols-[1fr_auto] items-center gap-4 py-5">
             <div>
-              <div class="mb-1.5 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">
-                <i data-lucide="sun" class="w-3.5 h-3.5 text-amber-500"></i> PV Solar Output
+              <div class="mb-1 text-[9px] uppercase tracking-wider text-zinc-500 font-bold flex items-center gap-1.5">
+                <i data-lucide="sun" class="w-3.5 h-3.5 text-amber-600"></i> PV_SOLAR_INPUT
               </div>
-              <div class="font-mono text-4xl sm:text-5xl font-extrabold tracking-[-0.06em] text-slate-900">
-                1,840<span class="ml-1 text-xl font-bold text-amber-600">W</span>
+              <div class="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900">
+                1,840<span class="ml-1 text-lg font-bold text-amber-600">W</span>
               </div>
-              <div class="mt-2.5 flex items-center gap-2 text-[10px] text-emerald-600 font-bold">
-                <span class="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></span> ABOVE BASELINE <span class="text-slate-500 font-mono">+12.4%</span>
+              <div class="mt-2 text-[9px] text-emerald-700 font-bold">
+                [SURPLUS: +12.4% ABOVE BASELINE]
               </div>
             </div>
 
             <!-- Conic Battery Gauge -->
-            <div id="conicGauge" class="relative flex h-28 w-28 items-center justify-center rounded-full shadow-lg shadow-sky-500/10 transition-transform duration-500 hover:scale-105" style="background: conic-gradient(#0284c7 78%, #e2e8f0 0);">
-              <div class="flex h-[86px] w-[86px] flex-col items-center justify-center rounded-full bg-white border border-slate-200">
-                <i data-lucide="battery-charging" id="gaugeBatteryIcon" class="w-4 h-4 mb-0.5 text-sky-600"></i>
-                <span id="gaugeSocText" class="font-mono text-xl font-extrabold text-slate-900">78%</span>
-                <span class="text-[8px] uppercase tracking-widest text-slate-500 font-mono font-bold">SOC</span>
+            <div id="conicGauge" class="relative flex h-24 w-24 items-center justify-center rounded-full border border-zinc-300" style="background: conic-gradient(#18181b 78%, #e4e4e7 0);">
+              <div class="flex h-[74px] w-[74px] flex-col items-center justify-center rounded-full bg-white border border-zinc-200">
+                <i data-lucide="battery-charging" id="gaugeBatteryIcon" class="w-3.5 h-3.5 mb-0.5 text-zinc-900"></i>
+                <span id="gaugeSocText" class="text-lg font-extrabold text-zinc-900">78%</span>
+                <span class="text-[8px] uppercase tracking-widest text-zinc-500 font-bold">SOC</span>
               </div>
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-3 pt-1">
-            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 hover:border-sky-400 transition-colors">
-              <div class="flex items-center gap-2 text-[9px] uppercase tracking-[0.15em] text-slate-500 font-bold">
-                <i data-lucide="circuit-board" class="w-3 h-3 text-sky-600"></i> Relay Circuit
+          <div class="grid grid-cols-2 gap-2.5 pt-1 text-[10px]">
+            <div class="rounded border border-zinc-200 bg-zinc-50 p-2.5">
+              <div class="text-zinc-500 font-bold flex items-center gap-1">
+                <i data-lucide="circuit-board" class="w-3 h-3 text-zinc-700"></i> RELAY_CIRCUIT
               </div>
-              <div class="mt-2 flex items-center gap-2 text-xs font-bold text-sky-700">
-                <span class="h-2 w-2 rounded-full bg-sky-600 shadow-[0_0_8px_#0284c7]"></span> CLOSED / ON
+              <div class="mt-1.5 font-bold text-emerald-700">
+                [STATE: CLOSED/ON]
               </div>
             </div>
 
-            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 hover:border-indigo-400 transition-colors">
-              <div class="flex items-center gap-2 text-[9px] uppercase tracking-[0.15em] text-slate-500 font-bold">
-                <i data-lucide="wifi" class="w-3.5 h-3.5 text-indigo-600"></i> Network
+            <div class="rounded border border-zinc-200 bg-zinc-50 p-2.5">
+              <div class="text-zinc-500 font-bold flex items-center gap-1">
+                <i data-lucide="wifi" class="w-3 h-3 text-zinc-700"></i> MESH_NETWORK
               </div>
-              <div class="mt-2 text-xs font-bold text-white flex items-center gap-1.5">
-                <span>LOCAL MESH</span>
-                <span class="text-cyan-300 animate-pulse">●</span>
+              <div class="mt-1.5 font-bold text-zinc-900">
+                [LOCAL_MESH: OK]
               </div>
             </div>
           </div>
 
-          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[9px] font-mono uppercase tracking-[0.16em] text-slate-400">
-            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Updated 2s ago</span>
-            <span>Firmware 2.4.1</span>
+          <div class="mt-4 pt-2.5 border-t border-zinc-200 flex items-center justify-between text-[9px] text-zinc-500 font-bold">
+            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> REFRESH_RATE: 2000MS</span>
+            <span>FW_VER: 2.4.1</span>
           </div>
         </div>
 
@@ -514,147 +514,147 @@
     </section>
 
     <!-- INTERACTIVE SIMULATOR (SECTION 01) -->
-    <section id="simulator" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10 reveal-drastic-up">
-      <div class="mb-10 max-w-2xl">
-        <div class="mb-5 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-600">
-          <span class="font-mono text-sky-600">01</span>
-          <span class="h-px w-8 bg-indigo-300"></span>
-          <span>LIVE SYSTEM SIMULATOR</span>
+    <section id="simulator" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-16 sm:px-6 lg:px-10 reveal-drastic-up">
+      <div class="mb-8 max-w-2xl">
+        <div class="mb-4 flex items-center gap-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600">
+          <span class="rounded bg-zinc-900 px-2 py-0.5 text-zinc-100">[01_SIMULATOR]</span>
+          <span class="h-px w-6 bg-zinc-300"></span>
+          <span>LIVE LOAD SHEDDING ENGINE</span>
         </div>
         <h2 class="section-title">Test real-time load shedding <span class="text-gradient">in your home.</span></h2>
         <p class="section-copy">Drag the battery SOC slider below to watch Xense automatically protect your Air Conditioner, Deep Freezer, Fans, and Wi-Fi system in real time.</p>
       </div>
 
-      <div id="simGlassBox" class="glass-card overflow-hidden p-5 transition-all duration-300 sm:p-8 reveal-drastic-zoom delay-100 border-slate-200 bg-white shadow-xl">
-        <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 items-start">
+      <div id="simGlassBox" class="utilitarian-card p-5 transition-all duration-300 sm:p-8 reveal-drastic-zoom delay-100">
+        <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12 items-start">
           
           <!-- Left Column: Slider & Status Engine -->
           <div>
             <div class="flex items-start justify-between">
               <div>
-                <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Battery State of Charge (SOC)</div>
-                <div class="mt-1 text-[10px] uppercase tracking-[0.16em] text-slate-500 font-semibold">Drag slider to test emergency response</div>
+                <div class="font-mono text-xs font-bold text-zinc-900 uppercase tracking-wider">[PARAM] Battery State of Charge (SOC)</div>
+                <div class="mt-1 text-[10px] uppercase tracking-[0.16em] text-zinc-500 font-mono font-semibold">Drag slider to test emergency response</div>
               </div>
               <div class="text-right">
-                <span id="socBigText" class="font-mono text-5xl font-extrabold tracking-[-0.08em] text-indigo-600">78</span>
-                <span class="ml-1 font-mono text-lg text-slate-400">%</span>
+                <span id="socBigText" class="font-mono text-5xl font-extrabold tracking-[-0.08em] text-zinc-900">78</span>
+                <span class="ml-1 font-mono text-lg text-zinc-500">%</span>
               </div>
             </div>
 
             <div class="mt-8">
               <input type="range" id="mainSocSlider" min="0" max="100" value="78" class="soc-slider" style="--progress: 78%;">
-              <div class="mt-3 flex justify-between font-mono text-[9px] text-slate-500 font-bold">
-                <span class="text-rose-600">0% / BLACKOUT</span>
-                <span class="text-amber-600">35% / SHED LEVEL 2</span>
-                <span class="text-indigo-600">50% / SHED LEVEL 1</span>
-                <span class="text-emerald-600">100% / FULL</span>
+              <div class="mt-3 flex justify-between font-mono text-[9px] text-zinc-600 font-bold">
+                <span class="text-rose-700">0% / BLACKOUT</span>
+                <span class="text-amber-700">35% / SHED LEVEL 2</span>
+                <span class="text-blue-700">50% / SHED LEVEL 1</span>
+                <span class="text-emerald-700">100% / FULL</span>
               </div>
             </div>
 
             <!-- Dynamic System Status Box -->
-            <div id="protectionStatusBox" class="mt-8 rounded-2xl border p-5 transition-all duration-300 border-emerald-200 bg-emerald-50">
+            <div id="protectionStatusBox" class="mt-8 rounded-xl border p-5 transition-all duration-300 border-emerald-300 bg-emerald-50">
               <div class="flex items-center gap-4">
                 <span id="protectionIconBox" class="icon-box cyan bg-emerald-100 text-emerald-700 border-emerald-200">
                   <i data-lucide="shield-check" id="protectionIcon" class="w-5 h-5"></i>
                 </span>
                 <div>
-                  <div id="protectionStatusTitle" class="text-xs font-bold text-emerald-800 tracking-wider">MODE A: OPTIMAL SOLAR POWER</div>
-                  <div id="protectionStatusCopy" class="mt-1 text-[11px] leading-relaxed text-slate-600">All home appliances (AC, Freezer, Fans & WiFi) are running safely on battery & solar output.</div>
+                  <div id="protectionStatusTitle" class="font-mono text-xs font-bold text-emerald-900 tracking-wider">MODE A: OPTIMAL SOLAR POWER</div>
+                  <div id="protectionStatusCopy" class="mt-1 text-[11px] leading-relaxed text-zinc-700 font-medium">All home appliances (AC, Freezer, Fans & WiFi) are running safely on battery & solar output.</div>
                 </div>
               </div>
             </div>
 
             <!-- Dynamic Live Power Meter -->
             <div class="mt-6 grid grid-cols-2 gap-3 text-center">
-              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                <div class="text-[9px] font-mono uppercase text-slate-500 font-bold">Total Active Load</div>
-                <div id="activeLoadText" class="text-lg font-extrabold font-mono text-indigo-600 mt-0.5">4.10 kW</div>
+              <div class="p-3 rounded-lg bg-zinc-50 border border-zinc-200">
+                <div class="text-[9px] font-mono uppercase text-zinc-500 font-bold">[METRIC] Active Load</div>
+                <div id="activeLoadText" class="text-lg font-extrabold font-mono text-zinc-900 mt-0.5">4.10 kW</div>
               </div>
-              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                <div class="text-[9px] font-mono uppercase text-slate-500 font-bold">Relay Response Time</div>
-                <div class="text-lg font-extrabold font-mono text-emerald-600 mt-0.5">&lt; 50 ms</div>
+              <div class="p-3 rounded-lg bg-zinc-50 border border-zinc-200">
+                <div class="text-[9px] font-mono uppercase text-zinc-500 font-bold">[METRIC] Relay Latency</div>
+                <div class="text-lg font-extrabold font-mono text-emerald-700 mt-0.5">&lt; 50 ms</div>
               </div>
             </div>
           </div>
 
           <!-- Right Column: Real Appliance Circuit List -->
           <div class="space-y-3.5">
-            <div class="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2 flex items-center justify-between">
-              <span>Managed Home Appliances</span>
-              <span class="text-[10px] font-mono text-indigo-600 font-bold">4 Active Circuits</span>
+            <div class="font-mono text-xs font-bold uppercase tracking-wider text-zinc-800 mb-2 flex items-center justify-between">
+              <span>[MANAGED_CIRCUITS] Home Load List</span>
+              <span class="text-[10px] text-zinc-600 font-bold">4 Active Relays</span>
             </div>
 
             <!-- Appliance 1: Air Conditioner -->
-            <div id="rowAc" class="flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
+            <div id="rowAc" class="flex items-center justify-between rounded-xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50/60">
               <div class="flex items-center gap-3.5">
-                <span id="iconAc" class="icon-box cyan bg-emerald-100 text-emerald-700"><i data-lucide="wind" class="w-4 h-4"></i></span>
+                <span id="iconAc" class="icon-box cyan bg-emerald-100 text-emerald-700 border-emerald-200"><i data-lucide="wind" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
+                  <div class="text-xs font-bold text-zinc-900 flex items-center gap-2">
                     Air Conditioner (1.5 HP)
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">HEAVY LOAD</span>
+                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-zinc-200 text-zinc-800 font-bold">[CIRCUIT_01: HEAVY]</span>
                   </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Master Bedroom & Living Room · 2.2 kW</div>
+                  <div class="mt-1 text-[10px] font-mono text-zinc-500">Bedroom & Living Room · 2.2 kW</div>
                 </div>
               </div>
               <div class="text-right">
-                <div id="badgeAc" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
-                  <span id="dotAc" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING
+                <div id="badgeAc" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  <span id="dotAc" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#16a34a]"></span> ON / RUNNING
                 </div>
               </div>
             </div>
 
             <!-- Appliance 2: Deep Freezer -->
-            <div id="rowFreezer" class="flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
+            <div id="rowFreezer" class="flex items-center justify-between rounded-xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50/60">
               <div class="flex items-center gap-3.5">
-                <span id="iconFreezer" class="icon-box cyan bg-emerald-100 text-emerald-700"><i data-lucide="snowflake" class="w-4 h-4"></i></span>
+                <span id="iconFreezer" class="icon-box cyan bg-emerald-100 text-emerald-700 border-emerald-200"><i data-lucide="snowflake" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
+                  <div class="text-xs font-bold text-zinc-900 flex items-center gap-2">
                     Deep Freezer & Fridge
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">MEDIUM LOAD</span>
+                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-zinc-200 text-zinc-800 font-bold">[CIRCUIT_02: MEDIUM]</span>
                   </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Kitchen Food Preservation · 1.5 kW</div>
+                  <div class="mt-1 text-[10px] font-mono text-zinc-500">Kitchen Food Storage · 1.5 kW</div>
                 </div>
               </div>
               <div class="text-right">
-                <div id="badgeFreezer" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
-                  <span id="dotFreezer" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING
+                <div id="badgeFreezer" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  <span id="dotFreezer" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#16a34a]"></span> ON / RUNNING
                 </div>
               </div>
             </div>
 
             <!-- Appliance 3: Standing Fans & Lighting -->
-            <div id="rowFans" class="flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
+            <div id="rowFans" class="flex items-center justify-between rounded-xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50/60">
               <div class="flex items-center gap-3.5">
-                <span id="iconFans" class="icon-box cyan bg-emerald-100 text-emerald-700"><i data-lucide="fan" class="w-4 h-4"></i></span>
+                <span id="iconFans" class="icon-box cyan bg-emerald-100 text-emerald-700 border-emerald-200"><i data-lucide="fan" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
+                  <div class="text-xs font-bold text-zinc-900 flex items-center gap-2">
                     Standing Fans & LED Lights
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">LIGHT LOAD</span>
+                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-zinc-200 text-zinc-800 font-bold">[CIRCUIT_03: LIGHT]</span>
                   </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Ventilation & Home Lighting · 0.3 kW</div>
+                  <div class="mt-1 text-[10px] font-mono text-zinc-500">Ventilation & Home Lighting · 0.3 kW</div>
                 </div>
               </div>
               <div class="text-right">
-                <div id="badgeFans" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
-                  <span id="dotFans" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING
+                <div id="badgeFans" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  <span id="dotFans" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#16a34a]"></span> ON / RUNNING
                 </div>
               </div>
             </div>
 
             <!-- Appliance 4: WiFi Router & Security -->
-            <div id="rowWifi" class="flex items-center justify-between rounded-2xl border p-4 border-sky-200 bg-sky-50">
+            <div id="rowWifi" class="flex items-center justify-between rounded-xl border p-4 border-sky-300 bg-sky-50">
               <div class="flex items-center gap-3.5">
-                <span class="icon-box cyan bg-sky-100 text-sky-700"><i data-lucide="wifi" class="w-4 h-4"></i></span>
+                <span class="icon-box cyan bg-sky-100 text-sky-700 border-sky-200"><i data-lucide="wifi" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
+                  <div class="text-xs font-bold text-zinc-900 flex items-center gap-2">
                     Wi-Fi Router & Security CCTV
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">ALWAYS PRIORITY</span>
+                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">[ALWAYS_ON]</span>
                   </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Internet & Home Surveillance · 0.1 kW</div>
+                  <div class="mt-1 text-[10px] font-mono text-zinc-500">Internet & Surveillance · 0.1 kW</div>
                 </div>
               </div>
               <div class="text-right">
-                <div class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-sky-100 text-sky-800 border border-sky-300">
+                <div class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-sky-100 text-sky-800 border border-sky-300">
                   <span class="h-1.5 w-1.5 rounded-full bg-sky-600 shadow-[0_0_8px_#0284c7]"></span> ON / PROTECTED
                 </div>
               </div>
@@ -667,96 +667,96 @@
     </section>
 
     <!-- RELATABLE CUSTOMER STORIES & REAL-WORLD SCENARIOS -->
-    <section id="relatable-stories" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10 reveal-drastic-up">
-      <div class="mb-12 max-w-3xl">
-        <div class="mb-5 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-600">
-          <span class="font-mono text-sky-600">REAL-WORLD IMPACT</span>
-          <span class="h-px w-8 bg-indigo-300"></span>
-          <span>WHY CUSTOMERS CHOOSE XENSE</span>
+    <section id="relatable-stories" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-16 sm:px-6 lg:px-10 reveal-drastic-up">
+      <div class="mb-10 max-w-3xl">
+        <div class="mb-4 flex items-center gap-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600">
+          <span class="rounded bg-zinc-900 px-2 py-0.5 text-zinc-100">[REAL_WORLD_ANALYSIS]</span>
+          <span class="h-px w-6 bg-zinc-300"></span>
+          <span>WHY SOLAR OWNERS NEED XENSE</span>
         </div>
         <h2 class="section-title">Built for the real challenges <span class="text-gradient">solar owners face daily.</span></h2>
         <p class="section-copy">Most inverter setups fail not because of bad batteries, but because heavy appliances drain them unexpectedly. Here is how Xense transforms everyday solar ownership.</p>
       </div>
 
       <!-- 3 Relatable Scenario Cards -->
-      <div class="grid gap-8 md:grid-cols-3">
+      <div class="grid gap-6 md:grid-cols-3">
         
         <!-- Scenario 1 -->
-        <div class="glass-card p-6 sm:p-8 flex flex-col justify-between reveal-drastic-left delay-100 border-slate-200 bg-white">
+        <div class="utilitarian-card p-6 sm:p-8 flex flex-col justify-between reveal-drastic-left delay-100">
           <div>
-            <div class="mb-5 inline-flex items-center gap-2 rounded-lg bg-rose-50 border border-rose-200 px-3 py-1.5 text-[10px] font-bold text-rose-700 uppercase tracking-wider">
-              <i data-lucide="moon-star" class="w-3.5 h-3.5"></i> 2 AM Grid Outages
+            <div class="mb-4 inline-flex items-center gap-2 rounded bg-rose-50 border border-rose-200 px-2.5 py-1 text-[9px] font-mono font-bold text-rose-800 uppercase tracking-wider">
+              <i data-lucide="moon-star" class="w-3.5 h-3.5"></i> [SCENARIO_01: OVERNIGHT]
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-3">No More Waking Up in Blackouts</h3>
-            <p class="text-xs leading-relaxed text-slate-600 mb-4">
-              <strong class="text-rose-600 font-bold">Without Xense:</strong> The grid fails overnight. Air conditioners and water heaters run unchecked until your battery dies completely at 3 AM.
+            <h3 class="text-lg font-bold text-zinc-900 mb-3">No More Waking Up in Blackouts</h3>
+            <p class="text-xs leading-relaxed text-zinc-600 mb-3">
+              <strong class="text-rose-700 font-bold">[WITHOUT XENSE]:</strong> Grid fails overnight. ACs & heaters run unchecked until your battery hits 0% at 3 AM.
             </p>
-            <p class="text-xs leading-relaxed text-slate-600">
-              <strong class="text-indigo-600 font-bold">With Xense:</strong> Xense senses the grid outage instantly and automatically turns off heavy ACs when SOC hits 35%—keeping fans, lights, and fridges running cleanly until dawn.
+            <p class="text-xs leading-relaxed text-zinc-700">
+              <strong class="text-zinc-900 font-bold">[WITH XENSE]:</strong> Xense detects outage instantly and sheds heavy ACs at 35% SOC—keeping fans & lights powered till dawn.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-[10px] font-mono font-bold text-indigo-600">
-            <span>Result: 3x Longer Backup</span>
-            <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <div class="mt-6 pt-4 border-t border-zinc-200 flex items-center justify-between font-mono text-[10px] font-bold text-zinc-900">
+            <span>[RESULT]: 3x Backup Life</span>
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-700"></i>
           </div>
         </div>
 
         <!-- Scenario 2 -->
-        <div class="glass-card p-6 sm:p-8 flex flex-col justify-between reveal-drastic-up delay-200 border-slate-200 bg-white">
+        <div class="utilitarian-card p-6 sm:p-8 flex flex-col justify-between reveal-drastic-up delay-200">
           <div>
-            <div class="mb-5 inline-flex items-center gap-2 rounded-lg bg-amber-50 border border-amber-200 px-3 py-1.5 text-[10px] font-bold text-amber-700 uppercase tracking-wider">
-              <i data-lucide="cloud-rain" class="w-3.5 h-3.5"></i> Cloudy Afternoon Traps
+            <div class="mb-4 inline-flex items-center gap-2 rounded bg-amber-50 border border-amber-200 px-2.5 py-1 text-[9px] font-mono font-bold text-amber-800 uppercase tracking-wider">
+              <i data-lucide="cloud-rain" class="w-3.5 h-3.5"></i> [SCENARIO_02: SOLAR_DROP]
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-3">Automatic Solar Drop Compensation</h3>
-            <p class="text-xs leading-relaxed text-slate-600 mb-4">
-              <strong class="text-rose-600 font-bold">Without Xense:</strong> You turn on heavy loads expecting solar power, but sudden heavy clouds drop PV output by 80%, silently draining your battery bank.
+            <h3 class="text-lg font-bold text-zinc-900 mb-3">Automatic Solar Drop Protection</h3>
+            <p class="text-xs leading-relaxed text-zinc-600 mb-3">
+              <strong class="text-rose-700 font-bold">[WITHOUT XENSE]:</strong> Heavy clouds cut PV output by 80%, silently draining battery bank while heavy loads run.
             </p>
-            <p class="text-xs leading-relaxed text-slate-600">
-              <strong class="text-indigo-600 font-bold">With Xense:</strong> Xense monitors PV solar yield every 2 seconds. The moment solar generation falls below consumption, non-essential loads are shed automatically.
+            <p class="text-xs leading-relaxed text-zinc-700">
+              <strong class="text-zinc-900 font-bold">[WITH XENSE]:</strong> Monitors PV yield every 2s. Disconnects heavy loads immediately when generation drops.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-[10px] font-mono font-bold text-indigo-600">
-            <span>Result: Zero Deep Discharges</span>
-            <i data-lucide="zap" class="w-4 h-4"></i>
+          <div class="mt-6 pt-4 border-t border-zinc-200 flex items-center justify-between font-mono text-[10px] font-bold text-zinc-900">
+            <span>[RESULT]: 0% Deep Discharges</span>
+            <i data-lucide="zap" class="w-4 h-4 text-amber-700"></i>
           </div>
         </div>
 
         <!-- Scenario 3 -->
-        <div class="glass-card p-6 sm:p-8 flex flex-col justify-between reveal-drastic-right delay-300 border-slate-200 bg-white">
+        <div class="utilitarian-card p-6 sm:p-8 flex flex-col justify-between reveal-drastic-right delay-300">
           <div>
-            <div class="mb-5 inline-flex items-center gap-2 rounded-lg bg-emerald-50 border border-emerald-200 px-3 py-1.5 text-[10px] font-bold text-emerald-700 uppercase tracking-wider">
-              <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> Battery Lifespan Protection
+            <div class="mb-4 inline-flex items-center gap-2 rounded bg-emerald-50 border border-emerald-200 px-2.5 py-1 text-[9px] font-mono font-bold text-emerald-800 uppercase tracking-wider">
+              <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> [SCENARIO_03: LIFESPAN]
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-3">Double Your Battery Investment</h3>
-            <p class="text-xs leading-relaxed text-slate-600 mb-4">
-              <strong class="text-rose-600 font-bold">Without Xense:</strong> Repeated deep battery discharges reduce expensive Lithium/Gel batteries from a 7-year rating down to just 2 years.
+            <h3 class="text-lg font-bold text-zinc-900 mb-3">Double Your Battery Lifespan</h3>
+            <p class="text-xs leading-relaxed text-zinc-600 mb-3">
+              <strong class="text-rose-700 font-bold">[WITHOUT XENSE]:</strong> Repeated deep discharges destroy expensive Lithium/Gel batteries in under 2 years.
             </p>
-            <p class="text-xs leading-relaxed text-slate-600">
-              <strong class="text-indigo-600 font-bold">With Xense:</strong> By maintaining a strict customizable safety floor (e.g., 35% SOC), Xense prevents chemical degradation and doubles overall battery lifespan.
+            <p class="text-xs leading-relaxed text-zinc-700">
+              <strong class="text-zinc-900 font-bold">[WITH XENSE]:</strong> Maintains strict customizable safety reserve (35% SOC), doubling overall battery life.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-[10px] font-mono font-bold text-indigo-600">
-            <span>Result: Save $3,000+ in Repairs</span>
-            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+          <div class="mt-6 pt-4 border-t border-zinc-200 flex items-center justify-between font-mono text-[10px] font-bold text-zinc-900">
+            <span>[SAVINGS]: \$3,000+ Hardware</span>
+            <i data-lucide="dollar-sign" class="w-4 h-4 text-zinc-900"></i>
           </div>
         </div>
 
       </div>
 
       <!-- Customer Relatability Testimonial Quote Banner -->
-      <div class="mt-12 glass-card p-6 sm:p-8 border border-indigo-200 bg-gradient-to-r from-indigo-50 via-white to-sky-50 shadow-xl">
+      <div class="mt-10 utilitarian-card p-6 sm:p-8 border border-zinc-300 bg-zinc-50">
         <div class="flex flex-col sm:flex-row items-center gap-6">
           <div class="flex-shrink-0">
-            <img src="logo.jpeg" alt="Xense Emblem" class="h-14 w-14 rounded-2xl object-contain bg-white p-1.5 border border-indigo-200 shadow-md">
+            <img src="logo.jpeg" alt="Xense Emblem" class="h-12 w-12 rounded-lg object-contain bg-white p-1 border border-zinc-300">
           </div>
-          <div class="text-center sm:text-left space-y-2">
-            <p class="text-sm sm:text-base italic text-slate-700 font-medium leading-relaxed">
+          <div class="text-center sm:text-left space-y-1.5">
+            <p class="text-xs sm:text-sm font-mono text-zinc-800 font-medium leading-relaxed">
               "Before Xense, our inverter shut off almost every night because someone forgot to turn off the water heater or air conditioner. Now Xense manages everything automatically without us touching a single switch."
             </p>
-            <div class="text-xs font-bold text-indigo-700 flex items-center justify-center sm:justify-start gap-2">
-              <span>Dr. Arinze M.</span>
-              <span class="text-slate-400">•</span>
-              <span class="text-slate-600 font-semibold">Residential Solar Owner (10kVA Inverter System)</span>
+            <div class="font-mono text-[10px] font-bold text-zinc-900 flex items-center justify-center sm:justify-start gap-2 pt-1">
+              <span>DR. ARINZE M.</span>
+              <span class="text-zinc-400">•</span>
+              <span class="text-zinc-600 font-semibold">[SYS_USER: 10KVA RESIDENTIAL SOLAR]</span>
             </div>
           </div>
         </div>
@@ -764,93 +764,93 @@
     </section>
 
     <!-- DECISION ENGINE MODES (SECTION 02) -->
-    <section id="modes" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
+    <section id="modes" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-16 sm:px-6 lg:px-10">
       <div class="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
         <div>
-          <div class="mb-5 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-600">
-            <span class="font-mono text-sky-600">02</span>
-            <span class="h-px w-8 bg-indigo-300"></span>
-            <span>DECISION ENGINE MODES</span>
+          <div class="mb-4 flex items-center gap-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600">
+            <span class="rounded bg-zinc-900 px-2 py-0.5 text-zinc-100">[02_ENGINE_MODES]</span>
+            <span class="h-px w-6 bg-zinc-300"></span>
+            <span>DECISION CONTROL POSTURES</span>
           </div>
           <h2 class="section-title">One system. <span class="text-gradient">Three clear decisions.</span></h2>
         </div>
-        <p class="max-w-md text-sm leading-6 text-slate-600 font-medium">Choose the operating posture that fits the moment. Xense keeps the intelligence local, visible, and under your control.</p>
+        <p class="max-w-md text-xs leading-relaxed text-zinc-600 font-medium font-mono">Choose the operating posture that fits the moment. Xense keeps the intelligence local, visible, and under your control.</p>
       </div>
 
       <div class="grid gap-4 lg:grid-cols-3">
-        <div class="glass-card group relative overflow-hidden p-6 border-indigo-200 bg-white shadow-xl reveal-drastic-left">
+        <div class="utilitarian-card group relative overflow-hidden p-6 reveal-drastic-left">
           <div class="relative">
             <div class="flex items-start justify-between">
-              <span class="mode-letter bg-indigo-100 text-indigo-700 font-bold">A</span>
+              <span class="mode-letter bg-zinc-900 text-white font-bold">A</span>
               <span class="icon-box indigo"><i data-lucide="sparkles" class="w-4.5 h-4.5"></i></span>
             </div>
-            <div class="mt-12 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">DEFAULT ENGINE</div>
-            <h3 class="mt-3 text-2xl font-bold tracking-[-0.04em] text-slate-900">Xense Mode</h3>
-            <div class="mt-2 text-xs font-bold text-indigo-600">Core autonomous engine</div>
-            <p class="mt-5 min-h-[90px] text-sm leading-6 text-slate-600">Continuously evaluates solar input and battery SOC to shed heavy loads before the battery reaches a critical drop below 35% SOC.</p>
+            <div class="mt-8 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500">[MODE_A: AUTONOMOUS]</div>
+            <h3 class="mt-2 text-xl font-bold font-mono tracking-tight text-zinc-900">Xense Mode</h3>
+            <div class="mt-1 text-xs font-mono font-bold text-zinc-700">Core autonomous engine</div>
+            <p class="mt-4 text-xs leading-relaxed text-zinc-600">Continuously evaluates solar input and battery SOC to shed heavy loads before the battery reaches a critical drop below 35% SOC.</p>
           </div>
         </div>
 
-        <div class="glass-card group relative overflow-hidden p-6 border-slate-200 bg-white shadow-xl reveal-drastic-up delay-200">
+        <div class="utilitarian-card group relative overflow-hidden p-6 reveal-drastic-up delay-200">
           <div class="relative">
             <div class="flex items-start justify-between">
-              <span class="mode-letter bg-slate-100 text-slate-700 font-bold">B</span>
+              <span class="mode-letter bg-zinc-200 text-zinc-900 font-bold">B</span>
               <span class="icon-box slate"><i data-lucide="plug-zap" class="w-4.5 h-4.5"></i></span>
             </div>
-            <div class="mt-12 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">MANUAL OVERRIDE</div>
-            <h3 class="mt-3 text-2xl font-bold tracking-[-0.04em] text-slate-900">Bypass Mode</h3>
-            <div class="mt-2 text-xs font-bold text-indigo-600">Standard wall socket behavior</div>
-            <p class="mt-5 min-h-[90px] text-sm leading-6 text-slate-600">Disables decision logic entirely. The Smart Plug behaves like a standard wall socket, leaving power output permanently ON.</p>
+            <div class="mt-8 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500">[MODE_B: MANUAL_BYPASS]</div>
+            <h3 class="mt-2 text-xl font-bold font-mono tracking-tight text-zinc-900">Bypass Mode</h3>
+            <div class="mt-1 text-xs font-mono font-bold text-zinc-700">Standard wall socket behavior</div>
+            <p class="mt-4 text-xs leading-relaxed text-zinc-600">Disables decision logic entirely. The Smart Plug behaves like a standard wall socket, leaving power output permanently ON.</p>
           </div>
         </div>
 
-        <div class="glass-card group relative overflow-hidden p-6 border-sky-200 bg-white shadow-xl reveal-drastic-right delay-400">
+        <div class="utilitarian-card group relative overflow-hidden p-6 reveal-drastic-right delay-400">
           <div class="relative">
             <div class="flex items-start justify-between">
-              <span class="mode-letter bg-sky-100 text-sky-700 font-bold">C</span>
+              <span class="mode-letter bg-sky-100 text-sky-900 font-bold border-sky-300">C</span>
               <span class="icon-box cyan"><i data-lucide="network" class="w-4.5 h-4.5"></i></span>
             </div>
-            <div class="mt-12 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">UTILITY FALLBACK</div>
-            <h3 class="mt-3 text-2xl font-bold tracking-[-0.04em] text-slate-900">Auto Grid Mode</h3>
-            <div class="mt-2 text-xs font-bold text-indigo-600">Seamless NEPA transfer</div>
-            <p class="mt-5 min-h-[90px] text-sm leading-6 text-slate-600">Detects when utility grid power returns, automatically bypassing shedding logic so loads run directly from grid power.</p>
+            <div class="mt-8 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500">[MODE_C: AUTO_GRID]</div>
+            <h3 class="mt-2 text-xl font-bold font-mono tracking-tight text-zinc-900">Auto Grid Mode</h3>
+            <div class="mt-1 text-xs font-mono font-bold text-zinc-700">Seamless utility transfer</div>
+            <p class="mt-4 text-xs leading-relaxed text-zinc-600">Detects when utility grid power returns, automatically bypassing shedding logic so loads run directly from grid power.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- PROBLEM VS SOLUTION & ECOSYSTEM PRODUCTS (SECTION 03) -->
-    <section id="products" class="mx-auto max-w-[1320px] px-4 py-20 sm:px-6 lg:px-10">
+    <section id="products" class="mx-auto max-w-[1320px] px-4 py-16 sm:px-6 lg:px-10">
       
       <!-- Problem vs Solution -->
       <div class="mb-16">
-        <div class="mb-5 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-600">
-          <span class="font-mono text-sky-600">03</span>
-          <span class="h-px w-8 bg-indigo-300"></span>
-          <span>THE PROBLEM & THE XENSE SOLUTION</span>
+        <div class="mb-4 flex items-center gap-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600">
+          <span class="rounded bg-zinc-900 px-2 py-0.5 text-zinc-100">[03_PROBLEM_VS_SOLUTION]</span>
+          <span class="h-px w-6 bg-zinc-300"></span>
+          <span>AUTONOMOUS HARDWARE ENGINE</span>
         </div>
         <h2 class="section-title">Energise your home with <span class="text-gradient">the power of the sun.</span></h2>
         <p class="section-copy">Traditional energy apps only let you watch your battery drain. Xense gives you complete energy freedom, protecting your home reserve automatically.</p>
 
-        <div class="mt-12 grid gap-6 md:grid-cols-2">
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
           
-          <div class="glass-card p-8 border-rose-200 bg-rose-50/70 space-y-5 reveal-drastic-left shadow-lg">
-            <div class="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-rose-100 px-3 py-1 text-xs font-bold text-rose-800">
-              <i data-lucide="alert-triangle" class="w-4 h-4"></i> The Traditional Problem
+          <div class="utilitarian-card p-6 sm:p-8 border-rose-300 bg-rose-50/50 space-y-4 reveal-drastic-left">
+            <div class="inline-flex items-center gap-2 rounded bg-rose-100 border border-rose-300 px-2.5 py-1 font-mono text-[10px] font-bold text-rose-800">
+              <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i> [STATUS: TRADITIONAL_PROBLEM]
             </div>
-            <h3 class="text-2xl font-extrabold text-slate-900">Silent Battery Drain & Sudden Shutdowns</h3>
-            <p class="text-sm text-slate-700 leading-relaxed font-medium">
+            <h3 class="text-xl font-bold font-mono text-zinc-900">Silent Battery Drain & Sudden Shutdowns</h3>
+            <p class="text-xs text-zinc-700 leading-relaxed font-medium">
               When grid power drops at night, high-power appliances (water heaters, deep freezers, air conditioners) continue pulling power from your solar inverter. Within 3 hours, your battery hits 0%—leaving your home in darkness until morning.
             </p>
           </div>
 
-          <div class="glass-card p-8 border-sky-200 bg-sky-50/70 space-y-5 shadow-lg reveal-drastic-right delay-200">
-            <div class="inline-flex items-center gap-2 rounded-full border border-sky-300 bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800">
-              <i data-lucide="check-circle-2" class="w-4 h-4"></i> The Xense Solution
+          <div class="utilitarian-card p-6 sm:p-8 border-emerald-300 bg-emerald-50/50 space-y-4 reveal-drastic-right delay-200">
+            <div class="inline-flex items-center gap-2 rounded bg-emerald-100 border border-emerald-300 px-2.5 py-1 font-mono text-[10px] font-bold text-emerald-800">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> [STATUS: XENSE_SOLUTION]
             </div>
-            <h3 class="text-2xl font-extrabold text-slate-900">Autonomous Protection & 3x Battery Life</h3>
-            <p class="text-sm text-slate-700 leading-relaxed font-medium">
-              Xense senses solar voltage and battery state of charge 24/7. It automatically cuts heavy appliances at <span class="text-sky-700 font-extrabold">35% SOC</span>, leaving your critical home loads powered up to 3x longer.
+            <h3 class="text-xl font-bold font-mono text-zinc-900">Autonomous Protection & 3x Battery Life</h3>
+            <p class="text-xs text-zinc-700 leading-relaxed font-medium">
+              Xense senses solar voltage and battery state of charge 24/7. It automatically cuts heavy appliances at <span class="text-zinc-900 font-extrabold font-mono">35% SOC</span>, leaving your critical home loads powered up to 3x longer.
             </p>
           </div>
 
@@ -858,94 +858,94 @@
       </div>
 
       <!-- XENSE ECOSYSTEM PRODUCTS SHOWCASE -->
-      <div class="mt-20">
+      <div class="mt-16">
         <div class="mb-10 text-center max-w-2xl mx-auto reveal-drastic-up">
-          <span class="text-[10px] font-mono tracking-[0.25em] text-indigo-600 uppercase font-bold">SMART ECOSYSTEM PRODUCTS</span>
-          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-3">Welcome to our world of <span class="text-gradient">eco-smart hardware.</span></h2>
-          <p class="text-slate-600 text-sm mt-3 font-medium">Our smart renewable products give you the freedom to take control of your energy usage and reduce electricity bills.</p>
+          <span class="font-mono text-[10px] tracking-[0.2em] text-zinc-600 uppercase font-bold">[SMART_ECOSYSTEM_HARDWARE]</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight mt-2 font-mono">Precision Eco-Smart Products</h2>
+          <p class="text-zinc-600 text-xs mt-2 font-mono">Our smart renewable hardware gives you the freedom to control energy usage and prevent deep battery drain.</p>
         </div>
 
         <div class="grid gap-6 md:grid-cols-3">
           
           <!-- Product 1 -->
-          <div class="glass-card p-6 sm:p-8 space-y-6 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 shadow-xl transition-all reveal-drastic-left delay-100">
+          <div class="utilitarian-card p-6 space-y-5 flex flex-col justify-between group reveal-drastic-left delay-100">
             <div class="space-y-4">
-              <div class="w-full h-48 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+              <div class="w-full h-44 rounded-lg bg-zinc-50 border border-zinc-200 flex items-center justify-center relative overflow-hidden">
                 <div class="relative flex flex-col items-center gap-2">
-                  <div class="w-20 h-28 rounded-2xl bg-white border-2 border-indigo-500 shadow-md flex flex-col items-center justify-between p-3">
-                    <span class="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981] animate-pulse"></span>
-                    <i data-lucide="power" class="w-8 h-8 text-indigo-600"></i>
-                    <span class="font-mono text-[8px] text-slate-500 font-bold">16A / 30A</span>
+                  <div class="w-16 h-24 rounded-lg bg-white border border-zinc-900 shadow-sm flex flex-col items-center justify-between p-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#16a34a]"></span>
+                    <i data-lucide="power" class="w-6 h-6 text-zinc-900"></i>
+                    <span class="font-mono text-[8px] text-zinc-600 font-bold">16A/30A</span>
                   </div>
-                  <span class="font-mono text-[9px] text-indigo-600 tracking-wider uppercase font-extrabold">XENSE CONTROL PLUG</span>
+                  <span class="font-mono text-[8px] text-zinc-900 tracking-wider uppercase font-bold">[HW_SPEC: CONTROL_PLUG]</span>
                 </div>
               </div>
               <div>
-                <span class="text-[9px] font-mono font-extrabold text-indigo-600 uppercase tracking-widest">Heavy Load Controller</span>
-                <h3 class="text-xl font-bold text-slate-900 mt-1">Xense Control Switch</h3>
-                <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">Wireless 16A/30A smart plug with local relay logic that disconnects heavy loads automatically during battery drops.</p>
+                <span class="text-[9px] font-mono font-extrabold text-zinc-500 uppercase tracking-widest">[TYPE: HEAVY_LOAD_RELAY]</span>
+                <h3 class="text-lg font-bold font-mono text-zinc-900 mt-1">Xense Control Switch</h3>
+                <p class="text-xs text-zinc-600 mt-1.5 leading-relaxed">Wireless 16A/30A smart plug with local relay logic that disconnects heavy loads automatically during battery drops.</p>
               </div>
             </div>
-            <button onclick="openModal('modal-demo')" class="button-primary justify-center py-2.5 text-xs mt-4">
-              <span>View Product Details</span>
+            <button onclick="openModal('modal-demo')" class="button-primary justify-center py-2.5 text-xs mt-2">
+              <span>View Product Specs</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
 
           <!-- Product 2 -->
-          <div class="glass-card p-6 sm:p-8 space-y-6 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 shadow-xl transition-all reveal-drastic-up delay-200">
+          <div class="utilitarian-card p-6 space-y-5 flex flex-col justify-between group reveal-drastic-up delay-200">
             <div class="space-y-4">
-              <div class="w-full h-48 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+              <div class="w-full h-44 rounded-lg bg-zinc-50 border border-zinc-200 flex items-center justify-center relative overflow-hidden">
                 <div class="relative flex flex-col items-center gap-2">
-                  <div class="w-24 h-16 rounded-xl bg-white border-2 border-indigo-500 shadow-md flex items-center justify-between px-3 py-2">
-                    <i data-lucide="cpu" class="w-7 h-7 text-indigo-600"></i>
-                    <div class="text-right">
-                      <span class="block font-mono text-[9px] font-bold text-indigo-700">ESP32</span>
-                      <span class="block font-mono text-[7px] text-sky-600 font-bold">RS485 MESH</span>
+                  <div class="w-24 h-14 rounded-lg bg-white border border-zinc-900 shadow-sm flex items-center justify-between px-3 py-2">
+                    <i data-lucide="cpu" class="w-6 h-6 text-zinc-900"></i>
+                    <div class="text-right font-mono text-[8px]">
+                      <span class="block font-bold text-zinc-900">ESP32-S3</span>
+                      <span class="block text-zinc-500">RS485 MESH</span>
                     </div>
                   </div>
-                  <span class="font-mono text-[9px] text-indigo-600 tracking-wider uppercase font-extrabold">XENSE DONGLE</span>
+                  <span class="font-mono text-[8px] text-zinc-900 tracking-wider uppercase font-bold">[HW_SPEC: INVERTER_DONGLE]</span>
                 </div>
               </div>
               <div>
-                <span class="text-[9px] font-mono font-extrabold text-indigo-600 uppercase tracking-widest">Inverter Sensor</span>
-                <h3 class="text-xl font-bold text-slate-900 mt-1">Xense Inverter Dongle</h3>
-                <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">Plug-and-play RS485 & Wi-Fi module compatible with Felicity, Growatt, Deye, Victron, SRNE, and Must inverters.</p>
+                <span class="text-[9px] font-mono font-extrabold text-zinc-500 uppercase tracking-widest">[TYPE: INVERTER_SENSOR]</span>
+                <h3 class="text-lg font-bold font-mono text-zinc-900 mt-1">Xense Inverter Dongle</h3>
+                <p class="text-xs text-zinc-600 mt-1.5 leading-relaxed">Plug-and-play RS485 & Wi-Fi module compatible with Felicity, Growatt, Deye, Victron, SRNE, and Must inverters.</p>
               </div>
             </div>
-            <button onclick="openModal('modal-demo')" class="button-primary justify-center py-2.5 text-xs mt-4">
-              <span>View Product Details</span>
+            <button onclick="openModal('modal-demo')" class="button-primary justify-center py-2.5 text-xs mt-2">
+              <span>View Product Specs</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
 
           <!-- Product 3 -->
-          <div class="glass-card p-6 sm:p-8 space-y-6 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 shadow-xl transition-all reveal-drastic-right delay-300">
+          <div class="utilitarian-card p-6 space-y-5 flex flex-col justify-between group reveal-drastic-right delay-300">
             <div class="space-y-4">
-              <div class="w-full h-48 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+              <div class="w-full h-44 rounded-lg bg-zinc-50 border border-zinc-200 flex items-center justify-center relative overflow-hidden">
                 <div class="relative flex flex-col items-center gap-2">
-                  <div class="w-20 h-28 rounded-2xl bg-white border-2 border-amber-500 shadow-md flex flex-col justify-between p-2">
-                    <div class="flex items-center justify-between text-[7px] text-amber-700 font-mono font-bold">
-                      <span>XENSE APP</span>
+                  <div class="w-16 h-24 rounded-lg bg-white border border-zinc-900 shadow-sm flex flex-col justify-between p-2">
+                    <div class="flex items-center justify-between text-[7px] text-zinc-700 font-mono font-bold">
+                      <span>XENSE</span>
                       <span>100%</span>
                     </div>
-                    <div class="space-y-1 text-center">
-                      <span class="block font-mono text-xs font-extrabold text-slate-900">78%</span>
-                      <span class="block text-[7px] text-indigo-600 font-bold">SOLAR SURPLUS</span>
+                    <div class="space-y-0.5 text-center">
+                      <span class="block font-mono text-xs font-extrabold text-zinc-900">78%</span>
+                      <span class="block text-[6px] text-zinc-500 font-mono">SOLAR SURPLUS</span>
                     </div>
-                    <div class="w-full h-1 bg-amber-400 rounded-full"></div>
+                    <div class="w-full h-1 bg-zinc-900 rounded-full"></div>
                   </div>
-                  <span class="font-mono text-[9px] text-amber-700 tracking-wider uppercase font-extrabold">XENSE MOBILE APP</span>
+                  <span class="font-mono text-[8px] text-zinc-900 tracking-wider uppercase font-bold">[SYS_APP: ECOSYSTEM_DASHBOARD]</span>
                 </div>
               </div>
               <div>
-                <span class="text-[9px] font-mono font-extrabold text-amber-700 uppercase tracking-widest">24/7 Control Center</span>
-                <h3 class="text-xl font-bold text-slate-900 mt-1">Xense Mobile Ecosystem</h3>
-                <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">Track live solar generation, battery SOC, active loads, and adjust shedding thresholds 24/7 from anywhere.</p>
+                <span class="text-[9px] font-mono font-extrabold text-zinc-500 uppercase tracking-widest">[TYPE: MOBILE_CONTROL]</span>
+                <h3 class="text-lg font-bold font-mono text-zinc-900 mt-1">Xense Mobile Ecosystem</h3>
+                <p class="text-xs text-zinc-600 mt-1.5 leading-relaxed">Track live solar generation, battery SOC, active loads, and adjust shedding thresholds 24/7 from anywhere.</p>
               </div>
             </div>
-            <button onclick="openModal('modal-demo')" class="button-primary justify-center py-2.5 text-xs mt-4">
-              <span>Watch Interactive Demo</span>
+            <button onclick="openModal('modal-demo')" class="button-primary justify-center py-2.5 text-xs mt-2">
+              <span>Watch Interactive Walkthrough</span>
               <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -955,13 +955,13 @@
     </section>
 
     <!-- MATRIX TABLE SECTION -->
-    <section class="mx-auto max-w-[1320px] px-4 py-20 sm:px-6 lg:px-10">
-      <div class="mb-10 max-w-2xl reveal-drastic-up">
-        <span class="font-mono text-indigo-600 text-xs font-bold uppercase tracking-widest">BRAND COMPARISON</span>
+    <section class="mx-auto max-w-[1320px] px-4 py-16 sm:px-6 lg:px-10">
+      <div class="mb-8 max-w-2xl reveal-drastic-up">
+        <span class="font-mono text-zinc-600 text-xs font-bold uppercase tracking-widest">[SYS_COMPARISON] MATRIX</span>
         <h2 class="section-title mt-2">Passive monitoring is not <span class="text-gradient">load control.</span></h2>
       </div>
 
-      <div class="glass-card overflow-hidden reveal-drastic-flip border-slate-200 bg-white shadow-xl">
+      <div class="utilitarian-card overflow-hidden reveal-drastic-flip">
         <div class="overflow-x-auto">
           <table class="comparison-table">
             <thead>
@@ -975,21 +975,21 @@
             <tbody>
               <tr>
                 <td>Load shedding logic</td>
-                <td><span class="muted-pill">No shedding</span></td>
-                <td><span class="muted-pill">Manual timers only</span></td>
-                <td class="xense-col"><span class="positive-pill">Automatic SOC / PV shedding</span></td>
+                <td><span class="muted-pill">[UNSUPPORTED]</span></td>
+                <td><span class="muted-pill">[MANUAL TIMERS ONLY]</span></td>
+                <td class="xense-col"><span class="positive-pill">[AUTONOMOUS SOC/PV SHEDDING]</span></td>
               </tr>
               <tr>
                 <td>Connectivity model</td>
                 <td>Cloud dependent</td>
                 <td>Internet required</td>
-                <td class="xense-col"><span class="positive-pill">100% local offline control</span></td>
+                <td class="xense-col"><span class="positive-pill">[100% LOCAL OFFLINE MESH]</span></td>
               </tr>
               <tr>
                 <td>Control latency</td>
                 <td><span class="muted-pill">N/A latency</span></td>
                 <td>3,000–8,000ms latency</td>
-                <td class="xense-col"><span class="positive-pill">&lt;50ms hardware latency</span></td>
+                <td class="xense-col"><span class="positive-pill">[&lt;50MS HARDWARE LATENCY]</span></td>
               </tr>
             </tbody>
           </table>
@@ -998,45 +998,46 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section id="faq" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
-      <div class="mb-10 max-w-2xl reveal-drastic-up">
-        <span class="font-mono text-indigo-600 text-xs font-bold uppercase tracking-widest">FAQ</span>
+    <section id="faq" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-16 sm:px-6 lg:px-10">
+      <div class="mb-8 max-w-2xl reveal-drastic-up">
+        <span class="font-mono text-zinc-600 text-xs font-bold uppercase tracking-widest">[FREQ_QUESTIONS]</span>
         <h2 class="section-title mt-2">Clear answers for <span class="text-gradient">confident backup power.</span></h2>
       </div>
 
       <div class="grid gap-3 lg:grid-cols-2">
-        <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-left">
+        <div class="faq-item overflow-hidden utilitarian-card reveal-drastic-left">
           <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left">
-            <span class="text-sm font-bold text-slate-900">Does Xense work without internet?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-indigo-600 transform rotate-180"></i>
+            <span class="font-mono text-xs font-bold text-zinc-900">[Q_01] Does Xense work without internet?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-zinc-900 transform rotate-180"></i>
           </button>
-          <div class="faq-body p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
+          <div class="faq-body p-5 pt-0 text-xs leading-relaxed text-zinc-600 font-mono">
             Yes. Xense uses a local Wi-Fi mesh between the dongle, relay hardware, and dashboard. Decision logic and shedding commands continue to work locally even when internet is offline.
           </div>
         </div>
 
-        <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-right delay-200">
+        <div class="faq-item overflow-hidden utilitarian-card reveal-drastic-right delay-200">
           <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left">
-            <span class="text-sm font-bold text-slate-900">What happens when utility grid (NEPA) returns?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400"></i>
+            <span class="font-mono text-xs font-bold text-zinc-900">[Q_02] What happens when utility grid power returns?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-zinc-400"></i>
           </button>
-          <div class="faq-body hidden p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
-            Auto Grid Mode detects grid power returning and automatically bypasses battery shedding logic so all home appliances run from grid power.
+          <div class="faq-body hidden p-5 pt-0 text-xs leading-relaxed text-zinc-600 font-mono">
+            Auto Grid Mode detects grid power returning and automatically bypasses battery shedding logic so all home appliances run directly from grid power.
           </div>
         </div>
       </div>
     </section>
 
     <!-- CALL TO ACTION BANNER -->
-    <section class="mx-auto max-w-[1320px] px-4 pb-20 pt-16 sm:px-6 lg:px-10 reveal-drastic-zoom">
-      <div class="relative overflow-hidden rounded-[2rem] border border-indigo-200 bg-gradient-to-br from-indigo-50 via-white to-sky-50 p-7 sm:p-12 text-center shadow-2xl">
-        <h2 class="text-3xl font-extrabold text-slate-900 sm:text-5xl">Make every watt work <span class="text-indigo-600">smarter.</span></h2>
-        <div class="mt-8 flex flex-wrap justify-center gap-4">
-          <button onclick="openModal('modal-demo')" class="button-primary px-8 py-4 text-sm font-bold">
+    <section class="mx-auto max-w-[1320px] px-4 pb-16 pt-12 sm:px-6 lg:px-10 reveal-drastic-zoom">
+      <div class="relative overflow-hidden utilitarian-card p-7 sm:p-12 text-center bg-zinc-900 text-white">
+        <div class="font-mono text-[10px] text-zinc-400 font-bold uppercase tracking-[0.2em] mb-2">[AUTONOMOUS_ENERGY_FREEDOM]</div>
+        <h2 class="text-2xl font-extrabold font-mono text-white sm:text-4xl">Make every watt work <span class="text-blue-400">smarter.</span></h2>
+        <div class="mt-6 flex flex-wrap justify-center gap-4">
+          <button onclick="openModal('modal-demo')" class="button-primary bg-white text-zinc-900 hover:bg-zinc-100 px-6 py-3 text-xs font-mono font-bold">
             <span>Request Demo & Presentation</span>
-            <i data-lucide="play-circle" class="w-4 h-4 text-indigo-200"></i>
+            <i data-lucide="play-circle" class="w-4 h-4 text-zinc-900"></i>
           </button>
-          <button onclick="openModal('modal-signup')" class="button-secondary px-8 py-4 text-sm font-bold">
+          <button onclick="openModal('modal-signup')" class="button-secondary bg-transparent text-white border-zinc-700 hover:bg-zinc-800 px-6 py-3 text-xs font-mono font-bold">
             <span>Create Account</span>
           </button>
         </div>
@@ -1046,109 +1047,109 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="relative z-10 border-t border-slate-200 bg-slate-50 px-4 py-8 sm:px-6 lg:px-10">
-    <div class="mx-auto flex max-w-[1320px] flex-col justify-between gap-5 text-[10px] font-mono uppercase tracking-[0.14em] text-slate-600 sm:flex-row sm:items-center">
+  <footer class="relative z-10 border-t border-zinc-300 bg-zinc-100 px-4 py-8 sm:px-6 lg:px-10">
+    <div class="mx-auto flex max-w-[1320px] flex-col justify-between gap-5 text-[10px] font-mono uppercase tracking-[0.14em] text-zinc-600 sm:flex-row sm:items-center">
       <div class="flex items-center gap-3">
-        <img src="logo.jpeg" alt="Xense Energy Logo" class="h-6 w-6 rounded-md object-contain bg-white p-0.5 border border-slate-200 shadow-sm">
-        <span class="font-bold text-slate-700">© 2026 Xense Energy Systems</span>
+        <img src="logo.jpeg" alt="Xense Energy Logo" class="h-6 w-6 rounded object-contain bg-white p-0.5 border border-zinc-300">
+        <span class="font-bold text-zinc-800">© 2026 XENSE ENERGY SYSTEMS [SYS_VER: 2.4.1]</span>
       </div>
       <div class="flex gap-5 font-bold">
-        <button onclick="openModal('modal-login')" class="hover:text-indigo-600">Sign In</button>
-        <button onclick="openModal('modal-signup')" class="hover:text-indigo-600">Sign Up</button>
-        <button onclick="openModal('modal-demo')" class="hover:text-indigo-600">Request Demo</button>
+        <button onclick="openModal('modal-login')" class="hover:text-zinc-900">Sign In</button>
+        <button onclick="openModal('modal-signup')" class="hover:text-zinc-900">Sign Up</button>
+        <button onclick="openModal('modal-demo')" class="hover:text-zinc-900">Request Demo</button>
       </div>
     </div>
   </footer>
 
   <!-- EMBEDDED MODAL 1: SIGN IN -->
-  <div id="modal-login" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
-    <div class="glass-card w-full max-w-md p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
-      <button onclick="closeModal('modal-login')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
+  <div id="modal-login" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay bg-zinc-900/40 backdrop-blur-sm">
+    <div class="utilitarian-card w-full max-w-md p-6 relative overflow-hidden bg-white border-zinc-300 shadow-2xl">
+      <button onclick="closeModal('modal-login')" class="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div class="text-center mb-6">
-        <img src="logo.jpeg" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md">
-        <h2 class="text-2xl font-extrabold text-slate-900">Sign in to Xense</h2>
-        <p class="text-xs text-slate-500 mt-1 font-medium">Manage your telemetry and autonomous load controls</p>
+        <img src="logo.jpeg" alt="Xense Logo" class="h-10 w-10 mx-auto mb-2 rounded-lg object-contain bg-white p-1 border border-zinc-300">
+        <h2 class="text-xl font-bold font-mono text-zinc-900">[SIGN_IN] Xense System</h2>
+        <p class="text-xs text-zinc-500 mt-1 font-mono">Manage your telemetry and autonomous load controls</p>
       </div>
-      <form onsubmit="event.preventDefault(); alert('Sign In Demo Successful!'); closeModal('modal-login');" class="space-y-4">
+      <form onsubmit="event.preventDefault(); alert('Sign In Demo Successful!'); closeModal('modal-login');" class="space-y-4 font-mono text-xs">
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Email</label>
-          <input type="email" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          <label class="block font-bold text-zinc-700 mb-1">Email Address</label>
+          <input type="email" required placeholder="name@company.com" class="w-full bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900" />
         </div>
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
-          <input type="password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          <label class="block font-bold text-zinc-700 mb-1">Password</label>
+          <input type="password" required placeholder="••••••••" class="w-full bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900" />
         </div>
-        <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2">Sign In to Dashboard</button>
+        <button type="submit" class="button-primary w-full justify-center py-2.5 text-xs mt-2">Sign In to Dashboard</button>
       </form>
     </div>
   </div>
 
   <!-- EMBEDDED MODAL 2: SIGN UP -->
-  <div id="modal-signup" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
-    <div class="glass-card w-full max-w-lg p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
-      <button onclick="closeModal('modal-signup')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
+  <div id="modal-signup" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay bg-zinc-900/40 backdrop-blur-sm">
+    <div class="utilitarian-card w-full max-w-lg p-6 relative overflow-hidden bg-white border-zinc-300 shadow-2xl">
+      <button onclick="closeModal('modal-signup')" class="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div class="text-center mb-6">
-        <img src="logo.jpeg" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md">
-        <h2 class="text-2xl font-extrabold text-slate-900">Create Xense Account</h2>
-        <p class="text-xs text-slate-500 mt-1 font-medium">Protect your inverter battery automatically</p>
+        <img src="logo.jpeg" alt="Xense Logo" class="h-10 w-10 mx-auto mb-2 rounded-lg object-contain bg-white p-1 border border-zinc-300">
+        <h2 class="text-xl font-bold font-mono text-zinc-900">[SIGN_UP] Create Account</h2>
+        <p class="text-xs text-zinc-500 mt-1 font-mono">Protect your inverter battery automatically</p>
       </div>
-      <form onsubmit="event.preventDefault(); alert('Account Created Successfully!'); closeModal('modal-signup');" class="space-y-4">
+      <form onsubmit="event.preventDefault(); alert('Account Created Successfully!'); closeModal('modal-signup');" class="space-y-3.5 font-mono text-xs">
         <div class="grid grid-cols-2 gap-3">
-          <input type="text" required placeholder="First Name" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
-          <input type="text" required placeholder="Last Name" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          <input type="text" required placeholder="First Name" class="bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900" />
+          <input type="text" required placeholder="Last Name" class="bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900" />
         </div>
-        <input type="email" required placeholder="Email Address" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
-        <input type="password" required placeholder="Password" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
-        <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2">Complete Registration</button>
+        <input type="email" required placeholder="Email Address" class="w-full bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900" />
+        <input type="password" required placeholder="Password" class="w-full bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900" />
+        <button type="submit" class="button-primary w-full justify-center py-2.5 text-xs mt-2">Complete Registration</button>
       </form>
     </div>
   </div>
 
   <!-- EMBEDDED MODAL 3: REQUEST DEMO & PRESENTATION -->
-  <div id="modal-demo" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
-    <div class="glass-card w-full max-w-3xl p-6 sm:p-8 relative overflow-hidden max-h-[90vh] overflow-y-auto bg-white border-slate-200 shadow-2xl">
-      <button onclick="closeModal('modal-demo')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 z-10">
+  <div id="modal-demo" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay bg-zinc-900/40 backdrop-blur-sm">
+    <div class="utilitarian-card w-full max-w-3xl p-6 sm:p-8 relative overflow-hidden max-h-[90vh] overflow-y-auto bg-white border-zinc-300 shadow-2xl font-mono text-xs">
+      <button onclick="closeModal('modal-demo')" class="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900 z-10">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
       <div class="text-center mb-6">
-        <img src="logo.jpeg" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md">
-        <h2 class="text-2xl font-extrabold text-slate-900">Xense Demo & Interactive Presentation</h2>
-        <div class="mt-4 inline-flex p-1 bg-slate-100 border border-slate-200 rounded-xl">
-          <button id="modal-tab-form" onclick="toggleModalDemoTab('form')" class="active-tab-btn px-4 py-2 rounded-lg text-xs font-bold transition-all">Schedule Live Session</button>
-          <button id="modal-tab-pres" onclick="toggleModalDemoTab('pres')" class="text-slate-600 hover:text-slate-900 px-4 py-2 rounded-lg text-xs font-bold transition-all">Watch Interactive Walkthrough</button>
+        <img src="logo.jpeg" alt="Xense Logo" class="h-10 w-10 mx-auto mb-2 rounded-lg object-contain bg-white p-1 border border-zinc-300">
+        <h2 class="text-xl font-bold font-mono text-zinc-900">[DEMO_WALKTHROUGH] Live Session Request</h2>
+        <div class="mt-3 inline-flex p-1 bg-zinc-100 border border-zinc-300 rounded-lg">
+          <button id="modal-tab-form" onclick="toggleModalDemoTab('form')" class="active-tab-btn px-4 py-1.5 rounded text-xs font-bold transition-all">Schedule Live Session</button>
+          <button id="modal-tab-pres" onclick="toggleModalDemoTab('pres')" class="text-zinc-600 hover:text-zinc-900 px-4 py-1.5 rounded text-xs font-bold transition-all">Watch Interactive Walkthrough</button>
         </div>
       </div>
 
       <!-- Tab 1: Form -->
       <div id="modal-view-form" class="space-y-4">
-        <form onsubmit="event.preventDefault(); alert('Live Demo Request Received!'); closeModal('modal-demo');" class="space-y-3">
+        <form onsubmit="event.preventDefault(); alert('Live Demo Request Received!'); closeModal('modal-demo');" class="space-y-3 font-mono text-xs">
           <div class="grid grid-cols-2 gap-3">
-            <input type="text" required placeholder="Full Name" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
-            <input type="email" required placeholder="Email Address" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+            <input type="text" required placeholder="Full Name" class="bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900" />
+            <input type="email" required placeholder="Email Address" class="bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900" />
           </div>
-          <select class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white">
+          <select class="w-full bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900">
             <option>Home Inverter System</option>
             <option>Commercial / Hospital System</option>
             <option>Mini-Grid / Installer Partner</option>
           </select>
-          <input type="datetime-local" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
-          <button type="submit" class="button-primary w-full justify-center py-3 text-sm">Confirm Demo Request</button>
+          <input type="datetime-local" required class="w-full bg-zinc-50 border border-zinc-300 rounded-md px-3.5 py-2 text-xs text-zinc-900 focus:outline-none focus:border-zinc-900" />
+          <button type="submit" class="button-primary w-full justify-center py-2.5 text-xs">Confirm Demo Request</button>
         </form>
       </div>
 
       <!-- Tab 2: Walkthrough -->
-      <div id="modal-view-pres" class="hidden space-y-4">
-        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-sky-100 text-sky-800 text-xs font-mono font-bold mb-3">
-            STAGE 01: GRID DISRUPTION
+      <div id="modal-view-pres" class="hidden space-y-4 font-mono text-xs">
+        <div class="bg-zinc-50 p-5 rounded-lg border border-zinc-200">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-zinc-900 text-white text-[10px] font-bold mb-2">
+            [STAGE_01]: GRID DISRUPTION
           </div>
-          <h3 class="text-xl font-bold text-slate-900">Grid Outage & Autonomous Shedding</h3>
-          <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">
+          <h3 class="text-base font-bold text-zinc-900">Grid Outage & Autonomous Load Shedding</h3>
+          <p class="text-xs text-zinc-600 mt-2 leading-relaxed">
             When grid power cuts off, Xense detects battery SOC dropping to 35% and immediately sheds high-power heaters and chargers, making battery backup last 3x longer.
           </p>
         </div>
@@ -1275,15 +1276,15 @@
       const iconAc = document.getElementById('iconAc');
       if (rowAc && badgeAc && iconAc) {
         if (acOn) {
-          rowAc.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-500/30 bg-emerald-500/[0.05]";
-          badgeAc.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-400/20 text-emerald-300 border border-emerald-400/30";
-          badgeAc.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-300 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING';
-          iconAc.className = "icon-box cyan bg-emerald-500/20 text-emerald-300";
+          rowAc.className = "flex items-center justify-between rounded-xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50/60";
+          badgeAc.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
+          badgeAc.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#16a34a]"></span> ON / RUNNING';
+          iconAc.className = "icon-box cyan bg-emerald-100 text-emerald-700 border-emerald-200";
         } else {
-          rowAc.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-rose-500/30 bg-rose-500/[0.08]";
-          badgeAc.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30";
-          badgeAc.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-400 shadow-[0_0_8px_#f43f5e]"></span> SHED / OFF';
-          iconAc.className = "icon-box rose bg-rose-500/20 text-rose-300";
+          rowAc.className = "flex items-center justify-between rounded-xl border p-4 transition-all duration-300 border-rose-300 bg-rose-50/70";
+          badgeAc.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
+          badgeAc.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-600 shadow-[0_0_8px_#dc2626]"></span> SHED / OFF';
+          iconAc.className = "icon-box rose bg-rose-100 text-rose-700 border-rose-200";
         }
       }
 
@@ -1293,15 +1294,15 @@
       const iconFreezer = document.getElementById('iconFreezer');
       if (rowFreezer && badgeFreezer && iconFreezer) {
         if (freezerOn) {
-          rowFreezer.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-500/30 bg-emerald-500/[0.05]";
-          badgeFreezer.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-400/20 text-emerald-300 border border-emerald-400/30";
-          badgeFreezer.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-300 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING';
-          iconFreezer.className = "icon-box cyan bg-emerald-500/20 text-emerald-300";
+          rowFreezer.className = "flex items-center justify-between rounded-xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50/60";
+          badgeFreezer.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
+          badgeFreezer.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#16a34a]"></span> ON / RUNNING';
+          iconFreezer.className = "icon-box cyan bg-emerald-100 text-emerald-700 border-emerald-200";
         } else {
-          rowFreezer.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-rose-500/30 bg-rose-500/[0.08]";
-          badgeFreezer.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30";
-          badgeFreezer.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-400 shadow-[0_0_8px_#f43f5e]"></span> SHED / OFF';
-          iconFreezer.className = "icon-box rose bg-rose-500/20 text-rose-300";
+          rowFreezer.className = "flex items-center justify-between rounded-xl border p-4 transition-all duration-300 border-rose-300 bg-rose-50/70";
+          badgeFreezer.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
+          badgeFreezer.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-600 shadow-[0_0_8px_#dc2626]"></span> SHED / OFF';
+          iconFreezer.className = "icon-box rose bg-rose-100 text-rose-700 border-rose-200";
         }
       }
 
@@ -1311,15 +1312,15 @@
       const iconFans = document.getElementById('iconFans');
       if (rowFans && badgeFans && iconFans) {
         if (fansOn) {
-          rowFans.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-500/30 bg-emerald-500/[0.05]";
-          badgeFans.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-400/20 text-emerald-300 border border-emerald-400/30";
-          badgeFans.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-300 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING';
-          iconFans.className = "icon-box cyan bg-emerald-500/20 text-emerald-300";
+          rowFans.className = "flex items-center justify-between rounded-xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50/60";
+          badgeFans.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
+          badgeFans.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#16a34a]"></span> ON / RUNNING';
+          iconFans.className = "icon-box cyan bg-emerald-100 text-emerald-700 border-emerald-200";
         } else {
-          rowFans.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-rose-500/30 bg-rose-500/[0.08]";
-          badgeFans.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30";
-          badgeFans.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-400 shadow-[0_0_8px_#f43f5e]"></span> SHED / OFF';
-          iconFans.className = "icon-box rose bg-rose-500/20 text-rose-300";
+          rowFans.className = "flex items-center justify-between rounded-xl border p-4 transition-all duration-300 border-rose-300 bg-rose-50/70";
+          badgeFans.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
+          badgeFans.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-600 shadow-[0_0_8px_#dc2626]"></span> SHED / OFF';
+          iconFans.className = "icon-box rose bg-rose-100 text-rose-700 border-rose-200";
         }
       }
 
@@ -1334,32 +1335,32 @@
       // Update Status Header Card
       if (protectionStatusBox && protectionStatusTitle && protectionStatusCopy && protectionIconBox) {
         if (soc > 50) {
-          protectionStatusBox.className = "mt-8 rounded-2xl border p-5 transition-all duration-300 border-emerald-400/30 bg-emerald-500/[0.08]";
-          protectionStatusTitle.className = "text-xs font-bold text-emerald-300 tracking-wider";
+          protectionStatusBox.className = "mt-8 rounded-xl border p-5 transition-all duration-300 border-emerald-300 bg-emerald-50";
+          protectionStatusTitle.className = "text-xs font-mono font-bold text-emerald-900 tracking-wider";
           protectionStatusTitle.textContent = "MODE A: OPTIMAL SOLAR POWER";
           protectionStatusCopy.textContent = "Battery SOC is high (" + soc + "%). All home appliances—Air Conditioner, Deep Freezer, Fans & Wi-Fi—are running fully.";
-          protectionIconBox.className = "icon-box cyan bg-emerald-500/20 text-emerald-300 border-emerald-400/30";
+          protectionIconBox.className = "icon-box cyan bg-emerald-100 text-emerald-700 border-emerald-200";
           protectionIconBox.innerHTML = '<i data-lucide="shield-check" class="w-5 h-5"></i>';
         } else if (soc > 35) {
-          protectionStatusBox.className = "mt-8 rounded-2xl border p-5 transition-all duration-300 border-indigo-400/30 bg-indigo-500/[0.08]";
-          protectionStatusTitle.className = "text-xs font-bold text-indigo-300 tracking-wider";
+          protectionStatusBox.className = "mt-8 rounded-xl border p-5 transition-all duration-300 border-indigo-300 bg-indigo-50";
+          protectionStatusTitle.className = "text-xs font-mono font-bold text-indigo-900 tracking-wider";
           protectionStatusTitle.textContent = "MODE B: STAGE 1 LOAD SHEDDING (AC SHUTDOWN)";
           protectionStatusCopy.textContent = "Battery SOC dropped to " + soc + "%. Xense automatically shed the 2.2kW Air Conditioner to preserve battery.";
-          protectionIconBox.className = "icon-box indigo bg-indigo-500/20 text-indigo-300 border-indigo-400/30";
+          protectionIconBox.className = "icon-box indigo bg-indigo-100 text-indigo-700 border-indigo-200";
           protectionIconBox.innerHTML = '<i data-lucide="zap-off" class="w-5 h-5"></i>';
         } else if (soc > 20) {
-          protectionStatusBox.className = "mt-8 rounded-2xl border p-5 transition-all duration-300 border-amber-400/30 bg-amber-500/[0.08]";
-          protectionStatusTitle.className = "text-xs font-bold text-amber-300 tracking-wider";
+          protectionStatusBox.className = "mt-8 rounded-xl border p-5 transition-all duration-300 border-amber-300 bg-amber-50";
+          protectionStatusTitle.className = "text-xs font-mono font-bold text-amber-900 tracking-wider";
           protectionStatusTitle.textContent = "MODE B: STAGE 2 CRITICAL PROTECTION (FREEZER SHED)";
           protectionStatusCopy.textContent = "Battery SOC dropped to " + soc + "%. Xense shed both the Air Conditioner and Deep Freezer to keep essential fans & Wi-Fi powered.";
-          protectionIconBox.className = "icon-box amber bg-amber-500/20 text-amber-300 border-amber-400/30";
+          protectionIconBox.className = "icon-box amber bg-amber-100 text-amber-700 border-amber-200";
           protectionIconBox.innerHTML = '<i data-lucide="alert-triangle" class="w-5 h-5"></i>';
         } else {
-          protectionStatusBox.className = "mt-8 rounded-2xl border p-5 transition-all duration-300 border-rose-400/30 bg-rose-500/[0.08]";
-          protectionStatusTitle.className = "text-xs font-bold text-rose-300 tracking-wider";
+          protectionStatusBox.className = "mt-8 rounded-xl border p-5 transition-all duration-300 border-rose-300 bg-rose-50";
+          protectionStatusTitle.className = "text-xs font-mono font-bold text-rose-900 tracking-wider";
           protectionStatusTitle.textContent = "MODE D: EMERGENCY RESERVE (CRITICAL LOADS ONLY)";
           protectionStatusCopy.textContent = "Critical battery reserve reached (" + soc + "%). Only Wi-Fi Router & Security Cameras remain active to preserve core system.";
-          protectionIconBox.className = "icon-box rose bg-rose-500/20 text-rose-300 border-rose-400/30";
+          protectionIconBox.className = "icon-box rose bg-rose-100 text-rose-700 border-rose-200";
           protectionIconBox.innerHTML = '<i data-lucide="shield-alert" class="w-5 h-5"></i>';
         }
         if (window.lucide) window.lucide.createIcons();
