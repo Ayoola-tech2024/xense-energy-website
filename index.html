@@ -718,28 +718,62 @@
         <p class="section-copy">From private homes to commercial estates — Xense puts intelligent load control in everyone's pocket.</p>
       </div>
 
-      <!-- Bento Lifestyle Grid -->
-      <div class="gallery-grid grid gap-4 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[200px]">
-        <div class="gcard lg:col-span-2 lg:row-span-2">
-          <img src="xense-person-phone.jpg" alt="Person using Xense solar app" class="rounded-[1.25rem]">
+      <!-- Bento Lifestyle Grid (Completely Filled 4-Col x 3-Row Architecture) -->
+      <div class="gallery-grid grid gap-4 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[220px]">
+        <!-- Row 1 & 2 Left: Featured Large Card (2x2) -->
+        <div class="gcard sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
+          <img src="xense-person-phone.jpg" alt="Person using Xense solar automation app" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
+            <span class="text-xs font-bold text-white font-mono uppercase tracking-wider">Mobile Solar Automation</span>
+          </div>
         </div>
-        <div class="gcard">
-          <img src="xense-man-phone.jpg" alt="Man with Xense solar automation" class="rounded-[1.25rem]">
+
+        <!-- Row 1 Right: Wide Top Card (2x1) -->
+        <div class="gcard sm:col-span-2 lg:col-span-2 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
+          <img src="xense-man-phone.jpg" alt="Homeowner managing smart solar power" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-xs font-bold text-white font-mono uppercase tracking-wider">Smart Home Management</span>
+          </div>
         </div>
-        <div class="gcard">
-          <img src="xense-usage-stats.jpg" alt="Solar usage statistics" class="rounded-[1.25rem]">
+
+        <!-- Row 2 Mid-Right: Square Card 1 (1x1) -->
+        <div class="gcard sm:col-span-1 lg:col-span-1 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
+          <img src="xense-person-analytics.jpg" alt="Xense analytics dashboard on smartphone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+            <span class="text-[10px] font-bold text-white font-mono uppercase tracking-wider">Real-Time Usage</span>
+          </div>
         </div>
-        <div class="gcard">
-          <img src="xense-person-analytics.jpg" alt="Xense analytics on phone" class="rounded-[1.25rem]">
+
+        <!-- Row 2 Mid-Right: Square Card 2 (1x1) -->
+        <div class="gcard sm:col-span-1 lg:col-span-1 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
+          <img src="xense-solar-smartphone.jpg" alt="Xense solar tracking on smartphone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+            <span class="text-[10px] font-bold text-white font-mono uppercase tracking-wider">Live Control</span>
+          </div>
         </div>
-        <div class="gcard">
-          <img src="xense-solar-smartphone.jpg" alt="Xense solar automation on smartphone" class="rounded-[1.25rem]">
+
+        <!-- Row 3 Bottom-Left: Square Card 3 (1x1) -->
+        <div class="gcard sm:col-span-1 lg:col-span-1 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
+          <img src="xense-mobile-tracking.jpg" alt="Mobile solar usage tracking" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+            <span class="text-[10px] font-bold text-white font-mono uppercase tracking-wider">Historical Data</span>
+          </div>
         </div>
-        <div class="gcard hidden sm:block">
-          <img src="xense-mobile-tracking.jpg" alt="Mobile solar tracking" class="rounded-[1.25rem]">
+
+        <!-- Row 3 Bottom-Left: Square Card 4 (1x1) -->
+        <div class="gcard sm:col-span-1 lg:col-span-1 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
+          <img src="xense-solar-tracking-1.jpg" alt="Solar tracking analytics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+            <span class="text-[10px] font-bold text-white font-mono uppercase tracking-wider">Efficiency Metrics</span>
+          </div>
         </div>
-        <div class="gcard hidden lg:block">
-          <img src="xense-solar-tracking-1.jpg" alt="Solar usage tracking" class="rounded-[1.25rem]">
+
+        <!-- Row 3 Bottom-Right: Wide Bottom Card (2x1) -->
+        <div class="gcard sm:col-span-2 lg:col-span-2 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
+          <img src="xense-usage-stats.jpg" alt="Solar usage statistics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-xs font-bold text-white font-mono uppercase tracking-wider">Solar Generation Statistics</span>
+          </div>
         </div>
       </div>
     </section>
