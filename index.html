@@ -266,17 +266,25 @@
       
       <!-- BACKGROUND IMAGE CAROUSEL WITH OVERLAY -->
       <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950" id="heroBgCarousel">
-        <!-- Slide 1: Real Life Mobile App Automation -->
+        <!-- Slide 1: Hardware Inverter -->
         <div class="hero-bg-slide absolute inset-0 opacity-100 transition-all duration-1000 ease-in-out scale-100">
+          <img src="xense-inverter-kit.jpg" alt="Xense Hybrid Solar Inverter Unit" class="w-full h-full object-cover object-center brightness-75">
+        </div>
+        <!-- Slide 2: Real Life Mobile App Automation -->
+        <div class="hero-bg-slide absolute inset-0 opacity-0 transition-all duration-1000 ease-in-out scale-105">
           <img src="xense-person-phone.jpg" alt="Xense Mobile Energy Telemetry" class="w-full h-full object-cover object-center brightness-75">
         </div>
-        <!-- Slide 2: Smart Wireless Hardware Dongle -->
+        <!-- Slide 3: Smart Home Controls -->
+        <div class="hero-bg-slide absolute inset-0 opacity-0 transition-all duration-1000 ease-in-out scale-105">
+          <img src="xense-man-phone.jpg" alt="Homeowner Managing Solar Power" class="w-full h-full object-cover object-center brightness-75">
+        </div>
+        <!-- Slide 4: Usage Statistics -->
+        <div class="hero-bg-slide absolute inset-0 opacity-0 transition-all duration-1000 ease-in-out scale-105">
+          <img src="xense-usage-stats.jpg" alt="Xense Energy Analytics" class="w-full h-full object-cover object-center brightness-75">
+        </div>
+        <!-- Slide 5: Wireless Dongle -->
         <div class="hero-bg-slide absolute inset-0 opacity-0 transition-all duration-1000 ease-in-out scale-105">
           <img src="xense-dongle-plug.jpg" alt="Xense RS232 Smart Plug Dongle" class="w-full h-full object-cover object-center brightness-75">
-        </div>
-        <!-- Slide 3: Solar Automation System -->
-        <div class="hero-bg-slide absolute inset-0 opacity-0 transition-all duration-1000 ease-in-out scale-105">
-          <img src="xense-solar-automation.png" alt="Xense Solar Automation System" class="w-full h-full object-cover object-center brightness-75">
         </div>
 
         <!-- Dark Gradient Vignette Overlay for High Readability -->
@@ -339,7 +347,7 @@
                   <span class="live-dot"></span>
                   <span class="text-xs font-mono font-extrabold tracking-wider text-emerald-400">SYSTEM TELEMETRY LIVE</span>
                 </div>
-                <span id="heroSlideIndicator" class="text-[10px] font-mono text-slate-400 font-bold">SLIDE 01 / 03</span>
+                <span id="heroSlideIndicator" class="text-[10px] font-mono text-slate-400 font-bold">SLIDE 01 / 05</span>
               </div>
 
               <!-- Live Energy Metrics Box -->
@@ -390,6 +398,8 @@
                   <button class="carousel-dot active" onclick="goToBgSlide(0)" aria-label="Slide 1"></button>
                   <button class="carousel-dot" onclick="goToBgSlide(1)" aria-label="Slide 2"></button>
                   <button class="carousel-dot" onclick="goToBgSlide(2)" aria-label="Slide 3"></button>
+                  <button class="carousel-dot" onclick="goToBgSlide(3)" aria-label="Slide 4"></button>
+                  <button class="carousel-dot" onclick="goToBgSlide(4)" aria-label="Slide 5"></button>
                 </div>
 
                 <div class="flex gap-2">
@@ -1312,7 +1322,7 @@
 
     // ── Hero Background Carousel ─────────────────────────
     let currentBgSlide = 0;
-    const totalBgSlides = 3;
+    const totalBgSlides = 5;
     let bgCarouselTimer = null;
 
     function updateBgCarousel() {
@@ -1337,7 +1347,7 @@
       });
 
       if (indicator) {
-        indicator.textContent = `SLIDE 0${currentBgSlide + 1} / 03`;
+        indicator.textContent = `SLIDE 0${currentBgSlide + 1} / 05`;
       }
     }
 
