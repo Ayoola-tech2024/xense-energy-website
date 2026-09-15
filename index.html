@@ -341,6 +341,10 @@
           <button class="carousel-dot" onclick="goToBgSlide(2)" aria-label="Slide 3"></button>
           <button class="carousel-dot" onclick="goToBgSlide(3)" aria-label="Slide 4"></button>
         </div>
+        <!-- Small Pause/Play Toggle Icon Beside Dots -->
+        <button id="carouselPlayPauseBtn" onclick="toggleBgCarouselPlayPause()" class="flex items-center justify-center w-5 h-5 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors" aria-label="Pause slideshow" title="Pause slideshow">
+          <i data-lucide="pause" class="w-3 h-3"></i>
+        </button>
         <div class="flex gap-1 border-l border-white/15 pl-2.5">
           <button onclick="prevBgSlide()" class="carousel-btn w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 border border-white/10" aria-label="Previous Slide">
             <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
@@ -1291,6 +1295,7 @@
     let currentBgSlide = 0;
     const totalBgSlides = 4;
     let bgCarouselTimer = null;
+    let isBgCarouselPlaying = true;
 
     function updateBgCarousel() {
       const slides = document.querySelectorAll('.hero-bg-slide');
@@ -1314,7 +1319,7 @@
       });
 
       if (indicator) {
-        indicator.textContent = `SLIDE 0${currentBgSlide + 1} / 04`;
+        indicator.textContent = `0${currentBgSlide + 1} / 04`;
       }
     }
 
@@ -1338,7 +1343,36 @@
 
     function resetBgCarouselTimer() {
       if (bgCarouselTimer) clearInterval(bgCarouselTimer);
-      bgCarouselTimer = setInterval(nextBgSlide, 5000);
+      if (isBgCarouselPlaying) {
+        bgCarouselTimer = setInterval(nextBgSlide, 5000);
+      }
+    }
+
+    function toggleBgCarouselPlayPause() {
+      const btn = document.getElementById('carouselPlayPauseBtn');
+      if (isBgCarouselPlaying) {
+        if (bgCarouselTimer) {
+          clearInterval(bgCarouselTimer);
+          bgCarouselTimer = null;
+        }
+        isBgCarouselPlaying = false;
+        if (btn) {
+          btn.innerHTML = '<i data-lucide="play" class="w-3 h-3"></i>';
+          btn.setAttribute('aria-label', 'Play slideshow');
+          btn.setAttribute('title', 'Play slideshow');
+          lucide.createIcons();
+        }
+      } else {
+        isBgCarouselPlaying = true;
+        if (btn) {
+          btn.innerHTML = '<i data-lucide="pause" class="w-3 h-3"></i>';
+          btn.setAttribute('aria-label', 'Pause slideshow');
+          btn.setAttribute('title', 'Pause slideshow');
+          lucide.createIcons();
+        }
+        nextBgSlide();
+        resetBgCarouselTimer();
+      }
     }
 
     // Initialize Hero Background Carousel
