@@ -290,126 +290,64 @@
 
       <!-- FOREGROUND HERO CONTENT -->
       <div class="relative z-10 mx-auto max-w-[1320px] w-full">
-        <div class="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
-          
-          <!-- Left Column: Typography & Action Buttons -->
-          <div class="max-w-3xl reveal-drastic-left">
-            <div class="mb-6 inline-flex items-center gap-2.5 rounded-full border border-indigo-400/40 bg-indigo-950/60 backdrop-blur-md px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-indigo-300 uppercase shadow-lg shadow-indigo-950/50">
-              <span class="live-dot animate-ping"></span> WIRELESS SOLAR AUTOMATION &amp; SMART LOAD CONTROL
-            </div>
-
-            <h1 class="max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-[-0.05em] text-white sm:text-6xl lg:text-[72px]">
-              Intelligent Energy Control <span class="text-gradient">for Modern Homes.</span>
-            </h1>
-
-            <p class="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8 font-normal">
-              Zero power blackouts, maximum solar self-consumption, and automatic load optimization for solar inverters and battery storage. Plugs in seamlessly with 100% wireless setup.
-            </p>
-
-            <div class="mt-8 flex flex-wrap gap-3.5 items-center">
-              <button onclick="openModal('modal-demo')" class="button-primary justify-center px-7 py-4 text-sm font-extrabold shadow-2xl shadow-indigo-500/40">
-                <span>Request Demo &amp; Presentation</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-              <button onclick="openModal('modal-signup')" class="button-secondary justify-center px-7 py-4 text-sm font-bold bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md">
-                <span>Create Free Account</span>
-                <i data-lucide="user-plus" class="w-4 h-4 text-indigo-300"></i>
-              </button>
-            </div>
-
-            <!-- Metrics Strip -->
-            <div class="mt-12 grid max-w-xl grid-cols-3 divide-x divide-slate-800 border-t border-slate-800/80 pt-6">
-              <div class="pr-4">
-                <div class="font-mono text-2xl font-extrabold text-emerald-400">0 ms</div>
-                <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Transfer Latency</div>
-              </div>
-              <div class="px-4">
-                <div class="font-mono text-2xl font-extrabold text-indigo-400">100%</div>
-                <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Plug &amp; Play Setup</div>
-              </div>
-              <div class="pl-4">
-                <div class="font-mono text-2xl font-extrabold text-sky-400">10-Yr</div>
-                <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Warranty Included</div>
-              </div>
-            </div>
+        <div class="max-w-3xl reveal-drastic-left">
+          <div class="mb-6 inline-flex items-center gap-2.5 rounded-full border border-indigo-400/40 bg-indigo-950/60 backdrop-blur-md px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-indigo-300 uppercase shadow-lg shadow-indigo-950/50">
+            <span class="live-dot animate-ping"></span> WIRELESS SOLAR AUTOMATION &amp; SMART LOAD CONTROL
           </div>
 
-          <!-- Right Column: Glass Telemetry Status Card & Live Slide Info -->
-          <div class="reveal-drastic-right delay-200">
-            <div class="glass-card p-6 sm:p-8 bg-slate-900/80 border-slate-700/60 backdrop-blur-2xl text-white shadow-2xl shadow-black/50">
-              
-              <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-                <div class="flex items-center gap-2.5">
-                  <span class="live-dot"></span>
-                  <span class="text-xs font-mono font-extrabold tracking-wider text-emerald-400">SYSTEM TELEMETRY LIVE</span>
-                </div>
-                <span id="heroSlideIndicator" class="text-[10px] font-mono text-slate-400 font-bold">SLIDE 01 / 04</span>
-              </div>
+          <h1 class="max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-[-0.05em] text-white sm:text-6xl lg:text-[72px]">
+            Intelligent Energy Control <span class="text-gradient">for Modern Homes.</span>
+          </h1>
 
-              <!-- Live Energy Metrics Box -->
-              <div class="mt-6 space-y-4">
-                <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div class="p-2.5 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                      <i data-lucide="sun" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                      <div class="text-[10px] font-mono text-slate-400 uppercase">Solar Generation</div>
-                      <div class="text-lg font-mono font-extrabold text-white">4.20 kW</div>
-                    </div>
-                  </div>
-                  <span class="text-[10px] font-mono font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">Peak Output</span>
-                </div>
+          <p class="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8 font-normal">
+            Zero power blackouts, maximum solar self-consumption, and automatic load optimization for solar inverters and battery storage. Plugs in seamlessly with 100% wireless setup.
+          </p>
 
-                <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                      <i data-lucide="battery-charging" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                      <div class="text-[10px] font-mono text-slate-400 uppercase">Battery Reserve</div>
-                      <div class="text-lg font-mono font-extrabold text-white">78% SOC</div>
-                    </div>
-                  </div>
-                  <span class="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">Optimizing</span>
-                </div>
-
-                <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                      <i data-lucide="cpu" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                      <div class="text-[10px] font-mono text-slate-400 uppercase">Active Operating Mode</div>
-                      <div class="text-sm font-extrabold text-white">Xense Mode (Autonomous)</div>
-                    </div>
-                  </div>
-                  <span class="text-[10px] font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">Active</span>
-                </div>
-              </div>
-
-              <!-- Hero Background Carousel Controls -->
-              <div class="mt-6 pt-5 border-t border-slate-800 flex items-center justify-between">
-                <div class="flex gap-2" id="heroBgDots">
-                  <button class="carousel-dot active" onclick="goToBgSlide(0)" aria-label="Slide 1"></button>
-                  <button class="carousel-dot" onclick="goToBgSlide(1)" aria-label="Slide 2"></button>
-                  <button class="carousel-dot" onclick="goToBgSlide(2)" aria-label="Slide 3"></button>
-                  <button class="carousel-dot" onclick="goToBgSlide(3)" aria-label="Slide 4"></button>
-                </div>
-
-                <div class="flex gap-2">
-                  <button onclick="prevBgSlide()" class="carousel-btn w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10" aria-label="Previous Slide">
-                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                  </button>
-                  <button onclick="nextBgSlide()" class="carousel-btn w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10" aria-label="Next Slide">
-                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                  </button>
-                </div>
-              </div>
-
-            </div>
+          <div class="mt-8 flex flex-wrap gap-3.5 items-center">
+            <button onclick="openModal('modal-demo')" class="button-primary justify-center px-7 py-4 text-sm font-extrabold shadow-2xl shadow-indigo-500/40">
+              <span>Request Demo &amp; Presentation</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+            <button onclick="openModal('modal-signup')" class="button-secondary justify-center px-7 py-4 text-sm font-bold bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md">
+              <span>Create Free Account</span>
+              <i data-lucide="user-plus" class="w-4 h-4 text-indigo-300"></i>
+            </button>
           </div>
 
+          <!-- Metrics Strip -->
+          <div class="mt-12 grid max-w-xl grid-cols-3 divide-x divide-slate-800 border-t border-slate-800/80 pt-6">
+            <div class="pr-4">
+              <div class="font-mono text-2xl font-extrabold text-emerald-400">0 ms</div>
+              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Transfer Latency</div>
+            </div>
+            <div class="px-4">
+              <div class="font-mono text-2xl font-extrabold text-indigo-400">100%</div>
+              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Plug &amp; Play Setup</div>
+            </div>
+            <div class="pl-4">
+              <div class="font-mono text-2xl font-extrabold text-sky-400">10-Yr</div>
+              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Warranty Included</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLEEK FLOATING BOTTOM SLIDE NAVIGATOR (Unobtrusive & Clean) -->
+      <div class="absolute bottom-6 right-6 sm:right-10 z-20 flex items-center gap-3.5 rounded-full border border-white/15 bg-slate-950/70 px-4 py-2 backdrop-blur-xl shadow-2xl">
+        <span id="heroSlideIndicator" class="text-[10px] font-mono font-bold tracking-wider text-slate-300">01 / 04</span>
+        <div class="flex gap-2" id="heroBgDots">
+          <button class="carousel-dot active" onclick="goToBgSlide(0)" aria-label="Slide 1"></button>
+          <button class="carousel-dot" onclick="goToBgSlide(1)" aria-label="Slide 2"></button>
+          <button class="carousel-dot" onclick="goToBgSlide(2)" aria-label="Slide 3"></button>
+          <button class="carousel-dot" onclick="goToBgSlide(3)" aria-label="Slide 4"></button>
+        </div>
+        <div class="flex gap-1 border-l border-white/15 pl-2.5">
+          <button onclick="prevBgSlide()" class="carousel-btn w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 border border-white/10" aria-label="Previous Slide">
+            <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="nextBgSlide()" class="carousel-btn w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 border border-white/10" aria-label="Next Slide">
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </button>
         </div>
       </div>
     </section>
