@@ -1373,7 +1373,7 @@
       updateSimulator(parseInt(mainSocSlider.value, 10));
     }
 
-    // EXTREMELY DRASTIC & SLOW INTERSECTION OBSERVER SCRIPT
+    // CONTINUOUS BIDIRECTIONAL SCROLL ANIMATION OBSERVER (SCROLL UP & DOWN)
     document.addEventListener("DOMContentLoaded", function() {
       const revealElements = document.querySelectorAll(
         ".reveal-fly-left, .reveal-fly-right, .reveal-fly-up, .reveal-scale, " +
@@ -1384,17 +1384,17 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
+          } else {
+            // Remove active when scrolling out of view so it re-animates when scrolling back up or down
+            entry.target.classList.remove("active");
           }
         });
-      }, { threshold: 0.05 });
+      }, { 
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px"
+      });
 
       revealElements.forEach(el => observer.observe(el));
-      
-      setTimeout(() => {
-        document.querySelectorAll(".reveal-drastic-left, .reveal-drastic-right, .reveal-fly-left, .reveal-fly-right").forEach(el => {
-          el.classList.add("active");
-        });
-      }, 200);
     });
   </script>
 </body>
