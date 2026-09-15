@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xense Energy — Intelligent Solar Automation & Smart Load Control</title>
-  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  <title>Xense Energy — Intelligent Solar Automation &amp; Smart Load Control</title>
+  <link rel="icon" type="image/png" href="logo.png">
   
   <!-- Fonts & Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -40,9 +40,7 @@
   </script>
 
   <style>
-    :root {
-      color-scheme: light;
-    }
+    :root { color-scheme: light; }
 
     body {
       margin: 0;
@@ -54,261 +52,156 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* SMOOTH & NATURAL SCROLL TRANSITIONS */
+    /* SCROLL REVEAL ANIMATIONS */
     .reveal-drastic-left, .reveal-fly-left {
-      opacity: 0;
-      transform: translateX(-28px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      opacity: 0; transform: translateX(-28px);
+      transition: opacity 0.55s ease-out, transform 0.55s ease-out;
       will-change: opacity, transform;
     }
-
     .reveal-drastic-right, .reveal-fly-right {
-      opacity: 0;
-      transform: translateX(28px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      opacity: 0; transform: translateX(28px);
+      transition: opacity 0.55s ease-out, transform 0.55s ease-out;
       will-change: opacity, transform;
     }
-
     .reveal-drastic-up, .reveal-fly-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.55s ease-out, transform 0.55s ease-out;
       will-change: opacity, transform;
     }
-
     .reveal-drastic-zoom, .reveal-scale {
-      opacity: 0;
-      transform: scale(0.96);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      opacity: 0; transform: scale(0.96);
+      transition: opacity 0.55s ease-out, transform 0.55s ease-out;
       will-change: opacity, transform;
     }
-
     .reveal-drastic-flip {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.55s ease-out, transform 0.55s ease-out;
       will-change: opacity, transform;
     }
-
-    .reveal-drastic-left.active, 
-    .reveal-drastic-right.active, 
-    .reveal-drastic-up.active, 
-    .reveal-drastic-zoom.active,
-    .reveal-drastic-flip.active,
-    .reveal-fly-left.active, 
-    .reveal-fly-right.active, 
-    .reveal-fly-up.active, 
-    .reveal-scale.active {
-      opacity: 1;
-      transform: translateX(0) translateY(0) scale(1);
+    .reveal-drastic-left.active,.reveal-drastic-right.active,.reveal-drastic-up.active,
+    .reveal-drastic-zoom.active,.reveal-drastic-flip.active,.reveal-fly-left.active,
+    .reveal-fly-right.active,.reveal-fly-up.active,.reveal-scale.active {
+      opacity: 1; transform: translateX(0) translateY(0) scale(1);
     }
-
     .delay-100 { transition-delay: 0.1s; }
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
     .delay-400 { transition-delay: 0.4s; }
     .delay-500 { transition-delay: 0.5s; }
 
-    /* Light Mode Glass Utilities */
+    /* GLASS CARDS */
     .glass-card {
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(226,232,240,0.9);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 10px 40px rgba(15,23,42,0.05), 0 1px 3px rgba(0,0,0,0.02);
       border-radius: 1.25rem;
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
 
+    /* BUTTONS */
     .button-primary, .button-secondary, .button-emerald {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      border-radius: 0.8rem;
-      font-size: 0.8rem;
-      font-weight: 700;
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      border-radius: 0.8rem; font-size: 0.8rem; font-weight: 700;
       transition: transform .18s cubic-bezier(.23,1,.32,1), background-color .18s ease, box-shadow .18s ease;
       cursor: pointer;
     }
+    .button-primary { padding: 0.75rem 1.25rem; background: #4f46e5; color: white; box-shadow: 0 10px 24px rgba(79,70,229,.22); }
+    .button-primary:hover { background: #4338ca; box-shadow: 0 12px 30px rgba(79,70,229,.32); transform: translateY(-1.5px); }
+    .button-emerald { padding: 0.75rem 1.25rem; background: #10b981; color: white; box-shadow: 0 10px 24px rgba(16,185,129,.25); }
+    .button-emerald:hover { background: #059669; box-shadow: 0 12px 30px rgba(16,185,129,.35); transform: translateY(-1.5px); }
+    .button-secondary { border: 1px solid #cbd5e1; background: #ffffff; color: #334155; padding: 0.75rem 1.25rem; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+    .button-secondary:hover { background: #f1f5f9; color: #0f172a; transform: translateY(-1.5px); }
 
-    .button-primary {
-      padding: 0.75rem 1.2rem;
-      background: #4f46e5;
-      color: white;
-      box-shadow: 0 10px 24px rgba(79,70,229,.22);
-    }
-
-    .button-primary:hover {
-      background: #4338ca;
-      box-shadow: 0 12px 30px rgba(79,70,229,.32);
-      transform: translateY(-1.5px);
-    }
-
-    .button-emerald {
-      padding: 0.75rem 1.2rem;
-      background: #10b981;
-      color: white;
-      box-shadow: 0 10px 24px rgba(16,185,129,.25);
-    }
-
-    .button-emerald:hover {
-      background: #059669;
-      box-shadow: 0 12px 30px rgba(16,185,129,.35);
-      transform: translateY(-1.5px);
-    }
-
-    .button-secondary {
-      border: 1px solid #cbd5e1;
-      background: #ffffff;
-      color: #334155;
-      padding: 0.75rem 1.2rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-    }
-
-    .button-secondary:hover {
-      background: #f1f5f9;
-      color: #0f172a;
-      transform: translateY(-1.5px);
-    }
-
-    .nav-link { color: #475569; }
+    .nav-link { color: #475569; font-weight: 600; transition: color 0.15s; }
     .nav-link:hover { color: #4f46e5; }
 
     .live-dot {
-      display: inline-block;
-      height: 7px;
-      width: 7px;
-      border-radius: 999px;
-      background: #10b981;
-      box-shadow: 0 0 10px #10b981;
+      display: inline-block; height: 7px; width: 7px;
+      border-radius: 999px; background: #10b981; box-shadow: 0 0 10px #10b981;
     }
 
     .section-title {
-      max-width: 760px;
-      font-size: clamp(2.1rem, 4.5vw, 3.85rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -.055em;
-      color: #0f172a;
+      max-width: 760px; font-size: clamp(2.1rem,4.5vw,3.85rem);
+      font-weight: 800; line-height: 1.05; letter-spacing: -.055em; color: #0f172a;
     }
-
-    .section-copy {
-      margin-top: 1.25rem;
-      max-width: 640px;
-      font-size: 1rem;
-      line-height: 1.75rem;
-      color: #475569;
-    }
-
+    .section-copy { margin-top: 1.25rem; max-width: 640px; font-size: 1rem; line-height: 1.75rem; color: #475569; }
     .text-gradient {
-      background: linear-gradient(105deg, #4f46e5, #0284c7 45%, #10b981);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      background: linear-gradient(105deg,#4f46e5,#0284c7 45%,#10b981);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
     }
 
-    .comparison-table {
-      width: 100%;
-      min-width: 780px;
-      border-collapse: collapse;
-      text-align: left;
-      font-size: .82rem;
-      color: #475569;
-    }
-
-    .comparison-table th {
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid #e2e8f0;
-      color: #64748b;
-      font-size: .65rem;
-      font-family: ui-monospace, monospace;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-    }
-
-    .comparison-table td {
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid #f1f5f9;
-      vertical-align: middle;
-    }
-
+    /* COMPARISON TABLE */
+    .comparison-table { width: 100%; min-width: 780px; border-collapse: collapse; text-align: left; font-size: .82rem; color: #475569; }
+    .comparison-table th { padding: 1.25rem 1.5rem; border-bottom: 1px solid #e2e8f0; color: #64748b; font-size: .65rem; font-family: ui-monospace,monospace; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .comparison-table td { padding: 1.25rem 1.5rem; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
     .comparison-table td:first-child { color: #0f172a; font-weight: 700; }
-    .xense-col { background: rgba(16, 185, 129, 0.05); }
+    .xense-col { background: rgba(16,185,129,0.05); }
 
-    .soc-slider {
-      height: 7px;
-      width: 100%;
-      appearance: none;
-      -webkit-appearance: none;
-      border-radius: 999px;
-      outline: none;
-      background: linear-gradient(to right, #4f46e5 0%, #0284c7 var(--progress, 78%), #e2e8f0 var(--progress, 78%), #e2e8f0 100%);
-      cursor: pointer;
-    }
+    /* SOC SLIDER */
+    .soc-slider { height: 7px; width: 100%; appearance: none; -webkit-appearance: none; border-radius: 999px; outline: none; background: linear-gradient(to right,#4f46e5 0%,#0284c7 var(--progress,78%),#e2e8f0 var(--progress,78%),#e2e8f0 100%); cursor: pointer; }
+    .soc-slider::-webkit-slider-thumb { height: 22px; width: 22px; appearance: none; -webkit-appearance: none; border: 3px solid #ffffff; border-radius: 999px; background: #4f46e5; box-shadow: 0 0 0 2px rgba(79,70,229,.35),0 4px 12px rgba(79,70,229,.3); }
 
-    .soc-slider::-webkit-slider-thumb {
-      height: 22px;
-      width: 22px;
-      appearance: none;
-      -webkit-appearance: none;
-      border: 3px solid #ffffff;
-      border-radius: 999px;
-      background: #4f46e5;
-      box-shadow: 0 0 0 2px rgba(79,70,229,.35), 0 4px 12px rgba(79,70,229,.3);
-    }
-
-    .ambient {
-      position: fixed;
-      pointer-events: none;
-      z-index: 0;
-      border-radius: 999px;
-      filter: blur(100px);
-      opacity: .25;
-    }
-
+    /* AMBIENT BACKGROUND GLOW */
+    .ambient { position: fixed; pointer-events: none; z-index: 0; border-radius: 999px; filter: blur(100px); opacity: .22; }
     .ambient-one { top: 10%; left: -10%; width: 500px; height: 500px; background: #c7d2fe; }
     .ambient-two { right: -10%; top: 45%; width: 520px; height: 520px; background: #a7f3d0; }
 
-    /* Modal Overlay */
-    .modal-overlay {
-      background: rgba(15, 23, 42, 0.45);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
+    /* MODAL */
+    .modal-overlay { background: rgba(15,23,42,0.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 
-    .active-mode-btn {
-      background: #4f46e5;
-      color: white;
-      box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
-    }
+    .active-mode-btn { background: #4f46e5; color: white; box-shadow: 0 4px 16px rgba(79,70,229,0.3); }
 
-    /* Animated Energy Flow Particles */
-    @keyframes pulseParticle {
-      0% { transform: scale(0.9); opacity: 0.3; }
-      50% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(0.9); opacity: 0.3; }
-    }
+    /* PARTICLES */
+    @keyframes pulseParticle { 0%{transform:scale(0.9);opacity:0.3;} 50%{transform:scale(1.1);opacity:1;} 100%{transform:scale(0.9);opacity:0.3;} }
+    .pulse-node { animation: pulseParticle 2s infinite ease-in-out; }
 
-    .pulse-node {
-      animation: pulseParticle 2s infinite ease-in-out;
-    }
+    /* HERO CAROUSEL */
+    .hero-carousel { position: relative; overflow: hidden; border-radius: 1.5rem; }
+    .hero-slides { display: flex; transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
+    .hero-slide { min-width: 100%; position: relative; }
+    .hero-slide img { width: 100%; height: 420px; object-fit: cover; display: block; }
+
+    .carousel-dot { width: 8px; height: 8px; border-radius: 999px; background: rgba(255,255,255,0.45); border: none; cursor: pointer; padding: 0; transition: all .25s ease; }
+    .carousel-dot.active { background: #ffffff; width: 24px; }
+
+    .carousel-btn { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 999px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(10px); color: white; cursor: pointer; transition: background .2s; }
+    .carousel-btn:hover { background: rgba(255,255,255,0.4); }
+
+    /* SVG CHART ANIMATIONS */
+    @keyframes drawLine { from { stroke-dashoffset: 600; } to { stroke-dashoffset: 0; } }
+    @keyframes fillUp { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+    .chart-line { stroke-dasharray: 600; stroke-dashoffset: 600; }
+    .chart-line.animating { animation: drawLine 2.2s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
+    .chart-bar { transform-origin: bottom; transform: scaleY(0); }
+    .chart-bar.animating { animation: fillUp 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+
+    /* LIFESTYLE GALLERY */
+    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .gallery-grid .gcard:hover img { transform: scale(1.06); }
+    .gcard { overflow: hidden; border-radius: 1.25rem; }
+
+    /* DASHBOARD MOCKUP */
+    .mockup-phone { filter: drop-shadow(0 32px 64px rgba(79,70,229,0.22)) drop-shadow(0 4px 16px rgba(0,0,0,0.12)); }
   </style>
 </head>
-
 <body class="selection:bg-indigo-500/30">
 
-  <!-- Ambient Background Fields -->
+  <!-- Ambient Background -->
   <div class="ambient ambient-one"></div>
   <div class="ambient ambient-two"></div>
 
-  <!-- Particle Mesh Canvas -->
-  <canvas id="particle-canvas" class="pointer-events-none fixed inset-0 z-0 opacity-60" aria-hidden="true"></canvas>
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas" class="pointer-events-none fixed inset-0 z-0 opacity-50" aria-hidden="true"></canvas>
 
-  <!-- FLOATING EXECUTIVE NAVBAR (SPAN / Pila Style) -->
+  <!-- ═══════════════════════════════════════════════════
+       FLOATING NAVBAR
+  ════════════════════════════════════════════════════ -->
   <header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-10">
     <nav class="mx-auto flex max-w-[1320px] items-center justify-between rounded-2xl border border-slate-200/90 bg-white/90 px-4 py-3 shadow-xl shadow-slate-200/50 backdrop-blur-xl sm:px-6">
       <a href="#top" class="flex items-center gap-3 group">
-        <img src="logo.jpeg" alt="Xense Energy Logo" class="h-9 w-9 rounded-xl object-contain bg-white border border-indigo-500/30 p-1 shadow-md group-hover:scale-105 transition-transform">
+        <img src="logo.png" alt="Xense Energy Logo" class="h-9 w-9 rounded-xl object-contain bg-white border border-indigo-500/30 p-1 shadow-md group-hover:scale-105 transition-transform">
         <span class="leading-none">
           <span class="block text-sm font-extrabold tracking-[0.18em] text-slate-900">XENSE</span>
           <span class="mt-1 block text-[8px] font-bold tracking-[0.28em] text-indigo-600">ENERGY SYSTEMS</span>
@@ -316,21 +209,26 @@
       </a>
 
       <div class="hidden items-center gap-8 text-xs font-bold text-slate-600 lg:flex">
-        <a href="#ecosystem" class="nav-link">Product Ecosystem</a>
+        <a href="#ecosystem" class="nav-link">Products</a>
         <a href="#modes" class="nav-link">Operating Modes</a>
-        <a href="#simulator" class="nav-link">Live Simulator</a>
+        <a href="#analytics" class="nav-link">Live Telemetry</a>
+        <a href="#dashboard" class="nav-link">App &amp; Dashboard</a>
+        <a href="#simulator" class="nav-link">Simulator</a>
         <a href="#comparison" class="nav-link">Why Xense?</a>
         <a href="#faq" class="nav-link">FAQ</a>
       </div>
 
-      <!-- Action Pill Buttons -->
-      <div class="hidden items-center gap-3 sm:flex">
-        <button onclick="openModal('modal-login')" class="text-xs font-semibold px-3.5 py-2 text-slate-600 hover:text-slate-900 transition-colors">
+      <!-- Action Buttons: Sign In, Sign Up, Request Demo -->
+      <div class="hidden items-center gap-2.5 sm:flex">
+        <button onclick="openModal('modal-login')" class="text-xs font-semibold px-3.5 py-2 text-slate-600 hover:text-slate-900 transition-colors rounded-xl hover:bg-slate-100">
           Sign In
         </button>
-        <button onclick="openModal('modal-installer')" class="button-emerald py-2.5 px-4 text-xs">
+        <button onclick="openModal('modal-signup')" class="text-xs font-semibold px-3.5 py-2 border border-slate-200 rounded-xl text-slate-700 hover:bg-slate-50 transition-colors">
+          Sign Up
+        </button>
+        <button onclick="openModal('modal-demo')" class="button-primary py-2.5 px-4 text-xs">
           <span class="live-dot"></span>
-          <span>Find an Installer</span>
+          <span>Request Demo</span>
         </button>
       </div>
 
@@ -339,33 +237,38 @@
       </button>
     </nav>
 
-    <!-- Mobile Navigation Dropdown -->
+    <!-- Mobile Dropdown -->
     <div id="mobileMenu" class="hidden mx-auto mt-2 max-w-[1320px] rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-2xl backdrop-blur-xl sm:hidden">
       <div class="grid gap-1 text-sm font-semibold text-slate-700">
-        <a href="#ecosystem" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Product Ecosystem</a>
+        <a href="#ecosystem" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Products</a>
         <a href="#modes" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Operating Modes</a>
-        <a href="#simulator" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Live Simulator</a>
+        <a href="#analytics" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Live Telemetry</a>
+        <a href="#dashboard" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">App &amp; Dashboard</a>
+        <a href="#simulator" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Simulator</a>
         <a href="#comparison" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Why Xense?</a>
         <a href="#faq" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">FAQ</a>
         <div class="pt-3 border-t border-slate-200 flex flex-col gap-2">
-          <button onclick="openModal('modal-installer')" class="rounded-xl px-4 py-3 text-center text-sm font-bold bg-emerald-600 text-white">Find an Installer</button>
-          <button onclick="openModal('modal-login')" class="rounded-xl px-4 py-2.5 text-center text-sm font-bold bg-slate-100 border border-slate-200 text-slate-900">Sign In</button>
+          <button onclick="openModal('modal-demo')" class="rounded-xl px-4 py-3 text-center text-sm font-bold bg-indigo-600 text-white">Request Demo</button>
+          <button onclick="openModal('modal-signup')" class="rounded-xl px-4 py-2.5 text-center text-sm font-bold bg-slate-100 border border-slate-200 text-slate-900">Sign Up Free</button>
+          <button onclick="openModal('modal-login')" class="rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-slate-600">Sign In</button>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main id="top" class="relative z-10">
 
-    <!-- HERO SECTION (SPAN / Enee Style Split Layout with Inverter Photo) -->
+    <!-- ═══════════════════════════════════════════════════
+         HERO SECTION WITH TOP-BRAND IMAGE CAROUSEL
+    ════════════════════════════════════════════════════ -->
     <section class="mx-auto max-w-[1320px] px-4 pb-20 pt-36 sm:px-6 lg:px-10 lg:pt-44 relative z-10">
       <div class="relative grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
-        
-        <!-- Left Column: Typography & CTAs -->
+
+        <!-- Left: Typography & CTAs -->
         <div class="max-w-3xl reveal-drastic-left">
-          <div class="mb-6 inline-flex items-center gap-2.5 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-emerald-800 uppercase">
-            <span class="live-dot animate-ping"></span> WIRELESS AUTOMATION & SMART LOAD CONTROL
+          <div class="mb-6 inline-flex items-center gap-2.5 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-indigo-800 uppercase">
+            <span class="live-dot animate-ping"></span> WIRELESS SOLAR AUTOMATION &amp; SMART LOAD CONTROL
           </div>
 
           <h1 class="max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-[-0.05em] text-slate-900 sm:text-6xl lg:text-[72px]">
@@ -377,17 +280,17 @@
           </p>
 
           <div class="mt-8 flex flex-wrap gap-3.5 items-center">
-            <button onclick="openModal('modal-installer')" class="button-emerald justify-center px-6 py-3.5 text-sm font-extrabold">
-              <span>Find an Authorized Installer</span>
+            <button onclick="openModal('modal-demo')" class="button-primary justify-center px-6 py-3.5 text-sm font-extrabold">
+              <span>Request Demo &amp; Presentation</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
-            <button onclick="openModal('modal-quote')" class="button-secondary justify-center px-6 py-3.5 text-sm font-bold">
-              <span>Get Custom Quote</span>
-              <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+            <button onclick="openModal('modal-signup')" class="button-secondary justify-center px-6 py-3.5 text-sm font-bold">
+              <span>Create Free Account</span>
+              <i data-lucide="user-plus" class="w-4 h-4 text-slate-400"></i>
             </button>
           </div>
 
-          <!-- 3-Column Metrics Strip -->
+          <!-- Metrics Strip -->
           <div class="mt-12 grid max-w-xl grid-cols-3 divide-x divide-slate-200 border-t border-slate-200 pt-6">
             <div class="pr-4">
               <div class="font-mono text-2xl font-extrabold text-emerald-600">0 ms</div>
@@ -395,7 +298,7 @@
             </div>
             <div class="px-4">
               <div class="font-mono text-2xl font-extrabold text-indigo-600">100%</div>
-              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-extrabold">Plug & Play Setup</div>
+              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-extrabold">Plug &amp; Play Setup</div>
             </div>
             <div class="pl-4">
               <div class="font-mono text-2xl font-extrabold text-sky-600">10-Yr</div>
@@ -404,59 +307,148 @@
           </div>
         </div>
 
-        <!-- Right Column: Physical Product Showcase Card (Featuring xense-inverter-kit.jpg) -->
-        <div class="glass-card relative overflow-hidden p-4 sm:p-5 shadow-2xl shadow-slate-200/80 reveal-drastic-right delay-200 border-slate-200 bg-white">
-          
-          <div class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
-            <img src="xense-inverter-kit.jpg" alt="Xense Wall-Mounted Smart Inverter & Wireless Dongle Kit" class="w-full h-[360px] object-cover hover:scale-105 transition-transform duration-700">
-            
-            <!-- Live Status Overlay Pill -->
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/90 px-3.5 py-1.5 backdrop-blur-md shadow-lg">
-              <span class="live-dot"></span>
-              <span class="text-[10px] font-mono font-extrabold text-slate-900 tracking-wider">XENSE SYSTEM ONLINE</span>
+        <!-- Right: Top-Tier Brand Image Carousel -->
+        <div class="reveal-drastic-right delay-200">
+          <div class="hero-carousel shadow-2xl shadow-slate-300/60 border border-slate-200 bg-slate-900">
+            <div class="hero-slides" id="heroSlides">
+              <!-- Slide 1: Hardware Unit -->
+              <div class="hero-slide">
+                <img src="xense-inverter-kit.jpg" alt="Xense Smart Solar Inverter Unit & Dongle Kit">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-5 left-5 right-5 flex justify-between items-end">
+                  <div class="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-lg border border-slate-200">
+                    <div class="text-[10px] font-mono font-bold text-slate-500">HARDWARE UNIT</div>
+                    <div class="text-xs font-extrabold text-slate-900">Xense Hybrid Inverter &amp; RS232 Stick</div>
+                  </div>
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/90 text-white text-[9px] font-mono font-bold px-3 py-1 backdrop-blur-md">
+                    <span class="live-dot"></span> LIVE
+                  </span>
+                </div>
+              </div>
+              <!-- Slide 2: Real Life App User -->
+              <div class="hero-slide">
+                <img src="xense energy person holding phone of solar automation.jpg" alt="Xense Solar Automation Mobile App">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-5 left-5 right-5">
+                  <div class="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-lg border border-slate-200 max-w-xs">
+                    <div class="text-[10px] font-mono font-bold text-indigo-600">REMOTE TELEMETRY</div>
+                    <div class="text-xs font-extrabold text-slate-900">Real-Time Mobile Automation</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 3: Smart Energy Dashboard -->
+              <div class="hero-slide">
+                <img src="xense man holding a phone with solar automation.jpg" alt="Man holding phone with Xense energy app">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-5 left-5 right-5">
+                  <div class="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-lg border border-slate-200 max-w-xs">
+                    <div class="text-[10px] font-mono font-bold text-sky-600">SMART CONTROLS</div>
+                    <div class="text-xs font-extrabold text-slate-900">Effortless Home Energy Management</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 4: Usage Analytics -->
+              <div class="hero-slide">
+                <img src="xense solar usage statictics.jpg" alt="Solar usage analytics tracking">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-5 left-5 right-5">
+                  <div class="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-lg border border-slate-200 max-w-xs">
+                    <div class="text-[10px] font-mono font-bold text-amber-600">ANALYTICS ENGINE</div>
+                    <div class="text-xs font-extrabold text-slate-900">Live Battery &amp; Solar Statistics</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 5: Dongle Inverter Connection -->
+              <div class="hero-slide">
+                <img src="xense-dongle-plug.jpg" alt="Xense RS232 Smart Dongle plugged into inverter">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-5 left-5 right-5">
+                  <div class="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-lg border border-slate-200 max-w-xs">
+                    <div class="text-[10px] font-mono font-bold text-emerald-600">ZERO REWIRING</div>
+                    <div class="text-xs font-extrabold text-slate-900">Direct RS232 Port Plug-in</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="absolute bottom-4 inset-x-4 glass-card p-3.5 bg-white/95 border-slate-200 shadow-xl">
-              <div class="flex items-center justify-between text-xs">
-                <div>
-                  <div class="font-bold text-slate-900">Xense Smart Solar Inverter Unit</div>
-                  <div class="text-[10px] font-mono text-slate-500">Wall-Mounted Hybrid Inverter + Wireless Dongle</div>
-                </div>
-                <span class="rounded-lg bg-emerald-50 border border-emerald-200 px-2.5 py-1 text-[9px] font-mono font-bold text-emerald-700">
-                  Active Optimization
-                </span>
-              </div>
+            <!-- Carousel Controls -->
+            <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-3 pointer-events-none">
+              <button onclick="carouselPrev()" class="carousel-btn pointer-events-auto" aria-label="Previous Slide">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              </button>
+              <button onclick="carouselNext()" class="carousel-btn pointer-events-auto" aria-label="Next Slide">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <!-- Indicators -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="carouselDots">
+              <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+              <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+              <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+              <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+              <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Slide 5"></button>
             </div>
           </div>
 
+          <!-- Bottom Label -->
+          <div class="mt-4 flex items-center justify-between px-1 text-[10px] font-mono text-slate-500 font-bold uppercase tracking-widest">
+            <span>Xense Energy Ecosystem</span>
+            <span class="flex items-center gap-1.5"><span class="live-dot"></span> System Online</span>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- PRODUCT ECOSYSTEM BENTO GRID (SPAN & Pila Layout Style) -->
+    <!-- ═══════════════════════════════════════════════════
+         STATS BAR
+    ════════════════════════════════════════════════════ -->
+    <section class="border-y border-slate-200 bg-white/70 backdrop-blur-sm py-8 px-4 sm:px-6 lg:px-10 reveal-drastic-up">
+      <div class="mx-auto max-w-[1320px] grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl font-extrabold text-indigo-600 font-mono">500+</div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">Installations Completed</div>
+        </div>
+        <div>
+          <div class="text-3xl font-extrabold text-emerald-600 font-mono">3×</div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">Battery Duration Gain</div>
+        </div>
+        <div>
+          <div class="text-3xl font-extrabold text-sky-600 font-mono">&lt;5ms</div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">Switchover Latency</div>
+        </div>
+        <div>
+          <div class="text-3xl font-extrabold text-amber-600 font-mono">100%</div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">Offline Reliability</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         PRODUCT ECOSYSTEM BENTO GRID
+    ════════════════════════════════════════════════════ -->
     <section id="ecosystem" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
       <div class="mb-12 max-w-3xl">
         <div class="mb-4 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[0.25em] text-indigo-600">
           <span class="font-mono text-sky-600">PRODUCT ECOSYSTEM</span>
           <span class="h-px w-8 bg-indigo-300"></span>
-          <span>HARDWARE & SOFTWARE</span>
+          <span>HARDWARE &amp; SOFTWARE</span>
         </div>
         <h2 class="section-title">Designed for simplicity. <span class="text-gradient">Built for performance.</span></h2>
-        <p class="section-copy">Explore the Xense Energy product family—combining high-capacity hybrid solar inverters, wireless RS232 smart dongles, and real-time mobile cloud tracking.</p>
+        <p class="section-copy">Explore the Xense Energy product family — combining hybrid solar inverters, wireless RS232 smart dongles, and real-time mobile cloud tracking.</p>
       </div>
 
-      <!-- 4-Card Asymmetric Bento Grid -->
       <div class="grid gap-6 md:grid-cols-12">
-        
-        <!-- Card 1: Xense Inverter Unit (60% Width / 7 Cols) -->
+
+        <!-- Card 1: Inverter (7 cols) -->
         <div class="md:col-span-7 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-xl reveal-drastic-left">
           <div>
             <div class="w-full h-[260px] rounded-2xl overflow-hidden border border-slate-200 mb-6 bg-slate-50 relative">
-              <img src="xense-inverter-kit.jpg" alt="White Xense Inverter & Dongle Kit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <img src="xense-inverter-kit.jpg" alt="Xense Wall-Mounted Inverter & Dongle Kit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
               <span class="absolute top-3 left-3 bg-slate-900/90 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full backdrop-blur-md">HARDWARE UNIT</span>
             </div>
-            <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider">01. INVERTER & BACKUP SYSTEM</span>
+            <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider">01. INVERTER &amp; BACKUP SYSTEM</span>
             <h3 class="text-2xl font-extrabold text-slate-900 mt-1">Xense Smart Solar Inverter</h3>
             <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Wall-mounted intelligent hybrid inverter with digital LCD display. Integrates seamlessly with existing solar arrays, Lithium/Gel battery banks, and grid power.</p>
           </div>
@@ -466,49 +458,36 @@
           </div>
         </div>
 
-        <!-- Card 2: Live Mobile App Dashboard (40% Width / 5 Cols) -->
+        <!-- Card 2: Mobile Dashboard (5 cols) -->
         <div class="md:col-span-5 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-xl reveal-drastic-right delay-100">
           <div>
-            <div class="w-full h-[260px] rounded-2xl bg-gradient-to-br from-indigo-50 to-sky-50 border border-slate-200 mb-6 p-5 flex flex-col justify-between relative overflow-hidden">
-              <div class="flex items-center justify-between">
-                <span class="text-[10px] font-mono font-extrabold text-indigo-700 uppercase">XENSE APP v2.4</span>
+            <div class="w-full h-[260px] rounded-2xl overflow-hidden border border-slate-200 mb-6 bg-slate-900 relative">
+              <img src="xense phone dashboard of solar automation.jpg" alt="Xense Mobile App Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1">
                 <span class="live-dot"></span>
+                <span class="text-[9px] font-mono font-bold text-slate-900">LIVE</span>
               </div>
-              <div class="space-y-3 bg-white/90 p-4 rounded-xl border border-slate-200 shadow-md backdrop-blur-sm">
-                <div class="flex justify-between text-xs font-bold text-slate-900">
-                  <span>Solar Generation</span>
-                  <span class="text-emerald-600 font-mono">4.2 kW</span>
-                </div>
-                <div class="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-                  <div class="h-full bg-emerald-500 rounded-full" style="width: 78%;"></div>
-                </div>
-                <div class="flex justify-between text-[10px] font-mono text-slate-500">
-                  <span>Battery SOC: 78%</span>
-                  <span>Grid: 0.0 kW</span>
-                </div>
-              </div>
-              <span class="text-[9px] font-mono text-slate-500 text-center uppercase tracking-wider">24/7 Mobile Cloud Tracking</span>
             </div>
             <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider">02. REMOTE TELEMETRY</span>
             <h3 class="text-xl font-extrabold text-slate-900 mt-1">Xense Live Mobile Dashboard</h3>
             <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Monitor real-time power flow, adjust battery reserve floors, and switch operating modes remotely from your smartphone.</p>
           </div>
           <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
-            <span>iOS & Android App Included</span>
+            <span>iOS &amp; Android App Included</span>
             <i data-lucide="smartphone" class="w-4 h-4 text-indigo-600"></i>
           </div>
         </div>
 
-        <!-- Card 3: RS232 Smart Plug Dongle (50% Width / 6 Cols) -->
+        <!-- Card 3: Dongle (6 cols) -->
         <div class="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-xl reveal-drastic-left delay-200">
           <div>
             <div class="w-full h-[220px] rounded-2xl overflow-hidden border border-slate-200 mb-6 bg-slate-50 relative">
-              <img src="xense-dongle-plug.jpg" alt="Xense RS232 Dongle Plugged into Inverter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-              <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full shadow-md">PLUG & PLAY</span>
+              <img src="xense-dongle-plug.jpg" alt="Xense RS232 Dongle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full shadow-md">PLUG &amp; PLAY</span>
             </div>
             <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider">03. SMART CONNECTOR</span>
             <h3 class="text-xl font-extrabold text-slate-900 mt-1">Xense Wireless Dongle Stick</h3>
-            <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Plugs directly into your inverter's RS232 / RJ45 port (`Solar Plug-RWB1-04`). Zero complex electrical rewiring needed.</p>
+            <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Plugs directly into your inverter's RS232 / RJ45 port. Zero complex electrical rewiring needed — 60-second setup.</p>
           </div>
           <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
             <span>Instant 60-Second Setup</span>
@@ -516,16 +495,16 @@
           </div>
         </div>
 
-        <!-- Card 4: Key Wireless Features (50% Width / 6 Cols) -->
+        <!-- Card 4: WiFi Features (6 cols) -->
         <div class="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-xl reveal-drastic-right delay-300">
           <div>
             <div class="w-full h-[220px] rounded-2xl overflow-hidden border border-slate-200 mb-6 bg-slate-50 relative">
-              <img src="xense-wifi-plug.jpg" alt="Xense Wireless Features" class="w-full h-full object-contain p-2 bg-white group-hover:scale-105 transition-transform duration-700">
+              <img src="xense-wifi-plug.jpg" alt="Xense WiFi Monitoring Features" class="w-full h-full object-contain p-2 bg-white group-hover:scale-105 transition-transform duration-700">
               <span class="absolute top-3 left-3 bg-indigo-600 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full shadow-md">WIFI FEATURES</span>
             </div>
             <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider">04. INTELLIGENT MONITORING</span>
-            <h3 class="text-xl font-extrabold text-slate-900 mt-1">Real-Time & Offline Monitoring</h3>
-            <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Supports both real-time cloud data sync and offline local data logging, ensuring load shedding logic functions even when Wi-Fi drops.</p>
+            <h3 class="text-xl font-extrabold text-slate-900 mt-1">Real-Time &amp; Offline Monitoring</h3>
+            <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Supports both real-time cloud data sync and offline local data logging. Load shedding logic functions even when Wi-Fi drops.</p>
           </div>
           <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
             <span>100% Offline Capable</span>
@@ -536,7 +515,287 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE 3-MODE VISUALIZER (Xense Mode, Bypass Mode, Auto Grid Mode) -->
+    <!-- ═══════════════════════════════════════════════════
+         SOLAR ANALYTICS — SVG CHARTS & TELEMETRY SECTION
+    ════════════════════════════════════════════════════ -->
+    <section id="analytics" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
+      <div class="mb-12 text-center max-w-2xl mx-auto reveal-drastic-up">
+        <span class="text-[10px] font-mono tracking-[0.25em] text-indigo-600 uppercase font-bold">LIVE ANALYTICS ENGINE</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-3">Every watt. <span class="text-gradient">Tracked in real time.</span></h2>
+        <p class="text-slate-600 text-sm mt-4 font-medium leading-7">Xense logs every kWh generated, consumed, and stored — giving you full visibility into your energy independence journey.</p>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-3 reveal-drastic-up delay-100">
+
+        <!-- SVG Chart 1: Solar Generation Curve -->
+        <div class="glass-card p-6 bg-white border-slate-200 shadow-xl group" id="chartCard1">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <div class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">Solar Generation</div>
+              <div class="text-2xl font-extrabold text-amber-500 font-mono mt-0.5">4.2 kW</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200">
+              <i data-lucide="sun" class="w-5 h-5 text-amber-500"></i>
+            </div>
+          </div>
+          <svg viewBox="0 0 280 100" class="w-full h-24" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="solarGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,90 C20,88 40,75 60,55 C80,35 100,20 120,18 C140,16 160,25 180,38 C200,51 220,70 240,80 C260,88 270,90 280,90 Z" fill="url(#solarGrad)"/>
+            <path id="solarLine" d="M0,90 C20,88 40,75 60,55 C80,35 100,20 120,18 C140,16 160,25 180,38 C200,51 220,70 240,80 C260,88 270,90 280,90" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" class="chart-line"/>
+            <circle cx="120" cy="18" r="4" fill="#f59e0b"/>
+            <circle cx="60" cy="55" r="3" fill="#fbbf24" opacity="0.7"/>
+            <circle cx="180" cy="38" r="3" fill="#fbbf24" opacity="0.7"/>
+            <text x="0" y="98" font-size="7" fill="#94a3b8" font-family="monospace">6AM</text>
+            <text x="90" y="98" font-size="7" fill="#94a3b8" font-family="monospace">12PM</text>
+            <text x="240" y="98" font-size="7" fill="#94a3b8" font-family="monospace">6PM</text>
+          </svg>
+          <div class="mt-3 flex items-center justify-between text-[10px] font-mono text-slate-500">
+            <span>Peak: 4.2 kW at 12:30 PM</span>
+            <span class="text-amber-600 font-bold">↑ 18% today</span>
+          </div>
+        </div>
+
+        <!-- SVG Chart 2: Battery SOC -->
+        <div class="glass-card p-6 bg-white border-slate-200 shadow-xl group" id="chartCard2">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <div class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">Battery State of Charge</div>
+              <div class="text-2xl font-extrabold text-indigo-600 font-mono mt-0.5">78% SOC</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-indigo-50 border border-indigo-200">
+              <i data-lucide="battery-charging" class="w-5 h-5 text-indigo-600"></i>
+            </div>
+          </div>
+          <svg viewBox="0 0 280 100" class="w-full h-24" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="socGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#4f46e5" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,85 L30,82 L60,78 L90,65 L120,52 L150,40 L180,32 L210,28 L240,25 L280,22 L280,100 L0,100 Z" fill="url(#socGrad)"/>
+            <path id="socLine" d="M0,85 L30,82 L60,78 L90,65 L120,52 L150,40 L180,32 L210,28 L240,25 L280,22" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="chart-line"/>
+            <line x1="0" y1="68" x2="280" y2="68" stroke="#e11d48" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+            <text x="200" y="64" font-size="7" fill="#e11d48" font-family="monospace" opacity="0.7">35% FLOOR</text>
+            <circle cx="280" cy="22" r="4" fill="#4f46e5"/>
+            <text x="0" y="98" font-size="7" fill="#94a3b8" font-family="monospace">6AM</text>
+            <text x="240" y="98" font-size="7" fill="#94a3b8" font-family="monospace">Now</text>
+          </svg>
+          <div class="mt-3 flex items-center justify-between text-[10px] font-mono text-slate-500">
+            <span>Min protection floor: 35%</span>
+            <span class="text-indigo-600 font-bold">Charging ↑</span>
+          </div>
+        </div>
+
+        <!-- SVG Chart 3: Load Distribution -->
+        <div class="glass-card p-6 bg-white border-slate-200 shadow-xl group" id="chartCard3">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <div class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">Load Distribution</div>
+              <div class="text-2xl font-extrabold text-emerald-600 font-mono mt-0.5">2.4 kW Used</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200">
+              <i data-lucide="activity" class="w-5 h-5 text-emerald-600"></i>
+            </div>
+          </div>
+          <svg viewBox="0 0 280 100" class="w-full h-24" xmlns="http://www.w3.org/2000/svg">
+            <rect class="chart-bar" x="10" y="30" width="38" height="65" rx="5" fill="#4f46e5" opacity="0.85" style="animation-delay:0.1s"/>
+            <rect class="chart-bar" x="60" y="50" width="38" height="45" rx="5" fill="#0284c7" opacity="0.85" style="animation-delay:0.2s"/>
+            <rect class="chart-bar" x="110" y="62" width="38" height="33" rx="5" fill="#10b981" opacity="0.85" style="animation-delay:0.3s"/>
+            <rect class="chart-bar" x="160" y="72" width="38" height="23" rx="5" fill="#f59e0b" opacity="0.85" style="animation-delay:0.4s"/>
+            <rect class="chart-bar" x="210" y="82" width="38" height="13" rx="5" fill="#64748b" opacity="0.6" style="animation-delay:0.5s"/>
+            <text x="15" y="98" font-size="6.5" fill="#64748b" font-family="monospace">A/C</text>
+            <text x="63" y="98" font-size="6.5" fill="#64748b" font-family="monospace">Freezer</text>
+            <text x="115" y="98" font-size="6.5" fill="#64748b" font-family="monospace">Fans</text>
+            <text x="165" y="98" font-size="6.5" fill="#64748b" font-family="monospace">Lights</text>
+            <text x="213" y="98" font-size="6.5" fill="#64748b" font-family="monospace">Wi-Fi</text>
+          </svg>
+          <div class="mt-3 flex items-center justify-between text-[10px] font-mono text-slate-500">
+            <span>5 appliances managed</span>
+            <span class="text-emerald-600 font-bold">All Protected</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Real-Time Energy Balance Flow SVG -->
+      <div class="mt-8 glass-card p-8 bg-white border-slate-200 shadow-2xl reveal-drastic-up delay-200">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <div class="text-[10px] font-mono font-extrabold text-emerald-600 uppercase tracking-widest flex items-center gap-2">
+              <span class="live-dot"></span> REAL-TIME ENERGY FLOW
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 mt-1">System Energy Balance</h3>
+          </div>
+          <span class="text-xs font-mono font-bold text-slate-500">Updated: just now</span>
+        </div>
+        <svg viewBox="0 0 800 160" class="w-full" xmlns="http://www.w3.org/2000/svg">
+          <!-- Solar Node -->
+          <rect x="20" y="40" width="140" height="80" rx="16" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>
+          <text x="90" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f" font-family="'Plus Jakarta Sans',sans-serif">☀ Solar Array</text>
+          <text x="90" y="90" text-anchor="middle" font-size="13" font-weight="800" fill="#d97706" font-family="monospace">4.20 kW</text>
+          <text x="90" y="106" text-anchor="middle" font-size="9" fill="#92400e" font-family="monospace">Generating</text>
+
+          <!-- Arrow Solar -> Controller -->
+          <line x1="162" y1="80" x2="218" y2="80" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="218,75 228,80 218,85" fill="#fbbf24"/>
+
+          <!-- Xense Controller Node -->
+          <rect x="230" y="30" width="160" height="100" rx="16" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
+          <text x="310" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="#4c1d95" font-family="'Plus Jakarta Sans',sans-serif">⚡ Xense Controller</text>
+          <text x="310" y="84" text-anchor="middle" font-size="9" font-weight="700" fill="#10b981" font-family="monospace">AUTO OPTIMIZING</text>
+          <rect x="255" y="93" width="110" height="22" rx="8" fill="#d1fae5"/>
+          <text x="310" y="108" text-anchor="middle" font-size="9" font-weight="800" fill="#059669" font-family="monospace">XENSE MODE ACTIVE</text>
+
+          <!-- Arrow Controller -> Battery -->
+          <line x1="392" y1="60" x2="448" y2="60" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="448,55 458,60 448,65" fill="#4f46e5"/>
+
+          <!-- Battery Node -->
+          <rect x="460" y="30" width="140" height="80" rx="16" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="530" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a" font-family="'Plus Jakarta Sans',sans-serif">🔋 Battery Bank</text>
+          <text x="530" y="82" text-anchor="middle" font-size="14" font-weight="800" fill="#2563eb" font-family="monospace">78% SOC</text>
+          <rect x="478" y="90" width="104" height="12" rx="6" fill="#bfdbfe"/>
+          <rect x="478" y="90" width="81" height="12" rx="6" fill="#3b82f6"/>
+
+          <!-- Arrow Controller -> Home -->
+          <line x1="392" y1="100" x2="448" y2="130" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Home Node -->
+          <rect x="460" y="120" width="140" height="32" rx="12" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
+          <text x="530" y="141" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46" font-family="'Plus Jakarta Sans',sans-serif">🏠 Home Loads: 2.4 kW</text>
+
+          <!-- Grid Node -->
+          <rect x="640" y="40" width="140" height="80" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <text x="710" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="#475569" font-family="'Plus Jakarta Sans',sans-serif">⚡ Utility Grid</text>
+          <text x="710" y="90" text-anchor="middle" font-size="10" fill="#64748b" font-family="monospace">Standby / 0.0 kW</text>
+          <text x="710" y="108" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="monospace">Not in use</text>
+
+          <line x1="600" y1="80" x2="638" y2="80" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,3"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         DASHBOARD MOBILE MOCKUP SECTION
+    ════════════════════════════════════════════════════ -->
+    <section id="dashboard" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
+      <div class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 px-8 py-16 sm:px-16 shadow-2xl reveal-drastic-up">
+        <div class="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-indigo-600/20 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-emerald-600/15 blur-3xl"></div>
+
+        <div class="relative grid gap-14 lg:grid-cols-[1fr_1fr] items-center">
+          <!-- Left: Information -->
+          <div>
+            <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-indigo-300 uppercase">
+              <span class="h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_#818cf8]"></span>
+              INTELLIGENT LOAD CONTROL DASHBOARD
+            </div>
+            <h2 class="text-4xl font-extrabold text-white sm:text-5xl leading-tight tracking-tight">
+              Full control. <br><span class="text-gradient">From your palm.</span>
+            </h2>
+            <p class="mt-5 text-slate-400 text-sm leading-7 max-w-lg font-medium">
+              The Xense Dashboard gives you real-time visibility into every watt — monitor solar generation, battery SOC, appliance states, and AI-optimized load decisions all in one place.
+            </p>
+
+            <!-- Feature Pills -->
+            <div class="mt-8 flex flex-wrap gap-3">
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+                <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 text-indigo-400"></i>
+                Live Analytics
+              </div>
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+                <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-400"></i>
+                AI Load Decisions
+              </div>
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+                <i data-lucide="bell" class="w-3.5 h-3.5 text-amber-400"></i>
+                Smart Alerts
+              </div>
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+                <i data-lucide="settings" class="w-3.5 h-3.5 text-sky-400"></i>
+                Remote Control
+              </div>
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-rose-400"></i>
+                Priority Lists
+              </div>
+            </div>
+
+            <div class="mt-8 flex gap-3">
+              <button onclick="openModal('modal-demo')" class="button-primary text-sm px-6 py-3.5">
+                <span>Request a Live Demo</span>
+                <i data-lucide="play" class="w-4 h-4"></i>
+              </button>
+              <button onclick="openModal('modal-signup')" class="text-sm font-semibold px-6 py-3.5 rounded-xl border border-white/20 text-slate-200 hover:bg-white/10 transition-colors">
+                Sign Up Free
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Mobile Device Mockup Image -->
+          <div class="flex justify-center lg:justify-end">
+            <div class="relative">
+              <img src="dashboard-mobile.png" alt="Xense Energy Dashboard on Mobile Device" class="mockup-phone w-[260px] sm:w-[300px] rounded-[2rem] border-2 border-white/10">
+              <!-- Floating stat cards -->
+              <div class="absolute -left-12 top-12 glass-card bg-white/90 px-3.5 py-2.5 shadow-xl border-slate-200 hidden sm:block">
+                <div class="text-[9px] font-mono text-slate-500 uppercase tracking-wider">Solar Today</div>
+                <div class="text-base font-extrabold text-amber-600 font-mono">32.4 kWh</div>
+              </div>
+              <div class="absolute -right-10 bottom-20 glass-card bg-white/90 px-3.5 py-2.5 shadow-xl border-slate-200 hidden sm:block">
+                <div class="text-[9px] font-mono text-slate-500 uppercase tracking-wider">Battery SOC</div>
+                <div class="text-base font-extrabold text-indigo-600 font-mono">78%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         LIFESTYLE PHOTO GALLERY
+    ════════════════════════════════════════════════════ -->
+    <section class="mx-auto max-w-[1320px] px-4 pb-12 sm:px-6 lg:px-10 reveal-drastic-up">
+      <div class="mb-10 max-w-2xl">
+        <span class="text-[10px] font-mono tracking-[0.25em] text-indigo-600 uppercase font-bold">REAL-WORLD USAGE</span>
+        <h2 class="section-title mt-2">People love <span class="text-gradient">being in control.</span></h2>
+        <p class="section-copy">From private homes to commercial estates — Xense puts intelligent load control in everyone's pocket.</p>
+      </div>
+
+      <!-- Bento Lifestyle Grid -->
+      <div class="gallery-grid grid gap-4 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[200px]">
+        <div class="gcard lg:col-span-2 lg:row-span-2">
+          <img src="xense energy person holding phone of solar automation.jpg" alt="Person using Xense solar app" class="rounded-[1.25rem]">
+        </div>
+        <div class="gcard">
+          <img src="xense man holding a phone with solar automation.jpg" alt="Man with Xense solar automation" class="rounded-[1.25rem]">
+        </div>
+        <div class="gcard">
+          <img src="xense solar usage statictics.jpg" alt="Solar usage statistics" class="rounded-[1.25rem]">
+        </div>
+        <div class="gcard">
+          <img src="xense person holding phone with solarr analytics usage.jpg" alt="Xense analytics on phone" class="rounded-[1.25rem]">
+        </div>
+        <div class="gcard">
+          <img src="xense solar automation smartphone.jpg" alt="Xense solar automation on smartphone" class="rounded-[1.25rem]">
+        </div>
+        <div class="gcard hidden sm:block">
+          <img src="xense mobile solar usage tracking.jpg" alt="Mobile solar tracking" class="rounded-[1.25rem]">
+        </div>
+        <div class="gcard hidden lg:block">
+          <img src="xense solar usage tracking 1.jpg" alt="Solar usage tracking" class="rounded-[1.25rem]">
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         3-MODE VISUALIZER
+    ════════════════════════════════════════════════════ -->
     <section id="modes" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
       <div class="mb-10 text-center max-w-3xl mx-auto reveal-drastic-up">
         <span class="text-[10px] font-mono tracking-[0.25em] text-indigo-600 uppercase font-bold">SMART DECISION ENGINE</span>
@@ -544,7 +803,7 @@
         <p class="text-slate-600 text-sm mt-3 font-medium">Switch between operating postures seamlessly depending on your grid reliability and energy goals.</p>
       </div>
 
-      <!-- Mode Selector Tab Buttons -->
+      <!-- Mode Tabs -->
       <div class="flex justify-center mb-10">
         <div class="inline-flex p-1.5 bg-slate-100 border border-slate-200 rounded-2xl shadow-inner max-w-full overflow-x-auto">
           <button id="modeTab-xense" onclick="selectMode('xense')" class="active-mode-btn px-5 py-3 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
@@ -562,11 +821,9 @@
         </div>
       </div>
 
-      <!-- 2-Column Mode Visualizer Display -->
       <div class="glass-card p-6 sm:p-10 border-slate-200 bg-white shadow-2xl reveal-drastic-zoom">
         <div class="grid gap-10 lg:grid-cols-2 items-center">
-          
-          <!-- Left Column: Animated Energy Circuit Flow -->
+          <!-- Left: Circuit Visual -->
           <div class="rounded-2xl bg-slate-950 p-6 text-white border border-slate-800 shadow-inner relative overflow-hidden">
             <div class="flex justify-between items-center mb-6 pb-3 border-b border-slate-800">
               <span class="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-2">
@@ -574,56 +831,43 @@
               </span>
               <span id="visModeLabel" class="text-xs font-mono font-bold text-indigo-300">MODE: XENSE MODE</span>
             </div>
-
-            <!-- Flow Nodes Grid -->
             <div class="grid grid-cols-2 gap-6 py-4 relative">
-              <!-- Solar Node -->
               <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center flex flex-col items-center">
                 <i data-lucide="sun" class="w-7 h-7 text-amber-400 mb-2 pulse-node"></i>
                 <div class="text-xs font-bold text-slate-200">Solar Array</div>
                 <div id="flowSolarKw" class="text-sm font-mono font-extrabold text-amber-400 mt-1">4.20 kW</div>
               </div>
-
-              <!-- Xense Hub Node -->
               <div class="p-4 rounded-xl bg-indigo-950 border border-indigo-700 text-center flex flex-col items-center shadow-lg shadow-indigo-900/40">
                 <i data-lucide="cpu" class="w-7 h-7 text-indigo-400 mb-2 pulse-node"></i>
                 <div class="text-xs font-bold text-indigo-200">Xense Controller</div>
                 <div id="flowStatusText" class="text-[10px] font-mono text-emerald-400 font-bold mt-1">AUTO OPTIMIZING</div>
               </div>
-
-              <!-- Battery Node -->
               <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center flex flex-col items-center">
                 <i data-lucide="battery-charging" class="w-7 h-7 text-emerald-400 mb-2 pulse-node"></i>
                 <div class="text-xs font-bold text-slate-200">Battery Storage</div>
                 <div id="flowBatterySoc" class="text-sm font-mono font-extrabold text-emerald-400 mt-1">78% SOC</div>
               </div>
-
-              <!-- Home Loads Node -->
               <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center flex flex-col items-center">
                 <i data-lucide="home" class="w-7 h-7 text-sky-400 mb-2 pulse-node"></i>
                 <div class="text-xs font-bold text-slate-200">Home Loads</div>
                 <div id="flowLoadKw" class="text-sm font-mono font-extrabold text-sky-400 mt-1">2.40 kW</div>
               </div>
             </div>
-
             <div class="mt-6 pt-3 border-t border-slate-800 flex justify-between text-[9px] font-mono text-slate-400">
               <span>Transfer Latency: &lt;5ms</span>
               <span id="flowGridStatus" class="text-emerald-400">Grid Connected</span>
             </div>
           </div>
 
-          <!-- Right Column: Selected Mode Description & Specifications -->
+          <!-- Right: Mode Info -->
           <div class="space-y-6">
             <div id="visModeTitleBadge" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-xs font-extrabold text-indigo-700 uppercase tracking-wider">
               XENSE MODE (DEFAULT AUTONOMOUS)
             </div>
-
-            <h3 id="visModeHeader" class="text-3xl font-extrabold text-slate-900">Automatic Solar & Battery Protection</h3>
-
+            <h3 id="visModeHeader" class="text-3xl font-extrabold text-slate-900">Automatic Solar &amp; Battery Protection</h3>
             <p id="visModeDescription" class="text-sm text-slate-600 leading-relaxed font-medium">
-              Continuously monitors solar generation and battery SOC. When battery level drops to 35%, Xense automatically sheds heavy loads (Air Conditioners & Water Heaters) to extend backup duration by up to 3x.
+              Continuously monitors solar generation and battery SOC. When battery level drops to 35%, Xense automatically sheds heavy loads (Air Conditioners &amp; Water Heaters) to extend backup duration by up to 3x.
             </p>
-
             <div class="space-y-3 pt-2">
               <div class="flex items-center gap-3 text-xs font-bold text-slate-800">
                 <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -638,20 +882,20 @@
                 <span id="visFeature3">Seamless 0ms transfer delay during grid outages</span>
               </div>
             </div>
-
             <div class="pt-4 flex gap-3">
-              <button onclick="openModal('modal-installer')" class="button-primary text-xs">
+              <button onclick="openModal('modal-demo')" class="button-primary text-xs">
                 <span>Configure This Mode</span>
                 <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
               </button>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- INTERACTIVE SIMULATOR SECTION -->
+    <!-- ═══════════════════════════════════════════════════
+         BATTERY PROTECTION SIMULATOR
+    ════════════════════════════════════════════════════ -->
     <section id="simulator" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10 reveal-drastic-up">
       <div class="mb-10 max-w-2xl">
         <div class="mb-4 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[0.25em] text-indigo-600">
@@ -666,7 +910,6 @@
       <div id="simGlassBox" class="glass-card overflow-hidden p-6 sm:p-8 transition-all duration-300 border-slate-200 bg-white shadow-xl">
         <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 items-start">
           
-          <!-- Slider & Status -->
           <div>
             <div class="flex items-start justify-between">
               <div>
@@ -689,7 +932,6 @@
               </div>
             </div>
 
-            <!-- Dynamic System Status Box -->
             <div id="protectionStatusBox" class="mt-8 rounded-2xl border p-5 transition-all duration-300 border-emerald-200 bg-emerald-50">
               <div class="flex items-center gap-4">
                 <span id="protectionIconBox" class="p-3 rounded-xl bg-emerald-100 text-emerald-700 border-emerald-200">
@@ -697,12 +939,11 @@
                 </span>
                 <div>
                   <div id="protectionStatusTitle" class="text-xs font-extrabold text-emerald-800 tracking-wider">FULL POWER MODE: ALL APPLIANCES ACTIVE</div>
-                  <div id="protectionStatusCopy" class="mt-1 text-[11px] leading-relaxed text-slate-600">Battery level is healthy. Air Conditioner, Deep Freezer, Fans & Wi-Fi are all running safely.</div>
+                  <div id="protectionStatusCopy" class="mt-1 text-[11px] leading-relaxed text-slate-600">Battery level is healthy. Air Conditioner, Deep Freezer, Fans &amp; Wi-Fi are all running safely.</div>
                 </div>
               </div>
             </div>
 
-            <!-- Dynamic Power Meter -->
             <div class="mt-6 grid grid-cols-2 gap-3 text-center">
               <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <div class="text-[9px] font-mono uppercase text-slate-500 font-bold">Current Active Load</div>
@@ -724,90 +965,70 @@
 
             <div id="rowAc" class="flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
               <div class="flex items-center gap-3.5">
-                <span id="iconAc" class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="wind" class="w-4.5 h-4.5"></i></span>
+                <span id="iconAc" class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="wind" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
-                    Air Conditioner (1.5 HP)
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-200">HIGH POWER</span>
-                  </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Living Room & Bedrooms</div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">Air Conditioner (1.5 HP)<span class="text-[9px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-200">HIGH POWER</span></div>
+                  <div class="mt-1 text-[10px] text-slate-500">Living Room &amp; Bedrooms</div>
                 </div>
               </div>
               <div class="text-right">
-                <div id="badgeAc" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
-                  <span id="dotAc" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING
-                </div>
+                <div id="badgeAc" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300"><span id="dotAc" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING</div>
               </div>
             </div>
 
             <div id="rowFreezer" class="flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
               <div class="flex items-center gap-3.5">
-                <span id="iconFreezer" class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="snowflake" class="w-4.5 h-4.5"></i></span>
+                <span id="iconFreezer" class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="snowflake" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
-                    Deep Freezer & Fridge
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">MEDIUM POWER</span>
-                  </div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">Deep Freezer &amp; Fridge<span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">MEDIUM POWER</span></div>
                   <div class="mt-1 text-[10px] text-slate-500">Kitchen Food Preservation</div>
                 </div>
               </div>
               <div class="text-right">
-                <div id="badgeFreezer" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
-                  <span id="dotFreezer" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING
-                </div>
+                <div id="badgeFreezer" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300"><span id="dotFreezer" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING</div>
               </div>
             </div>
 
             <div id="rowFans" class="flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
               <div class="flex items-center gap-3.5">
-                <span id="iconFans" class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="fan" class="w-4.5 h-4.5"></i></span>
+                <span id="iconFans" class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="fan" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
-                    Standing Fans & LED Lights
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">LIGHT POWER</span>
-                  </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Ventilation & Home Lighting</div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">Standing Fans &amp; LED Lights<span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">LIGHT POWER</span></div>
+                  <div class="mt-1 text-[10px] text-slate-500">Ventilation &amp; Home Lighting</div>
                 </div>
               </div>
               <div class="text-right">
-                <div id="badgeFans" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
-                  <span id="dotFans" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING
-                </div>
+                <div id="badgeFans" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300"><span id="dotFans" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING</div>
               </div>
             </div>
 
             <div id="rowWifi" class="flex items-center justify-between rounded-2xl border p-4 border-sky-200 bg-sky-50">
               <div class="flex items-center gap-3.5">
-                <span class="p-2.5 rounded-xl bg-sky-100 text-sky-700"><i data-lucide="wifi" class="w-4.5 h-4.5"></i></span>
+                <span class="p-2.5 rounded-xl bg-sky-100 text-sky-700"><i data-lucide="wifi" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
-                    Wi-Fi Router & Security CCTV
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">ALWAYS PROTECTED</span>
-                  </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Internet & Home Security</div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">Wi-Fi Router &amp; Security CCTV<span class="text-[9px] font-mono px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">ALWAYS PROTECTED</span></div>
+                  <div class="mt-1 text-[10px] text-slate-500">Internet &amp; Home Security</div>
                 </div>
               </div>
               <div class="text-right">
-                <div class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-sky-100 text-sky-800 border border-sky-300">
-                  <span class="h-1.5 w-1.5 rounded-full bg-sky-600 shadow-[0_0_8px_#0284c7]"></span> ALWAYS ON
-                </div>
+                <div class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-sky-100 text-sky-800 border border-sky-300"><span class="h-1.5 w-1.5 rounded-full bg-sky-600 shadow-[0_0_8px_#0284c7]"></span> ALWAYS ON</div>
               </div>
             </div>
-
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- "TRADITIONAL PANEL VS XENSE SYSTEM" COMPARISON TABLE (SPAN Style) -->
+    <!-- ═══════════════════════════════════════════════════
+         COMPARISON TABLE
+    ════════════════════════════════════════════════════ -->
     <section id="comparison" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
       <div class="mb-10 max-w-2xl reveal-drastic-up">
         <span class="font-mono text-indigo-600 text-xs font-extrabold uppercase tracking-widest">SYSTEM COMPARISON</span>
         <h2 class="section-title mt-2">Traditional electrical panel vs. <span class="text-gradient">Xense Smart System.</span></h2>
         <p class="section-copy">See how Xense eliminates utility upgrade costs, deep battery drain traps, and midnight blackouts.</p>
       </div>
-
       <div class="glass-card overflow-hidden reveal-drastic-flip border-slate-200 bg-white shadow-2xl">
         <div class="overflow-x-auto">
           <table class="comparison-table">
@@ -822,7 +1043,7 @@
             <tbody>
               <tr>
                 <td>Utility Grid Upgrade Costs</td>
-                <td><span class="text-rose-600 font-bold">$3,000 - $20,000</span></td>
+                <td><span class="text-rose-600 font-bold">$3,000 – $20,000</span></td>
                 <td>N/A</td>
                 <td class="xense-col"><span class="text-emerald-600 font-bold">$0 (PowerUp Smart Switch)</span></td>
               </tr>
@@ -856,24 +1077,24 @@
       </div>
     </section>
 
-    <!-- FAQ SECTION -->
+    <!-- ═══════════════════════════════════════════════════
+         FAQ
+    ════════════════════════════════════════════════════ -->
     <section id="faq" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
       <div class="mb-10 max-w-2xl reveal-drastic-up">
         <span class="font-mono text-indigo-600 text-xs font-extrabold uppercase tracking-widest">FREQUENTLY ASKED QUESTIONS</span>
         <h2 class="section-title mt-2">Clear answers for <span class="text-gradient">confident power control.</span></h2>
       </div>
-
       <div class="grid gap-4 lg:grid-cols-2">
         <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-left">
           <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left" onclick="toggleFaq(this)">
             <span class="text-sm font-extrabold text-slate-900">Does Xense work without internet connection?</span>
             <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-indigo-600 transition-transform"></i>
           </button>
-          <div class="faq-body p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
+          <div class="faq-body hidden p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
             Yes. Xense forms a local wireless network between the RS232 dongle stick, relay hardware, and your phone app. Decision logic and shedding commands continue working locally even when your internet connection is down.
           </div>
         </div>
-
         <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-right delay-100">
           <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left" onclick="toggleFaq(this)">
             <span class="text-sm font-extrabold text-slate-900">What happens in Auto Grid Mode when utility power returns?</span>
@@ -883,22 +1104,48 @@
             Auto Grid Mode senses grid power returning and automatically bypasses shedding logic so all heavy appliances run directly from grid power without draining your solar batteries.
           </div>
         </div>
+        <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-left delay-100">
+          <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left" onclick="toggleFaq(this)">
+            <span class="text-sm font-extrabold text-slate-900">How long does the installation take?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-indigo-600 transition-transform"></i>
+          </button>
+          <div class="faq-body hidden p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
+            The wireless RS232 dongle plugs directly into your inverter's RS232/RJ45 port in under 60 seconds. No rewiring, no complex electrician setup required. Our team handles complete onboarding.
+          </div>
+        </div>
+        <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-right delay-200">
+          <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left" onclick="toggleFaq(this)">
+            <span class="text-sm font-extrabold text-slate-900">Which inverter brands does Xense support?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-indigo-600 transition-transform"></i>
+          </button>
+          <div class="faq-body hidden p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
+            Xense is compatible with most hybrid solar inverters that feature an RS232 or RJ45 communication port — including Luminous, Felicity, Mecer, Axpert, Growatt, and more.
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CALL TO ACTION CONVERSION BANNER -->
+    <!-- ═══════════════════════════════════════════════════
+         CTA CONVERSION BANNER
+    ════════════════════════════════════════════════════ -->
     <section class="mx-auto max-w-[1320px] px-4 pb-20 pt-10 sm:px-6 lg:px-10 reveal-drastic-zoom">
       <div class="relative overflow-hidden rounded-[2.5rem] border border-indigo-200 bg-gradient-to-br from-indigo-50 via-white to-sky-50 p-8 sm:p-14 text-center shadow-2xl">
-        <h2 class="text-3xl font-extrabold text-slate-900 sm:text-5xl tracking-tight">Harness your power with <span class="text-indigo-600">Xense Energy.</span></h2>
-        <p class="mt-4 max-w-xl mx-auto text-slate-600 text-sm font-medium">Find an authorized installer near you or request a customized system quote today.</p>
-        <div class="mt-8 flex flex-wrap justify-center gap-4">
-          <button onclick="openModal('modal-installer')" class="button-emerald px-8 py-4 text-sm font-extrabold">
-            <span>Find an Installer</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </button>
-          <button onclick="openModal('modal-quote')" class="button-secondary px-8 py-4 text-sm font-extrabold">
-            <span>Get Custom Quote</span>
-          </button>
+        <div class="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-indigo-200/40 blur-3xl"></div>
+        <div class="relative">
+          <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-indigo-700 uppercase shadow-sm">
+            <span class="live-dot animate-ping"></span> JOIN 500+ PROTECTED HOMES
+          </div>
+          <h2 class="text-3xl font-extrabold text-slate-900 sm:text-5xl tracking-tight">Harness your power with <span class="text-indigo-600">Xense Energy.</span></h2>
+          <p class="mt-4 max-w-xl mx-auto text-slate-600 text-sm font-medium">Experience intelligent solar automation, real-time energy monitoring, and zero-downtime power management.</p>
+          <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <button onclick="openModal('modal-demo')" class="button-primary px-8 py-4 text-sm font-extrabold">
+              <span>Request Demo &amp; Presentation</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+            <button onclick="openModal('modal-signup')" class="button-secondary px-8 py-4 text-sm font-extrabold">
+              <span>Create Free Account</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -909,80 +1156,33 @@
   <footer class="relative z-10 border-t border-slate-200 bg-slate-50 px-4 py-10 sm:px-6 lg:px-10">
     <div class="mx-auto flex max-w-[1320px] flex-col justify-between gap-6 text-[10px] font-mono uppercase tracking-[0.14em] text-slate-600 sm:flex-row sm:items-center">
       <div class="flex items-center gap-3">
-        <img src="logo.jpeg" alt="Xense Energy Logo" class="h-7 w-7 rounded-md object-contain bg-white p-0.5 border border-slate-200 shadow-sm">
+        <img src="logo.png" alt="Xense Energy Logo" class="h-7 w-7 rounded-md object-contain bg-white p-0.5 border border-slate-200 shadow-sm">
         <span class="font-extrabold text-slate-800">© 2026 Xense Energy Systems • All Rights Reserved</span>
       </div>
       <div class="flex gap-6 font-bold">
-        <button onclick="openModal('modal-installer')" class="hover:text-emerald-600">Installers</button>
-        <button onclick="openModal('modal-quote')" class="hover:text-indigo-600">Get Quote</button>
         <button onclick="openModal('modal-login')" class="hover:text-indigo-600">Sign In</button>
+        <button onclick="openModal('modal-signup')" class="hover:text-indigo-600">Sign Up</button>
+        <button onclick="openModal('modal-demo')" class="hover:text-emerald-600">Request Demo</button>
       </div>
     </div>
   </footer>
 
-  <!-- EMBEDDED MODAL: FIND AN INSTALLER -->
-  <div id="modal-installer" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
-    <div class="glass-card w-full max-w-md p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
-      <button onclick="closeModal('modal-installer')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-      <div class="text-center mb-6">
-        <img src="logo.jpeg" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md">
-        <h2 class="text-2xl font-extrabold text-slate-900">Find an Authorized Installer</h2>
-        <p class="text-xs text-slate-500 mt-1 font-medium">Connect with certified Xense solar installation partners</p>
-      </div>
-      <form onsubmit="event.preventDefault(); alert('Installer Search Submitted! An agent will contact you shortly.'); closeModal('modal-installer');" class="space-y-4">
-        <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Your Location / City</label>
-          <input type="text" required placeholder="Enter City or Zip Code" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white" />
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
-          <input type="tel" required placeholder="+234 800 000 0000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white" />
-        </div>
-        <button type="submit" class="button-emerald w-full justify-center py-3 text-sm mt-2 font-extrabold">Locate Certified Installers</button>
-      </form>
-    </div>
-  </div>
+  <!-- ═══════════════════════════════════════════════════
+       MODALS
+  ════════════════════════════════════════════════════ -->
 
-  <!-- EMBEDDED MODAL: GET QUOTE -->
-  <div id="modal-quote" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
-    <div class="glass-card w-full max-w-lg p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
-      <button onclick="closeModal('modal-quote')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-      <div class="text-center mb-6">
-        <img src="logo.jpeg" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md">
-        <h2 class="text-2xl font-extrabold text-slate-900">Request Custom System Quote</h2>
-        <p class="text-xs text-slate-500 mt-1 font-medium">Get a tailored estimate for your home or commercial building</p>
-      </div>
-      <form onsubmit="event.preventDefault(); alert('Quote Request Submitted!'); closeModal('modal-quote');" class="space-y-4">
-        <div class="grid grid-cols-2 gap-3">
-          <input type="text" required placeholder="Full Name" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
-          <input type="email" required placeholder="Email Address" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
-        </div>
-        <select class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white">
-          <option>Residential Solar System (5kVA - 10kVA)</option>
-          <option>Commercial Facility (15kVA - 50kVA)</option>
-          <option>Mini-Grid Installation</option>
-        </select>
-        <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">Generate Custom Quote</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- EMBEDDED MODAL: SIGN IN -->
+  <!-- SIGN IN MODAL -->
   <div id="modal-login" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
     <div class="glass-card w-full max-w-md p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
       <button onclick="closeModal('modal-login')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div class="text-center mb-6">
-        <img src="logo.jpeg" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md">
+        <img src="logo.png" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md">
         <h2 class="text-2xl font-extrabold text-slate-900">Sign in to Xense</h2>
         <p class="text-xs text-slate-500 mt-1 font-medium">Manage your telemetry and autonomous load controls</p>
       </div>
-      <form onsubmit="event.preventDefault(); alert('Sign In Successful!'); closeModal('modal-login');" class="space-y-4">
+      <form onsubmit="event.preventDefault(); alert('Sign In Successful! Redirecting to dashboard...'); closeModal('modal-login');" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Email</label>
           <input type="email" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
@@ -992,52 +1192,163 @@
           <input type="password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
         </div>
         <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">Sign In to Dashboard</button>
+        <p class="text-center text-xs text-slate-500">Don't have an account? <button type="button" onclick="closeModal('modal-login');openModal('modal-signup')" class="text-indigo-600 font-bold hover:underline">Sign Up Free</button></p>
       </form>
     </div>
   </div>
 
-  <!-- SCRIPT ENGINE -->
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
+    <div class="glass-card w-full max-w-md p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
+      <button onclick="closeModal('modal-signup')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div class="text-center mb-6">
+        <img src="logo.png" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md">
+        <h2 class="text-2xl font-extrabold text-slate-900">Create your Xense account</h2>
+        <p class="text-xs text-slate-500 mt-1 font-medium">Start monitoring and protecting your solar investment</p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Account Created Successfully! Check your email to verify.'); closeModal('modal-signup');" class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">First Name</label>
+            <input type="text" required placeholder="John" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Last Name</label>
+            <input type="text" required placeholder="Doe" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Email</label>
+          <input type="email" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
+          <input type="password" required placeholder="Min 8 characters" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+        </div>
+        <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">Create Free Account</button>
+        <p class="text-center text-xs text-slate-500">Already have an account? <button type="button" onclick="closeModal('modal-signup');openModal('modal-login')" class="text-indigo-600 font-bold hover:underline">Sign In</button></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- REQUEST DEMO MODAL -->
+  <div id="modal-demo" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
+    <div class="glass-card w-full max-w-lg p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
+      <button onclick="closeModal('modal-demo')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div class="text-center mb-6">
+        <img src="logo.png" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md">
+        <h2 class="text-2xl font-extrabold text-slate-900">Request a Live Demo</h2>
+        <p class="text-xs text-slate-500 mt-1 font-medium">Our engineering team will contact you for a live consultation</p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Demo Request Received! Our team will reach out within 24 hours.'); closeModal('modal-demo');" class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <input type="text" required placeholder="Full Name" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          <input type="email" required placeholder="Email Address" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+        </div>
+        <input type="tel" required placeholder="Phone Number (e.g. +234 800 000 0000)" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+        <select class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white">
+          <option>Residential Solar System (5kVA – 10kVA)</option>
+          <option>Commercial Facility (15kVA – 50kVA)</option>
+          <option>Mini-Grid Installation</option>
+          <option>Not sure – need consultation</option>
+        </select>
+        <textarea rows="2" placeholder="Tell us about your current inverter setup or requirements..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white resize-none"></textarea>
+        <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">
+          <span>Submit Demo Request</span>
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       JAVASCRIPT ENGINE
+  ════════════════════════════════════════════════════ -->
   <script>
     lucide.createIcons();
 
-    // Modal Controls
+    // ── Modal Controls ──────────────────────────────────
     function openModal(id) {
-      document.getElementById(id).classList.remove('hidden');
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
     }
-
     function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden');
     }
 
-    // FAQ Accordion Toggle
+    // ── FAQ Accordion ───────────────────────────────────
     function toggleFaq(btn) {
       const body = btn.nextElementSibling;
       const icon = btn.querySelector('.faq-icon');
-      body.classList.toggle('hidden');
+      if (body) body.classList.toggle('hidden');
       if (icon) icon.classList.toggle('rotate-180');
     }
 
-    // Mobile Menu Toggle
+    // ── Mobile Menu ─────────────────────────────────────
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    }
+
+    document.querySelectorAll('.mobile-nav-item').forEach(link => {
+      link.addEventListener('click', () => { 
+        if (mobileMenu) mobileMenu.classList.add('hidden'); 
+      });
+    });
+
+    // ── Hero Carousel ───────────────────────────────────
+    let currentSlide = 0;
+    const totalSlides = 5;
+    let carouselTimer = null;
+
+    function updateCarousel() {
+      const slides = document.getElementById('heroSlides');
+      const dots = document.querySelectorAll('.carousel-dot');
+      if (slides) slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
       });
     }
 
-    // Interactive 3-Mode Visualizer Data Logic
+    function carouselNext() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+      resetCarouselTimer();
+    }
+
+    function carouselPrev() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+      resetCarouselTimer();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+      resetCarouselTimer();
+    }
+
+    function resetCarouselTimer() {
+      if (carouselTimer) clearInterval(carouselTimer);
+      carouselTimer = setInterval(carouselNext, 4800);
+    }
+
+    resetCarouselTimer();
+
+    // ── 3-Mode Visualizer Logic (Xense Mode, Bypass Mode, Auto Grid Mode) ──
     const modesData = {
       xense: {
         label: "MODE: XENSE MODE",
         titleBadge: "XENSE MODE (DEFAULT AUTONOMOUS)",
         header: "Automatic Solar & Battery Protection",
         desc: "Continuously monitors solar generation and battery SOC. When battery level drops to 35%, Xense automatically sheds heavy loads (Air Conditioners & Water Heaters) to extend backup duration by up to 3x.",
-        solarKw: "4.20 kW",
-        statusText: "AUTO OPTIMIZING",
-        batterySoc: "78% SOC",
-        loadKw: "2.40 kW",
-        gridStatus: "Grid Connected",
+        solarKw: "4.20 kW", statusText: "AUTO OPTIMIZING", batterySoc: "78% SOC", loadKw: "2.40 kW", gridStatus: "Grid Connected",
         f1: "Automatic load shedding at 35% battery floor threshold",
         f2: "100% offline functionality—works even when Wi-Fi drops",
         f3: "Seamless 0ms transfer delay during grid outages"
@@ -1047,11 +1358,7 @@
         titleBadge: "BYPASS MODE (MANUAL OVERRIDE)",
         header: "Standard Continuous Power Output",
         desc: "Disables load shedding decision logic entirely. Power passes through continuously to all connected wall plugs, treating Xense as a standard pass-through outlet for raw power feed.",
-        solarKw: "3.50 kW",
-        statusText: "MANUAL BYPASS ON",
-        batterySoc: "95% SOC",
-        loadKw: "4.80 kW",
-        gridStatus: "Direct Feed",
+        solarKw: "3.50 kW", statusText: "MANUAL BYPASS ON", batterySoc: "95% SOC", loadKw: "4.80 kW", gridStatus: "Direct Feed",
         f1: "Disables automatic load shedding logic completely",
         f2: "Passes maximum power continuously to heavy appliances",
         f3: "Ideal for temporary maintenance or raw utility testing"
@@ -1061,11 +1368,7 @@
         titleBadge: "AUTO GRID MODE (UTILITY FALLBACK)",
         header: "Automated Utility Grid Transfer",
         desc: "Detects when main grid power returns, automatically bypassing battery shedding logic so all home loads run directly from utility power while recharging batteries.",
-        solarKw: "0.00 kW",
-        statusText: "GRID RECHARGING",
-        batterySoc: "62% RECHARGING",
-        loadKw: "3.10 kW",
-        gridStatus: "NEPA / Utility Active",
+        solarKw: "0.00 kW", statusText: "GRID RECHARGING", batterySoc: "62% RECHARGING", loadKw: "3.10 kW", gridStatus: "NEPA / Utility Active",
         f1: "Automatic detection of returning utility grid power",
         f2: "Bypasses battery reserve shedding during grid availability",
         f3: "Simultaneous battery recharging & load pass-through"
@@ -1075,8 +1378,6 @@
     function selectMode(key) {
       const data = modesData[key];
       if (!data) return;
-
-      // Update Active Tab Styles
       ['xense', 'bypass', 'grid'].forEach(m => {
         const btn = document.getElementById('modeTab-' + m);
         if (btn) {
@@ -1087,8 +1388,6 @@
           }
         }
       });
-
-      // Update Visualizer Text
       document.getElementById('visModeLabel').textContent = data.label;
       document.getElementById('visModeTitleBadge').textContent = data.titleBadge;
       document.getElementById('visModeHeader').textContent = data.header;
@@ -1103,7 +1402,7 @@
       document.getElementById('visFeature3').textContent = data.f3;
     }
 
-    // Dynamic Simulator Logic
+    // ── Battery Simulator ───────────────────────────────
     function updateSimulator(soc) {
       const mainSocSlider = document.getElementById('mainSocSlider');
       const socBigText = document.getElementById('socBigText');
@@ -1120,52 +1419,25 @@
       const freezerOn = soc > 35;
       const fansOn = soc > 20;
 
-      // Update AC
-      const rowAc = document.getElementById('rowAc');
-      const badgeAc = document.getElementById('badgeAc');
-      if (rowAc && badgeAc) {
-        if (acOn) {
-          rowAc.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50";
-          badgeAc.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
-          badgeAc.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING';
+      function setRow(rowId, badgeId, isOn) {
+        const row = document.getElementById(rowId);
+        const badge = document.getElementById(badgeId);
+        if (!row || !badge) return;
+        if (isOn) {
+          row.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50";
+          badge.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
+          badge.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING';
         } else {
-          rowAc.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-rose-300 bg-rose-50";
-          badgeAc.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
-          badgeAc.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-600 shadow-[0_0_8px_#e11d48]"></span> SHED / OFF';
+          row.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-rose-300 bg-rose-50";
+          badge.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
+          badge.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-600 shadow-[0_0_8px_#e11d48]"></span> SHED / OFF';
         }
       }
 
-      // Update Freezer
-      const rowFreezer = document.getElementById('rowFreezer');
-      const badgeFreezer = document.getElementById('badgeFreezer');
-      if (rowFreezer && badgeFreezer) {
-        if (freezerOn) {
-          rowFreezer.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50";
-          badgeFreezer.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
-          badgeFreezer.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING';
-        } else {
-          rowFreezer.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-rose-300 bg-rose-50";
-          badgeFreezer.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
-          badgeFreezer.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-600 shadow-[0_0_8px_#e11d48]"></span> SHED / OFF';
-        }
-      }
+      setRow('rowAc', 'badgeAc', acOn);
+      setRow('rowFreezer', 'badgeFreezer', freezerOn);
+      setRow('rowFans', 'badgeFans', fansOn);
 
-      // Update Fans
-      const rowFans = document.getElementById('rowFans');
-      const badgeFans = document.getElementById('badgeFans');
-      if (rowFans && badgeFans) {
-        if (fansOn) {
-          rowFans.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50";
-          badgeFans.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
-          badgeFans.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING';
-        } else {
-          rowFans.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-rose-300 bg-rose-50";
-          badgeFans.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
-          badgeFans.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-600 shadow-[0_0_8px_#e11d48]"></span> SHED / OFF';
-        }
-      }
-
-      // Power calculation
       let totalKw = 0.10;
       if (acOn) totalKw += 2.20;
       if (freezerOn) totalKw += 1.50;
@@ -1197,19 +1469,23 @@
 
     const mainSocSlider = document.getElementById('mainSocSlider');
     if (mainSocSlider) {
-      mainSocSlider.addEventListener('input', (e) => {
-        updateSimulator(parseInt(e.target.value, 10));
-      });
+      mainSocSlider.addEventListener('input', (e) => { updateSimulator(parseInt(e.target.value, 10)); });
       updateSimulator(parseInt(mainSocSlider.value, 10));
     }
 
-    // Scroll Observer
+    // ── SVG Chart Animation ─────────────────────────────
+    function animateCharts() {
+      document.querySelectorAll('.chart-line').forEach(el => el.classList.add('animating'));
+      document.querySelectorAll('.chart-bar').forEach(el => el.classList.add('animating'));
+    }
+
+    // ── Scroll Observer ─────────────────────────────────
     document.addEventListener("DOMContentLoaded", function() {
       const revealElements = document.querySelectorAll(
         ".reveal-fly-left, .reveal-fly-right, .reveal-fly-up, .reveal-scale, " +
         ".reveal-drastic-left, .reveal-drastic-right, .reveal-drastic-up, .reveal-drastic-zoom, .reveal-drastic-flip"
       );
-      
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1218,22 +1494,27 @@
             entry.target.classList.remove("active");
           }
         });
-      }, { 
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px"
-      });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
       revealElements.forEach(el => observer.observe(el));
+
+      const chartObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { animateCharts(); chartObserver.disconnect(); }
+        });
+      }, { threshold: 0.3 });
+
+      const chartCard = document.getElementById('chartCard1');
+      if (chartCard) chartObserver.observe(chartCard);
     });
 
-    // Particle Canvas Engine
+    // ── Particle Canvas ─────────────────────────────────
     const canvas = document.getElementById('particle-canvas');
     if (canvas) {
       const ctx = canvas.getContext('2d');
       let width, height;
       const dots = Array.from({ length: 70 }, (_, index) => ({
-        x: Math.random(),
-        y: Math.random(),
+        x: Math.random(), y: Math.random(),
         speed: 0.00008 + Math.random() * 0.00016,
         drift: (Math.random() - 0.5) * 0.00018,
         radius: 0.7 + (index % 3) * 0.35,
@@ -1255,7 +1536,6 @@
           if (dot.x < -0.02) dot.x = 1.02;
           if (dot.x > 1.02) dot.x = -0.02;
         });
-
         for (let i = 0; i < dots.length; i++) {
           for (let j = i + 1; j < dots.length; j++) {
             const a = dots[i], b = dots[j];
