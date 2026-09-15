@@ -431,15 +431,15 @@
           <div class="mt-12 grid max-w-xl grid-cols-3 divide-x divide-slate-200 border-t border-slate-200 pt-6">
             <div class="pr-4">
               <div class="font-mono text-xl font-extrabold text-indigo-600">100%</div>
-              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-bold">Autonomous shedding</div>
+              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-bold">Automatic protection</div>
             </div>
             <div class="px-4">
-              <div class="font-mono text-xl font-extrabold text-cyan-600">&lt; 50ms</div>
-              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-bold">Relay trigger latency</div>
+              <div class="font-mono text-xl font-extrabold text-cyan-600">3x</div>
+              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-bold">Longer battery backup</div>
             </div>
             <div class="pl-4">
-              <div class="font-mono text-xl font-extrabold text-amber-600">22</div>
-              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-bold">Telemetry parameters</div>
+              <div class="font-mono text-xl font-extrabold text-amber-600">0</div>
+              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-500 font-bold">Midnight blackouts</div>
             </div>
           </div>
         </div>
@@ -449,27 +449,27 @@
           
           <div class="flex items-center justify-between border-b border-slate-200 pb-4">
             <div class="flex items-center gap-3">
-              <span class="icon-box cyan bg-sky-50 border-sky-200 text-sky-600 animate-pulse"><i data-lucide="cpu" class="w-4 h-4"></i></span>
+              <span class="icon-box cyan bg-sky-50 border-sky-200 text-sky-600 animate-pulse"><i data-lucide="shield-check" class="w-4 h-4"></i></span>
               <div>
-                <div class="text-xs font-bold text-slate-900 tracking-tight">ESP32 Telemetry Node</div>
-                <div class="mt-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-slate-500 font-semibold">XS-DONGLE / LOCAL MESH</div>
+                <div class="text-xs font-bold text-slate-900 tracking-tight">Live Home Energy Monitor</div>
+                <div class="mt-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-slate-500 font-semibold">AUTOMATIC PROTECTION ACTIVE</div>
               </div>
             </div>
             <span class="flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-[9px] font-mono font-bold text-sky-700 shadow-sm">
-              <span class="live-dot animate-ping"></span> LIVE
+              <span class="live-dot animate-ping"></span> PROTECTED
             </span>
           </div>
 
           <div class="grid grid-cols-[1fr_auto] items-center gap-4 py-6">
             <div>
               <div class="mb-1.5 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">
-                <i data-lucide="sun" class="w-3.5 h-3.5 text-amber-500"></i> PV Solar Output
+                <i data-lucide="sun" class="w-3.5 h-3.5 text-amber-500"></i> Solar Generation
               </div>
               <div class="font-mono text-4xl sm:text-5xl font-extrabold tracking-[-0.06em] text-slate-900">
                 1,840<span class="ml-1 text-xl font-bold text-amber-600">W</span>
               </div>
               <div class="mt-2.5 flex items-center gap-2 text-[10px] text-emerald-600 font-bold">
-                <span class="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></span> ABOVE BASELINE <span class="text-slate-500 font-mono">+12.4%</span>
+                <span class="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></span> SOLAR POWERING HOME <span class="text-slate-500 font-mono">OPTIMAL</span>
               </div>
             </div>
 
@@ -478,7 +478,7 @@
               <div class="flex h-[86px] w-[86px] flex-col items-center justify-center rounded-full bg-white border border-slate-200">
                 <i data-lucide="battery-charging" id="gaugeBatteryIcon" class="w-4 h-4 mb-0.5 text-sky-600"></i>
                 <span id="gaugeSocText" class="font-mono text-xl font-extrabold text-slate-900">78%</span>
-                <span class="text-[8px] uppercase tracking-widest text-slate-500 font-mono font-bold">SOC</span>
+                <span class="text-[8px] uppercase tracking-widest text-slate-500 font-mono font-bold">BATTERY</span>
               </div>
             </div>
           </div>
@@ -486,27 +486,27 @@
           <div class="grid grid-cols-2 gap-3 pt-1">
             <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 hover:border-sky-400 transition-colors">
               <div class="flex items-center gap-2 text-[9px] uppercase tracking-[0.15em] text-slate-500 font-bold">
-                <i data-lucide="circuit-board" class="w-3 h-3 text-sky-600"></i> Relay Circuit
+                <i data-lucide="shield-check" class="w-3 h-3 text-sky-600"></i> Protection Status
               </div>
               <div class="mt-2 flex items-center gap-2 text-xs font-bold text-sky-700">
-                <span class="h-2 w-2 rounded-full bg-sky-600 shadow-[0_0_8px_#0284c7]"></span> CLOSED / ON
+                <span class="h-2 w-2 rounded-full bg-sky-600 shadow-[0_0_8px_#0284c7]"></span> ALL APPLIANCES SAFE
               </div>
             </div>
 
             <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 hover:border-indigo-400 transition-colors">
               <div class="flex items-center gap-2 text-[9px] uppercase tracking-[0.15em] text-slate-500 font-bold">
-                <i data-lucide="wifi" class="w-3.5 h-3.5 text-indigo-600"></i> Network
+                <i data-lucide="power" class="w-3.5 h-3.5 text-indigo-600"></i> Mode
               </div>
-              <div class="mt-2 text-xs font-bold text-white flex items-center gap-1.5">
-                <span>LOCAL MESH</span>
-                <span class="text-cyan-300 animate-pulse">●</span>
+              <div class="mt-2 text-xs font-bold text-indigo-700 flex items-center gap-1.5">
+                <span>AUTOMATIC</span>
+                <span class="text-indigo-600 animate-pulse">●</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[9px] font-mono uppercase tracking-[0.16em] text-slate-400">
-            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Updated 2s ago</span>
-            <span>Firmware 2.4.1</span>
+          <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-[9px] font-mono uppercase tracking-[0.16em] text-slate-500">
+            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live Monitoring</span>
+            <span>System Operational</span>
           </div>
         </div>
 
@@ -519,10 +519,10 @@
         <div class="mb-5 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-600">
           <span class="font-mono text-sky-600">01</span>
           <span class="h-px w-8 bg-indigo-300"></span>
-          <span>LIVE SYSTEM SIMULATOR</span>
+          <span>INTERACTIVE HOME TEST SIMULATOR</span>
         </div>
-        <h2 class="section-title">Test real-time load shedding <span class="text-gradient">in your home.</span></h2>
-        <p class="section-copy">Drag the battery SOC slider below to watch Xense automatically protect your Air Conditioner, Deep Freezer, Fans, and Wi-Fi system in real time.</p>
+        <h2 class="section-title">See how Xense protects your home <span class="text-gradient">in real time.</span></h2>
+        <p class="section-copy">Drag the battery slider below to watch Xense automatically manage your Air Conditioner, Deep Freezer, Fans, and Wi-Fi system as battery levels change.</p>
       </div>
 
       <div id="simGlassBox" class="glass-card overflow-hidden p-5 transition-all duration-300 sm:p-8 reveal-drastic-zoom delay-100 border-slate-200 bg-white shadow-xl">
@@ -532,8 +532,8 @@
           <div>
             <div class="flex items-start justify-between">
               <div>
-                <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Battery State of Charge (SOC)</div>
-                <div class="mt-1 text-[10px] uppercase tracking-[0.16em] text-slate-500 font-semibold">Drag slider to test emergency response</div>
+                <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Simulated Battery Level</div>
+                <div class="mt-1 text-[10px] uppercase tracking-[0.16em] text-slate-500 font-semibold">Drag slider to test emergency automatic response</div>
               </div>
               <div class="text-right">
                 <span id="socBigText" class="font-mono text-5xl font-extrabold tracking-[-0.08em] text-indigo-600">78</span>
@@ -544,9 +544,9 @@
             <div class="mt-8">
               <input type="range" id="mainSocSlider" min="0" max="100" value="78" class="soc-slider" style="--progress: 78%;">
               <div class="mt-3 flex justify-between font-mono text-[9px] text-slate-500 font-bold">
-                <span class="text-rose-600">0% / BLACKOUT</span>
-                <span class="text-amber-600">35% / SHED LEVEL 2</span>
-                <span class="text-indigo-600">50% / SHED LEVEL 1</span>
+                <span class="text-rose-600">0% / CRITICAL</span>
+                <span class="text-amber-600">35% / FREEZER SHED</span>
+                <span class="text-indigo-600">50% / AC SHED</span>
                 <span class="text-emerald-600">100% / FULL</span>
               </div>
             </div>
@@ -558,8 +558,8 @@
                   <i data-lucide="shield-check" id="protectionIcon" class="w-5 h-5"></i>
                 </span>
                 <div>
-                  <div id="protectionStatusTitle" class="text-xs font-bold text-emerald-800 tracking-wider">MODE A: OPTIMAL SOLAR POWER</div>
-                  <div id="protectionStatusCopy" class="mt-1 text-[11px] leading-relaxed text-slate-600">All home appliances (AC, Freezer, Fans & WiFi) are running safely on battery & solar output.</div>
+                  <div id="protectionStatusTitle" class="text-xs font-bold text-emerald-800 tracking-wider">FULL POWER MODE: ALL APPLIANCES ACTIVE</div>
+                  <div id="protectionStatusCopy" class="mt-1 text-[11px] leading-relaxed text-slate-600">Battery level is healthy. Air Conditioner, Deep Freezer, Fans & Wi-Fi are all running safely.</div>
                 </div>
               </div>
             </div>
@@ -567,12 +567,12 @@
             <!-- Dynamic Live Power Meter -->
             <div class="mt-6 grid grid-cols-2 gap-3 text-center">
               <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                <div class="text-[9px] font-mono uppercase text-slate-500 font-bold">Total Active Load</div>
+                <div class="text-[9px] font-mono uppercase text-slate-500 font-bold">Current Active Load</div>
                 <div id="activeLoadText" class="text-lg font-extrabold font-mono text-indigo-600 mt-0.5">4.10 kW</div>
               </div>
               <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                <div class="text-[9px] font-mono uppercase text-slate-500 font-bold">Relay Response Time</div>
-                <div class="text-lg font-extrabold font-mono text-emerald-600 mt-0.5">&lt; 50 ms</div>
+                <div class="text-[9px] font-mono uppercase text-slate-500 font-bold">Estimated Extra Backup</div>
+                <div class="text-lg font-extrabold font-mono text-emerald-600 mt-0.5">+8 Hours</div>
               </div>
             </div>
           </div>
@@ -581,7 +581,7 @@
           <div class="space-y-3.5">
             <div class="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2 flex items-center justify-between">
               <span>Managed Home Appliances</span>
-              <span class="text-[10px] font-mono text-indigo-600 font-bold">4 Active Circuits</span>
+              <span class="text-[10px] font-mono text-indigo-600 font-bold">4 Appliances Connected</span>
             </div>
 
             <!-- Appliance 1: Air Conditioner -->
@@ -591,9 +591,9 @@
                 <div>
                   <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
                     Air Conditioner (1.5 HP)
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">HEAVY LOAD</span>
+                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-200">HIGH POWER</span>
                   </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Master Bedroom & Living Room · 2.2 kW</div>
+                  <div class="mt-1 text-[10px] text-slate-500">Living Room & Bedrooms</div>
                 </div>
               </div>
               <div class="text-right">
@@ -610,9 +610,9 @@
                 <div>
                   <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
                     Deep Freezer & Fridge
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">MEDIUM LOAD</span>
+                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">MEDIUM POWER</span>
                   </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Kitchen Food Preservation · 1.5 kW</div>
+                  <div class="mt-1 text-[10px] text-slate-500">Kitchen Food Preservation</div>
                 </div>
               </div>
               <div class="text-right">
@@ -629,9 +629,9 @@
                 <div>
                   <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
                     Standing Fans & LED Lights
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">LIGHT LOAD</span>
+                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">LIGHT POWER</span>
                   </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Ventilation & Home Lighting · 0.3 kW</div>
+                  <div class="mt-1 text-[10px] text-slate-500">Ventilation & Home Lighting</div>
                 </div>
               </div>
               <div class="text-right">
@@ -648,14 +648,14 @@
                 <div>
                   <div class="text-xs font-bold text-slate-900 flex items-center gap-2">
                     Wi-Fi Router & Security CCTV
-                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">ALWAYS PRIORITY</span>
+                    <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">ALWAYS PROTECTED</span>
                   </div>
-                  <div class="mt-1 text-[10px] text-slate-500">Internet & Home Surveillance · 0.1 kW</div>
+                  <div class="mt-1 text-[10px] text-slate-500">Internet & Home Security</div>
                 </div>
               </div>
               <div class="text-right">
                 <div class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-sky-100 text-sky-800 border border-sky-300">
-                  <span class="h-1.5 w-1.5 rounded-full bg-sky-600 shadow-[0_0_8px_#0284c7]"></span> ON / PROTECTED
+                  <span class="h-1.5 w-1.5 rounded-full bg-sky-600 shadow-[0_0_8px_#0284c7]"></span> ALWAYS ON
                 </div>
               </div>
             </div>
@@ -770,11 +770,11 @@
           <div class="mb-5 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-600">
             <span class="font-mono text-sky-600">02</span>
             <span class="h-px w-8 bg-indigo-300"></span>
-            <span>DECISION ENGINE MODES</span>
+            <span>THREE SIMPLE OPERATING MODES</span>
           </div>
-          <h2 class="section-title">One system. <span class="text-gradient">Three clear decisions.</span></h2>
+          <h2 class="section-title">One smart system. <span class="text-gradient">Three clear choices.</span></h2>
         </div>
-        <p class="max-w-md text-sm leading-6 text-slate-600 font-medium">Choose the operating posture that fits the moment. Xense keeps the intelligence local, visible, and under your control.</p>
+        <p class="max-w-md text-sm leading-6 text-slate-600 font-medium">Choose how you want Xense to protect your home. You remain in full control at all times.</p>
       </div>
 
       <div class="grid gap-4 lg:grid-cols-3">
@@ -784,10 +784,10 @@
               <span class="mode-letter bg-indigo-100 text-indigo-700 font-bold">A</span>
               <span class="icon-box indigo"><i data-lucide="sparkles" class="w-4.5 h-4.5"></i></span>
             </div>
-            <div class="mt-12 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">DEFAULT ENGINE</div>
-            <h3 class="mt-3 text-2xl font-bold tracking-[-0.04em] text-slate-900">Xense Mode</h3>
-            <div class="mt-2 text-xs font-bold text-indigo-600">Core autonomous engine</div>
-            <p class="mt-5 min-h-[90px] text-sm leading-6 text-slate-600">Continuously evaluates solar input and battery SOC to shed heavy loads before the battery reaches a critical drop below 35% SOC.</p>
+            <div class="mt-12 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">RECOMMENDED DEFAULT</div>
+            <h3 class="mt-3 text-2xl font-bold tracking-[-0.04em] text-slate-900">Smart Auto Protection</h3>
+            <div class="mt-2 text-xs font-bold text-indigo-600">Automatic battery protection</div>
+            <p class="mt-5 min-h-[90px] text-sm leading-6 text-slate-600">Automatically turns off heavy ACs and freezers when battery drops to keep essential fans & lights running cleanly until morning.</p>
           </div>
         </div>
 
@@ -798,9 +798,9 @@
               <span class="icon-box slate"><i data-lucide="plug-zap" class="w-4.5 h-4.5"></i></span>
             </div>
             <div class="mt-12 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">MANUAL OVERRIDE</div>
-            <h3 class="mt-3 text-2xl font-bold tracking-[-0.04em] text-slate-900">Bypass Mode</h3>
-            <div class="mt-2 text-xs font-bold text-indigo-600">Standard wall socket behavior</div>
-            <p class="mt-5 min-h-[90px] text-sm leading-6 text-slate-600">Disables decision logic entirely. The Smart Plug behaves like a standard wall socket, leaving power output permanently ON.</p>
+            <h3 class="mt-3 text-2xl font-bold tracking-[-0.04em] text-slate-900">Always-On Mode</h3>
+            <div class="mt-2 text-xs font-bold text-slate-700">Standard wall plug behavior</div>
+            <p class="mt-5 min-h-[90px] text-sm leading-6 text-slate-600">Leaves all appliances powered continuously, working just like a standard wall socket without automatic switching.</p>
           </div>
         </div>
 
@@ -810,10 +810,10 @@
               <span class="mode-letter bg-sky-100 text-sky-700 font-bold">C</span>
               <span class="icon-box cyan"><i data-lucide="network" class="w-4.5 h-4.5"></i></span>
             </div>
-            <div class="mt-12 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">UTILITY FALLBACK</div>
-            <h3 class="mt-3 text-2xl font-bold tracking-[-0.04em] text-slate-900">Auto Grid Mode</h3>
-            <div class="mt-2 text-xs font-bold text-indigo-600">Seamless NEPA transfer</div>
-            <p class="mt-5 min-h-[90px] text-sm leading-6 text-slate-600">Detects when utility grid power returns, automatically bypassing shedding logic so loads run directly from grid power.</p>
+            <div class="mt-12 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">GRID RETURN</div>
+            <h3 class="mt-3 text-2xl font-bold tracking-[-0.04em] text-slate-900">Auto Grid Return</h3>
+            <div class="mt-2 text-xs font-bold text-sky-700">Automatic main power transfer</div>
+            <p class="mt-5 min-h-[90px] text-sm leading-6 text-slate-600">Detects when utility grid power returns and automatically switches your appliances back to main power, turning ACs back on.</p>
           </div>
         </div>
       </div>
@@ -840,7 +840,7 @@
             </div>
             <h3 class="text-2xl font-extrabold text-slate-900">Silent Battery Drain & Sudden Shutdowns</h3>
             <p class="text-sm text-slate-700 leading-relaxed font-medium">
-              When grid power drops at night, high-power appliances (water heaters, deep freezers, air conditioners) continue pulling power from your solar inverter. Within 3 hours, your battery hits 0%—leaving your home in darkness until morning.
+              When grid power drops at night, high-power appliances continue pulling heavy power from your inverter. Within a few hours, your battery hits 0%—leaving your home in darkness until morning.
             </p>
           </div>
 
@@ -848,9 +848,9 @@
             <div class="inline-flex items-center gap-2 rounded-full border border-sky-300 bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800">
               <i data-lucide="check-circle-2" class="w-4 h-4"></i> The Xense Solution
             </div>
-            <h3 class="text-2xl font-extrabold text-slate-900">Autonomous Protection & 3x Battery Life</h3>
+            <h3 class="text-2xl font-extrabold text-slate-900">Automatic Protection & 3x Battery Life</h3>
             <p class="text-sm text-slate-700 leading-relaxed font-medium">
-              Xense senses solar voltage and battery state of charge 24/7. It automatically cuts heavy appliances at <span class="text-sky-700 font-extrabold">35% SOC</span>, leaving your critical home loads powered up to 3x longer.
+              Xense monitors solar power and battery level 24/7. It automatically cuts heavy appliances at <span class="text-sky-700 font-extrabold">35% battery level</span>, keeping your lights and fans powered up to 3x longer.
             </p>
           </div>
 
@@ -860,9 +860,9 @@
       <!-- XENSE ECOSYSTEM PRODUCTS SHOWCASE -->
       <div class="mt-20">
         <div class="mb-10 text-center max-w-2xl mx-auto reveal-drastic-up">
-          <span class="text-[10px] font-mono tracking-[0.25em] text-indigo-600 uppercase font-bold">SMART ECOSYSTEM PRODUCTS</span>
-          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-3">Welcome to our world of <span class="text-gradient">eco-smart hardware.</span></h2>
-          <p class="text-slate-600 text-sm mt-3 font-medium">Our smart renewable products give you the freedom to take control of your energy usage and reduce electricity bills.</p>
+          <span class="text-[10px] font-mono tracking-[0.25em] text-indigo-600 uppercase font-bold">SMART HARDWARE PRODUCTS</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-3">Simple hardware that <span class="text-gradient">protects your home.</span></h2>
+          <p class="text-slate-600 text-sm mt-3 font-medium">Plug-and-play smart products that give you complete freedom and control over your home solar system.</p>
         </div>
 
         <div class="grid gap-6 md:grid-cols-3">
@@ -875,19 +875,19 @@
                   <div class="w-20 h-28 rounded-2xl bg-white border-2 border-indigo-500 shadow-md flex flex-col items-center justify-between p-3">
                     <span class="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981] animate-pulse"></span>
                     <i data-lucide="power" class="w-8 h-8 text-indigo-600"></i>
-                    <span class="font-mono text-[8px] text-slate-500 font-bold">16A / 30A</span>
+                    <span class="font-mono text-[8px] text-slate-500 font-bold">SMART PLUG</span>
                   </div>
                   <span class="font-mono text-[9px] text-indigo-600 tracking-wider uppercase font-extrabold">XENSE CONTROL PLUG</span>
                 </div>
               </div>
               <div>
-                <span class="text-[9px] font-mono font-extrabold text-indigo-600 uppercase tracking-widest">Heavy Load Controller</span>
-                <h3 class="text-xl font-bold text-slate-900 mt-1">Xense Control Switch</h3>
-                <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">Wireless 16A/30A smart plug with local relay logic that disconnects heavy loads automatically during battery drops.</p>
+                <span class="text-[9px] font-mono font-extrabold text-indigo-600 uppercase tracking-widest">Heavy Appliance Controller</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-1">Xense Smart Appliance Plug</h3>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">Plugs directly into your Air Conditioner or Deep Freezer to disconnect heavy power automatically when battery runs low.</p>
               </div>
             </div>
             <button onclick="openModal('modal-demo')" class="button-primary justify-center py-2.5 text-xs mt-4">
-              <span>View Product Details</span>
+              <span>See How It Works</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -900,21 +900,21 @@
                   <div class="w-24 h-16 rounded-xl bg-white border-2 border-indigo-500 shadow-md flex items-center justify-between px-3 py-2">
                     <i data-lucide="cpu" class="w-7 h-7 text-indigo-600"></i>
                     <div class="text-right">
-                      <span class="block font-mono text-[9px] font-bold text-indigo-700">ESP32</span>
-                      <span class="block font-mono text-[7px] text-sky-600 font-bold">RS485 MESH</span>
+                      <span class="block font-mono text-[9px] font-bold text-indigo-700">INVERTER</span>
+                      <span class="block font-mono text-[7px] text-sky-600 font-bold">LINK</span>
                     </div>
                   </div>
                   <span class="font-mono text-[9px] text-indigo-600 tracking-wider uppercase font-extrabold">XENSE DONGLE</span>
                 </div>
               </div>
               <div>
-                <span class="text-[9px] font-mono font-extrabold text-indigo-600 uppercase tracking-widest">Inverter Sensor</span>
-                <h3 class="text-xl font-bold text-slate-900 mt-1">Xense Inverter Dongle</h3>
-                <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">Plug-and-play RS485 & Wi-Fi module compatible with Felicity, Growatt, Deye, Victron, SRNE, and Must inverters.</p>
+                <span class="text-[9px] font-mono font-extrabold text-indigo-600 uppercase tracking-widest">Smart Inverter Connector</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-1">Xense Inverter Sensor Link</h3>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">Plug-and-play module that connects to your inverter to track battery levels and send instant protection commands to your home plugs.</p>
               </div>
             </div>
             <button onclick="openModal('modal-demo')" class="button-primary justify-center py-2.5 text-xs mt-4">
-              <span>View Product Details</span>
+              <span>See How It Works</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -939,13 +939,13 @@
                 </div>
               </div>
               <div>
-                <span class="text-[9px] font-mono font-extrabold text-amber-700 uppercase tracking-widest">24/7 Control Center</span>
-                <h3 class="text-xl font-bold text-slate-900 mt-1">Xense Mobile Ecosystem</h3>
-                <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">Track live solar generation, battery SOC, active loads, and adjust shedding thresholds 24/7 from anywhere.</p>
+                <span class="text-[9px] font-mono font-extrabold text-amber-700 uppercase tracking-widest">Live Mobile Control</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-1">Xense Mobile App</h3>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">Track live solar power generation, battery level, active appliances, and adjust protection settings 24/7 from your phone.</p>
               </div>
             </div>
             <button onclick="openModal('modal-demo')" class="button-primary justify-center py-2.5 text-xs mt-4">
-              <span>Watch Interactive Demo</span>
+              <span>Watch Interactive Walkthrough</span>
               <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -967,29 +967,29 @@
             <thead>
               <tr>
                 <th>Feature capabilities</th>
-                <th>Traditional passive solar apps</th>
-                <th>Basic smart plugs</th>
-                <th class="xense-col">Xense Energy system</th>
+                <th>Standard Solar Monitoring Apps</th>
+                <th>Basic Smart Plugs</th>
+                <th class="xense-col">Xense Energy System</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Load shedding logic</td>
-                <td><span class="muted-pill">No shedding</span></td>
+                <td>Automatic power protection</td>
+                <td><span class="muted-pill">No protection</span></td>
                 <td><span class="muted-pill">Manual timers only</span></td>
-                <td class="xense-col"><span class="positive-pill">Automatic SOC / PV shedding</span></td>
+                <td class="xense-col"><span class="positive-pill">Automatic battery protection</span></td>
               </tr>
               <tr>
-                <td>Connectivity model</td>
-                <td>Cloud dependent</td>
-                <td>Internet required</td>
-                <td class="xense-col"><span class="positive-pill">100% local offline control</span></td>
+                <td>Works during internet outage</td>
+                <td>Requires internet</td>
+                <td>Requires internet</td>
+                <td class="xense-col"><span class="positive-pill">100% local offline protection</span></td>
               </tr>
               <tr>
-                <td>Control latency</td>
-                <td><span class="muted-pill">N/A latency</span></td>
-                <td>3,000–8,000ms latency</td>
-                <td class="xense-col"><span class="positive-pill">&lt;50ms hardware latency</span></td>
+                <td>Response speed during outage</td>
+                <td><span class="muted-pill">No action taken</span></td>
+                <td>3 to 8 seconds delay</td>
+                <td class="xense-col"><span class="positive-pill">Instant automatic switching</span></td>
               </tr>
             </tbody>
           </table>
