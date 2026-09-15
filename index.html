@@ -266,21 +266,17 @@
       
       <!-- BACKGROUND IMAGE CAROUSEL WITH OVERLAY -->
       <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950" id="heroBgCarousel">
-        <!-- Slide 1: Mobile App User (Kept 2nd) -->
+        <!-- Slide 1: Mobile App User -->
         <div class="hero-bg-slide absolute inset-0 opacity-100 transition-all duration-1000 ease-in-out scale-100">
           <img src="xense-person-phone.jpg" alt="Xense Mobile Energy Telemetry" class="w-full h-full object-cover object-center brightness-75">
         </div>
-        <!-- Slide 2: Smart Energy Home Controls (Kept 3rd) -->
+        <!-- Slide 2: Smart Energy Home Controls (New 4K Photo) -->
         <div class="hero-bg-slide absolute inset-0 opacity-0 transition-all duration-1000 ease-in-out scale-105">
           <img src="xense-man-phone.jpg" alt="Homeowner Managing Solar Power" class="w-full h-full object-cover object-center brightness-75">
         </div>
-        <!-- Slide 3: Solar Array Mobile Analytics (New Attached) -->
+        <!-- Slide 3: Solar Array Mobile Analytics -->
         <div class="hero-bg-slide absolute inset-0 opacity-0 transition-all duration-1000 ease-in-out scale-105">
           <img src="xense-solar-farm-hand.jpg" alt="Solar Array Telemetry Handheld" class="w-full h-full object-cover object-center brightness-75">
-        </div>
-        <!-- Slide 4: Dual Mobile App Dashboard (New Attached) -->
-        <div class="hero-bg-slide absolute inset-0 opacity-0 transition-all duration-1000 ease-in-out scale-105">
-          <img src="xense-solar-app-dual.webp" alt="Xense Intelligent Solar Dashboard" class="w-full h-full object-cover object-center brightness-75">
         </div>
 
         <!-- Dark Gradient Vignette Overlay for High Readability -->
@@ -334,12 +330,11 @@
 
       <!-- SLEEK FLOATING BOTTOM SLIDE NAVIGATOR (Unobtrusive & Clean) -->
       <div class="absolute bottom-6 right-6 sm:right-10 z-20 flex items-center gap-3.5 rounded-full border border-white/15 bg-slate-950/70 px-4 py-2 backdrop-blur-xl shadow-2xl">
-        <span id="heroSlideIndicator" class="text-[10px] font-mono font-bold tracking-wider text-slate-300">01 / 04</span>
+        <span id="heroSlideIndicator" class="text-[10px] font-mono font-bold tracking-wider text-slate-300">01 / 03</span>
         <div class="flex gap-2" id="heroBgDots">
           <button class="carousel-dot active" onclick="goToBgSlide(0)" aria-label="Slide 1"></button>
           <button class="carousel-dot" onclick="goToBgSlide(1)" aria-label="Slide 2"></button>
           <button class="carousel-dot" onclick="goToBgSlide(2)" aria-label="Slide 3"></button>
-          <button class="carousel-dot" onclick="goToBgSlide(3)" aria-label="Slide 4"></button>
         </div>
         <!-- Small Pause/Play Toggle Icon Beside Dots -->
         <button id="carouselPlayPauseBtn" onclick="toggleBgCarouselPlayPause()" class="flex items-center justify-center w-5 h-5 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors" aria-label="Pause slideshow" title="Pause slideshow">
@@ -413,12 +408,12 @@
           </div>
         </div>
 
-        <!-- Card 2: Mobile Dashboard (5 cols) -->
+        <!-- Card 2: Mobile Dashboard (5 cols) -> Features xense-solar-app-dual.webp -->
         <div class="md:col-span-5 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-xl reveal-drastic-right delay-100">
           <div>
             <div class="w-full h-[260px] rounded-2xl overflow-hidden border border-slate-200 mb-6 bg-slate-900 relative">
-              <img src="xense-phone-dashboard.jpg" alt="Xense Mobile App Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-              <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1">
+              <img src="xense-solar-app-dual.webp" alt="Xense Mobile App Dashboard Telemetry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow">
                 <span class="live-dot"></span>
                 <span class="text-[9px] font-mono font-bold text-slate-900">LIVE</span>
               </div>
@@ -1293,7 +1288,7 @@
 
     // ── Hero Background Carousel ─────────────────────────
     let currentBgSlide = 0;
-    const totalBgSlides = 4;
+    const totalBgSlides = 3;
     let bgCarouselTimer = null;
     let isBgCarouselPlaying = true;
 
@@ -1319,7 +1314,7 @@
       });
 
       if (indicator) {
-        indicator.textContent = `0${currentBgSlide + 1} / 04`;
+        indicator.textContent = `0${currentBgSlide + 1} / 03`;
       }
     }
 
