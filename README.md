@@ -43,7 +43,7 @@ The system architecture features three intelligent operating postures configured
 
 - **Dynamic Hero Carousel**: Responsive 3-slide visual showcase highlighting real-world handheld telemetry, homeowner energy controls, and solar array tracking with custom play/pause toggle controls.
 - **Product Ecosystem Bento Grid**: Interactive overview of the Xense Hybrid Inverter, Live Mobile Cloud App, Wireless RS232 Plug-and-Play Dongle, and WiFi Monitoring Features.
-- **Real-Time SVG Telemetry Engine**: Interactive animated SVG telemetry charts displaying solar generation curves, battery state of charge (SOC), load distribution breakdowns, and live animated power flow diagrams.
+- **Enterprise Priority Waitlist & Early Access**: High-converting lead capture interface with real-time email verification, automated queue ticketing, and direct demo request routing.
 - **Interactive Battery & Load Shedding Simulator**: Live interactive slider allowing homeowners to simulate real-time load shedding decisions across heavy appliances (A/C, Deep Freezer, Fans, and Wi-Fi) as SOC drops.
 - **Interactive Modals & Lead Capture**: Fully functional Sign In, Sign Up, and Consultation Demo Request modals with client-side verification.
 - **84%+ Optimized Media Payload**: Progressive JPEG encoding, WebP assets, native `loading="lazy"`, `decoding="async"`, and `fetchpriority="high"` for instant loading on any connection.
