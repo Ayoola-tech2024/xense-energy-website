@@ -177,11 +177,6 @@
     .chart-bar { transform-origin: bottom; transform: scaleY(0); }
     .chart-bar.animating { animation: fillUp 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards; }
 
-    /* LIFESTYLE GALLERY */
-    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .gallery-grid .gcard:hover img { transform: scale(1.06); }
-    .gcard { overflow: hidden; border-radius: 1.25rem; }
-
     /* DASHBOARD MOCKUP */
     .mockup-phone { filter: drop-shadow(0 32px 64px rgba(79,70,229,0.22)) drop-shadow(0 4px 16px rgba(0,0,0,0.12)); }
   </style>
@@ -215,7 +210,6 @@
         <a href="#dashboard" class="nav-link">App &amp; Dashboard</a>
         <a href="#simulator" class="nav-link">Simulator</a>
         <a href="#comparison" class="nav-link">Why Xense?</a>
-        <a href="#faq" class="nav-link">FAQ</a>
       </div>
 
       <!-- Action Buttons: Sign In, Sign Up, Request Demo -->
@@ -246,7 +240,6 @@
         <a href="#dashboard" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">App &amp; Dashboard</a>
         <a href="#simulator" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Simulator</a>
         <a href="#comparison" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Why Xense?</a>
-        <a href="#faq" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">FAQ</a>
         <div class="pt-3 border-t border-slate-200 flex flex-col gap-2">
           <button onclick="openModal('modal-demo')" class="rounded-xl px-4 py-3 text-center text-sm font-bold bg-indigo-600 text-white">Request Demo</button>
           <button onclick="openModal('modal-signup')" class="rounded-xl px-4 py-2.5 text-center text-sm font-bold bg-slate-100 border border-slate-200 text-slate-900">Sign Up Free</button>
@@ -703,75 +696,7 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         LIFESTYLE PHOTO GALLERY
-    ════════════════════════════════════════════════════ -->
-    <section class="mx-auto max-w-[1320px] px-4 pb-12 sm:px-6 lg:px-10 reveal-drastic-up">
-      <div class="mb-10 max-w-2xl">
-        <span class="text-[10px] font-mono tracking-[0.25em] text-indigo-600 uppercase font-bold">REAL-WORLD USAGE</span>
-        <h2 class="section-title mt-2">People love <span class="text-gradient">being in control.</span></h2>
-        <p class="section-copy">From private homes to commercial estates — Xense puts intelligent load control in everyone's pocket.</p>
-      </div>
-
-      <!-- Bento Lifestyle Grid (Completely Filled 4-Col x 3-Row Architecture) -->
-      <div class="gallery-grid grid gap-4 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[220px]">
-        <!-- Row 1 & 2 Left: Featured Large Card (2x2) -->
-        <div class="gcard sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
-          <img src="xense-person-phone.jpg" alt="Person using Xense solar automation app" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
-            <span class="text-xs font-bold text-white font-mono uppercase tracking-wider">Mobile Solar Automation</span>
-          </div>
-        </div>
-
-        <!-- Row 1 Right: Wide Top Card (2x1) -->
-        <div class="gcard sm:col-span-2 lg:col-span-2 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
-          <img src="xense-man-phone.jpg" alt="Homeowner managing smart solar power" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-            <span class="text-xs font-bold text-white font-mono uppercase tracking-wider">Smart Home Management</span>
-          </div>
-        </div>
-
-        <!-- Row 2 Mid-Right: Square Card 1 (1x1) -->
-        <div class="gcard sm:col-span-1 lg:col-span-1 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
-          <img src="xense-person-analytics.jpg" alt="Xense analytics dashboard on smartphone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-[10px] font-bold text-white font-mono uppercase tracking-wider">Real-Time Usage</span>
-          </div>
-        </div>
-
-        <!-- Row 2 Mid-Right: Square Card 2 (1x1) -->
-        <div class="gcard sm:col-span-1 lg:col-span-1 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
-          <img src="xense-solar-smartphone.jpg" alt="Xense solar tracking on smartphone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-[10px] font-bold text-white font-mono uppercase tracking-wider">Live Control</span>
-          </div>
-        </div>
-
-        <!-- Row 3 Bottom-Left: Square Card 3 (1x1) -->
-        <div class="gcard sm:col-span-1 lg:col-span-1 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
-          <img src="xense-mobile-tracking.jpg" alt="Mobile solar usage tracking" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-[10px] font-bold text-white font-mono uppercase tracking-wider">Historical Data</span>
-          </div>
-        </div>
-
-        <!-- Row 3 Bottom-Left: Square Card 4 (1x1) -->
-        <div class="gcard sm:col-span-1 lg:col-span-1 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
-          <img src="xense-solar-tracking-1.jpg" alt="Solar tracking analytics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-[10px] font-bold text-white font-mono uppercase tracking-wider">Efficiency Metrics</span>
-          </div>
-        </div>
-
-        <!-- Row 3 Bottom-Right: Wide Bottom Card (2x1) -->
-        <div class="gcard sm:col-span-2 lg:col-span-2 lg:row-span-1 relative group overflow-hidden rounded-[1.25rem] border border-slate-200/80 shadow-md">
-          <img src="xense-usage-stats.jpg" alt="Solar usage statistics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-            <span class="text-xs font-bold text-white font-mono uppercase tracking-wider">Solar Generation Statistics</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- ═══════════════════════════════════════════════════
          3-MODE VISUALIZER
@@ -1057,53 +982,7 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         FAQ
-    ════════════════════════════════════════════════════ -->
-    <section id="faq" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
-      <div class="mb-10 max-w-2xl reveal-drastic-up">
-        <span class="font-mono text-indigo-600 text-xs font-extrabold uppercase tracking-widest">FREQUENTLY ASKED QUESTIONS</span>
-        <h2 class="section-title mt-2">Clear answers for <span class="text-gradient">confident power control.</span></h2>
-      </div>
-      <div class="grid gap-4 lg:grid-cols-2">
-        <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-left">
-          <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left" onclick="toggleFaq(this)">
-            <span class="text-sm font-extrabold text-slate-900">Does Xense work without internet connection?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-indigo-600 transition-transform"></i>
-          </button>
-          <div class="faq-body hidden p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
-            Yes. Xense forms a local wireless network between the RS232 dongle stick, relay hardware, and your phone app. Decision logic and shedding commands continue working locally even when your internet connection is down.
-          </div>
-        </div>
-        <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-right delay-100">
-          <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left" onclick="toggleFaq(this)">
-            <span class="text-sm font-extrabold text-slate-900">What happens in Auto Grid Mode when utility power returns?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-indigo-600 transition-transform"></i>
-          </button>
-          <div class="faq-body hidden p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
-            Auto Grid Mode senses grid power returning and automatically bypasses shedding logic so all heavy appliances run directly from grid power without draining your solar batteries.
-          </div>
-        </div>
-        <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-left delay-100">
-          <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left" onclick="toggleFaq(this)">
-            <span class="text-sm font-extrabold text-slate-900">How long does the installation take?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-indigo-600 transition-transform"></i>
-          </button>
-          <div class="faq-body hidden p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
-            The wireless RS232 dongle plugs directly into your inverter's RS232/RJ45 port in under 60 seconds. No rewiring, no complex electrician setup required. Our team handles complete onboarding.
-          </div>
-        </div>
-        <div class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md reveal-drastic-right delay-200">
-          <button class="faq-btn flex w-full items-center justify-between gap-5 p-5 text-left" onclick="toggleFaq(this)">
-            <span class="text-sm font-extrabold text-slate-900">Which inverter brands does Xense support?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-indigo-600 transition-transform"></i>
-          </button>
-          <div class="faq-body hidden p-5 pt-0 text-sm leading-6 text-slate-600 font-medium">
-            Xense is compatible with most hybrid solar inverters that feature an RS232 or RJ45 communication port — including Luminous, Felicity, Mecer, Axpert, Growatt, and more.
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- ═══════════════════════════════════════════════════
          CTA CONVERSION BANNER
@@ -1259,14 +1138,6 @@
     function closeModal(id) {
       const el = document.getElementById(id);
       if (el) el.classList.add('hidden');
-    }
-
-    // ── FAQ Accordion ───────────────────────────────────
-    function toggleFaq(btn) {
-      const body = btn.nextElementSibling;
-      const icon = btn.querySelector('.faq-icon');
-      if (body) body.classList.toggle('hidden');
-      if (icon) icon.classList.toggle('rotate-180');
     }
 
     // ── Mobile Menu ─────────────────────────────────────

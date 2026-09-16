@@ -45,7 +45,6 @@ The system architecture features three intelligent operating postures configured
 - **Product Ecosystem Bento Grid**: Interactive overview of the Xense Hybrid Inverter, Live Mobile Cloud App, Wireless RS232 Plug-and-Play Dongle, and WiFi Monitoring Features.
 - **Real-Time SVG Telemetry Engine**: Interactive animated SVG telemetry charts displaying solar generation curves, battery state of charge (SOC), load distribution breakdowns, and live animated power flow diagrams.
 - **Interactive Battery & Load Shedding Simulator**: Live interactive slider allowing homeowners to simulate real-time load shedding decisions across heavy appliances (A/C, Deep Freezer, Fans, and Wi-Fi) as SOC drops.
-- **Real-World Lifestyle Gallery**: Optimized 4-column dynamic bento grid showcasing real users monitoring and managing solar energy in real time.
 - **Interactive Modals & Lead Capture**: Fully functional Sign In, Sign Up, and Consultation Demo Request modals with client-side verification.
 - **84%+ Optimized Media Payload**: Progressive JPEG encoding, WebP assets, native `loading="lazy"`, `decoding="async"`, and `fetchpriority="high"` for instant loading on any connection.
 
