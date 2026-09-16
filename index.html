@@ -1298,8 +1298,33 @@
       updateSimulator(parseInt(mainSocSlider.value, 10));
     }
 
-      revealElements.forEach(el => observer.observe(el));
-    });
+    // ── Scroll Observer ─────────────────────────────────
+    function initScrollReveal() {
+      const revealElements = document.querySelectorAll(
+        ".reveal-fly-left, .reveal-fly-right, .reveal-fly-up, .reveal-scale, " +
+        ".reveal-drastic-left, .reveal-drastic-right, .reveal-drastic-up, .reveal-drastic-zoom, .reveal-drastic-flip"
+      );
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        }, { threshold: 0.08, rootMargin: "0px 0px -20px 0px" });
+
+        revealElements.forEach(el => observer.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add("active"));
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initScrollReveal);
+    } else {
+      initScrollReveal();
+    }
 
     // ── Particle Canvas ─────────────────────────────────
     const canvas = document.getElementById('particle-canvas');
