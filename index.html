@@ -385,104 +385,261 @@
       </div>
     </section>
 
-<!-- ═══════════════════════════════════════════════════
-         3-MODE VISUALIZER
+    <!-- ═══════════════════════════════════════════════════
+         3-MODE CENTERPIECE: ALL 3 MODES VISIBLE AT ONCE
     ════════════════════════════════════════════════════ -->
     <section id="modes" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
-      <div class="mb-10 text-center max-w-3xl mx-auto reveal-drastic-up">
-        <span class="text-[10px] font-mono tracking-[0.25em] text-indigo-600 uppercase font-bold">SMART DECISION ENGINE</span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-3">Three Operating Modes. <span class="text-gradient">Total Control.</span></h2>
-        <p class="text-slate-600 text-sm mt-3 font-medium">Switch between operating postures seamlessly depending on your grid reliability and energy goals.</p>
-      </div>
-
-      <!-- Mode Tabs -->
-      <div class="flex justify-center mb-10">
-        <div class="inline-flex p-1.5 bg-slate-100 border border-slate-200 rounded-2xl shadow-inner max-w-full overflow-x-auto">
-          <button id="modeTab-xense" onclick="selectMode('xense')" class="active-mode-btn px-5 py-3 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
-            <i data-lucide="sparkles" class="w-4 h-4"></i>
-            <span>Xense Mode</span>
-          </button>
-          <button id="modeTab-bypass" onclick="selectMode('bypass')" class="text-slate-600 hover:text-slate-900 px-5 py-3 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
-            <i data-lucide="power" class="w-4 h-4"></i>
-            <span>Bypass Mode</span>
-          </button>
-          <button id="modeTab-grid" onclick="selectMode('grid')" class="text-slate-600 hover:text-slate-900 px-5 py-3 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
-            <i data-lucide="grid" class="w-4 h-4"></i>
-            <span>Auto Grid Mode</span>
-          </button>
+      
+      <!-- Section Header -->
+      <div class="mb-14 text-center max-w-3xl mx-auto reveal-drastic-up">
+        <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-indigo-700 uppercase shadow-sm">
+          <span class="live-dot animate-ping"></span> CORE INTELLIGENCE &bull; THREE OPERATING MODES
         </div>
+        <h2 class="section-title mt-2">
+          Three Operating Modes. <br><span class="text-gradient">Total Intelligent Control.</span>
+        </h2>
+        <p class="section-copy mx-auto">
+          Unlike dumb inverters that crash during deep battery drain, Xense runs across three dedicated postures tailored for automated protection, manual pass-through, or utility recovery.
+        </p>
       </div>
 
-      <div class="glass-card p-6 sm:p-10 border-slate-200 bg-white shadow-2xl reveal-drastic-zoom">
-        <div class="grid gap-10 lg:grid-cols-2 items-center">
-          <!-- Left: Circuit Visual -->
-          <div class="rounded-2xl bg-slate-950 p-6 text-white border border-slate-800 shadow-inner relative overflow-hidden">
-            <div class="flex justify-between items-center mb-6 pb-3 border-b border-slate-800">
-              <span class="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-2">
-                <span class="live-dot"></span> LIVE CIRCUIT DIAGRAM
+      <!-- 3-Column Direct Cards (All 3 Visible at a glance) -->
+      <div class="grid gap-8 lg:grid-cols-3 items-stretch">
+        
+        <!-- MODE 1: XENSE MODE (FLAGSHIP / FEATURED) -->
+        <div class="glass-card relative p-8 rounded-[2rem] flex flex-col justify-between border-2 border-indigo-500/40 bg-gradient-to-b from-indigo-50/40 via-white to-white shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-500 transition-all duration-300 reveal-drastic-left group">
+          <!-- Featured Badge -->
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white text-[9px] font-mono font-extrabold px-4 py-1 rounded-full shadow-md tracking-widest uppercase flex items-center gap-1.5 whitespace-nowrap">
+            <i data-lucide="sparkles" class="w-3 h-3"></i> FLAGSHIP AUTONOMOUS POSTURE
+          </div>
+
+          <div>
+            <!-- Header & Icon -->
+            <div class="flex items-center justify-between mt-2 mb-6">
+              <div class="p-3.5 rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-mono font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase">
+                DEFAULT ACTIVE
               </span>
-              <span id="visModeLabel" class="text-xs font-mono font-bold text-indigo-300">MODE: XENSE MODE</span>
             </div>
-            <div class="grid grid-cols-2 gap-6 py-4 relative">
-              <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center flex flex-col items-center">
-                <i data-lucide="sun" class="w-7 h-7 text-amber-400 mb-2 pulse-node"></i>
-                <div class="text-xs font-bold text-slate-200">Solar Array</div>
-                <div id="flowSolarKw" class="text-sm font-mono font-extrabold text-amber-400 mt-1">4.20 kW</div>
+
+            <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider block">MODE 01</span>
+            <h3 class="text-2xl font-extrabold text-slate-900 mt-1">Xense Mode</h3>
+            <p class="text-xs font-bold text-indigo-700 mt-0.5">Automatic Solar &amp; Battery Protection</p>
+
+            <p class="text-xs text-slate-600 mt-4 leading-relaxed font-medium">
+              Continuously monitors solar generation and battery SOC. When battery level drops to <strong class="text-slate-900 font-bold">35%</strong>, Xense automatically sheds heavy loads (Air Conditioners &amp; Water Heaters) to extend backup duration by up to <strong class="text-emerald-700 font-bold">3x</strong>.
+            </p>
+
+            <!-- Key Metrics Grid -->
+            <div class="mt-6 grid grid-cols-2 gap-2.5 p-3.5 rounded-xl bg-indigo-50/70 border border-indigo-100 text-center font-mono">
+              <div class="p-2 bg-white rounded-lg border border-indigo-100 shadow-sm">
+                <div class="text-[9px] text-slate-500 uppercase font-bold">Safety Floor</div>
+                <div class="text-sm font-extrabold text-indigo-600 mt-0.5">35% SOC</div>
               </div>
-              <div class="p-4 rounded-xl bg-indigo-950 border border-indigo-700 text-center flex flex-col items-center shadow-lg shadow-indigo-900/40">
-                <i data-lucide="cpu" class="w-7 h-7 text-indigo-400 mb-2 pulse-node"></i>
-                <div class="text-xs font-bold text-indigo-200">Xense Controller</div>
-                <div id="flowStatusText" class="text-[10px] font-mono text-emerald-400 font-bold mt-1">AUTO OPTIMIZING</div>
-              </div>
-              <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center flex flex-col items-center">
-                <i data-lucide="battery-charging" class="w-7 h-7 text-emerald-400 mb-2 pulse-node"></i>
-                <div class="text-xs font-bold text-slate-200">Battery Storage</div>
-                <div id="flowBatterySoc" class="text-sm font-mono font-extrabold text-emerald-400 mt-1">78% SOC</div>
-              </div>
-              <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center flex flex-col items-center">
-                <i data-lucide="home" class="w-7 h-7 text-sky-400 mb-2 pulse-node"></i>
-                <div class="text-xs font-bold text-slate-200">Home Loads</div>
-                <div id="flowLoadKw" class="text-sm font-mono font-extrabold text-sky-400 mt-1">2.40 kW</div>
+              <div class="p-2 bg-white rounded-lg border border-indigo-100 shadow-sm">
+                <div class="text-[9px] text-slate-500 uppercase font-bold">Backup Gain</div>
+                <div class="text-sm font-extrabold text-emerald-600 mt-0.5">+8 Hours</div>
               </div>
             </div>
-            <div class="mt-6 pt-3 border-t border-slate-800 flex justify-between text-[9px] font-mono text-slate-400">
-              <span>Transfer Latency: &lt;5ms</span>
-              <span id="flowGridStatus" class="text-emerald-400">Grid Connected</span>
+
+            <!-- Bullet Points -->
+            <div class="mt-6 space-y-3 pt-4 border-t border-slate-100 text-xs text-slate-700 font-medium">
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                <span>Automated multi-stage load shedding logic</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                <span>100% offline edge logic &mdash; runs if Wi-Fi drops</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                <span>Zero midnight blackout traps for essential circuits</span>
+              </div>
             </div>
           </div>
 
-          <!-- Right: Mode Info -->
-          <div class="space-y-6">
-            <div id="visModeTitleBadge" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-xs font-extrabold text-indigo-700 uppercase tracking-wider">
-              XENSE MODE (DEFAULT AUTONOMOUS)
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <button onclick="openModal('modal-demo')" class="button-primary w-full justify-center py-3 text-xs font-extrabold">
+              <span>Request Xense Mode Demo</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- MODE 2: BYPASS MODE (MANUAL OVERRIDE) -->
+        <div class="glass-card relative p-8 rounded-[2rem] flex flex-col justify-between border border-slate-200 bg-white shadow-xl hover:shadow-2xl hover:border-amber-400 transition-all duration-300 reveal-drastic-up delay-100 group">
+          <div>
+            <!-- Header & Icon -->
+            <div class="flex items-center justify-between mt-2 mb-6">
+              <div class="p-3.5 rounded-2xl bg-amber-500 text-white shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                <i data-lucide="power" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-mono font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full uppercase">
+                MANUAL OVERRIDE
+              </span>
             </div>
-            <h3 id="visModeHeader" class="text-3xl font-extrabold text-slate-900">Automatic Solar &amp; Battery Protection</h3>
-            <p id="visModeDescription" class="text-sm text-slate-600 leading-relaxed font-medium">
-              Continuously monitors solar generation and battery SOC. When battery level drops to 35%, Xense automatically sheds heavy loads (Air Conditioners &amp; Water Heaters) to extend backup duration by up to 3x.
+
+            <span class="text-[10px] font-mono font-extrabold text-amber-600 uppercase tracking-wider block">MODE 02</span>
+            <h3 class="text-2xl font-extrabold text-slate-900 mt-1">Bypass Mode</h3>
+            <p class="text-xs font-bold text-amber-700 mt-0.5">Continuous Direct Power Output</p>
+
+            <p class="text-xs text-slate-600 mt-4 leading-relaxed font-medium">
+              Disables load shedding decision logic entirely. Power passes through continuously to all connected wall sockets, treating Xense as an open pass-through outlet for raw power feed.
             </p>
-            <div class="space-y-3 pt-2">
-              <div class="flex items-center gap-3 text-xs font-bold text-slate-800">
-                <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                <span id="visFeature1">Automatic load shedding at 35% battery floor threshold</span>
+
+            <!-- Key Metrics Grid -->
+            <div class="mt-6 grid grid-cols-2 gap-2.5 p-3.5 rounded-xl bg-amber-50/70 border border-amber-100 text-center font-mono">
+              <div class="p-2 bg-white rounded-lg border border-amber-100 shadow-sm">
+                <div class="text-[9px] text-slate-500 uppercase font-bold">Load Shedding</div>
+                <div class="text-sm font-extrabold text-amber-600 mt-0.5">DISABLED</div>
               </div>
-              <div class="flex items-center gap-3 text-xs font-bold text-slate-800">
-                <span class="h-2 w-2 rounded-full bg-indigo-500"></span>
-                <span id="visFeature2">100% offline functionality—works even when Wi-Fi drops</span>
-              </div>
-              <div class="flex items-center gap-3 text-xs font-bold text-slate-800">
-                <span class="h-2 w-2 rounded-full bg-sky-500"></span>
-                <span id="visFeature3">Seamless 0ms transfer delay during grid outages</span>
+              <div class="p-2 bg-white rounded-lg border border-amber-100 shadow-sm">
+                <div class="text-[9px] text-slate-500 uppercase font-bold">Appliance Feed</div>
+                <div class="text-sm font-extrabold text-slate-800 mt-0.5">100% RAW</div>
               </div>
             </div>
-            <div class="pt-4 flex gap-3">
-              <button onclick="openModal('modal-demo')" class="button-primary text-xs">
-                <span>Configure This Mode</span>
-                <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
-              </button>
+
+            <!-- Bullet Points -->
+            <div class="mt-6 space-y-3 pt-4 border-t border-slate-100 text-xs text-slate-700 font-medium">
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+                <span>Disables automatic load shedding logic completely</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+                <span>Passes maximum power continuously to heavy appliances</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+                <span>Ideal for maintenance, heavy tooling, or emergency testing</span>
+              </div>
             </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <button onclick="openModal('modal-demo')" class="button-secondary w-full justify-center py-3 text-xs font-bold hover:border-amber-300">
+              <span>Learn About Bypass</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- MODE 3: AUTO GRID MODE (UTILITY FALLBACK) -->
+        <div class="glass-card relative p-8 rounded-[2rem] flex flex-col justify-between border border-slate-200 bg-white shadow-xl hover:shadow-2xl hover:border-sky-400 transition-all duration-300 reveal-drastic-right delay-200 group">
+          <div>
+            <!-- Header & Icon -->
+            <div class="flex items-center justify-between mt-2 mb-6">
+              <div class="p-3.5 rounded-2xl bg-sky-600 text-white shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+                <i data-lucide="grid" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-mono font-extrabold text-sky-700 bg-sky-50 border border-sky-200 px-3 py-1 rounded-full uppercase">
+                UTILITY FALLBACK
+              </span>
+            </div>
+
+            <span class="text-[10px] font-mono font-extrabold text-sky-600 uppercase tracking-wider block">MODE 03</span>
+            <h3 class="text-2xl font-extrabold text-slate-900 mt-1">Auto Grid Mode</h3>
+            <p class="text-xs font-bold text-sky-700 mt-0.5">Automated Utility Sensing &amp; Recharging</p>
+
+            <p class="text-xs text-slate-600 mt-4 leading-relaxed font-medium">
+              Detects when main utility grid power returns, automatically bypassing battery shedding logic so all home loads run directly from utility power while fast-charging battery banks.
+            </p>
+
+            <!-- Key Metrics Grid -->
+            <div class="mt-6 grid grid-cols-2 gap-2.5 p-3.5 rounded-xl bg-sky-50/70 border border-sky-100 text-center font-mono">
+              <div class="p-2 bg-white rounded-lg border border-sky-100 shadow-sm">
+                <div class="text-[9px] text-slate-500 uppercase font-bold">Grid Detection</div>
+                <div class="text-sm font-extrabold text-sky-600 mt-0.5">&lt; 5 ms</div>
+              </div>
+              <div class="p-2 bg-white rounded-lg border border-sky-100 shadow-sm">
+                <div class="text-[9px] text-slate-500 uppercase font-bold">Battery Action</div>
+                <div class="text-sm font-extrabold text-emerald-600 mt-0.5">RECHARGING</div>
+              </div>
+            </div>
+
+            <!-- Bullet Points -->
+            <div class="mt-6 space-y-3 pt-4 border-t border-slate-100 text-xs text-slate-700 font-medium">
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5"></i>
+                <span>Automated sensing of returning utility grid power</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5"></i>
+                <span>Bypasses battery shedding during grid availability</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5"></i>
+                <span>Simultaneous battery recharging and full load pass-through</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <button onclick="openModal('modal-demo')" class="button-secondary w-full justify-center py-3 text-xs font-bold hover:border-sky-300">
+              <span>Learn About Auto Grid</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Centerpiece Interactive Hardware Flow Tester Bar Below the 3 Cards -->
+      <div class="mt-12 glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 bg-slate-950 text-white shadow-2xl reveal-drastic-up delay-200">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="p-3.5 rounded-2xl bg-indigo-600/30 border border-indigo-500/40 text-indigo-400">
+              <i data-lucide="sliders" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 flex items-center gap-2">
+                <span class="live-dot"></span> 1-TAP OPERATING MODE CONTROL
+              </div>
+              <h4 class="text-lg font-extrabold text-white mt-0.5">Live Inverter Circuit Telemetry Simulator</h4>
+            </div>
+          </div>
+
+          <!-- Quick Interactive Mode Switcher -->
+          <div class="inline-flex p-1.5 bg-slate-900 border border-slate-800 rounded-2xl shadow-inner max-w-full overflow-x-auto">
+            <button id="modeTab-xense" onclick="selectMode('xense')" class="active-mode-btn px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span>Xense Mode</span>
+            </button>
+            <button id="modeTab-bypass" onclick="selectMode('bypass')" class="text-slate-400 hover:text-white px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
+              <i data-lucide="power" class="w-3.5 h-3.5"></i>
+              <span>Bypass Mode</span>
+            </button>
+            <button id="modeTab-grid" onclick="selectMode('grid')" class="text-slate-400 hover:text-white px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
+              <i data-lucide="grid" class="w-3.5 h-3.5"></i>
+              <span>Auto Grid Mode</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mini Circuit Telemetry Strip -->
+        <div class="mt-6 pt-6 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800/80">
+            <div class="text-[9px] font-mono text-slate-400 uppercase">Solar Array</div>
+            <div id="flowSolarKw" class="text-base font-mono font-extrabold text-amber-400 mt-1">4.20 kW</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800/80">
+            <div class="text-[9px] font-mono text-slate-400 uppercase">Controller Status</div>
+            <div id="flowStatusText" class="text-xs font-mono font-extrabold text-emerald-400 mt-1">AUTO OPTIMIZING</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800/80">
+            <div class="text-[9px] font-mono text-slate-400 uppercase">Battery SOC</div>
+            <div id="flowBatterySoc" class="text-base font-mono font-extrabold text-indigo-400 mt-1">78% SOC</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800/80">
+            <div class="text-[9px] font-mono text-slate-400 uppercase">Home Loads</div>
+            <div id="flowLoadKw" class="text-base font-mono font-extrabold text-sky-400 mt-1">2.40 kW</div>
           </div>
         </div>
       </div>
+
     </section>
 
         <!-- ═══════════════════════════════════════════════════
@@ -1111,37 +1268,16 @@
     updateBgCarousel();
     resetBgCarouselTimer();
 
-    // ── 3-Mode Visualizer Logic (Xense Mode, Bypass Mode, Auto Grid Mode) ──
+        // ── 3-Mode Visualizer Logic (Xense Mode, Bypass Mode, Auto Grid Mode) ──
     const modesData = {
       xense: {
-        label: "MODE: XENSE MODE",
-        titleBadge: "XENSE MODE (DEFAULT AUTONOMOUS)",
-        header: "Automatic Solar & Battery Protection",
-        desc: "Continuously monitors solar generation and battery SOC. When battery level drops to 35%, Xense automatically sheds heavy loads (Air Conditioners & Water Heaters) to extend backup duration by up to 3x.",
-        solarKw: "4.20 kW", statusText: "AUTO OPTIMIZING", batterySoc: "78% SOC", loadKw: "2.40 kW", gridStatus: "Grid Connected",
-        f1: "Automatic load shedding at 35% battery floor threshold",
-        f2: "100% offline functionality—works even when Wi-Fi drops",
-        f3: "Seamless 0ms transfer delay during grid outages"
+        solarKw: "4.20 kW", statusText: "AUTO OPTIMIZING", batterySoc: "78% SOC", loadKw: "2.40 kW", gridStatus: "Grid Connected"
       },
       bypass: {
-        label: "MODE: BYPASS MODE",
-        titleBadge: "BYPASS MODE (MANUAL OVERRIDE)",
-        header: "Standard Continuous Power Output",
-        desc: "Disables load shedding decision logic entirely. Power passes through continuously to all connected wall plugs, treating Xense as a standard pass-through outlet for raw power feed.",
-        solarKw: "3.50 kW", statusText: "MANUAL BYPASS ON", batterySoc: "95% SOC", loadKw: "4.80 kW", gridStatus: "Direct Feed",
-        f1: "Disables automatic load shedding logic completely",
-        f2: "Passes maximum power continuously to heavy appliances",
-        f3: "Ideal for temporary maintenance or raw utility testing"
+        solarKw: "3.50 kW", statusText: "MANUAL BYPASS ON", batterySoc: "95% SOC", loadKw: "4.80 kW", gridStatus: "Direct Feed"
       },
       grid: {
-        label: "MODE: AUTO GRID MODE",
-        titleBadge: "AUTO GRID MODE (UTILITY FALLBACK)",
-        header: "Automated Utility Grid Transfer",
-        desc: "Detects when main grid power returns, automatically bypassing battery shedding logic so all home loads run directly from utility power while recharging batteries.",
-        solarKw: "0.00 kW", statusText: "GRID RECHARGING", batterySoc: "62% RECHARGING", loadKw: "3.10 kW", gridStatus: "NEPA / Utility Active",
-        f1: "Automatic detection of returning utility grid power",
-        f2: "Bypasses battery reserve shedding during grid availability",
-        f3: "Simultaneous battery recharging & load pass-through"
+        solarKw: "0.00 kW", statusText: "GRID RECHARGING", batterySoc: "62% RECHARGING", loadKw: "3.10 kW", gridStatus: "NEPA / Utility Active"
       }
     };
 
@@ -1152,24 +1288,20 @@
         const btn = document.getElementById('modeTab-' + m);
         if (btn) {
           if (m === key) {
-            btn.className = "active-mode-btn px-5 py-3 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2";
+            btn.className = "active-mode-btn px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2";
           } else {
-            btn.className = "text-slate-600 hover:text-slate-900 px-5 py-3 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2";
+            btn.className = "text-slate-400 hover:text-white px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2";
           }
         }
       });
-      document.getElementById('visModeLabel').textContent = data.label;
-      document.getElementById('visModeTitleBadge').textContent = data.titleBadge;
-      document.getElementById('visModeHeader').textContent = data.header;
-      document.getElementById('visModeDescription').textContent = data.desc;
-      document.getElementById('flowSolarKw').textContent = data.solarKw;
-      document.getElementById('flowStatusText').textContent = data.statusText;
-      document.getElementById('flowBatterySoc').textContent = data.batterySoc;
-      document.getElementById('flowLoadKw').textContent = data.loadKw;
-      document.getElementById('flowGridStatus').textContent = data.gridStatus;
-      document.getElementById('visFeature1').textContent = data.f1;
-      document.getElementById('visFeature2').textContent = data.f2;
-      document.getElementById('visFeature3').textContent = data.f3;
+      const elSolar = document.getElementById('flowSolarKw');
+      const elStatus = document.getElementById('flowStatusText');
+      const elBattery = document.getElementById('flowBatterySoc');
+      const elLoad = document.getElementById('flowLoadKw');
+      if (elSolar) elSolar.textContent = data.solarKw;
+      if (elStatus) elStatus.textContent = data.statusText;
+      if (elBattery) elBattery.textContent = data.batterySoc;
+      if (elLoad) elLoad.textContent = data.loadKw;
     }
 
     // ── Battery Simulator ───────────────────────────────
