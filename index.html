@@ -274,9 +274,9 @@
   <main id="top" class="relative z-10">
 
     <!-- ═══════════════════════════════════════════════════
-         HERO SECTION WITH FULL BACKGROUND IMAGE CAROUSEL
+         HERO SECTION WITH 3D HARDWARE DUO BACKGROUND
     ════════════════════════════════════════════════════ -->
-    <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden pt-36 pb-24 px-4 sm:px-6 lg:px-10">
+    <section class="relative min-h-[85vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden pt-28 sm:pt-36 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-10">
       
       <!-- HERO BACKGROUND IMAGE WITH CINEMATIC LIGHTING OVERLAY -->
       <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950">
@@ -289,34 +289,34 @@
       <!-- FOREGROUND HERO CONTENT -->
       <div class="relative z-10 mx-auto max-w-[1320px] w-full">
         <div class="max-w-3xl reveal-drastic-left">
-          <h1 class="max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-[-0.05em] text-white sm:text-6xl lg:text-[72px]">
+          <h1 class="max-w-4xl text-3xl font-extrabold leading-[1.08] sm:leading-[1.02] tracking-[-0.04em] sm:tracking-[-0.05em] text-white sm:text-5xl md:text-6xl lg:text-[72px]">
             Intelligent Energy Control <span class="text-gradient">for Modern Homes.</span>
           </h1>
 
-          <p class="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8 font-normal">
+          <p class="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-lg leading-6 sm:leading-8 text-slate-300 font-normal">
             Zero power blackouts, maximum solar self-consumption, and automatic load optimization for solar inverters and battery storage. Plugs in seamlessly with 100% wireless setup.
           </p>
 
-          <div class="mt-8 flex flex-wrap gap-3.5 items-center">
-            <button onclick="openModal('modal-demo')" class="button-primary justify-center px-7 py-4 text-sm font-extrabold shadow-2xl shadow-indigo-500/40">
+          <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-3.5 items-stretch sm:items-center">
+            <button onclick="openModal('modal-demo')" class="button-primary justify-center px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold shadow-2xl shadow-indigo-500/40">
               <span>Request Demo &amp; Presentation</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
-            <button onclick="openModal('modal-signup')" class="button-secondary justify-center px-7 py-4 text-sm font-bold bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md">
+            <button onclick="openModal('modal-signup')" class="button-secondary justify-center px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md">
               <span>Create Free Account</span>
               <i data-lucide="user-plus" class="w-4 h-4 text-indigo-300"></i>
             </button>
           </div>
 
           <!-- Metrics Strip -->
-          <div class="mt-12 grid max-w-md grid-cols-2 divide-x divide-slate-800 border-t border-slate-800/80 pt-6">
-            <div class="pr-6">
-              <div class="font-mono text-2xl font-extrabold text-emerald-400">0 ms</div>
-              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Transfer Latency</div>
+          <div class="mt-8 sm:mt-12 grid max-w-md grid-cols-2 divide-x divide-slate-800 border-t border-slate-800/80 pt-5 sm:pt-6">
+            <div class="pr-4 sm:pr-6">
+              <div class="font-mono text-xl sm:text-2xl font-extrabold text-emerald-400">0 ms</div>
+              <div class="mt-1 text-[8px] sm:text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Transfer Latency</div>
             </div>
-            <div class="pl-6">
-              <div class="font-mono text-2xl font-extrabold text-indigo-400">100%</div>
-              <div class="mt-1 text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Plug &amp; Play Setup</div>
+            <div class="pl-4 sm:pl-6">
+              <div class="font-mono text-xl sm:text-2xl font-extrabold text-indigo-400">100%</div>
+              <div class="mt-1 text-[8px] sm:text-[9px] uppercase tracking-[0.16em] text-slate-400 font-extrabold">Plug &amp; Play Setup</div>
             </div>
           </div>
         </div>
@@ -350,26 +350,23 @@
     <!-- ═══════════════════════════════════════════════════
          3-MODE CENTERPIECE: ALL 3 MODES VISIBLE AT ONCE
     ════════════════════════════════════════════════════ -->
-    <section id="modes" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
+    <section id="modes" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-14 sm:py-20 sm:px-6 lg:px-10">
       
       <!-- Section Header -->
-      <div class="mb-14 text-center max-w-3xl mx-auto reveal-drastic-up">
-        <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-indigo-700 uppercase shadow-sm">
-          <span class="live-dot animate-ping"></span> CORE INTELLIGENCE &bull; THREE OPERATING MODES
-        </div>
-        <h2 class="section-title mt-2">
+      <div class="mb-10 sm:mb-14 text-center max-w-3xl mx-auto reveal-drastic-up">
+        <h2 class="section-title">
           Three Operating Modes. <br><span class="text-gradient">Total Intelligent Control.</span>
         </h2>
-        <p class="section-copy mx-auto">
-          Unlike dumb inverters that crash during deep battery drain, Xense runs across three dedicated postures tailored for automated protection, manual pass-through, or utility recovery.
+        <p class="section-copy mx-auto mt-3 sm:mt-4">
+          Unlike standard inverters that crash during deep battery drain, Xense runs across three dedicated postures tailored for automated protection, manual pass-through, or utility recovery.
         </p>
       </div>
 
       <!-- 3-Column Direct Cards (All 3 Visible at a glance) -->
-      <div class="grid gap-8 lg:grid-cols-3 items-stretch">
+      <div class="grid gap-6 sm:gap-8 lg:grid-cols-3 items-stretch">
         
         <!-- MODE 1: XENSE MODE (FLAGSHIP / FEATURED) -->
-        <div class="glass-card relative p-8 rounded-[2rem] flex flex-col justify-between border-2 border-indigo-500/40 bg-gradient-to-b from-indigo-50/40 via-white to-white shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-500 transition-all duration-300 reveal-drastic-left group">
+        <div class="glass-card relative p-6 sm:p-8 rounded-3xl sm:rounded-[2rem] flex flex-col justify-between border-2 border-indigo-500/40 bg-gradient-to-b from-indigo-50/40 via-white to-white shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-500 transition-all duration-300 reveal-drastic-left group">
           <!-- Featured Badge -->
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white text-[9px] font-mono font-extrabold px-4 py-1 rounded-full shadow-md tracking-widest uppercase flex items-center gap-1.5 whitespace-nowrap">
             <i data-lucide="sparkles" class="w-3 h-3"></i> FLAGSHIP AUTONOMOUS POSTURE
@@ -646,55 +643,51 @@
     <!-- ═══════════════════════════════════════════════════
          DASHBOARD MOBILE MOCKUP SECTION
     ════════════════════════════════════════════════════ -->
-    <section id="dashboard" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
-      <div class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 px-8 py-16 sm:px-16 shadow-2xl reveal-drastic-up">
+    <section id="dashboard" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-14 sm:py-20 sm:px-6 lg:px-10">
+      <div class="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 px-6 py-12 sm:px-12 lg:px-16 sm:py-16 shadow-2xl reveal-drastic-up">
         <div class="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-indigo-600/20 blur-3xl"></div>
         <div class="pointer-events-none absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-emerald-600/15 blur-3xl"></div>
 
-        <div class="relative grid gap-14 lg:grid-cols-[1fr_1fr] items-center">
+        <div class="relative grid gap-10 lg:gap-14 lg:grid-cols-[1fr_1fr] items-center">
           <!-- Left: Information -->
           <div>
-            <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-indigo-300 uppercase">
-              <span class="h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_#818cf8]"></span>
-              INTELLIGENT LOAD CONTROL DASHBOARD
-            </div>
-            <h2 class="text-4xl font-extrabold text-white sm:text-5xl leading-tight tracking-tight">
+            <h2 class="text-3xl font-extrabold text-white sm:text-5xl leading-tight tracking-tight">
               Full control. <br><span class="text-gradient">From your palm.</span>
             </h2>
-            <p class="mt-5 text-slate-400 text-sm leading-7 max-w-lg font-medium">
-              The Xense Dashboard gives you real-time visibility into every watt — monitor solar generation, battery SOC, appliance states, and AI-optimized load decisions all in one place.
+            <p class="mt-4 sm:mt-5 text-slate-400 text-xs sm:text-sm leading-6 sm:leading-7 max-w-lg font-medium">
+              The Xense Dashboard gives you real-time visibility into every watt — monitor solar generation, battery SOC, appliance states, and automated load decisions all in one place.
             </p>
 
             <!-- Feature Pills -->
-            <div class="mt-8 flex flex-wrap gap-3">
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+            <div class="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3">
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
                 <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 text-indigo-400"></i>
                 Live Analytics
               </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
                 <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-400"></i>
-                AI Load Decisions
+                Load Decisions
               </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
                 <i data-lucide="bell" class="w-3.5 h-3.5 text-amber-400"></i>
                 Smart Alerts
               </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
                 <i data-lucide="settings" class="w-3.5 h-3.5 text-sky-400"></i>
                 Remote Control
               </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-slate-300 font-semibold">
+              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
                 <i data-lucide="shield-check" class="w-3.5 h-3.5 text-rose-400"></i>
                 Priority Lists
               </div>
             </div>
 
-            <div class="mt-8 flex gap-3">
-              <button onclick="openModal('modal-demo')" class="button-primary text-sm px-6 py-3.5">
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <button onclick="openModal('modal-demo')" class="button-primary justify-center text-xs sm:text-sm px-6 py-3.5 font-bold">
                 <span>Request a Live Demo</span>
                 <i data-lucide="play" class="w-4 h-4"></i>
               </button>
-              <button onclick="openModal('modal-signup')" class="text-sm font-semibold px-6 py-3.5 rounded-xl border border-white/20 text-slate-200 hover:bg-white/10 transition-colors">
+              <button onclick="openModal('modal-signup')" class="justify-center text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl border border-white/20 text-slate-200 hover:bg-white/10 transition-colors">
                 Sign Up Free
               </button>
             </div>
@@ -726,122 +719,117 @@
     <!-- ═══════════════════════════════════════════════════
          BATTERY PROTECTION SIMULATOR
     ════════════════════════════════════════════════════ -->
-    <section id="simulator" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10 reveal-drastic-up">
-      <div class="mb-10 max-w-2xl">
-        <div class="mb-4 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[0.25em] text-indigo-600">
-          <span class="font-mono text-sky-600">INTERACTIVE TEST</span>
-          <span class="h-px w-8 bg-indigo-300"></span>
-          <span>BATTERY PROTECTION SIMULATOR</span>
-        </div>
+    <section id="simulator" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-14 sm:py-20 sm:px-6 lg:px-10 reveal-drastic-up">
+      <div class="mb-8 sm:mb-10 max-w-2xl">
         <h2 class="section-title">See how Xense protects your home <span class="text-gradient">in real time.</span></h2>
-        <p class="section-copy">Drag the battery slider below to watch Xense automatically manage your Air Conditioner, Deep Freezer, Fans, and Wi-Fi system as battery levels change.</p>
+        <p class="section-copy mt-2 sm:mt-3">Drag the battery slider below to watch Xense automatically manage your Air Conditioner, Deep Freezer, Fans, and Wi-Fi system as battery levels change.</p>
       </div>
 
-      <div id="simGlassBox" class="glass-card overflow-hidden p-6 sm:p-8 transition-all duration-300 border-slate-200 bg-white shadow-xl">
-        <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 items-start">
+      <div id="simGlassBox" class="glass-card overflow-hidden p-5 sm:p-8 rounded-3xl transition-all duration-300 border-slate-200 bg-white shadow-xl">
+        <div class="grid gap-8 sm:gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 items-start">
           
           <div>
             <div class="flex items-start justify-between">
               <div>
                 <div class="text-xs font-bold text-slate-900 uppercase tracking-wider">Simulated Battery Level</div>
-                <div class="mt-1 text-[10px] uppercase tracking-[0.16em] text-slate-500 font-semibold">Drag slider to test emergency automatic response</div>
+                <div class="mt-1 text-[9px] sm:text-[10px] uppercase tracking-[0.16em] text-slate-500 font-semibold">Drag slider to test emergency response</div>
               </div>
               <div class="text-right">
-                <span id="socBigText" class="font-mono text-5xl font-extrabold tracking-[-0.08em] text-indigo-600">78</span>
-                <span class="ml-1 font-mono text-lg text-slate-400">%</span>
+                <span id="socBigText" class="font-mono text-4xl sm:text-5xl font-extrabold tracking-[-0.08em] text-indigo-600">78</span>
+                <span class="ml-1 font-mono text-base sm:text-lg text-slate-400">%</span>
               </div>
             </div>
 
-            <div class="mt-8">
+            <div class="mt-6 sm:mt-8">
               <input type="range" id="mainSocSlider" min="0" max="100" value="78" class="soc-slider" style="--progress: 78%;">
-              <div class="mt-3 flex justify-between font-mono text-[9px] text-slate-500 font-bold">
-                <span class="text-rose-600">0% / CRITICAL</span>
-                <span class="text-amber-600">35% / FREEZER SHED</span>
-                <span class="text-indigo-600">50% / AC SHED</span>
-                <span class="text-emerald-600">100% / FULL</span>
+              <div class="mt-3 flex justify-between font-mono text-[8px] sm:text-[9px] text-slate-500 font-bold">
+                <span class="text-rose-600">0% CRITICAL</span>
+                <span class="text-amber-600">35% FREEZER</span>
+                <span class="text-indigo-600">50% AC</span>
+                <span class="text-emerald-600">100% FULL</span>
               </div>
             </div>
 
-            <div id="protectionStatusBox" class="mt-8 rounded-2xl border p-5 transition-all duration-300 border-emerald-200 bg-emerald-50">
-              <div class="flex items-center gap-4">
-                <span id="protectionIconBox" class="p-3 rounded-xl bg-emerald-100 text-emerald-700 border-emerald-200">
-                  <i data-lucide="shield-check" id="protectionIcon" class="w-6 h-6"></i>
+            <div id="protectionStatusBox" class="mt-6 sm:mt-8 rounded-2xl border p-4 sm:p-5 transition-all duration-300 border-emerald-200 bg-emerald-50">
+              <div class="flex items-center gap-3 sm:gap-4">
+                <span id="protectionIconBox" class="p-2.5 sm:p-3 rounded-xl bg-emerald-100 text-emerald-700 border-emerald-200 flex-shrink-0">
+                  <i data-lucide="shield-check" id="protectionIcon" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </span>
                 <div>
-                  <div id="protectionStatusTitle" class="text-xs font-extrabold text-emerald-800 tracking-wider">FULL POWER MODE: ALL APPLIANCES ACTIVE</div>
-                  <div id="protectionStatusCopy" class="mt-1 text-[11px] leading-relaxed text-slate-600">Battery level is healthy. Air Conditioner, Deep Freezer, Fans &amp; Wi-Fi are all running safely.</div>
+                  <div id="protectionStatusTitle" class="text-[11px] sm:text-xs font-extrabold text-emerald-800 tracking-wider">FULL POWER MODE: ALL APPLIANCES ACTIVE</div>
+                  <div id="protectionStatusCopy" class="mt-1 text-[10px] sm:text-[11px] leading-relaxed text-slate-600">Battery level is healthy. Air Conditioner, Deep Freezer, Fans &amp; Wi-Fi are all running safely.</div>
                 </div>
               </div>
             </div>
 
-            <div class="mt-6 grid grid-cols-2 gap-3 text-center">
-              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <div class="text-[9px] font-mono uppercase text-slate-500 font-bold">Current Active Load</div>
-                <div id="activeLoadText" class="text-lg font-extrabold font-mono text-indigo-600 mt-0.5">4.10 kW</div>
+            <div class="mt-5 sm:mt-6 grid grid-cols-2 gap-2.5 sm:gap-3 text-center">
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="text-[8px] sm:text-[9px] font-mono uppercase text-slate-500 font-bold">Active Load</div>
+                <div id="activeLoadText" class="text-base sm:text-lg font-extrabold font-mono text-indigo-600 mt-0.5">4.10 kW</div>
               </div>
-              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <div class="text-[9px] font-mono uppercase text-slate-500 font-bold">Estimated Extra Backup</div>
-                <div class="text-lg font-extrabold font-mono text-emerald-600 mt-0.5">+8 Hours</div>
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="text-[8px] sm:text-[9px] font-mono uppercase text-slate-500 font-bold">Extra Backup</div>
+                <div class="text-base sm:text-lg font-extrabold font-mono text-emerald-600 mt-0.5">+8 Hours</div>
               </div>
             </div>
           </div>
 
           <!-- Appliance List -->
-          <div class="space-y-3.5">
+          <div class="space-y-3">
             <div class="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2 flex items-center justify-between">
               <span>Managed Home Appliances</span>
-              <span class="text-[10px] font-mono text-indigo-600 font-bold">4 Appliances Connected</span>
+              <span class="text-[10px] font-mono text-indigo-600 font-bold">4 Connected</span>
             </div>
 
-            <div id="rowAc" class="flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
-              <div class="flex items-center gap-3.5">
-                <span id="iconAc" class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="wind" class="w-4 h-4"></i></span>
+            <div id="rowAc" class="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 rounded-2xl border p-3.5 sm:p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
+              <div class="flex items-center gap-3">
+                <span id="iconAc" class="p-2 sm:p-2.5 rounded-xl bg-emerald-100 text-emerald-700 flex-shrink-0"><i data-lucide="wind" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">Air Conditioner (1.5 HP)<span class="text-[9px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-200">HIGH POWER</span></div>
-                  <div class="mt-1 text-[10px] text-slate-500">Living Room &amp; Bedrooms</div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Air Conditioner (1.5 HP)<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-200">HIGH POWER</span></div>
+                  <div class="mt-0.5 text-[9px] sm:text-[10px] text-slate-500">Living Room &amp; Bedrooms</div>
                 </div>
               </div>
-              <div class="text-right">
-                <div id="badgeAc" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300"><span id="dotAc" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING</div>
-              </div>
-            </div>
-
-            <div id="rowFreezer" class="flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
-              <div class="flex items-center gap-3.5">
-                <span id="iconFreezer" class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="snowflake" class="w-4 h-4"></i></span>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">Deep Freezer &amp; Fridge<span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">MEDIUM POWER</span></div>
-                  <div class="mt-1 text-[10px] text-slate-500">Kitchen Food Preservation</div>
-                </div>
-              </div>
-              <div class="text-right">
-                <div id="badgeFreezer" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300"><span id="dotFreezer" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING</div>
+              <div class="text-right flex-shrink-0">
+                <div id="badgeAc" class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300"><span id="dotAc" class="h-1.5 w-1.5 rounded-full bg-emerald-600"></span> ON / RUNNING</div>
               </div>
             </div>
 
-            <div id="rowFans" class="flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
-              <div class="flex items-center gap-3.5">
-                <span id="iconFans" class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="fan" class="w-4 h-4"></i></span>
+            <div id="rowFreezer" class="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 rounded-2xl border p-3.5 sm:p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
+              <div class="flex items-center gap-3">
+                <span id="iconFreezer" class="p-2 sm:p-2.5 rounded-xl bg-emerald-100 text-emerald-700 flex-shrink-0"><i data-lucide="snowflake" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">Standing Fans &amp; LED Lights<span class="text-[9px] font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">LIGHT POWER</span></div>
-                  <div class="mt-1 text-[10px] text-slate-500">Ventilation &amp; Home Lighting</div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Deep Freezer &amp; Fridge<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">MEDIUM POWER</span></div>
+                  <div class="mt-0.5 text-[9px] sm:text-[10px] text-slate-500">Kitchen Food Preservation</div>
                 </div>
               </div>
-              <div class="text-right">
-                <div id="badgeFans" class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300"><span id="dotFans" class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING</div>
+              <div class="text-right flex-shrink-0">
+                <div id="badgeFreezer" class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300"><span id="dotFreezer" class="h-1.5 w-1.5 rounded-full bg-emerald-600"></span> ON / RUNNING</div>
               </div>
             </div>
 
-            <div id="rowWifi" class="flex items-center justify-between rounded-2xl border p-4 border-sky-200 bg-sky-50">
-              <div class="flex items-center gap-3.5">
-                <span class="p-2.5 rounded-xl bg-sky-100 text-sky-700"><i data-lucide="wifi" class="w-4 h-4"></i></span>
+            <div id="rowFans" class="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 rounded-2xl border p-3.5 sm:p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60">
+              <div class="flex items-center gap-3">
+                <span id="iconFans" class="p-2 sm:p-2.5 rounded-xl bg-emerald-100 text-emerald-700 flex-shrink-0"><i data-lucide="fan" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-2">Wi-Fi Router &amp; Security CCTV<span class="text-[9px] font-mono px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">ALWAYS PROTECTED</span></div>
-                  <div class="mt-1 text-[10px] text-slate-500">Internet &amp; Home Security</div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Lighting &amp; Fans<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">LOW POWER</span></div>
+                  <div class="mt-0.5 text-[9px] sm:text-[10px] text-slate-500">Whole House Essential Circuit</div>
                 </div>
               </div>
-              <div class="text-right">
-                <div class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-sky-100 text-sky-800 border border-sky-300"><span class="h-1.5 w-1.5 rounded-full bg-sky-600 shadow-[0_0_8px_#0284c7]"></span> ALWAYS ON</div>
+              <div class="text-right flex-shrink-0">
+                <div id="badgeFans" class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300"><span id="dotFans" class="h-1.5 w-1.5 rounded-full bg-emerald-600"></span> ON / RUNNING</div>
+              </div>
+            </div>
+
+            <div id="rowWifi" class="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 rounded-2xl border p-3.5 sm:p-4 border-sky-200 bg-sky-50/60">
+              <div class="flex items-center gap-3">
+                <span class="p-2 sm:p-2.5 rounded-xl bg-sky-100 text-sky-700 flex-shrink-0"><i data-lucide="wifi" class="w-4 h-4"></i></span>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Wi-Fi Router &amp; CCTV<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">ALWAYS ON</span></div>
+                  <div class="mt-0.5 text-[9px] sm:text-[10px] text-slate-500">Home Security &amp; Internet Gateway</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0">
+                <div class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-sky-100 text-sky-800 border border-sky-300"><span class="h-1.5 w-1.5 rounded-full bg-sky-600"></span> ALWAYS ON</div>
               </div>
             </div>
           </div>
@@ -857,25 +845,20 @@
         <!-- ═══════════════════════════════════════════════════
          ENTERPRISE PRIORITY WAITLIST & EARLY ACCESS
     ════════════════════════════════════════════════════ -->
-    <section id="waitlist" class="mx-auto max-w-[1320px] px-4 pb-24 pt-12 sm:px-6 lg:px-10 reveal-drastic-zoom">
-      <div class="relative overflow-hidden rounded-[2.5rem] border border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-black p-8 sm:p-16 lg:p-20 text-center shadow-2xl">
+    <section id="waitlist" class="mx-auto max-w-[1320px] px-4 pb-16 sm:pb-24 pt-8 sm:pt-12 sm:px-6 lg:px-10 reveal-drastic-zoom">
+      <div class="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-black p-6 sm:p-14 lg:p-20 text-center shadow-2xl">
         <!-- Ambient Radial Glows -->
         <div class="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full bg-indigo-500/20 blur-[120px]"></div>
         <div class="pointer-events-none absolute -bottom-20 right-10 w-[300px] h-[300px] rounded-full bg-emerald-500/15 blur-[100px]"></div>
 
         <div class="relative z-10 max-w-3xl mx-auto">
-          <!-- Eyebrow Badge -->
-          <div class="mb-5 inline-flex items-center gap-2.5 rounded-full border border-indigo-400/30 bg-indigo-950/70 backdrop-blur-md px-4 py-1.5 text-[10px] font-extrabold tracking-[0.22em] text-indigo-300 uppercase shadow-lg shadow-indigo-950/40">
-            <span class="live-dot animate-ping"></span> PRIORITY EARLY ACCESS &bull; HARDWARE BATCH 01
-          </div>
-
           <!-- Headline -->
           <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
             Be first in line for <br><span class="text-gradient">Xense Energy.</span>
           </h2>
 
           <!-- Copy -->
-          <p class="mt-5 text-sm sm:text-base leading-7 text-slate-300 max-w-xl mx-auto font-normal">
+          <p class="mt-4 sm:mt-5 text-xs sm:text-base leading-6 sm:leading-7 text-slate-300 max-w-xl mx-auto font-normal">
             Join the priority waitlist for early hardware shipment allocation, wholesale installer pricing, and VIP rollout access to our intelligent solar automation platform.
           </p>
 
