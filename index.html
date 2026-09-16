@@ -553,59 +553,6 @@
 
       </div>
 
-      <!-- Centerpiece Interactive Hardware Flow Tester Bar Below the 3 Cards -->
-      <div class="mt-12 glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 bg-slate-950 text-white shadow-2xl reveal-drastic-up delay-200">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div class="flex items-center gap-4">
-            <div class="p-3.5 rounded-2xl bg-indigo-600/30 border border-indigo-500/40 text-indigo-400">
-              <i data-lucide="sliders" class="w-6 h-6"></i>
-            </div>
-            <div>
-              <div class="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 flex items-center gap-2">
-                <span class="live-dot"></span> 1-TAP OPERATING MODE CONTROL
-              </div>
-              <h4 class="text-lg font-extrabold text-white mt-0.5">Live Inverter Circuit Telemetry Simulator</h4>
-            </div>
-          </div>
-
-          <!-- Quick Interactive Mode Switcher -->
-          <div class="inline-flex p-1.5 bg-slate-900 border border-slate-800 rounded-2xl shadow-inner max-w-full overflow-x-auto">
-            <button id="modeTab-xense" onclick="selectMode('xense')" class="active-mode-btn px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-              <span>Xense Mode</span>
-            </button>
-            <button id="modeTab-bypass" onclick="selectMode('bypass')" class="text-slate-400 hover:text-white px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
-              <i data-lucide="power" class="w-3.5 h-3.5"></i>
-              <span>Bypass Mode</span>
-            </button>
-            <button id="modeTab-grid" onclick="selectMode('grid')" class="text-slate-400 hover:text-white px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2">
-              <i data-lucide="grid" class="w-3.5 h-3.5"></i>
-              <span>Auto Grid Mode</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Mini Circuit Telemetry Strip -->
-        <div class="mt-6 pt-6 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800/80">
-            <div class="text-[9px] font-mono text-slate-400 uppercase">Solar Array</div>
-            <div id="flowSolarKw" class="text-base font-mono font-extrabold text-amber-400 mt-1">4.20 kW</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800/80">
-            <div class="text-[9px] font-mono text-slate-400 uppercase">Controller Status</div>
-            <div id="flowStatusText" class="text-xs font-mono font-extrabold text-emerald-400 mt-1">AUTO OPTIMIZING</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800/80">
-            <div class="text-[9px] font-mono text-slate-400 uppercase">Battery SOC</div>
-            <div id="flowBatterySoc" class="text-base font-mono font-extrabold text-indigo-400 mt-1">78% SOC</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800/80">
-            <div class="text-[9px] font-mono text-slate-400 uppercase">Home Loads</div>
-            <div id="flowLoadKw" class="text-base font-mono font-extrabold text-sky-400 mt-1">2.40 kW</div>
-          </div>
-        </div>
-      </div>
-
     </section>
 
         <!-- ═══════════════════════════════════════════════════
@@ -1145,42 +1092,6 @@
         if (mobileMenu) mobileMenu.classList.add('hidden'); 
       });
     });
-
-        // ── 3-Mode Visualizer Logic (Xense Mode, Bypass Mode, Auto Grid Mode) ──
-    const modesData = {
-      xense: {
-        solarKw: "4.20 kW", statusText: "AUTO OPTIMIZING", batterySoc: "78% SOC", loadKw: "2.40 kW", gridStatus: "Grid Connected"
-      },
-      bypass: {
-        solarKw: "3.50 kW", statusText: "MANUAL BYPASS ON", batterySoc: "95% SOC", loadKw: "4.80 kW", gridStatus: "Direct Feed"
-      },
-      grid: {
-        solarKw: "0.00 kW", statusText: "GRID RECHARGING", batterySoc: "62% RECHARGING", loadKw: "3.10 kW", gridStatus: "NEPA / Utility Active"
-      }
-    };
-
-    function selectMode(key) {
-      const data = modesData[key];
-      if (!data) return;
-      ['xense', 'bypass', 'grid'].forEach(m => {
-        const btn = document.getElementById('modeTab-' + m);
-        if (btn) {
-          if (m === key) {
-            btn.className = "active-mode-btn px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2";
-          } else {
-            btn.className = "text-slate-400 hover:text-white px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2";
-          }
-        }
-      });
-      const elSolar = document.getElementById('flowSolarKw');
-      const elStatus = document.getElementById('flowStatusText');
-      const elBattery = document.getElementById('flowBatterySoc');
-      const elLoad = document.getElementById('flowLoadKw');
-      if (elSolar) elSolar.textContent = data.solarKw;
-      if (elStatus) elStatus.textContent = data.statusText;
-      if (elBattery) elBattery.textContent = data.batterySoc;
-      if (elLoad) elLoad.textContent = data.loadKw;
-    }
 
     // ── Battery Simulator ───────────────────────────────
     function updateSimulator(soc) {
