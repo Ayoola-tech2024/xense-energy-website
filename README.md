@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://ayoola-tech2024.github.io/xense-energy-website/">
-    <img src="logo.png" width="110" alt="Xense Energy Systems Logo" style="border-radius: 18px; box-shadow: 0 10px 30px rgba(79, 70, 229, 0.15);" />
+    <img src="assets/logo.png" width="110" alt="Xense Energy Systems Logo" style="border-radius: 18px; box-shadow: 0 10px 30px rgba(79, 70, 229, 0.15);" />
   </a>
 </p>
 
@@ -65,23 +65,13 @@ The system architecture features three intelligent operating postures configured
 
 ```text
 xense-website/
+├── assets/                     # Packaged media, logos, 3D renders & device mockups
+│   ├── logo.png                # High-resolution Xense brandmark logo
+│   ├── dashboard-mobile.png    # Mobile app showcase device frame mockup
+│   ├── xense-hero-hardware-duo-3d.jpg
+│   ├── xense-mobile-dashboard-note20.webp
+│   └── ... (28 optimized image assets)
 ├── index.html                  # Main application & interactive landing page
-├── logo.png                    # High-resolution Xense brandmark logo
-├── dashboard-mobile.png        # Mobile app showcase device frame mockup
-├── xense-person-phone.jpg      # Hero Slide 1 / Mobile telemetry photo
-├── xense-man-phone.jpg         # Hero Slide 2 / Homeowner smart energy photo
-├── xense-solar-farm-hand.jpg   # Hero Slide 3 / Solar farm handheld photo
-├── xense-inverter-kit.jpg      # Product Bento: Smart Inverter Unit
-├── xense-solar-app-dual.webp   # Product Bento: Live Mobile Cloud App
-├── xense-dongle-plug.jpg       # Product Bento: Wireless RS232 Smart Dongle
-├── xense-wifi-plug.jpg         # Product Bento: WiFi Monitoring Features
-├── xense-solar-automation.png  # High-definition automation architecture diagram
-├── xense-person-analytics.jpg  # Lifestyle Gallery card
-├── xense-solar-smartphone.jpg  # Lifestyle Gallery card
-├── xense-mobile-tracking.jpg   # Lifestyle Gallery card
-├── xense-solar-tracking-1.jpg  # Lifestyle Gallery card
-├── xense-usage-stats.jpg       # Lifestyle Gallery card
-├── xense-phone-dashboard.jpg   # Media asset
 └── README.md                   # Project documentation & overview
 ```
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Xense Energy — Intelligent Solar Automation &amp; Smart Load Control</title>
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="assets/logo.png">
   
   <!-- Fonts & Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,14 +25,28 @@
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            xenseBg: '#f8fafc',
-            xenseCard: '#ffffff',
-            xenseNavy: '#0b1e36',
-            xenseIndigo: '#4f46e5',
-            xenseCyan: '#0284c7',
-            xenseEmerald: '#10b981',
-            xenseAmber: '#d97706',
-            xenseRose: '#e11d48'
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81'
+            },
+            energy: {
+              solar: '#f59e0b',
+              solarLight: '#fffbeb',
+              solarBorder: '#fde68a',
+              battery: '#10b981',
+              batteryLight: '#ecfdf5',
+              batteryBorder: '#a7f3d0',
+              grid: '#0284c7',
+              gridLight: '#f0f9ff',
+              gridBorder: '#bae6fd',
+              alert: '#e11d48',
+              alertLight: '#fff1f2',
+              alertBorder: '#fecdd3'
+            }
           }
         }
       }
@@ -115,8 +129,8 @@
     /* GLASS CARDS */
     .glass-card {
       border: 1px solid rgba(226,232,240,0.9);
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 10px 40px rgba(15,23,42,0.05), 0 1px 3px rgba(0,0,0,0.02);
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 10px 35px -5px rgba(15,23,42,0.04), 0 1px 3px rgba(0,0,0,0.02);
       border-radius: 1.25rem;
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -129,12 +143,41 @@
       transition: transform .18s cubic-bezier(.23,1,.32,1), background-color .18s ease, box-shadow .18s ease;
       cursor: pointer;
     }
-    .button-primary { padding: 0.75rem 1.25rem; background: #4f46e5; color: white; box-shadow: 0 10px 24px rgba(79,70,229,.22); }
-    .button-primary:hover { background: #4338ca; box-shadow: 0 12px 30px rgba(79,70,229,.32); transform: translateY(-1.5px); }
-    .button-emerald { padding: 0.75rem 1.25rem; background: #10b981; color: white; box-shadow: 0 10px 24px rgba(16,185,129,.25); }
-    .button-emerald:hover { background: #059669; box-shadow: 0 12px 30px rgba(16,185,129,.35); transform: translateY(-1.5px); }
-    .button-secondary { border: 1px solid #cbd5e1; background: #ffffff; color: #334155; padding: 0.75rem 1.25rem; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
-    .button-secondary:hover { background: #f1f5f9; color: #0f172a; transform: translateY(-1.5px); }
+    .button-primary { 
+      padding: 0.75rem 1.25rem; 
+      background: #4f46e5; 
+      color: white; 
+      box-shadow: 0 8px 20px -2px rgba(79,70,229,0.28); 
+    }
+    .button-primary:hover { 
+      background: #4338ca; 
+      box-shadow: 0 12px 28px -2px rgba(79,70,229,0.38); 
+      transform: translateY(-1.5px); 
+    }
+    .button-emerald { 
+      padding: 0.75rem 1.25rem; 
+      background: #10b981; 
+      color: white; 
+      box-shadow: 0 8px 20px -2px rgba(16,185,129,0.25); 
+    }
+    .button-emerald:hover { 
+      background: #059669; 
+      box-shadow: 0 12px 28px -2px rgba(16,185,129,0.35); 
+      transform: translateY(-1.5px); 
+    }
+    .button-secondary { 
+      border: 1px solid #e2e8f0; 
+      background: #ffffff; 
+      color: #334155; 
+      padding: 0.75rem 1.25rem; 
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03); 
+    }
+    .button-secondary:hover { 
+      background: #f8fafc; 
+      color: #0f172a; 
+      border-color: #cbd5e1;
+      transform: translateY(-1.5px); 
+    }
 
     .nav-link { color: #475569; font-weight: 600; transition: color 0.15s; }
     .nav-link:hover { color: #4f46e5; }
@@ -150,7 +193,7 @@
     }
     .section-copy { margin-top: 1.25rem; max-width: 640px; font-size: 1rem; line-height: 1.75rem; color: #475569; }
     .text-gradient {
-      background: linear-gradient(105deg,#4f46e5,#0284c7 45%,#10b981);
+      background: linear-gradient(110deg, #4f46e5 0%, #0284c7 48%, #10b981 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
 
@@ -162,16 +205,34 @@
     .xense-col { background: rgba(16,185,129,0.05); }
 
     /* SOC SLIDER */
-    .soc-slider { height: 7px; width: 100%; appearance: none; -webkit-appearance: none; border-radius: 999px; outline: none; background: linear-gradient(to right,#4f46e5 0%,#0284c7 var(--progress,78%),#e2e8f0 var(--progress,78%),#e2e8f0 100%); cursor: pointer; }
-    .soc-slider::-webkit-slider-thumb { height: 22px; width: 22px; appearance: none; -webkit-appearance: none; border: 3px solid #ffffff; border-radius: 999px; background: #4f46e5; box-shadow: 0 0 0 2px rgba(79,70,229,.35),0 4px 12px rgba(79,70,229,.3); }
+    .soc-slider { 
+      height: 7px; 
+      width: 100%; 
+      appearance: none; 
+      -webkit-appearance: none; 
+      border-radius: 999px; 
+      outline: none; 
+      background: linear-gradient(to right, #4f46e5 0%, #0284c7 var(--progress, 78%), #e2e8f0 var(--progress, 78%), #e2e8f0 100%); 
+      cursor: pointer; 
+    }
+    .soc-slider::-webkit-slider-thumb { 
+      height: 22px; 
+      width: 22px; 
+      appearance: none; 
+      -webkit-appearance: none; 
+      border: 3px solid #ffffff; 
+      border-radius: 999px; 
+      background: #4f46e5; 
+      box-shadow: 0 0 0 2px rgba(79,70,229,.35), 0 4px 12px rgba(79,70,229,.3); 
+    }
 
     /* AMBIENT BACKGROUND GLOW */
-    .ambient { position: fixed; pointer-events: none; z-index: 0; border-radius: 999px; filter: blur(100px); opacity: .22; }
+    .ambient { position: fixed; pointer-events: none; z-index: 0; border-radius: 999px; filter: blur(110px); opacity: .20; }
     .ambient-one { top: 10%; left: -10%; width: 500px; height: 500px; background: #c7d2fe; }
     .ambient-two { right: -10%; top: 45%; width: 520px; height: 520px; background: #a7f3d0; }
 
     /* MODAL */
-    .modal-overlay { background: rgba(15,23,42,0.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    .modal-overlay { background: rgba(15,23,42,0.6); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 
     .active-mode-btn { background: #4f46e5; color: white; box-shadow: 0 4px 16px rgba(79,70,229,0.3); }
 
@@ -179,32 +240,11 @@
     @keyframes pulseParticle { 0%{transform:scale(0.9);opacity:0.3;} 50%{transform:scale(1.1);opacity:1;} 100%{transform:scale(0.9);opacity:0.3;} }
     .pulse-node { animation: pulseParticle 2s infinite ease-in-out; }
 
-    /* HERO CAROUSEL */
-    .hero-carousel { position: relative; overflow: hidden; border-radius: 1.5rem; }
-    .hero-slides { display: flex; transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
-    .hero-slide { min-width: 100%; position: relative; }
-    .hero-slide img { width: 100%; height: 420px; object-fit: cover; display: block; }
-
-    .carousel-dot { width: 8px; height: 8px; border-radius: 999px; background: rgba(255,255,255,0.45); border: none; cursor: pointer; padding: 0; transition: all .25s ease; }
-    .carousel-dot.active { background: #ffffff; width: 24px; }
-
-    .carousel-btn { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 999px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(10px); color: white; cursor: pointer; transition: background .2s; }
-    .carousel-btn:hover { background: rgba(255,255,255,0.4); }
-
-    /* SVG CHART ANIMATIONS */
-    @keyframes drawLine { from { stroke-dashoffset: 600; } to { stroke-dashoffset: 0; } }
-    @keyframes fillUp { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-
-    .chart-line { stroke-dasharray: 600; stroke-dashoffset: 600; }
-    .chart-line.animating { animation: drawLine 2.2s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
-    .chart-bar { transform-origin: bottom; transform: scaleY(0); }
-    .chart-bar.animating { animation: fillUp 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-
     /* DASHBOARD MOCKUP */
-    .mockup-phone { filter: drop-shadow(0 32px 64px rgba(79,70,229,0.22)) drop-shadow(0 4px 16px rgba(0,0,0,0.12)); }
+    .mockup-phone { filter: drop-shadow(0 32px 64px rgba(15,23,42,0.3)) drop-shadow(0 4px 16px rgba(79,70,229,0.15)); }
   </style>
 </head>
-<body class="selection:bg-indigo-500/30">
+<body class="selection:bg-indigo-500/20">
 
   <!-- Ambient Background -->
   <div class="ambient ambient-one"></div>
@@ -217,9 +257,9 @@
        FLOATING NAVBAR
   ════════════════════════════════════════════════════ -->
   <header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-10">
-    <nav class="mx-auto flex max-w-[1320px] items-center justify-between rounded-2xl border border-slate-200/90 bg-white/90 px-4 py-3 shadow-xl shadow-slate-200/50 backdrop-blur-xl sm:px-6">
+    <nav class="mx-auto flex max-w-[1320px] items-center justify-between rounded-2xl border border-slate-200/90 bg-white/90 px-4 py-3 shadow-lg shadow-slate-200/40 backdrop-blur-xl sm:px-6">
       <a href="#top" class="flex items-center gap-3 group">
-        <img src="logo.png" alt="Xense Energy Logo" class="h-9 w-9 rounded-xl object-contain bg-white border border-indigo-500/30 p-1 shadow-md group-hover:scale-105 transition-transform" decoding="async">
+        <img src="assets/logo.png" alt="Xense Energy Logo" class="h-9 w-9 rounded-xl object-contain bg-white border border-slate-200 p-1 shadow-sm group-hover:scale-105 transition-transform" decoding="async">
         <span class="leading-none">
           <span class="block text-sm font-extrabold tracking-[0.18em] text-slate-900">XENSE</span>
           <span class="mt-1 block text-[8px] font-bold tracking-[0.28em] text-indigo-600">ENERGY SYSTEMS</span>
@@ -228,7 +268,7 @@
 
       <div class="hidden items-center gap-8 text-xs font-bold text-slate-600 lg:flex">
         <a href="#modes" class="nav-link">Operating Modes</a>
-        <a href="#ecosystem" class="nav-link">Products</a>
+        <!-- <a href="#ecosystem" class="nav-link">Products</a> -->
         <a href="#dashboard" class="nav-link">App &amp; Dashboard</a>
         <a href="#simulator" class="nav-link">Simulator</a>
         <a href="#waitlist" class="nav-link text-indigo-600 font-bold">Join Waitlist</a>
@@ -257,7 +297,7 @@
     <div id="mobileMenu" class="hidden mx-auto mt-2 max-w-[1320px] rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-2xl backdrop-blur-xl sm:hidden">
       <div class="grid gap-1 text-sm font-semibold text-slate-700">
         <a href="#modes" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Operating Modes</a>
-        <a href="#ecosystem" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Products</a>
+        <!-- <a href="#ecosystem" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Products</a> -->
         <a href="#dashboard" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">App &amp; Dashboard</a>
         <a href="#simulator" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100">Simulator</a>
         <a href="#waitlist" class="mobile-nav-item rounded-lg px-3 py-2.5 hover:bg-slate-100 text-indigo-600 font-bold">Join Waitlist</a>
@@ -280,15 +320,20 @@
       
       <!-- HERO BACKGROUND IMAGE WITH CINEMATIC LIGHTING OVERLAY -->
       <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950">
-        <img src="xense-hero-hardware-duo-3d.jpg" alt="Xense Wireless Smart Dongle and Appliance Guard" class="w-full h-full object-cover object-center lg:object-right" fetchpriority="high" decoding="async">
+        <img src="assets/xense-hero-hardware-duo-3d.jpg" alt="Xense Wireless Smart Dongle and Appliance Guard" class="w-full h-full object-cover object-center lg:object-right" fetchpriority="high" decoding="async">
         <!-- Dark Gradient Vignette Overlay for High Readability on Left Side Text -->
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60"></div>
       </div>
 
       <!-- FOREGROUND HERO CONTENT -->
       <div class="relative z-10 mx-auto max-w-[1320px] w-full">
         <div class="max-w-3xl reveal-drastic-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-4 sm:mb-6">
+            <span class="live-dot"></span>
+            <span class="text-[10px] sm:text-xs font-mono font-bold text-slate-200 uppercase tracking-wider">Zero Midnight Blackouts</span>
+          </div>
+
           <h1 class="max-w-4xl text-3xl font-extrabold leading-[1.08] sm:leading-[1.02] tracking-[-0.04em] sm:tracking-[-0.05em] text-white sm:text-5xl md:text-6xl lg:text-[72px]">
             Intelligent Energy Control <span class="text-gradient">for Modern Homes.</span>
           </h1>
@@ -298,11 +343,11 @@
           </p>
 
           <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-3.5 items-stretch sm:items-center">
-            <button onclick="openModal('modal-demo')" class="button-primary justify-center px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold shadow-2xl shadow-indigo-500/40">
+            <button onclick="openModal('modal-demo')" class="button-primary justify-center px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold shadow-xl shadow-indigo-500/30">
               <span>Request Demo &amp; Presentation</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
-            <button onclick="openModal('modal-signup')" class="button-secondary justify-center px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md">
+            <button onclick="openModal('modal-signup')" class="button-secondary justify-center px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md shadow-none">
               <span>Create Free Account</span>
               <i data-lucide="user-plus" class="w-4 h-4 text-indigo-300"></i>
             </button>
@@ -324,24 +369,24 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════
-         STATS BAR
+         STATS BAR (HARMONIZED COHESIVE SYSTEM)
     ════════════════════════════════════════════════════ -->
-    <section class="border-y border-slate-200 bg-white/70 backdrop-blur-sm py-8 px-4 sm:px-6 lg:px-10 reveal-drastic-up">
-      <div class="mx-auto max-w-[1320px] grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-3xl font-extrabold text-indigo-600 font-mono">500+</div>
+    <section class="border-y border-slate-200 bg-white/80 backdrop-blur-sm py-8 px-4 sm:px-6 lg:px-10 reveal-drastic-up">
+      <div class="mx-auto max-w-[1320px] grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
+        <div class="p-2">
+          <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono tracking-tight">500<span class="text-indigo-600">+</span></div>
           <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">Installations Completed</div>
         </div>
-        <div>
-          <div class="text-3xl font-extrabold text-emerald-600 font-mono">3×</div>
+        <div class="p-2">
+          <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono tracking-tight">3<span class="text-emerald-600">×</span></div>
           <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">Battery Duration Gain</div>
         </div>
-        <div>
-          <div class="text-3xl font-extrabold text-sky-600 font-mono">&lt;5ms</div>
+        <div class="p-2">
+          <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono tracking-tight">&lt;<span class="text-sky-600">5ms</span></div>
           <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">Switchover Latency</div>
         </div>
-        <div>
-          <div class="text-3xl font-extrabold text-amber-600 font-mono">100%</div>
+        <div class="p-2">
+          <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono tracking-tight">100<span class="text-amber-500">%</span></div>
           <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">Offline Reliability</div>
         </div>
       </div>
@@ -362,11 +407,11 @@
         </p>
       </div>
 
-      <!-- 3-Column Direct Cards (All 3 Visible at a glance) -->
+      <!-- 3-Column Direct Cards (Harmonized elevation and visual hierarchy) -->
       <div class="grid gap-6 sm:gap-8 lg:grid-cols-3 items-stretch">
         
         <!-- MODE 1: XENSE MODE (FLAGSHIP / FEATURED) -->
-        <div class="glass-card relative p-6 sm:p-8 rounded-3xl sm:rounded-[2rem] flex flex-col justify-between border-2 border-indigo-500/40 bg-gradient-to-b from-indigo-50/40 via-white to-white shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-500 transition-all duration-300 reveal-drastic-left group">
+        <div class="glass-card relative p-6 sm:p-8 rounded-3xl sm:rounded-[2rem] flex flex-col justify-between border-2 border-indigo-500/40 bg-gradient-to-b from-indigo-50/40 via-white to-white shadow-xl hover:shadow-2xl hover:border-indigo-500 transition-all duration-300 reveal-drastic-left group">
           <!-- Featured Badge -->
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white text-[9px] font-mono font-extrabold px-4 py-1 rounded-full shadow-md tracking-widest uppercase flex items-center gap-1.5 whitespace-nowrap">
             <i data-lucide="sparkles" class="w-3 h-3"></i> FLAGSHIP AUTONOMOUS POSTURE
@@ -375,10 +420,10 @@
           <div>
             <!-- Header & Icon -->
             <div class="flex items-center justify-between mt-2 mb-6">
-              <div class="p-3.5 rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform">
+              <div class="p-3.5 rounded-2xl bg-indigo-600 text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
                 <i data-lucide="sparkles" class="w-6 h-6"></i>
               </div>
-              <span class="text-[10px] font-mono font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase">
+              <span class="text-[10px] font-mono font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase">
                 DEFAULT ACTIVE
               </span>
             </div>
@@ -392,12 +437,12 @@
             </p>
 
             <!-- Key Metrics Grid -->
-            <div class="mt-6 grid grid-cols-2 gap-2.5 p-3.5 rounded-xl bg-indigo-50/70 border border-indigo-100 text-center font-mono">
-              <div class="p-2 bg-white rounded-lg border border-indigo-100 shadow-sm">
+            <div class="mt-6 grid grid-cols-2 gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-center font-mono">
+              <div class="p-2 bg-white rounded-lg border border-slate-200 shadow-sm">
                 <div class="text-[9px] text-slate-500 uppercase font-bold">Safety Floor</div>
                 <div class="text-sm font-extrabold text-indigo-600 mt-0.5">35% SOC</div>
               </div>
-              <div class="p-2 bg-white rounded-lg border border-indigo-100 shadow-sm">
+              <div class="p-2 bg-white rounded-lg border border-slate-200 shadow-sm">
                 <div class="text-[9px] text-slate-500 uppercase font-bold">Backup Gain</div>
                 <div class="text-sm font-extrabold text-emerald-600 mt-0.5">+8 Hours</div>
               </div>
@@ -429,14 +474,14 @@
         </div>
 
         <!-- MODE 2: BYPASS MODE (MANUAL OVERRIDE) -->
-        <div class="glass-card relative p-8 rounded-[2rem] flex flex-col justify-between border border-slate-200 bg-white shadow-xl hover:shadow-2xl hover:border-amber-400 transition-all duration-300 reveal-drastic-up delay-100 group">
+        <div class="glass-card relative p-6 sm:p-8 rounded-3xl sm:rounded-[2rem] flex flex-col justify-between border border-slate-200 bg-white shadow-xl hover:shadow-2xl hover:border-amber-400 transition-all duration-300 reveal-drastic-up delay-100 group">
           <div>
             <!-- Header & Icon -->
             <div class="flex items-center justify-between mt-2 mb-6">
-              <div class="p-3.5 rounded-2xl bg-amber-500 text-white shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+              <div class="p-3.5 rounded-2xl bg-amber-500 text-white shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
                 <i data-lucide="power" class="w-6 h-6"></i>
               </div>
-              <span class="text-[10px] font-mono font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full uppercase">
+              <span class="text-[10px] font-mono font-extrabold text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full uppercase">
                 MANUAL OVERRIDE
               </span>
             </div>
@@ -450,29 +495,29 @@
             </p>
 
             <!-- Key Metrics Grid -->
-            <div class="mt-6 grid grid-cols-2 gap-2.5 p-3.5 rounded-xl bg-amber-50/70 border border-amber-100 text-center font-mono">
-              <div class="p-2 bg-white rounded-lg border border-amber-100 shadow-sm">
+            <div class="mt-6 grid grid-cols-2 gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-center font-mono">
+              <div class="p-2 bg-white rounded-lg border border-slate-200 shadow-sm">
                 <div class="text-[9px] text-slate-500 uppercase font-bold">Load Shedding</div>
                 <div class="text-sm font-extrabold text-amber-600 mt-0.5">DISABLED</div>
               </div>
-              <div class="p-2 bg-white rounded-lg border border-amber-100 shadow-sm">
+              <div class="p-2 bg-white rounded-lg border border-slate-200 shadow-sm">
                 <div class="text-[9px] text-slate-500 uppercase font-bold">Appliance Feed</div>
-                <div class="text-sm font-extrabold text-slate-800 mt-0.5">100% RAW</div>
+                <div class="text-sm font-extrabold text-slate-900 mt-0.5">100% RAW</div>
               </div>
             </div>
 
             <!-- Bullet Points -->
             <div class="mt-6 space-y-3 pt-4 border-t border-slate-100 text-xs text-slate-700 font-medium">
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
                 <span>Disables automatic load shedding logic completely</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
                 <span>Passes maximum power continuously to heavy appliances</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
                 <span>Ideal for maintenance, heavy tooling, or emergency testing</span>
               </div>
             </div>
@@ -487,14 +532,14 @@
         </div>
 
         <!-- MODE 3: AUTO GRID MODE (UTILITY FALLBACK) -->
-        <div class="glass-card relative p-8 rounded-[2rem] flex flex-col justify-between border border-slate-200 bg-white shadow-xl hover:shadow-2xl hover:border-sky-400 transition-all duration-300 reveal-drastic-right delay-200 group">
+        <div class="glass-card relative p-6 sm:p-8 rounded-3xl sm:rounded-[2rem] flex flex-col justify-between border border-slate-200 bg-white shadow-xl hover:shadow-2xl hover:border-sky-400 transition-all duration-300 reveal-drastic-right delay-200 group">
           <div>
             <!-- Header & Icon -->
             <div class="flex items-center justify-between mt-2 mb-6">
-              <div class="p-3.5 rounded-2xl bg-sky-600 text-white shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+              <div class="p-3.5 rounded-2xl bg-sky-600 text-white shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
                 <i data-lucide="grid" class="w-6 h-6"></i>
               </div>
-              <span class="text-[10px] font-mono font-extrabold text-sky-700 bg-sky-50 border border-sky-200 px-3 py-1 rounded-full uppercase">
+              <span class="text-[10px] font-mono font-extrabold text-sky-800 bg-sky-50 border border-sky-200 px-3 py-1 rounded-full uppercase">
                 UTILITY FALLBACK
               </span>
             </div>
@@ -508,12 +553,12 @@
             </p>
 
             <!-- Key Metrics Grid -->
-            <div class="mt-6 grid grid-cols-2 gap-2.5 p-3.5 rounded-xl bg-sky-50/70 border border-sky-100 text-center font-mono">
-              <div class="p-2 bg-white rounded-lg border border-sky-100 shadow-sm">
+            <div class="mt-6 grid grid-cols-2 gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-center font-mono">
+              <div class="p-2 bg-white rounded-lg border border-slate-200 shadow-sm">
                 <div class="text-[9px] text-slate-500 uppercase font-bold">Grid Detection</div>
                 <div class="text-sm font-extrabold text-sky-600 mt-0.5">&lt; 5 ms</div>
               </div>
-              <div class="p-2 bg-white rounded-lg border border-sky-100 shadow-sm">
+              <div class="p-2 bg-white rounded-lg border border-slate-200 shadow-sm">
                 <div class="text-[9px] text-slate-500 uppercase font-bold">Battery Action</div>
                 <div class="text-sm font-extrabold text-emerald-600 mt-0.5">RECHARGING</div>
               </div>
@@ -522,15 +567,15 @@
             <!-- Bullet Points -->
             <div class="mt-6 space-y-3 pt-4 border-t border-slate-100 text-xs text-slate-700 font-medium">
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
                 <span>Automated sensing of returning utility grid power</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
                 <span>Bypasses battery shedding during grid availability</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
                 <span>Simultaneous battery recharging and full load pass-through</span>
               </div>
             </div>
@@ -548,9 +593,10 @@
 
     </section>
 
-        <!-- ═══════════════════════════════════════════════════
-         PRODUCT ECOSYSTEM BENTO GRID
+    <!-- ═══════════════════════════════════════════════════
+         PRODUCT ECOSYSTEM BENTO GRID (COMMENTED OUT AS REQUESTED)
     ════════════════════════════════════════════════════ -->
+    <!--
     <section id="ecosystem" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
       <div class="mb-12 max-w-3xl">
         <div class="mb-4 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[0.25em] text-indigo-600">
@@ -564,72 +610,68 @@
 
       <div class="grid gap-6 md:grid-cols-12">
 
-        <!-- Card 1: Inverter (7 cols) -->
-        <div class="md:col-span-7 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-xl reveal-drastic-left">
+        <div class="md:col-span-7 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl reveal-drastic-left">
           <div>
             <div class="w-full h-[260px] rounded-2xl overflow-hidden border border-slate-200 mb-6 bg-slate-50 relative">
-              <img src="xense-inverter-kit.jpg" alt="Xense Wall-Mounted Inverter & Dongle Kit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-              <span class="absolute top-3 left-3 bg-slate-900/90 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full backdrop-blur-md">HARDWARE UNIT</span>
+              <img src="assets/xense-inverter-kit.jpg" alt="Xense Wall-Mounted Inverter & Dongle Kit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+              <span class="absolute top-3 left-3 bg-slate-900/90 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full backdrop-blur-md border border-white/10">HARDWARE UNIT</span>
             </div>
             <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider">01. INVERTER &amp; BACKUP SYSTEM</span>
             <h3 class="text-2xl font-extrabold text-slate-900 mt-1">Xense Smart Solar Inverter</h3>
             <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Wall-mounted intelligent hybrid inverter with digital LCD display. Integrates seamlessly with existing solar arrays, Lithium/Gel battery banks, and grid power.</p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
             <span>Clean Minimalist Enclosure</span>
             <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
           </div>
         </div>
 
-        <!-- Card 2: Mobile Dashboard (5 cols) -> Features xense-mobile-dashboard-flip.webp -->
-        <div class="md:col-span-5 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-xl reveal-drastic-right delay-100">
+        <div class="md:col-span-5 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl reveal-drastic-right delay-100">
           <div>
             <div class="w-full h-[260px] rounded-2xl overflow-hidden border border-slate-200 mb-6 bg-slate-950 relative flex items-center justify-center p-2">
-              <img src="xense-mobile-dashboard-flip.webp" alt="Xense Live Mobile Dashboard on Galaxy Z Flip" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-              <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow">
+              <img src="assets/xense-mobile-dashboard-flip.webp" alt="Xense Live Mobile Dashboard on Galaxy Z Flip" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+              <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-slate-900/90 backdrop-blur-md rounded-full px-2.5 py-1 border border-white/10 shadow">
                 <span class="live-dot"></span>
-                <span class="text-[9px] font-mono font-bold text-slate-900">LIVE</span>
+                <span class="text-[9px] font-mono font-bold text-white">LIVE</span>
               </div>
             </div>
             <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider">02. REMOTE TELEMETRY</span>
             <h3 class="text-xl font-extrabold text-slate-900 mt-1">Xense Live Mobile Dashboard</h3>
             <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Monitor real-time power flow, adjust battery reserve floors, and switch operating modes remotely from your smartphone.</p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
             <span>iOS &amp; Android App Included</span>
             <i data-lucide="smartphone" class="w-4 h-4 text-indigo-600"></i>
           </div>
         </div>
 
-        <!-- Card 3: Dongle (6 cols) -->
-        <div class="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-xl reveal-drastic-left delay-200">
+        <div class="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl reveal-drastic-left delay-200">
           <div>
             <div class="w-full h-[250px] rounded-2xl overflow-hidden border border-slate-200 mb-6 bg-white relative flex items-center justify-center p-2">
-              <img src="xense-dongle-plug.jpg" alt="Xense RS232 Dongle" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-              <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full shadow-md">PLUG &amp; PLAY</span>
+              <img src="assets/xense-dongle-plug.jpg" alt="Xense RS232 Dongle" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+              <span class="absolute top-3 left-3 bg-slate-900/90 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full backdrop-blur-md border border-white/10">PLUG &amp; PLAY</span>
             </div>
             <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider">03. SMART CONNECTOR</span>
             <h3 class="text-xl font-extrabold text-slate-900 mt-1">Xense Wireless Dongle Stick</h3>
             <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Plugs directly into your inverter's RS232 / RJ45 port. Zero complex electrical rewiring needed — 60-second setup.</p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
             <span>Instant 60-Second Setup</span>
             <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
           </div>
         </div>
 
-        <!-- Card 4: Smart Appliance Guard & Intelligent Monitoring (6 cols) -->
-        <div class="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-xl reveal-drastic-right delay-300">
+        <div class="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl reveal-drastic-right delay-300">
           <div>
             <div class="w-full h-[250px] rounded-2xl overflow-hidden border border-slate-200 mb-6 bg-white relative flex items-center justify-center p-2">
-              <img src="xense-appliance-guard-3d.jpg" alt="Xense Smart Appliance Guard — Real-Time & Offline Control" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-              <span class="absolute top-3 left-3 bg-indigo-600 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full shadow-md">SMART GUARD</span>
+              <img src="assets/xense-appliance-guard-3d.jpg" alt="Xense Smart Appliance Guard — Real-Time & Offline Control" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+              <span class="absolute top-3 left-3 bg-slate-900/90 text-white text-[9px] font-mono font-bold px-3 py-1 rounded-full backdrop-blur-md border border-white/10">SMART GUARD</span>
             </div>
             <span class="text-[10px] font-mono font-extrabold text-indigo-600 uppercase tracking-wider">04. INTELLIGENT MONITORING</span>
             <h3 class="text-xl font-extrabold text-slate-900 mt-1">Real-Time &amp; Offline Monitoring</h3>
             <p class="text-xs text-slate-600 mt-2.5 leading-relaxed font-medium">Supports both real-time cloud data sync and offline local data logging. Load shedding logic functions even when Wi-Fi drops.</p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
             <span>100% Offline Capable</span>
             <i data-lucide="wifi-off" class="w-4 h-4 text-sky-600"></i>
           </div>
@@ -637,11 +679,10 @@
 
       </div>
     </section>
-
-    
+    -->
 
     <!-- ═══════════════════════════════════════════════════
-         DASHBOARD MOBILE MOCKUP SECTION
+         DASHBOARD MOBILE MOCKUP SECTION (LUXURY DARK THEME)
     ════════════════════════════════════════════════════ -->
     <section id="dashboard" class="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-14 sm:py-20 sm:px-6 lg:px-10">
       <div class="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 px-6 py-12 sm:px-12 lg:px-16 sm:py-16 shadow-2xl reveal-drastic-up">
@@ -654,36 +695,36 @@
             <h2 class="text-3xl font-extrabold text-white sm:text-5xl leading-tight tracking-tight">
               Full control. <br><span class="text-gradient">From your palm.</span>
             </h2>
-            <p class="mt-4 sm:mt-5 text-slate-400 text-xs sm:text-sm leading-6 sm:leading-7 max-w-lg font-medium">
+            <p class="mt-4 sm:mt-5 text-slate-300 text-xs sm:text-sm leading-6 sm:leading-7 max-w-lg font-normal">
               The Xense Dashboard gives you real-time visibility into every watt — monitor solar generation, battery SOC, appliance states, and automated load decisions all in one place.
             </p>
 
-            <!-- Feature Pills -->
-            <div class="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3">
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
+            <!-- Feature Pills (Harmonized, Clean Glass Badges) -->
+            <div class="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-2.5">
+              <div class="flex items-center gap-2 rounded-full bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-200 font-semibold backdrop-blur-md transition-colors">
                 <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 text-indigo-400"></i>
                 Live Analytics
               </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
+              <div class="flex items-center gap-2 rounded-full bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-200 font-semibold backdrop-blur-md transition-colors">
                 <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-400"></i>
                 Load Decisions
               </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
+              <div class="flex items-center gap-2 rounded-full bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-200 font-semibold backdrop-blur-md transition-colors">
                 <i data-lucide="bell" class="w-3.5 h-3.5 text-amber-400"></i>
                 Smart Alerts
               </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
+              <div class="flex items-center gap-2 rounded-full bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-200 font-semibold backdrop-blur-md transition-colors">
                 <i data-lucide="settings" class="w-3.5 h-3.5 text-sky-400"></i>
                 Remote Control
               </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-300 font-semibold">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-rose-400"></i>
+              <div class="flex items-center gap-2 rounded-full bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs text-slate-200 font-semibold backdrop-blur-md transition-colors">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
                 Priority Lists
               </div>
             </div>
 
             <div class="mt-8 flex flex-col sm:flex-row gap-3">
-              <button onclick="openModal('modal-demo')" class="button-primary justify-center text-xs sm:text-sm px-6 py-3.5 font-bold">
+              <button onclick="openModal('modal-demo')" class="button-primary justify-center text-xs sm:text-sm px-6 py-3.5 font-bold shadow-lg shadow-indigo-500/30">
                 <span>Request a Live Demo</span>
                 <i data-lucide="play" class="w-4 h-4"></i>
               </button>
@@ -696,7 +737,7 @@
           <!-- Right: Mobile Device Mockup Image -->
           <div class="flex justify-center lg:justify-end">
             <div class="relative">
-              <img src="xense-mobile-dashboard-note20.webp" alt="Xense Energy Intelligent Mobile App Dashboard on Galaxy Note20" class="mockup-phone w-[280px] sm:w-[320px] rounded-[2rem] shadow-2xl drop-shadow-[0_20px_50px_rgba(79,70,229,0.3)] hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+              <img src="assets/xense-mobile-dashboard-note20.webp" alt="Xense Energy Intelligent Mobile App Dashboard on Galaxy Note20" class="mockup-phone w-[280px] sm:w-[320px] rounded-[2rem] shadow-2xl hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
               <!-- Floating stat cards -->
               <div class="absolute -left-12 top-12 glass-card bg-white/90 px-3.5 py-2.5 shadow-xl border-slate-200 hidden sm:block">
                 <div class="text-[9px] font-mono text-slate-500 uppercase tracking-wider">Solar Today</div>
@@ -711,10 +752,20 @@
         </div>
       </div>
     </section>
-
-    
-
-    
+              <!-- Floating stat cards -->
+              <div class="absolute -left-12 top-12 glass-card bg-white/90 px-3.5 py-2.5 shadow-xl border-slate-200 hidden sm:block">
+                <div class="text-[9px] font-mono text-slate-500 uppercase tracking-wider">Solar Today</div>
+                <div class="text-base font-extrabold text-amber-600 font-mono">32.4 kWh</div>
+              </div>
+              <div class="absolute -right-10 bottom-20 glass-card bg-white/90 px-3.5 py-2.5 shadow-xl border-slate-200 hidden sm:block">
+                <div class="text-[9px] font-mono text-slate-500 uppercase tracking-wider">Battery SOC</div>
+                <div class="text-base font-extrabold text-indigo-600 font-mono">78%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ═══════════════════════════════════════════════════
          BATTERY PROTECTION SIMULATOR
@@ -752,11 +803,11 @@
 
             <div id="protectionStatusBox" class="mt-6 sm:mt-8 rounded-2xl border p-4 sm:p-5 transition-all duration-300 border-emerald-200 bg-emerald-50">
               <div class="flex items-center gap-3 sm:gap-4">
-                <span id="protectionIconBox" class="p-2.5 sm:p-3 rounded-xl bg-emerald-100 text-emerald-700 border-emerald-200 flex-shrink-0">
+                <span id="protectionIconBox" class="p-2.5 sm:p-3 rounded-xl bg-emerald-100 text-emerald-700 border border-emerald-200 flex-shrink-0">
                   <i data-lucide="shield-check" id="protectionIcon" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </span>
                 <div>
-                  <div id="protectionStatusTitle" class="text-[11px] sm:text-xs font-extrabold text-emerald-800 tracking-wider">FULL POWER MODE: ALL APPLIANCES ACTIVE</div>
+                  <div id="protectionStatusTitle" class="text-[11px] sm:text-xs font-extrabold text-emerald-900 tracking-wider">FULL POWER MODE: ALL APPLIANCES ACTIVE</div>
                   <div id="protectionStatusCopy" class="mt-1 text-[10px] sm:text-[11px] leading-relaxed text-slate-600">Battery level is healthy. Air Conditioner, Deep Freezer, Fans &amp; Wi-Fi are all running safely.</div>
                 </div>
               </div>
@@ -785,7 +836,7 @@
               <div class="flex items-center gap-3">
                 <span id="iconAc" class="p-2 sm:p-2.5 rounded-xl bg-emerald-100 text-emerald-700 flex-shrink-0"><i data-lucide="wind" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Air Conditioner (1.5 HP)<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-200">HIGH POWER</span></div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Air Conditioner (1.5 HP)<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 font-bold border border-amber-200">HIGH POWER</span></div>
                   <div class="mt-0.5 text-[9px] sm:text-[10px] text-slate-500">Living Room &amp; Bedrooms</div>
                 </div>
               </div>
@@ -798,7 +849,7 @@
               <div class="flex items-center gap-3">
                 <span id="iconFreezer" class="p-2 sm:p-2.5 rounded-xl bg-emerald-100 text-emerald-700 flex-shrink-0"><i data-lucide="snowflake" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Deep Freezer &amp; Fridge<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">MEDIUM POWER</span></div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Deep Freezer &amp; Fridge<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 font-bold border border-slate-200">MEDIUM POWER</span></div>
                   <div class="mt-0.5 text-[9px] sm:text-[10px] text-slate-500">Kitchen Food Preservation</div>
                 </div>
               </div>
@@ -811,7 +862,7 @@
               <div class="flex items-center gap-3">
                 <span id="iconFans" class="p-2 sm:p-2.5 rounded-xl bg-emerald-100 text-emerald-700 flex-shrink-0"><i data-lucide="fan" class="w-4 h-4"></i></span>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Lighting &amp; Fans<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">LOW POWER</span></div>
+                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2 flex-wrap">Lighting &amp; Fans<span class="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 font-bold border border-slate-200">LOW POWER</span></div>
                   <div class="mt-0.5 text-[9px] sm:text-[10px] text-slate-500">Whole House Essential Circuit</div>
                 </div>
               </div>
@@ -838,18 +889,14 @@
       </div>
     </section>
 
-    
-
-    
-
-        <!-- ═══════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════
          ENTERPRISE PRIORITY WAITLIST & EARLY ACCESS
     ════════════════════════════════════════════════════ -->
     <section id="waitlist" class="mx-auto max-w-[1320px] px-4 pb-16 sm:pb-24 pt-8 sm:pt-12 sm:px-6 lg:px-10 reveal-drastic-zoom">
       <div class="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-black p-6 sm:p-14 lg:p-20 text-center shadow-2xl">
         <!-- Ambient Radial Glows -->
-        <div class="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full bg-indigo-500/20 blur-[120px]"></div>
-        <div class="pointer-events-none absolute -bottom-20 right-10 w-[300px] h-[300px] rounded-full bg-emerald-500/15 blur-[100px]"></div>
+        <div class="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full bg-indigo-500/15 blur-[120px]"></div>
+        <div class="pointer-events-none absolute -bottom-20 right-10 w-[300px] h-[300px] rounded-full bg-emerald-500/10 blur-[100px]"></div>
 
         <div class="relative z-10 max-w-3xl mx-auto">
           <!-- Headline -->
@@ -864,7 +911,7 @@
 
           <!-- Interactive Waitlist Form -->
           <div class="mt-10 max-w-xl mx-auto" id="waitlistFormContainer">
-            <form onsubmit="handleWaitlistSubmit(event)" class="relative flex flex-col sm:flex-row items-stretch gap-3 p-2 rounded-2xl bg-white/[0.07] border border-white/15 backdrop-blur-xl shadow-2xl focus-within:border-indigo-500 transition-colors">
+            <form onsubmit="handleWaitlistSubmit(event)" class="relative flex flex-col sm:flex-row items-stretch gap-3 p-2 rounded-2xl bg-white/[0.07] border border-white/15 backdrop-blur-xl shadow-2xl focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-500/20 transition-all">
               <div class="relative flex-1 flex items-center">
                 <i data-lucide="mail" class="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none"></i>
                 <input 
@@ -931,16 +978,16 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="relative z-10 border-t border-slate-200 bg-slate-50 px-4 py-10 sm:px-6 lg:px-10">
+  <footer class="relative z-10 border-t border-slate-200 bg-white px-4 py-10 sm:px-6 lg:px-10">
     <div class="mx-auto flex max-w-[1320px] flex-col justify-between gap-6 text-[10px] font-mono uppercase tracking-[0.14em] text-slate-600 sm:flex-row sm:items-center">
       <div class="flex items-center gap-3">
-        <img src="logo.png" alt="Xense Energy Logo" class="h-7 w-7 rounded-md object-contain bg-white p-0.5 border border-slate-200 shadow-sm" loading="lazy" decoding="async">
+        <img src="assets/logo.png" alt="Xense Energy Logo" class="h-7 w-7 rounded-md object-contain bg-white p-0.5 border border-slate-200 shadow-sm" loading="lazy" decoding="async">
         <span class="font-extrabold text-slate-800">© 2026 Xense Energy Systems • All Rights Reserved</span>
       </div>
       <div class="flex gap-6 font-bold">
-        <button onclick="openModal('modal-login')" class="hover:text-indigo-600">Sign In</button>
-        <button onclick="openModal('modal-signup')" class="hover:text-indigo-600">Sign Up</button>
-        <button onclick="openModal('modal-demo')" class="hover:text-emerald-600">Request Demo</button>
+        <button onclick="openModal('modal-login')" class="hover:text-indigo-600 transition-colors">Sign In</button>
+        <button onclick="openModal('modal-signup')" class="hover:text-indigo-600 transition-colors">Sign Up</button>
+        <button onclick="openModal('modal-demo')" class="hover:text-emerald-600 transition-colors">Request Demo</button>
       </div>
     </div>
   </footer>
@@ -952,22 +999,22 @@
   <!-- SIGN IN MODAL -->
   <div id="modal-login" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
     <div class="glass-card w-full max-w-md p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
-      <button onclick="closeModal('modal-login')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
+      <button onclick="closeModal('modal-login')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 transition-colors">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div class="text-center mb-6">
-        <img src="logo.png" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md" loading="lazy" decoding="async">
+        <img src="assets/logo.png" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-sm" loading="lazy" decoding="async">
         <h2 class="text-2xl font-extrabold text-slate-900">Sign in to Xense</h2>
         <p class="text-xs text-slate-500 mt-1 font-medium">Manage your telemetry and autonomous load controls</p>
       </div>
       <form onsubmit="event.preventDefault(); alert('Sign In Successful! Redirecting to dashboard...'); closeModal('modal-login');" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Email</label>
-          <input type="email" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          <input type="email" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
         </div>
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
-          <input type="password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          <input type="password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
         </div>
         <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">Sign In to Dashboard</button>
         <p class="text-center text-xs text-slate-500">Don't have an account? <button type="button" onclick="closeModal('modal-login');openModal('modal-signup')" class="text-indigo-600 font-bold hover:underline">Sign Up Free</button></p>
@@ -978,11 +1025,11 @@
   <!-- SIGN UP MODAL -->
   <div id="modal-signup" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
     <div class="glass-card w-full max-w-md p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
-      <button onclick="closeModal('modal-signup')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
+      <button onclick="closeModal('modal-signup')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 transition-colors">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div class="text-center mb-6">
-        <img src="logo.png" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md" loading="lazy" decoding="async">
+        <img src="assets/logo.png" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-sm" loading="lazy" decoding="async">
         <h2 class="text-2xl font-extrabold text-slate-900">Create your Xense account</h2>
         <p class="text-xs text-slate-500 mt-1 font-medium">Start monitoring and protecting your solar investment</p>
       </div>
@@ -990,20 +1037,20 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">First Name</label>
-            <input type="text" required placeholder="John" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+            <input type="text" required placeholder="John" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
           </div>
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">Last Name</label>
-            <input type="text" required placeholder="Doe" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+            <input type="text" required placeholder="Doe" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
           </div>
         </div>
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Email</label>
-          <input type="email" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          <input type="email" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
         </div>
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
-          <input type="password" required placeholder="Min 8 characters" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          <input type="password" required placeholder="Min 8 characters" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
         </div>
         <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">Create Free Account</button>
         <p class="text-center text-xs text-slate-500">Already have an account? <button type="button" onclick="closeModal('modal-signup');openModal('modal-login')" class="text-indigo-600 font-bold hover:underline">Sign In</button></p>
@@ -1014,27 +1061,27 @@
   <!-- REQUEST DEMO MODAL -->
   <div id="modal-demo" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
     <div class="glass-card w-full max-w-lg p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl">
-      <button onclick="closeModal('modal-demo')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900">
+      <button onclick="closeModal('modal-demo')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 transition-colors">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div class="text-center mb-6">
-        <img src="logo.png" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-md" loading="lazy" decoding="async">
+        <img src="assets/logo.png" alt="Xense Logo" class="h-10 w-10 mx-auto mb-3 rounded-xl object-contain bg-white p-1 border border-slate-200 shadow-sm" loading="lazy" decoding="async">
         <h2 class="text-2xl font-extrabold text-slate-900">Request a Live Demo</h2>
         <p class="text-xs text-slate-500 mt-1 font-medium">Our engineering team will contact you for a live consultation</p>
       </div>
       <form onsubmit="event.preventDefault(); alert('Demo Request Received! Our team will reach out within 24 hours.'); closeModal('modal-demo');" class="space-y-4">
         <div class="grid grid-cols-2 gap-3">
-          <input type="text" required placeholder="Full Name" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
-          <input type="email" required placeholder="Email Address" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
+          <input type="text" required placeholder="Full Name" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+          <input type="email" required placeholder="Email Address" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
         </div>
-        <input type="tel" required placeholder="Phone Number (e.g. +234 800 000 0000)" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white" />
-        <select class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white">
+        <input type="tel" required placeholder="Phone Number (e.g. +234 800 000 0000)" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+        <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors">
           <option>Residential Solar System (5kVA – 10kVA)</option>
           <option>Commercial Facility (15kVA – 50kVA)</option>
           <option>Mini-Grid Installation</option>
           <option>Not sure – need consultation</option>
         </select>
-        <textarea rows="2" placeholder="Tell us about your current inverter setup or requirements..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white resize-none"></textarea>
+        <textarea rows="2" placeholder="Tell us about your current inverter setup or requirements..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white resize-none transition-colors"></textarea>
         <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">
           <span>Submit Demo Request</span>
           <i data-lucide="send" class="w-4 h-4"></i>
@@ -1094,12 +1141,12 @@
         const badge = document.getElementById(badgeId);
         if (!row || !badge) return;
         if (isOn) {
-          row.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-emerald-300 bg-emerald-50";
-          badge.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
+          row.className = "flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 rounded-2xl border p-3.5 sm:p-4 transition-all duration-300 border-emerald-200 bg-emerald-50/60";
+          badge.className = "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
           badge.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ON / RUNNING';
         } else {
-          row.className = "flex items-center justify-between rounded-2xl border p-4 transition-all duration-300 border-rose-300 bg-rose-50";
-          badge.className = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
+          row.className = "flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 rounded-2xl border p-3.5 sm:p-4 transition-all duration-300 border-rose-200 bg-rose-50/60";
+          badge.className = "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
           badge.innerHTML = '<span class="h-1.5 w-1.5 rounded-full bg-rose-600 shadow-[0_0_8px_#e11d48]"></span> SHED / OFF';
         }
       }
@@ -1116,23 +1163,23 @@
 
       if (protectionStatusBox && protectionStatusTitle && protectionStatusCopy && protectionIconBox) {
         if (soc > 50) {
-          protectionStatusBox.className = "mt-8 rounded-2xl border p-5 transition-all duration-300 border-emerald-300 bg-emerald-50";
-          protectionStatusTitle.className = "text-xs font-bold text-emerald-900 tracking-wider";
+          protectionStatusBox.className = "mt-6 sm:mt-8 rounded-2xl border p-4 sm:p-5 transition-all duration-300 border-emerald-200 bg-emerald-50";
+          protectionStatusTitle.className = "text-[11px] sm:text-xs font-extrabold text-emerald-900 tracking-wider";
           protectionStatusTitle.textContent = "FULL POWER MODE: ALL APPLIANCES ACTIVE";
           protectionStatusCopy.textContent = "Battery SOC is healthy (" + soc + "%). Air Conditioner, Deep Freezer, Fans & Wi-Fi are all running safely.";
-          protectionIconBox.className = "p-3 rounded-xl bg-emerald-100 text-emerald-700 border-emerald-200";
+          protectionIconBox.className = "p-2.5 sm:p-3 rounded-xl bg-emerald-100 text-emerald-700 border border-emerald-200 flex-shrink-0";
         } else if (soc > 35) {
-          protectionStatusBox.className = "mt-8 rounded-2xl border p-5 transition-all duration-300 border-indigo-300 bg-indigo-50";
-          protectionStatusTitle.className = "text-xs font-bold text-indigo-900 tracking-wider";
+          protectionStatusBox.className = "mt-6 sm:mt-8 rounded-2xl border p-4 sm:p-5 transition-all duration-300 border-indigo-200 bg-indigo-50";
+          protectionStatusTitle.className = "text-[11px] sm:text-xs font-extrabold text-indigo-900 tracking-wider";
           protectionStatusTitle.textContent = "STAGE 1 LOAD SHEDDING (AC DISCONNECTED)";
           protectionStatusCopy.textContent = "Battery SOC dropped to " + soc + "%. Xense automatically shed the Air Conditioner to extend battery life.";
-          protectionIconBox.className = "p-3 rounded-xl bg-indigo-100 text-indigo-700 border-indigo-200";
+          protectionIconBox.className = "p-2.5 sm:p-3 rounded-xl bg-indigo-100 text-indigo-700 border border-indigo-200 flex-shrink-0";
         } else {
-          protectionStatusBox.className = "mt-8 rounded-2xl border p-5 transition-all duration-300 border-rose-300 bg-rose-50";
-          protectionStatusTitle.className = "text-xs font-bold text-rose-900 tracking-wider";
+          protectionStatusBox.className = "mt-6 sm:mt-8 rounded-2xl border p-4 sm:p-5 transition-all duration-300 border-rose-200 bg-rose-50";
+          protectionStatusTitle.className = "text-[11px] sm:text-xs font-extrabold text-rose-900 tracking-wider";
           protectionStatusTitle.textContent = "STAGE 2 CRITICAL PROTECTION (FREEZER SHED)";
           protectionStatusCopy.textContent = "Critical battery level (" + soc + "%). Xense shed the Deep Freezer to preserve essential Wi-Fi & security cameras.";
-          protectionIconBox.className = "p-3 rounded-xl bg-rose-100 text-rose-700 border-rose-200";
+          protectionIconBox.className = "p-2.5 sm:p-3 rounded-xl bg-rose-100 text-rose-700 border border-rose-200 flex-shrink-0";
         }
       }
     }
@@ -1176,7 +1223,7 @@
     if (canvas) {
       const ctx = canvas.getContext('2d');
       let width, height;
-      const dots = Array.from({ length: 70 }, (_, index) => ({
+      const dots = Array.from({ length: 60 }, (_, index) => ({
         x: Math.random(), y: Math.random(),
         speed: 0.00008 + Math.random() * 0.00016,
         drift: (Math.random() - 0.5) * 0.00018,
@@ -1221,29 +1268,6 @@
       resize();
       window.addEventListener('resize', resize);
       draw();
-    }
-
-    // ── Waitlist Submission Handler ──────────────────────
-    function handleWaitlistSubmit(e) {
-      e.preventDefault();
-      const input = document.getElementById('waitlistEmailInput');
-      const email = input ? input.value.trim() : '';
-      if (!email) return;
-
-      const form = document.querySelector('#waitlistFormContainer form');
-      const successBox = document.getElementById('waitlistSuccess');
-      const confirmedEmailText = document.getElementById('confirmedEmailText');
-      const queueNumber = document.getElementById('waitlistQueueNumber');
-
-      if (confirmedEmailText) confirmedEmailText.textContent = email;
-      if (queueNumber) {
-        const randomNum = Math.floor(1200 + Math.random() * 400);
-        queueNumber.textContent = `#XN-${randomNum}`;
-      }
-
-      if (form) form.classList.add('hidden');
-      if (successBox) successBox.classList.remove('hidden');
-      lucide.createIcons();
     }
   </script>
 </body>
