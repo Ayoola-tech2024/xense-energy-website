@@ -52,27 +52,72 @@
       }
     }
 
+    // ── InsForge Cloud Integration ───────────────────────
+    const INSFORGE_CONFIG = {
+      baseUrl: 'https://kugpe8zm.us-east.insforge.app',
+      anonKey: 'anon_2dfd8616d0f559f662d18dc3b2e8b1bcbd47d4e3f4ab99926b60360e28289f13'
+    };
+
+    async function sendToInsForgeLeads(payload) {
+      const response = await fetch(`${INSFORGE_CONFIG.baseUrl}/api/database/records/leads`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${INSFORGE_CONFIG.anonKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || 'Server returned ' + response.status);
+      }
+      return response;
+    }
+
     // ── Waitlist Submission Handler ──────────────────────
-    function handleWaitlistSubmit(e) {
+    async function handleWaitlistSubmit(e) {
       e.preventDefault();
       const input = document.getElementById('waitlistEmailInput');
+      const submitBtn = document.getElementById('waitlistSubmitBtn');
       const email = input ? input.value.trim() : '';
       if (!email) return;
 
-      const form = document.querySelector('#waitlistFormContainer form');
-      const successBox = document.getElementById('waitlistSuccess');
-      const confirmedEmailText = document.getElementById('confirmedEmailText');
-      const queueNumber = document.getElementById('waitlistQueueNumber');
+      const randomNum = Math.floor(1200 + Math.random() * 800);
+      const queueNumber = `#XN-${randomNum}`;
 
-      if (confirmedEmailText) confirmedEmailText.textContent = email;
-      if (queueNumber) {
-        const randomNum = Math.floor(1200 + Math.random() * 400);
-        queueNumber.textContent = `#XN-${randomNum}`;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Saving to Waitlist...</span>';
       }
 
-      if (form) form.classList.add('hidden');
-      if (successBox) successBox.classList.remove('hidden');
-      lucide.createIcons();
+      try {
+        await sendToInsForgeLeads({
+          email: email,
+          source: 'waitlist',
+          queue_number: queueNumber,
+          status: 'new'
+        });
+
+        const form = document.querySelector('#waitlistFormContainer form');
+        const successBox = document.getElementById('waitlistSuccess');
+        const confirmedEmailText = document.getElementById('confirmedEmailText');
+        const queueNumberEl = document.getElementById('waitlistQueueNumber');
+
+        if (confirmedEmailText) confirmedEmailText.textContent = email;
+        if (queueNumberEl) queueNumberEl.textContent = queueNumber;
+
+        if (form) form.classList.add('hidden');
+        if (successBox) successBox.classList.remove('hidden');
+        lucide.createIcons();
+      } catch (err) {
+        console.error('Waitlist submission failed:', err);
+        alert('Could not submit to waitlist. Please check your connection and try again.');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Join Priority Waitlist</span><i data-lucide="arrow-right" class="w-4 h-4"></i>';
+          lucide.createIcons();
+        }
+      }
     }
   </script>
 
@@ -996,16 +1041,17 @@
         <h2 class="text-2xl font-extrabold text-slate-900">Sign in to Xense</h2>
         <p class="text-xs text-slate-500 mt-1 font-medium">Manage your telemetry and autonomous load controls</p>
       </div>
-      <form onsubmit="event.preventDefault(); alert('Sign In Successful! Redirecting to dashboard...'); closeModal('modal-login');" class="space-y-4">
+      <div id="loginErrorBox" class="hidden mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700 font-medium"></div>
+      <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Email</label>
-          <input type="email" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+          <input type="email" id="loginEmail" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
         </div>
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
-          <input type="password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+          <input type="password" id="loginPassword" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
         </div>
-        <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">Sign In to Dashboard</button>
+        <button type="submit" id="loginSubmitBtn" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">Sign In to Dashboard</button>
         <p class="text-center text-xs text-slate-500">Don't have an account? <button type="button" onclick="closeModal('modal-login');openModal('modal-signup')" class="text-indigo-600 font-bold hover:underline">Sign Up Free</button></p>
       </form>
     </div>
@@ -1022,26 +1068,27 @@
         <h2 class="text-2xl font-extrabold text-slate-900">Create your Xense account</h2>
         <p class="text-xs text-slate-500 mt-1 font-medium">Start monitoring and protecting your solar investment</p>
       </div>
-      <form onsubmit="event.preventDefault(); alert('Account Created Successfully! Check your email to verify.'); closeModal('modal-signup');" class="space-y-4">
+      <div id="signupErrorBox" class="hidden mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700 font-medium"></div>
+      <form onsubmit="handleSignupSubmit(event)" class="space-y-4">
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">First Name</label>
-            <input type="text" required placeholder="John" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+            <input type="text" id="signupFirstName" required placeholder="John" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
           </div>
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">Last Name</label>
-            <input type="text" required placeholder="Doe" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+            <input type="text" id="signupLastName" required placeholder="Doe" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
           </div>
         </div>
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Email</label>
-          <input type="email" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+          <input type="email" id="signupEmail" required placeholder="name@company.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
         </div>
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
-          <input type="password" required placeholder="Min 8 characters" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+          <input type="password" id="signupPassword" required placeholder="Min 8 characters" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
         </div>
-        <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">Create Free Account</button>
+        <button type="submit" id="signupSubmitBtn" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">Create Free Account</button>
         <p class="text-center text-xs text-slate-500">Already have an account? <button type="button" onclick="closeModal('modal-signup');openModal('modal-login')" class="text-indigo-600 font-bold hover:underline">Sign In</button></p>
       </form>
     </div>
@@ -1058,20 +1105,36 @@
         <h2 class="text-2xl font-extrabold text-slate-900">Request a Live Demo</h2>
         <p class="text-xs text-slate-500 mt-1 font-medium">Our engineering team will contact you for a live consultation</p>
       </div>
-      <form onsubmit="event.preventDefault(); alert('Demo Request Received! Our team will reach out within 24 hours.'); closeModal('modal-demo');" class="space-y-4">
-        <div class="grid grid-cols-2 gap-3">
-          <input type="text" required placeholder="Full Name" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
-          <input type="email" required placeholder="Email Address" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+
+      <!-- Success View (Initially Hidden) -->
+      <div id="demoSuccessBox" class="hidden text-center py-6">
+        <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center border border-emerald-200 shadow-sm">
+          <i data-lucide="check-circle-2" class="w-8 h-8"></i>
         </div>
-        <input type="tel" required placeholder="Phone Number (e.g. +234 800 000 0000)" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
-        <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors">
-          <option>Residential Solar System (5kVA – 10kVA)</option>
-          <option>Commercial Facility (15kVA – 50kVA)</option>
-          <option>Mini-Grid Installation</option>
-          <option>Not sure – need consultation</option>
+        <h3 class="text-xl font-extrabold text-slate-900">Demo Request Received!</h3>
+        <p class="text-xs text-slate-600 mt-2 max-w-sm mx-auto leading-relaxed">
+          Thank you! Your request has been recorded with priority ticket <span id="demoSuccessTicket" class="font-mono font-bold text-indigo-600">#XN-1420</span>. Our team will reach out within 24 hours to schedule your presentation.
+        </p>
+        <button type="button" onclick="closeModal('modal-demo')" class="button-primary justify-center px-8 py-3 text-xs font-bold mt-6 shadow-md shadow-indigo-500/20">
+          Close Window
+        </button>
+      </div>
+
+      <!-- Form View -->
+      <form id="demoRequestForm" onsubmit="handleDemoSubmit(event)" class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <input type="text" id="demoFullName" required placeholder="Full Name" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+          <input type="email" id="demoEmail" required placeholder="Email Address" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+        </div>
+        <input type="tel" id="demoPhone" required placeholder="Phone Number (e.g. +234 800 000 0000)" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors" />
+        <select id="demoSystemType" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors">
+          <option value="Residential Solar System (5kVA – 10kVA)">Residential Solar System (5kVA – 10kVA)</option>
+          <option value="Commercial Facility (15kVA – 50kVA)">Commercial Facility (15kVA – 50kVA)</option>
+          <option value="Mini-Grid Installation">Mini-Grid Installation</option>
+          <option value="Not sure – need consultation">Not sure – need consultation</option>
         </select>
-        <textarea rows="2" placeholder="Tell us about your current inverter setup or requirements..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white resize-none transition-colors"></textarea>
-        <button type="submit" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">
+        <textarea id="demoMessage" rows="2" placeholder="Tell us about your current inverter setup or requirements..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white resize-none transition-colors"></textarea>
+        <button type="submit" id="demoSubmitBtn" class="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold">
           <span>Submit Demo Request</span>
           <i data-lucide="send" class="w-4 h-4"></i>
         </button>
@@ -1093,6 +1156,151 @@
     function closeModal(id) {
       const el = document.getElementById(id);
       if (el) el.classList.add('hidden');
+    }
+
+    // ── Request Demo Submission Handler ──────────────────
+    async function handleDemoSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('demoRequestForm');
+      const submitBtn = document.getElementById('demoSubmitBtn');
+      const fullName = document.getElementById('demoFullName')?.value.trim();
+      const email = document.getElementById('demoEmail')?.value.trim();
+      const phone = document.getElementById('demoPhone')?.value.trim();
+      const systemType = document.getElementById('demoSystemType')?.value;
+      const message = document.getElementById('demoMessage')?.value.trim();
+
+      if (!email || !phone) return;
+
+      const randomNum = Math.floor(1200 + Math.random() * 800);
+      const queueNumber = `#XN-${randomNum}`;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Submitting Consultation Request...</span>';
+      }
+
+      try {
+        await sendToInsForgeLeads({
+          full_name: fullName,
+          email: email,
+          phone: phone,
+          system_type: systemType,
+          message: message,
+          source: 'demo_request',
+          queue_number: queueNumber,
+          status: 'new'
+        });
+
+        const demoSuccessBox = document.getElementById('demoSuccessBox');
+        const demoTicketEl = document.getElementById('demoSuccessTicket');
+        if (demoTicketEl) demoTicketEl.textContent = queueNumber;
+
+        if (form) form.classList.add('hidden');
+        if (demoSuccessBox) demoSuccessBox.classList.remove('hidden');
+        lucide.createIcons();
+      } catch (err) {
+        console.error('Demo request submission failed:', err);
+        alert('Could not submit consultation request. Please check your connection and try again.');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Submit Demo Request</span><i data-lucide="send" class="w-4 h-4"></i>';
+          lucide.createIcons();
+        }
+      }
+    }
+
+    // ── Sign In Submission Handler ───────────────────────
+    async function handleLoginSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail')?.value.trim();
+      const password = document.getElementById('loginPassword')?.value;
+      const submitBtn = document.getElementById('loginSubmitBtn');
+      const errorBox = document.getElementById('loginErrorBox');
+
+      if (!email || !password) return;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Signing in...';
+      }
+      if (errorBox) errorBox.classList.add('hidden');
+
+      try {
+        const res = await fetch(`${INSFORGE_CONFIG.baseUrl}/api/auth/sessions`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.message || data.error || 'Invalid credentials');
+        }
+        if (data.accessToken) {
+          localStorage.setItem('xense_auth_token', data.accessToken);
+          localStorage.setItem('xense_user', JSON.stringify(data.user || { email }));
+        }
+        alert('Signed in successfully! Welcome back, ' + (data.user?.name || email));
+        closeModal('modal-login');
+      } catch (err) {
+        if (errorBox) {
+          errorBox.textContent = err.message;
+          errorBox.classList.remove('hidden');
+        } else {
+          alert('Login failed: ' + err.message);
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Sign In to Dashboard';
+        }
+      }
+    }
+
+    // ── Sign Up Submission Handler ───────────────────────
+    async function handleSignupSubmit(e) {
+      e.preventDefault();
+      const firstName = document.getElementById('signupFirstName')?.value.trim();
+      const lastName = document.getElementById('signupLastName')?.value.trim();
+      const email = document.getElementById('signupEmail')?.value.trim();
+      const password = document.getElementById('signupPassword')?.value;
+      const submitBtn = document.getElementById('signupSubmitBtn');
+      const errorBox = document.getElementById('signupErrorBox');
+
+      if (!email || !password) return;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Creating Account...';
+      }
+      if (errorBox) errorBox.classList.add('hidden');
+
+      try {
+        const res = await fetch(`${INSFORGE_CONFIG.baseUrl}/api/auth/users`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            email, 
+            password,
+            name: `${firstName} ${lastName}`.trim()
+          })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.message || data.error || 'Registration failed');
+        }
+        alert('Account created successfully! Check your email to verify.');
+        closeModal('modal-signup');
+      } catch (err) {
+        if (errorBox) {
+          errorBox.textContent = err.message;
+          errorBox.classList.remove('hidden');
+        } else {
+          alert('Sign up failed: ' + err.message);
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Create Free Account';
+        }
+      }
     }
 
     // ── Mobile Menu ─────────────────────────────────────
