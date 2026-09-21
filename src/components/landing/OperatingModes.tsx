@@ -18,7 +18,7 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
           </span>
         </h2>
         <p className="section-copy mx-auto mt-3 sm:mt-4">
-          Unlike standard inverters that crash during deep battery drain, Xense runs across three dedicated postures tailored for automated protection, manual pass-through, or utility recovery.
+          Whether managing a single household or a multi-tenant commercial facility, Xense runs across three dedicated postures tailored for automated load protection, plant pass-through, or utility recovery.
         </p>
       </div>
 
@@ -44,12 +44,12 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
               MODE 01
             </span>
             <h3 className="mt-1 text-2xl font-extrabold text-slate-900">Xense Mode</h3>
-            <p className="mt-0.5 text-xs font-bold text-slate-600">Automatic Solar &amp; Battery Protection</p>
+            <p className="mt-0.5 text-xs font-bold text-slate-600">Automated Solar &amp; Battery Protection</p>
 
             <p className="mt-4 text-xs font-medium leading-relaxed text-slate-600">
-              Continuously monitors solar generation and battery SOC. When battery level drops to{" "}
-              <strong className="font-bold text-slate-900">35%</strong>, Xense automatically sheds heavy loads (Air Conditioners &amp; Water Heaters) to extend backup duration by up to{" "}
-              <strong className="font-bold text-indigo-700">3x</strong>.
+              Continuously monitors generation and storage levels. When battery reserve reaches safety threshold (e.g.{" "}
+              <strong className="font-bold text-slate-900">35%</strong>), Xense automatically sheds non-critical heavy loads (ACs, thermal chillers, water pumps, secondary machinery) to keep essential circuits powered up to{" "}
+              <strong className="font-bold text-indigo-700">3x longer</strong>.
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-200 bg-slate-50 p-3 text-center font-mono">
@@ -66,15 +66,15 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
             <div className="mt-6 space-y-3 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600" />
-                <span>Automated multi-stage load shedding logic</span>
+                <span>Multi-stage load shedding for domestic &amp; commercial circuits</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600" />
-                <span>100% offline edge logic &mdash; runs if Wi-Fi drops</span>
+                <span>100% offline edge logic &mdash; operates if Wi-Fi or cloud drops</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600" />
-                <span>Zero midnight blackout traps for essential circuits</span>
+                <span>Zero blackout traps for servers, refrigeration, and home lights</span>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
             <p className="mt-0.5 text-xs font-bold text-slate-600">Continuous Direct Power Output</p>
 
             <p className="mt-4 text-xs font-medium leading-relaxed text-slate-600">
-              Disables load shedding decision logic entirely. Power passes through continuously to all connected wall sockets, treating Xense as an open pass-through outlet for raw power feed.
+              Disables load shedding decision logic entirely. Power passes through continuously to all connected wall sockets and facility distribution boards for raw, unrestricted power feed.
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-200 bg-slate-50 p-3 text-center font-mono">
@@ -127,15 +127,15 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
             <div className="mt-6 space-y-3 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-slate-600" />
-                <span>Disables automatic load shedding logic completely</span>
+                <span>Disables automated load shedding logic completely</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-slate-600" />
-                <span>Passes maximum power continuously to heavy appliances</span>
+                <span>Passes maximum power continuously to heavy machinery or appliances</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-slate-600" />
-                <span>Ideal for maintenance, heavy tooling, or emergency testing</span>
+                <span>Ideal for plant maintenance, workshop tooling, or domestic events</span>
               </div>
             </div>
           </div>
@@ -160,23 +160,23 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
                 <Grid className="h-6 w-6 text-indigo-300" />
               </div>
               <span className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 font-mono text-[10px] font-extrabold uppercase text-indigo-900">
-                UTILITY FALLBACK
+                UTILITY &amp; GEN-SET
               </span>
             </div>
 
             <span className="block font-mono text-[10px] font-extrabold uppercase tracking-wider text-indigo-600">
               MODE 03
             </span>
-            <h3 className="mt-1 text-2xl font-extrabold text-slate-900">Auto Grid Mode</h3>
-            <p className="mt-0.5 text-xs font-bold text-slate-600">Automated Utility Sensing &amp; Recharging</p>
+            <h3 className="mt-1 text-2xl font-extrabold text-slate-900">Auto Grid &amp; Gen Mode</h3>
+            <p className="mt-0.5 text-xs font-bold text-slate-600">Automated Utility &amp; Generator Sync</p>
 
             <p className="mt-4 text-xs font-medium leading-relaxed text-slate-600">
-              Detects when main utility grid power returns, automatically bypassing battery shedding logic so all home loads run directly from utility power while fast-charging battery banks.
+              Detects when main utility grid or backup diesel generators come online, automatically bypassing battery shedding so all facility and home loads run directly while rapid-charging battery banks.
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-2.5 rounded-xl border border-slate-200 bg-slate-50 p-3 text-center font-mono">
               <div className="rounded-lg border border-slate-200/80 bg-white p-2 shadow-sm">
-                <div className="text-[9px] font-bold uppercase text-slate-500">Grid Detection</div>
+                <div className="text-[9px] font-bold uppercase text-slate-500">Source Detection</div>
                 <div className="mt-0.5 text-sm font-extrabold text-slate-900">&lt; 5 ms</div>
               </div>
               <div className="rounded-lg border border-slate-200/80 bg-white p-2 shadow-sm">
@@ -188,15 +188,15 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
             <div className="mt-6 space-y-3 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600" />
-                <span>Automated sensing of returning utility grid power</span>
+                <span>Automated sensing of returning utility grid or generator power</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600" />
-                <span>Bypasses battery shedding during grid availability</span>
+                <span>Bypasses battery shedding during grid or generator availability</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600" />
-                <span>Simultaneous battery recharging and full load pass-through</span>
+                <span>Simultaneous battery recharging and full facility load pass-through</span>
               </div>
             </div>
           </div>

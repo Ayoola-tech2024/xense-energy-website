@@ -16,17 +16,19 @@ export default function BatterySimulator() {
   if (freezerOn) totalKw += 1.5;
   if (fansOn) totalKw += 0.3;
 
+  const hoursRemaining = (soc / 100) * 10;
+
   return (
     <section id="simulator" className="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-14 sm:py-20 sm:px-6 lg:px-10">
       <div className="mb-8 max-w-2xl sm:mb-10">
         <h2 className="section-title">
-          See how Xense protects your home{" "}
+          See how Xense protects your home &amp; facility{" "}
           <span className="text-gradient">
             in real time.
           </span>
         </h2>
         <p className="section-copy mt-2 sm:mt-3">
-          Drag the battery slider below to watch Xense automatically manage your Air Conditioner, Deep Freezer, Fans, and Wi-Fi system as battery levels change.
+          Drag the battery slider below to watch Xense automatically shed heavy loads (commercial chillers, home ACs, motors) while preserving critical circuits (servers, Wi-Fi, refrigeration, lighting) as battery levels change.
         </p>
       </div>
 
@@ -64,8 +66,8 @@ export default function BatterySimulator() {
               />
               <div className="mt-3 flex justify-between font-mono text-[8px] font-bold text-slate-500 sm:text-[9px]">
                 <span className="text-rose-600">0% CRITICAL</span>
-                <span className="text-amber-600">35% FREEZER</span>
-                <span className="text-indigo-600">50% AC</span>
+                <span className="text-amber-600">35% CHILLERS</span>
+                <span className="text-indigo-600">50% CLIMATE</span>
                 <span className="text-emerald-600">100% FULL</span>
               </div>
             </div>
@@ -80,61 +82,54 @@ export default function BatterySimulator() {
                   : "border-rose-200 bg-rose-50"
               }`}
             >
-              <div className="flex items-center gap-3 sm:gap-4">
+              <div className="flex items-center gap-3">
                 <span
-                  className={`shrink-0 rounded-xl border p-2.5 sm:p-3 ${
+                  className={`flex h-3 w-3 relative shrink-0 ${
                     soc > 50
-                      ? "border-emerald-200 bg-emerald-100 text-emerald-700"
+                      ? "text-emerald-500"
                       : soc > 35
-                      ? "border-indigo-200 bg-indigo-100 text-indigo-700"
-                      : "border-rose-200 bg-rose-100 text-rose-700"
+                      ? "text-indigo-500"
+                      : "text-rose-500"
                   }`}
                 >
-                  <ShieldCheck className="h-5 w-5 sm:h-6 sm:w-6" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-current opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-current"></span>
                 </span>
-                <div>
-                  <div
-                    className={`font-extrabold tracking-wider text-[11px] sm:text-xs ${
-                      soc > 50
-                        ? "text-emerald-900"
-                        : soc > 35
-                        ? "text-indigo-900"
-                        : "text-rose-900"
-                    }`}
-                  >
-                    {soc > 50
-                      ? "FULL POWER MODE: ALL APPLIANCES ACTIVE"
-                      : soc > 35
-                      ? "STAGE 1 LOAD SHEDDING (AC DISCONNECTED)"
-                      : "STAGE 2 CRITICAL PROTECTION (FREEZER SHED)"}
-                  </div>
-                  <div className="mt-1 text-[10px] sm:text-[11px] leading-relaxed text-slate-600">
-                    {soc > 50
-                      ? `Battery level is healthy (${soc}%). Air Conditioner, Deep Freezer, Fans & Wi-Fi are all running safely.`
-                      : soc > 35
-                      ? `Battery SOC dropped to ${soc}%. Xense automatically shed the Air Conditioner to extend backup runtime.`
-                      : `Critical battery level (${soc}%). Xense shed the Deep Freezer to preserve essential Wi-Fi & security circuits.`}
-                  </div>
-                </div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900">
+                  {soc > 50
+                    ? "Normal Operation (All Loads Active)"
+                    : soc > 35
+                    ? "Stage 1 Shedding (Climate Reduced)"
+                    : "Emergency Reserve (Base Loads Only)"}
+                </span>
               </div>
+              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-medium">
+                {soc > 50
+                  ? "All connected domestic & facility circuits receive continuous power from solar arrays and battery reserves."
+                  : soc > 35
+                  ? "Xense has automatically disconnected heavy ACs and chillers to stretch remaining storage duration by 3x."
+                  : "Critical protection active. Only servers, security systems, and baseline lighting are maintained."}
+              </p>
             </div>
 
-            {/* Metric counters */}
-            <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-6 sm:gap-3 text-center">
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5">
-                <div className="font-mono text-[8px] font-bold uppercase text-slate-500 sm:text-[9px]">
-                  Active Load
+            {/* Quick Stats Grid */}
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-3.5 sm:p-4">
+                <div className="text-[9px] font-bold uppercase tracking-wider text-slate-500 sm:text-[10px]">
+                  Simulated Load
                 </div>
-                <div className="mt-0.5 font-mono text-base font-extrabold text-indigo-600 sm:text-lg">
-                  {totalKw.toFixed(2)} kW
+                <div className="mt-1 font-mono text-xl sm:text-2xl font-extrabold text-slate-900">
+                  {totalKw.toFixed(1)}{" "}
+                  <span className="text-xs font-normal text-slate-500">kW</span>
                 </div>
               </div>
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5">
-                <div className="font-mono text-[8px] font-bold uppercase text-slate-500 sm:text-[9px]">
-                  Extra Backup
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-3.5 sm:p-4">
+                <div className="text-[9px] font-bold uppercase tracking-wider text-slate-500 sm:text-[10px]">
+                  Estimated Runtime
                 </div>
-                <div className="mt-0.5 font-mono text-base font-extrabold text-emerald-600 sm:text-lg">
-                  +8 Hours
+                <div className="mt-1 font-mono text-xl sm:text-2xl font-extrabold text-emerald-600">
+                  {hoursRemaining.toFixed(1)}{" "}
+                  <span className="text-xs font-normal text-slate-500">hrs</span>
                 </div>
               </div>
             </div>
@@ -143,13 +138,13 @@ export default function BatterySimulator() {
           {/* Appliance Rows */}
           <div className="space-y-3">
             <div className="mb-2 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-800">
-              <span>Managed Home Appliances</span>
+              <span>Managed Home &amp; Facility Loads</span>
               <span className="font-mono font-bold text-indigo-600 text-[10px]">
-                4 Connected
+                4 Priority Channels
               </span>
             </div>
 
-            {/* AC */}
+            {/* AC & Chillers */}
             <div
               className={`flex flex-wrap items-center justify-between gap-3 rounded-2xl border p-3.5 sm:flex-nowrap sm:p-4 transition-all duration-300 ${
                 acOn
@@ -163,13 +158,13 @@ export default function BatterySimulator() {
                 </span>
                 <div>
                   <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-900 sm:gap-2">
-                    Air Conditioner (1.5 HP)
+                    ACs &amp; Industrial Chillers
                     <span className="rounded border border-slate-200 bg-slate-100 px-1.5 py-0.5 font-mono text-[8px] font-bold text-slate-700 sm:text-[9px]">
                       HEAVY LOAD
                     </span>
                   </div>
                   <div className="mt-0.5 text-[9px] text-slate-500 sm:text-[10px]">
-                    Living Room &amp; Bedrooms
+                    Living Areas, Offices &amp; Production Climate
                   </div>
                 </div>
               </div>
@@ -191,7 +186,7 @@ export default function BatterySimulator() {
               </div>
             </div>
 
-            {/* Freezer */}
+            {/* Cold Storage & Freezers */}
             <div
               className={`flex flex-wrap items-center justify-between gap-3 rounded-2xl border p-3.5 sm:flex-nowrap sm:p-4 transition-all duration-300 ${
                 freezerOn
@@ -205,13 +200,13 @@ export default function BatterySimulator() {
                 </span>
                 <div>
                   <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-900 sm:gap-2">
-                    Deep Freezer &amp; Fridge
+                    Cold Storage &amp; Deep Freezers
                     <span className="rounded border border-slate-200 bg-slate-100 px-1.5 py-0.5 font-mono text-[8px] font-bold text-slate-700 sm:text-[9px]">
                       MEDIUM LOAD
                     </span>
                   </div>
                   <div className="mt-0.5 text-[9px] text-slate-500 sm:text-[10px]">
-                    Kitchen Food Preservation
+                    Perishable Inventory &amp; Kitchen Cold Store
                   </div>
                 </div>
               </div>
@@ -233,7 +228,7 @@ export default function BatterySimulator() {
               </div>
             </div>
 
-            {/* Fans */}
+            {/* Facility & Home Base Loads */}
             <div
               className={`flex flex-wrap items-center justify-between gap-3 rounded-2xl border p-3.5 sm:flex-nowrap sm:p-4 transition-all duration-300 ${
                 fansOn
@@ -247,13 +242,13 @@ export default function BatterySimulator() {
                 </span>
                 <div>
                   <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-900 sm:gap-2">
-                    Lighting &amp; Fans
+                    Facility Lighting &amp; Air Circulation
                     <span className="rounded border border-slate-200 bg-slate-100 px-1.5 py-0.5 font-mono text-[8px] font-bold text-slate-700 sm:text-[9px]">
                       BASE LOAD
                     </span>
                   </div>
                   <div className="mt-0.5 text-[9px] text-slate-500 sm:text-[10px]">
-                    Whole House Essential Circuit
+                    Workstations, Hallways &amp; Living Spaces
                   </div>
                 </div>
               </div>
@@ -275,7 +270,7 @@ export default function BatterySimulator() {
               </div>
             </div>
 
-            {/* Wi-Fi */}
+            {/* Servers, Wi-Fi & CCTV */}
             <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-indigo-200/80 bg-indigo-50/30 p-3.5 sm:flex-nowrap sm:p-4">
               <div className="flex items-center gap-3">
                 <span className="shrink-0 rounded-xl bg-indigo-100 p-2 sm:p-2.5 text-indigo-700">
@@ -283,13 +278,13 @@ export default function BatterySimulator() {
                 </span>
                 <div>
                   <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-900 sm:gap-2">
-                    Wi-Fi Router &amp; CCTV
+                    Servers, Wi-Fi &amp; CCTV Security
                     <span className="rounded border border-indigo-200 bg-indigo-100 px-1.5 py-0.5 font-mono text-[8px] font-bold text-indigo-800 sm:text-[9px]">
                       ALWAYS ON
                     </span>
                   </div>
                   <div className="mt-0.5 text-[9px] text-slate-500 sm:text-[10px]">
-                    Home Security &amp; Internet Gateway
+                    Mission-Critical Gateways &amp; Surveillance
                   </div>
                 </div>
               </div>

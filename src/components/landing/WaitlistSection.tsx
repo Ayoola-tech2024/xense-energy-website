@@ -87,7 +87,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
 
           {/* Copy */}
           <p className="mt-4 sm:mt-5 text-xs sm:text-base leading-6 sm:leading-7 text-slate-300 max-w-xl mx-auto font-normal">
-            Join the priority waitlist for early hardware shipment allocation, wholesale installer pricing, and VIP rollout access to our intelligent solar automation platform.
+            Join the priority rollout for residential setups, installer wholesale allocations, and enterprise commercial deployments.
           </p>
 
           {/* Interactive Waitlist Form Container */}
@@ -161,7 +161,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
             {/* Consultation Alternative */}
             {onRequestDemo && (
               <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-center gap-3 text-xs text-slate-400">
-                <span>Need an immediate enterprise deployment?</span>
+                <span>Need an immediate commercial or industrial deployment?</span>
                 <button
                   type="button"
                   onClick={onRequestDemo}

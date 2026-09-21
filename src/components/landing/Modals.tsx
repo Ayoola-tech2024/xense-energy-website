@@ -240,15 +240,17 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                 >
                   <option value="Residential Solar System (5kVA – 10kVA)">Residential Solar System (5kVA – 10kVA)</option>
-                  <option value="Commercial Facility (15kVA – 50kVA)">Commercial Facility (15kVA – 50kVA)</option>
-                  <option value="Mini-Grid Installation">Mini-Grid Installation</option>
-                  <option value="Not sure – need consultation">Not sure – need consultation</option>
+                  <option value="Commercial Office / Facility (15kVA – 50kVA)">Commercial Office / Facility (15kVA – 50kVA)</option>
+                  <option value="Industrial Plant / Factory Grid (50kVA – 500kVA+)">Industrial Plant / Factory Grid (50kVA – 500kVA+)</option>
+                  <option value="Mini-Grid / Microgrid Project">Mini-Grid / Microgrid Project</option>
+                  <option value="Wholesale Installer / System Integrator">Wholesale Installer / System Integrator</option>
+                  <option value="Not sure – need engineering consultation">Not sure – need engineering consultation</option>
                 </select>
                 <textarea
                   rows={2}
                   value={demoMessage}
                   onChange={(e) => setDemoMessage(e.target.value)}
-                  placeholder="Tell us about your current inverter setup or requirements..."
+                  placeholder="Tell us about your inverter setup, facility machinery, or load management goals..."
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white resize-none transition-colors"
                 />
                 <button

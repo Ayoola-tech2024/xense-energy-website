@@ -7,15 +7,15 @@ export default function StatsBar() {
             500<span className="text-indigo-600">+</span>
           </div>
           <div className="mt-1 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-            Installations Completed
+            Homes &amp; Facilities Protected
           </div>
         </div>
         <div className="p-2">
           <div className="font-mono text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-            3<span className="text-indigo-600">×</span>
+            60–80<span className="text-indigo-600">%</span>
           </div>
           <div className="mt-1 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-            Battery Duration Gain
+            Diesel &amp; Grid Cost Cut
           </div>
         </div>
         <div className="p-2">
@@ -28,10 +28,10 @@ export default function StatsBar() {
         </div>
         <div className="p-2">
           <div className="font-mono text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-            100<span className="text-indigo-600">%</span>
+            500<span className="text-indigo-600">kVA+</span>
           </div>
           <div className="mt-1 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-            Offline Reliability
+            Modular Scalable Range
           </div>
         </div>
       </div>

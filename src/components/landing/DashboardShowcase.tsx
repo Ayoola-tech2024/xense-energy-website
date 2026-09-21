@@ -24,7 +24,7 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
               </span>
             </h2>
             <p className="mt-4 max-w-lg text-xs sm:text-sm font-normal leading-6 text-slate-300 sm:mt-5 sm:leading-7">
-              The Xense Dashboard gives you real-time visibility into every watt — monitor solar generation, battery SOC, appliance states, and automated load decisions all in one place.
+              Whether managing a single household inverter or supervising three-phase power distribution across a commercial plant, the Xense Dashboard gives you real-time telemetry into every watt — solar generation, battery health, load prioritization, and automated gen-set synchronization all in one place.
             </p>
 
             {/* Feature Pills */}

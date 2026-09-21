@@ -19,7 +19,7 @@ export default function ProductEcosystem() {
           </span>
         </h2>
         <p className="section-copy">
-          Explore the Xense Energy product family — combining hybrid solar inverters, wireless RS232 smart dongles, and real-time mobile cloud tracking.
+          Explore the Xense Energy ecosystem &mdash; engineered from 5kVA domestic homes to 500kVA+ commercial facilities with intelligent hybrid inverters, wireless dongles, and heavy-load appliance guards.
         </p>
       </div>
 
@@ -36,19 +36,19 @@ export default function ProductEcosystem() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-slate-900/90 px-3 py-1 font-mono text-[9px] font-bold text-white backdrop-blur-md">
-                HARDWARE UNIT
+                MODULAR 5kVA &ndash; 500kVA+
               </span>
             </div>
             <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-indigo-600">
-              01. INVERTER &amp; BACKUP SYSTEM
+              01. HYBRID INVERTER &amp; BACKUP SYSTEM
             </span>
-            <h3 className="mt-1 text-2xl font-extrabold text-slate-900">Xense Smart Solar Inverter</h3>
+            <h3 className="mt-1 text-2xl font-extrabold text-slate-900">Xense Smart Hybrid Inverter</h3>
             <p className="mt-2.5 text-xs font-medium leading-relaxed text-slate-600">
-              Wall-mounted intelligent hybrid inverter with digital LCD display. Integrates seamlessly with existing solar arrays, Lithium/Gel battery banks, and grid power.
+              Intelligent hybrid inverter supporting single-phase residential and three-phase industrial parallel setups. Integrates seamlessly with solar arrays, Lithium/Gel battery banks, utility mains, and generator synchronization.
             </p>
           </div>
           <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-bold text-slate-700">
-            <span>Clean Minimalist Enclosure</span>
+            <span>Modular Single &amp; Three-Phase Support</span>
             <CheckCircle className="h-4 w-4 text-emerald-600" />
           </div>
         </div>
@@ -70,15 +70,15 @@ export default function ProductEcosystem() {
               </div>
             </div>
             <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-indigo-600">
-              02. REMOTE TELEMETRY
+              02. REMOTE TELEMETRY &amp; FLEET
             </span>
-            <h3 className="mt-1 text-xl font-extrabold text-slate-900">Xense Live Mobile Dashboard</h3>
+            <h3 className="mt-1 text-xl font-extrabold text-slate-900">Xense Live Telemetry Dashboard</h3>
             <p className="mt-2.5 text-xs font-medium leading-relaxed text-slate-600">
-              Monitor real-time power flow, adjust battery reserve floors, and switch operating modes remotely from your smartphone.
+              Monitor real-time power flow, adjust battery reserve safety floors, and manage multi-site commercial or residential installations directly from mobile or desktop.
             </p>
           </div>
           <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-bold text-slate-700">
-            <span>iOS &amp; Android App Included</span>
+            <span>Mobile App &amp; Multi-Site Web Console</span>
             <Smartphone className="h-4 w-4 text-indigo-600" />
           </div>
         </div>
@@ -103,11 +103,11 @@ export default function ProductEcosystem() {
             </span>
             <h3 className="mt-1 text-xl font-extrabold text-slate-900">Xense Wireless Dongle Stick</h3>
             <p className="mt-2.5 text-xs font-medium leading-relaxed text-slate-600">
-              Plugs directly into your inverter&apos;s RS232 / RJ45 port. Zero complex electrical rewiring needed — 60-second setup.
+              Plugs directly into standard inverter RS232 / RJ45 communication ports. Zero intrusive rewiring &mdash; instant telemetry bridge for homes, estates, and industrial plants.
             </p>
           </div>
           <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-bold text-slate-700">
-            <span>Instant 60-Second Setup</span>
+            <span>Universal RS232 / RJ45 Protocol</span>
             <Zap className="h-4 w-4 text-amber-500" />
           </div>
         </div>
@@ -124,19 +124,19 @@ export default function ProductEcosystem() {
                 className="object-contain transition-transform duration-700 group-hover:scale-105"
               />
               <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-slate-900/90 px-3 py-1 font-mono text-[9px] font-bold text-white backdrop-blur-md">
-                SMART GUARD
+                SMART LOAD GUARD
               </span>
             </div>
             <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-indigo-600">
-              04. INTELLIGENT MONITORING
+              04. INTELLIGENT LOAD ARBITRATION
             </span>
-            <h3 className="mt-1 text-xl font-extrabold text-slate-900">Real-Time &amp; Offline Monitoring</h3>
+            <h3 className="mt-1 text-xl font-extrabold text-slate-900">Heavy Appliance &amp; Machinery Guard</h3>
             <p className="mt-2.5 text-xs font-medium leading-relaxed text-slate-600">
-              Supports both real-time cloud data sync and offline local data logging. Load shedding logic functions even when Wi-Fi drops.
+              Autonomous load switch for domestic ACs, commercial chillers, industrial pumps, and motor drives. Sequences inductive surges and operates 100% offline even when Wi-Fi drops.
             </p>
           </div>
           <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-bold text-slate-700">
-            <span>100% Offline Capable</span>
+            <span>Heavy Load &amp; Surge Suppression</span>
             <WifiOff className="h-4 w-4 text-sky-600" />
           </div>
         </div>

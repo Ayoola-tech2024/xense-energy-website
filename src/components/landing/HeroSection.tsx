@@ -28,15 +28,15 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
       {/* Foreground Hero Content */}
       <div className="relative z-10 mx-auto w-full max-w-[1320px]">
         <div className="max-w-3xl">
-          <h1 className="max-w-4xl text-3xl font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl sm:leading-[1.02] sm:tracking-[-0.05em] md:text-6xl lg:text-[72px]">
+          <h1 className="max-w-4xl text-3xl font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl sm:leading-[1.02] sm:tracking-[-0.05em] md:text-6xl lg:text-[70px]">
             Intelligent Energy Control{" "}
             <span className="text-gradient">
-              for Modern Homes.
+              for Homes, Businesses &amp; Industry.
             </span>
           </h1>
 
           <p className="mt-4 max-w-2xl text-sm font-normal leading-6 text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
-            Zero power blackouts, maximum solar self-consumption, and automatic load optimization for solar inverters and battery storage. Plugs in seamlessly with 100% wireless setup.
+            Zero power downtime, automated load prioritization, and maximum solar self-consumption. Engineered for residential homes, commercial offices, and industrial operations from 5kVA to 500kVA+ with 100% wireless setup.
           </p>
 
           <div className="mt-6 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-3.5">
@@ -59,21 +59,29 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
           </div>
 
           {/* Metrics Strip */}
-          <div className="mt-8 grid max-w-md grid-cols-2 divide-x divide-slate-800 border-t border-slate-800/80 pt-5 sm:mt-12 sm:pt-6">
-            <div className="pr-4 sm:pr-6">
+          <div className="mt-8 grid max-w-lg grid-cols-3 divide-x divide-slate-800 border-t border-slate-800/80 pt-5 sm:mt-12 sm:pt-6">
+            <div className="pr-3 sm:pr-4">
               <div className="font-mono text-xl font-extrabold text-emerald-400 sm:text-2xl">
                 0 ms
               </div>
-              <div className="mt-1 text-[8px] font-extrabold uppercase tracking-[0.16em] text-slate-400 sm:text-[9px]">
+              <div className="mt-1 text-[8px] font-extrabold uppercase tracking-[0.14em] text-slate-400 sm:text-[9px]">
                 Transfer Latency
               </div>
             </div>
-            <div className="pl-4 sm:pl-6">
+            <div className="px-3 sm:px-4">
               <div className="font-mono text-xl font-extrabold text-indigo-400 sm:text-2xl">
-                100%
+                5–500kVA+
               </div>
-              <div className="mt-1 text-[8px] font-extrabold uppercase tracking-[0.16em] text-slate-400 sm:text-[9px]">
-                Plug &amp; Play Setup
+              <div className="mt-1 text-[8px] font-extrabold uppercase tracking-[0.14em] text-slate-400 sm:text-[9px]">
+                Modular Scale
+              </div>
+            </div>
+            <div className="pl-3 sm:pl-4">
+              <div className="font-mono text-xl font-extrabold text-amber-400 sm:text-2xl">
+                60–80%
+              </div>
+              <div className="mt-1 text-[8px] font-extrabold uppercase tracking-[0.14em] text-slate-400 sm:text-[9px]">
+                Diesel Cut
               </div>
             </div>
           </div>
