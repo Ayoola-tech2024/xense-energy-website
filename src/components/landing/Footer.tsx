@@ -50,7 +50,7 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
 
   return (
     <footer className="relative z-10 border-t border-slate-200 bg-white px-4 py-10 sm:px-6 lg:px-10">
-      <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-6 sm:flex-row sm:items-center">
+      <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-6 text-[10px] font-mono uppercase tracking-[0.14em] text-slate-600 sm:flex-row sm:items-center">
         {/* Left: Branding */}
         <div className="flex items-center gap-3">
           <div className="relative h-7 w-7 rounded-md overflow-hidden bg-white p-0.5 border border-slate-200 shadow-sm flex items-center justify-center">
@@ -73,7 +73,7 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
                 setTimeout(() => sessionStorage.removeItem("xense_copy_clicks"), 2000);
               }
             }}
-            className="text-[10px] font-mono font-extrabold uppercase tracking-[0.14em] text-slate-800 select-none cursor-default"
+            className="font-extrabold text-slate-800 select-none cursor-default"
           >
             © 2026 Xense Energy Systems • All Rights Reserved
           </span>
@@ -96,13 +96,13 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
         </div>
 
         {/* Right: Quick Action Links */}
-        <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-500">
+        <div className="flex flex-wrap items-center gap-6 font-bold">
           <button
             type="button"
             onClick={onOpenLogin}
             className="hover:text-indigo-600 transition-colors"
           >
-            Client Login
+            Sign In
           </button>
           <button
             type="button"

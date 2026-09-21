@@ -19,7 +19,7 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
           <div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Full control. <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">
+              <span className="text-gradient">
                 From your palm.
               </span>
             </h2>
@@ -55,7 +55,7 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
               <button
                 type="button"
                 onClick={() => onOpenModal("demo")}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 text-xs font-bold text-white shadow-lg shadow-indigo-500/30 transition-all hover:bg-indigo-700 sm:text-sm cursor-pointer"
+                className="button-primary justify-center text-xs sm:text-sm px-6 py-3.5 font-bold shadow-lg shadow-indigo-500/30"
               >
                 <span>Request a Live Demo</span>
                 <Play className="h-4 w-4" />
@@ -63,7 +63,7 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
               <button
                 type="button"
                 onClick={() => onOpenModal("signup")}
-                className="inline-flex items-center justify-center rounded-xl border border-white/20 px-6 py-3.5 text-xs font-semibold text-slate-200 transition-colors hover:bg-white/10 sm:text-sm cursor-pointer"
+                className="justify-center text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl border border-white/20 text-slate-200 hover:bg-white/10 transition-colors"
               >
                 Sign Up Free
               </button>
@@ -83,7 +83,7 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
                 />
               </div>
               {/* Floating stat cards */}
-              <div className="absolute -left-12 top-12 hidden rounded-2xl border border-slate-200 bg-white/95 px-3.5 py-2.5 shadow-xl backdrop-blur-md sm:block">
+              <div className="absolute -left-12 top-12 hidden glass-card bg-white/95 px-3.5 py-2.5 shadow-xl border-slate-200 sm:block">
                 <div className="font-mono text-[9px] uppercase tracking-wider text-slate-500">
                   Solar Today
                 </div>
@@ -91,7 +91,7 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
                   32.4 <span className="text-xs text-indigo-600">kWh</span>
                 </div>
               </div>
-              <div className="absolute -right-10 bottom-20 hidden rounded-2xl border border-slate-200 bg-white/95 px-3.5 py-2.5 shadow-xl backdrop-blur-md sm:block">
+              <div className="absolute -right-10 bottom-20 hidden glass-card bg-white/95 px-3.5 py-2.5 shadow-xl border-slate-200 sm:block">
                 <div className="font-mono text-[9px] uppercase tracking-wider text-slate-500">
                   Battery SOC
                 </div>

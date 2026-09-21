@@ -160,8 +160,8 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-2xl text-slate-900">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay animate-in fade-in duration-200">
+      <div className={`glass-card w-full ${activeModal === "demo" ? "max-w-lg" : "max-w-md"} p-6 sm:p-8 relative overflow-hidden bg-white border-slate-200 shadow-2xl text-slate-900`}>
         <button
           type="button"
           onClick={onClose}
@@ -254,7 +254,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                 <button
                   type="submit"
                   disabled={demoSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white text-sm font-extrabold shadow-md shadow-indigo-500/20 transition-all disabled:opacity-50"
+                  className="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold shadow-lg shadow-indigo-500/30 disabled:opacity-50"
                 >
                   <span>{demoSubmitting ? "Submitting Request..." : "Submit Demo Request"}</span>
                   <Send className="w-4 h-4" />
@@ -309,7 +309,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
               <button
                 type="submit"
                 disabled={loginSubmitting}
-                className="w-full inline-flex items-center justify-center py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white text-sm font-extrabold shadow-md shadow-indigo-500/20 transition-all disabled:opacity-50"
+                className="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold shadow-lg shadow-indigo-500/30 disabled:opacity-50"
               >
                 {loginSubmitting ? "Signing in..." : "Sign In to Dashboard"}
               </button>
@@ -396,7 +396,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
               <button
                 type="submit"
                 disabled={signupSubmitting}
-                className="w-full inline-flex items-center justify-center py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white text-sm font-extrabold shadow-md shadow-indigo-500/20 transition-all disabled:opacity-50"
+                className="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold shadow-lg shadow-indigo-500/30 disabled:opacity-50"
               >
                 {signupSubmitting ? "Creating Account..." : "Create Free Account"}
               </button>

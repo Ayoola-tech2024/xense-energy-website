@@ -12,20 +12,20 @@ export default function ProductEcosystem() {
           <span className="h-px w-8 bg-indigo-300"></span>
           <span>HARDWARE &amp; SOFTWARE</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+        <h2 className="section-title">
           Designed for simplicity.{" "}
-          <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-600 bg-clip-text text-transparent">
+          <span className="text-gradient">
             Built for performance.
           </span>
         </h2>
-        <p className="mt-4 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-600">
+        <p className="section-copy">
           Explore the Xense Energy product family — combining hybrid solar inverters, wireless RS232 smart dongles, and real-time mobile cloud tracking.
         </p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-12">
         {/* Card 1: Inverter */}
-        <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-lg transition-all duration-300 hover:border-indigo-400 hover:shadow-xl md:col-span-7 group">
+        <div className="md:col-span-7 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl">
           <div>
             <div className="relative mb-6 h-[260px] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
               <Image
@@ -54,7 +54,7 @@ export default function ProductEcosystem() {
         </div>
 
         {/* Card 2: Mobile App */}
-        <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-lg transition-all duration-300 hover:border-indigo-400 hover:shadow-xl md:col-span-5 group">
+        <div className="md:col-span-5 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl">
           <div>
             <div className="relative mb-6 flex h-[260px] w-full items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 p-2">
               <Image
@@ -65,7 +65,7 @@ export default function ProductEcosystem() {
                 className="object-contain transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-slate-900/90 px-2.5 py-1 shadow backdrop-blur-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
+                <span className="live-dot"></span>
                 <span className="font-mono text-[9px] font-bold text-white">LIVE</span>
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function ProductEcosystem() {
         </div>
 
         {/* Card 3: Dongle */}
-        <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-lg transition-all duration-300 hover:border-indigo-400 hover:shadow-xl md:col-span-6 group">
+        <div className="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl">
           <div>
             <div className="relative mb-6 flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-2">
               <Image
@@ -113,7 +113,7 @@ export default function ProductEcosystem() {
         </div>
 
         {/* Card 4: Smart Guard */}
-        <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-lg transition-all duration-300 hover:border-indigo-400 hover:shadow-xl md:col-span-6 group">
+        <div className="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl">
           <div>
             <div className="relative mb-6 flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-2">
               <Image

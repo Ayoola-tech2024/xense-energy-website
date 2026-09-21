@@ -19,18 +19,18 @@ export default function BatterySimulator() {
   return (
     <section id="simulator" className="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-14 sm:py-20 sm:px-6 lg:px-10">
       <div className="mb-8 max-w-2xl sm:mb-10">
-        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+        <h2 className="section-title">
           See how Xense protects your home{" "}
-          <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-600 bg-clip-text text-transparent">
+          <span className="text-gradient">
             in real time.
           </span>
         </h2>
-        <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600 sm:mt-3">
+        <p className="section-copy mt-2 sm:mt-3">
           Drag the battery slider below to watch Xense automatically manage your Air Conditioner, Deep Freezer, Fans, and Wi-Fi system as battery levels change.
         </p>
       </div>
 
-      <div className="rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 shadow-xl">
+      <div className="glass-card overflow-hidden p-5 sm:p-8 rounded-3xl transition-all duration-300 border-slate-200 bg-white shadow-xl">
         <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
           {/* Controls & SOC Readout */}
           <div>
@@ -59,7 +59,8 @@ export default function BatterySimulator() {
                 max="100"
                 value={soc}
                 onChange={(e) => setSoc(parseInt(e.target.value, 10))}
-                className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-indigo-600"
+                className="soc-slider"
+                style={{ "--progress": `${soc}%` } as React.CSSProperties}
               />
               <div className="mt-3 flex justify-between font-mono text-[8px] font-bold text-slate-500 sm:text-[9px]">
                 <span className="text-rose-600">0% CRITICAL</span>

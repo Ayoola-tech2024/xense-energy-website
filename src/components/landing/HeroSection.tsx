@@ -29,7 +29,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
       <div className="relative z-10 mx-auto w-full max-w-[1320px]">
         <div className="max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 backdrop-blur-md sm:mb-6">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
+            <span className="live-dot"></span>
             <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-200 sm:text-xs">
               Zero Midnight Blackouts
             </span>
@@ -37,7 +37,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
 
           <h1 className="max-w-4xl text-3xl font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl sm:leading-[1.02] sm:tracking-[-0.05em] md:text-6xl lg:text-[72px]">
             Intelligent Energy Control{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">
+            <span className="text-gradient">
               for Modern Homes.
             </span>
           </h1>

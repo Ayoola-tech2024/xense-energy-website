@@ -11,13 +11,13 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
     <section id="modes" className="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-14 sm:py-20 sm:px-6 lg:px-10">
       {/* Section Header */}
       <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
-        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+        <h2 className="section-title mx-auto">
           Three Operating Modes. <br />
-          <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-600 bg-clip-text text-transparent">
+          <span className="text-gradient">
             Total Intelligent Control.
           </span>
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-600 sm:mt-4">
+        <p className="section-copy mx-auto mt-3 sm:mt-4">
           Unlike standard inverters that crash during deep battery drain, Xense runs across three dedicated postures tailored for automated protection, manual pass-through, or utility recovery.
         </p>
       </div>
@@ -25,7 +25,7 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
       {/* 3-Column Direct Cards */}
       <div className="grid items-stretch gap-6 sm:gap-8 lg:grid-cols-3">
         {/* MODE 1: XENSE MODE (FLAGSHIP) */}
-        <div className="relative flex flex-col justify-between rounded-3xl sm:rounded-[2rem] border-2 border-indigo-500/40 bg-gradient-to-b from-indigo-50/30 via-white to-white p-6 sm:p-8 shadow-xl transition-all duration-300 hover:border-indigo-500 hover:shadow-2xl group">
+        <div className="glass-card relative flex flex-col justify-between rounded-3xl sm:rounded-[2rem] border-2 border-indigo-500/40 bg-gradient-to-b from-indigo-50/30 via-white to-white p-6 sm:p-8 shadow-xl transition-all duration-300 hover:border-indigo-500 hover:shadow-2xl group">
           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 whitespace-nowrap rounded-full border border-white/20 bg-slate-900 px-4 py-1 font-mono text-[9px] font-extrabold uppercase tracking-widest text-white shadow-md">
             <Sparkles className="h-3 w-3 text-indigo-400" /> FLAGSHIP AUTONOMOUS POSTURE
           </div>
@@ -79,11 +79,11 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-slate-100 pt-4">
+          <div className="mt-8 pt-4 border-t border-slate-100">
             <button
               type="button"
               onClick={() => onOpenModal("demo")}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-xs font-extrabold text-white shadow-md shadow-indigo-500/25 transition-all hover:bg-indigo-700 active:scale-95 cursor-pointer"
+              className="button-primary w-full justify-center py-3 text-xs font-extrabold"
             >
               <span>Request Xense Mode Demo</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -92,7 +92,7 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
         </div>
 
         {/* MODE 2: BYPASS MODE */}
-        <div className="relative flex flex-col justify-between rounded-3xl sm:rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 shadow-xl transition-all duration-300 hover:border-slate-400 hover:shadow-2xl group">
+        <div className="glass-card relative flex flex-col justify-between rounded-3xl sm:rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 shadow-xl transition-all duration-300 hover:border-slate-400 hover:shadow-2xl group">
           <div>
             <div className="mb-6 mt-2 flex items-center justify-between">
               <div className="rounded-2xl bg-slate-900 p-3.5 text-white shadow-md shadow-slate-900/10 transition-transform group-hover:scale-105">
@@ -144,7 +144,7 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
             <button
               type="button"
               onClick={() => onOpenModal("demo")}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-3 text-xs font-bold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-300 active:scale-95 cursor-pointer"
+              className="button-secondary w-full justify-center py-3 text-xs font-bold"
             >
               <span>Learn About Bypass</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -153,7 +153,7 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
         </div>
 
         {/* MODE 3: AUTO GRID MODE */}
-        <div className="relative flex flex-col justify-between rounded-3xl sm:rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 shadow-xl transition-all duration-300 hover:border-slate-400 hover:shadow-2xl group">
+        <div className="glass-card relative flex flex-col justify-between rounded-3xl sm:rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 shadow-xl transition-all duration-300 hover:border-slate-400 hover:shadow-2xl group">
           <div>
             <div className="mb-6 mt-2 flex items-center justify-between">
               <div className="rounded-2xl bg-indigo-950 p-3.5 text-white shadow-md shadow-indigo-950/10 transition-transform group-hover:scale-105">
@@ -205,7 +205,7 @@ export default function OperatingModes({ onOpenModal }: OperatingModesProps) {
             <button
               type="button"
               onClick={() => onOpenModal("demo")}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-3 text-xs font-bold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-300 active:scale-95 cursor-pointer"
+              className="button-secondary w-full justify-center py-3 text-xs font-bold"
             >
               <span>Learn About Auto Grid</span>
               <ArrowRight className="h-3.5 w-3.5" />

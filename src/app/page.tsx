@@ -25,7 +25,7 @@ export default function MarketingWebsitePage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#07090e] text-slate-100 selection:bg-indigo-500 selection:text-white overflow-x-hidden font-sans">
+    <div className="relative min-h-screen overflow-x-hidden font-sans selection:bg-indigo-500/20 text-[#0f172a]">
       {/* Dynamic Ambient Background Canvas */}
       <ParticleCanvas />
 

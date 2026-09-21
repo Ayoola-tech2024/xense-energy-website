@@ -82,9 +82,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
           {/* Headline */}
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
             Be first in line for <br />
-            <span className="bg-gradient-to-r from-indigo-400 via-purple-300 to-emerald-400 bg-clip-text text-transparent">
-              Xense Energy.
-            </span>
+            <span className="text-gradient">Xense Energy.</span>
           </h2>
 
           {/* Copy */}
@@ -113,7 +111,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white text-sm font-extrabold shadow-lg shadow-indigo-500/30 whitespace-nowrap transition-all disabled:opacity-50"
+                  className="button-primary justify-center px-7 py-3.5 text-sm font-extrabold shadow-lg shadow-indigo-500/30 whitespace-nowrap disabled:opacity-50"
                 >
                   <span>{isSubmitting ? "Securing Spot..." : "Join Priority Waitlist"}</span>
                   <ArrowRight className="w-4 h-4" />
