@@ -23,7 +23,7 @@
 
 **Xense Energy** is a next-generation energy management platform that transforms standard solar inverters and battery systems into intelligent, autonomous power networks. By integrating wireless RS232 smart dongles with cloud telemetry, Xense prevents complete battery blackouts, prioritizes critical home appliances during outages, and maximizes solar self-consumption.
 
-Experience the live interactive application at **[ayoola-tech2024.github.io/xense-energy-website](https://ayoola-tech2024.github.io/xense-energy-website/)**.
+Experience the live interactive application at **[ayoola-tech2024.github.io/xense-energy-website](https://xense-energy-website.vercel.app/)**.
 
 ---
 
