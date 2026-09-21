@@ -112,7 +112,7 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.name}
-              className="h-8 w-8 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:text-emerald-600 hover:border-emerald-300 hover:bg-emerald-50/50 transition-all flex items-center justify-center shadow-xs"
+              className="h-8 w-8 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:text-indigo-600 hover:border-indigo-300 hover:bg-indigo-50/50 transition-all flex items-center justify-center shadow-xs"
             >
               {social.icon}
             </a>
@@ -124,21 +124,21 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
           <button
             type="button"
             onClick={onOpenLogin}
-            className="hover:text-emerald-600 transition-colors"
+            className="hover:text-indigo-600 transition-colors"
           >
             Sign In
           </button>
           <button
             type="button"
             onClick={onOpenSignup}
-            className="hover:text-emerald-600 transition-colors"
+            className="hover:text-indigo-600 transition-colors"
           >
             Sign Up
           </button>
           <button
             type="button"
             onClick={onOpenDemo}
-            className="hover:text-emerald-600 transition-colors"
+            className="hover:text-indigo-600 transition-colors"
           >
             Request Demo
           </button>

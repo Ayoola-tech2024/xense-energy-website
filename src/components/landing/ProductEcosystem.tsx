@@ -7,9 +7,9 @@ export default function ProductEcosystem() {
   return (
     <section id="ecosystem" className="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-20 sm:px-6 lg:px-10">
       <div className="mb-12 max-w-3xl">
-        <div className="mb-4 flex items-center gap-3 font-mono text-[10px] font-extrabold uppercase tracking-[0.25em] text-emerald-600">
+        <div className="mb-4 flex items-center gap-3 font-mono text-[10px] font-extrabold uppercase tracking-[0.25em] text-indigo-600">
           <span>PRODUCT ECOSYSTEM</span>
-          <span className="h-px w-8 bg-emerald-300"></span>
+          <span className="h-px w-8 bg-indigo-300"></span>
           <span>HARDWARE &amp; SOFTWARE</span>
         </div>
         <h2 className="section-title">
@@ -25,7 +25,7 @@ export default function ProductEcosystem() {
 
       <div className="grid gap-6 md:grid-cols-12">
         {/* Card 1: Inverter */}
-        <div className="md:col-span-7 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-emerald-400 transition-all shadow-lg hover:shadow-xl">
+        <div className="md:col-span-7 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl">
           <div>
             <div className="relative mb-6 h-[260px] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
               <Image
@@ -39,7 +39,7 @@ export default function ProductEcosystem() {
                 MODULAR 5kVA &ndash; 500kVA+
               </span>
             </div>
-            <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-emerald-600">
+            <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-indigo-600">
               01. HYBRID INVERTER &amp; BACKUP SYSTEM
             </span>
             <h3 className="mt-1 text-2xl font-extrabold text-slate-900">Xense Smart Hybrid Inverter</h3>
@@ -49,12 +49,12 @@ export default function ProductEcosystem() {
           </div>
           <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-bold text-slate-700">
             <span>Modular Single &amp; Three-Phase Support</span>
-            <CheckCircle className="h-4 w-4 text-emerald-600" />
+            <CheckCircle className="h-4 w-4 text-indigo-600" />
           </div>
         </div>
 
         {/* Card 2: Mobile App */}
-        <div className="md:col-span-5 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-emerald-400 transition-all shadow-lg hover:shadow-xl">
+        <div className="md:col-span-5 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl">
           <div>
             <div className="relative mb-6 flex h-[260px] w-full items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 p-2">
               <Image
@@ -69,7 +69,7 @@ export default function ProductEcosystem() {
                 <span className="font-mono text-[9px] font-bold text-white">LIVE</span>
               </div>
             </div>
-            <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-emerald-600">
+            <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-indigo-600">
               02. REMOTE TELEMETRY &amp; FLEET
             </span>
             <h3 className="mt-1 text-xl font-extrabold text-slate-900">Xense Live Telemetry Dashboard</h3>
@@ -79,12 +79,12 @@ export default function ProductEcosystem() {
           </div>
           <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-bold text-slate-700">
             <span>Mobile App &amp; Multi-Site Web Console</span>
-            <Smartphone className="h-4 w-4 text-emerald-600" />
+            <Smartphone className="h-4 w-4 text-indigo-600" />
           </div>
         </div>
 
         {/* Card 3: Dongle */}
-        <div className="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-emerald-400 transition-all shadow-lg hover:shadow-xl">
+        <div className="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl">
           <div>
             <div className="relative mb-6 flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-2">
               <Image
@@ -98,7 +98,7 @@ export default function ProductEcosystem() {
                 PLUG &amp; PLAY
               </span>
             </div>
-            <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-emerald-600">
+            <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-indigo-600">
               03. SMART CONNECTOR
             </span>
             <h3 className="mt-1 text-xl font-extrabold text-slate-900">Xense Wireless Dongle Stick</h3>
@@ -113,7 +113,7 @@ export default function ProductEcosystem() {
         </div>
 
         {/* Card 4: Appliance Guard */}
-        <div className="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-emerald-400 transition-all shadow-lg hover:shadow-xl">
+        <div className="md:col-span-6 glass-card p-6 sm:p-8 flex flex-col justify-between group border-slate-200 bg-white hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl">
           <div>
             <div className="relative mb-6 flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-2">
               <Image
@@ -127,7 +127,7 @@ export default function ProductEcosystem() {
                 SMART LOAD GUARD
               </span>
             </div>
-            <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-emerald-600">
+            <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-indigo-600">
               04. INTELLIGENT LOAD ARBITRATION
             </span>
             <h3 className="mt-1 text-xl font-extrabold text-slate-900">Heavy Appliance &amp; Machinery Guard</h3>
@@ -137,7 +137,7 @@ export default function ProductEcosystem() {
           </div>
           <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-bold text-slate-700">
             <span>Heavy Load &amp; Surge Suppression</span>
-            <WifiOff className="h-4 w-4 text-teal-600" />
+            <WifiOff className="h-4 w-4 text-sky-600" />
           </div>
         </div>
       </div>

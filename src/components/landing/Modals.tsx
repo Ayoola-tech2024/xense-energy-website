@@ -185,18 +185,18 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
 
             {demoSuccessTicket ? (
               <div className="text-center py-6 animate-in zoom-in-95 duration-200">
-                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center border border-emerald-200 shadow-sm">
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center border border-indigo-200 shadow-sm">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-extrabold text-slate-900">Demo Request Received!</h3>
                 <p className="text-xs text-slate-600 mt-2 max-w-sm mx-auto leading-relaxed">
                   Thank you! Your request has been recorded with priority ticket{" "}
-                  <span className="font-mono font-bold text-emerald-600">{demoSuccessTicket}</span>. Our team will reach out within 24 hours to schedule your presentation.
+                  <span className="font-mono font-bold text-indigo-600">{demoSuccessTicket}</span>. Our team will reach out within 24 hours to schedule your presentation.
                 </p>
                 <button
                   type="button"
                   onClick={onClose}
-                  className="mt-6 inline-flex items-center justify-center px-8 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-500/20"
+                  className="mt-6 inline-flex items-center justify-center px-8 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md shadow-indigo-500/20"
                 >
                   Close Window
                 </button>
@@ -215,7 +215,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                     value={demoFullName}
                     onChange={(e) => setDemoFullName(e.target.value)}
                     placeholder="Full Name"
-                    className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                   />
                   <input
                     type="email"
@@ -223,7 +223,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                     value={demoEmail}
                     onChange={(e) => setDemoEmail(e.target.value)}
                     placeholder="Email Address"
-                    className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                    className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                   />
                 </div>
                 <input
@@ -232,12 +232,12 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                   value={demoPhone}
                   onChange={(e) => setDemoPhone(e.target.value)}
                   placeholder="Phone / WhatsApp (e.g. +234 800 000 0000)"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                 />
                 <select
                   value={demoSystemType}
                   onChange={(e) => setDemoSystemType(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                 >
                   <option value="Residential Solar System (5kVA – 10kVA)">Residential Solar System (5kVA – 10kVA)</option>
                   <option value="Commercial Office / Facility (15kVA – 50kVA)">Commercial Office / Facility (15kVA – 50kVA)</option>
@@ -251,12 +251,12 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                   value={demoMessage}
                   onChange={(e) => setDemoMessage(e.target.value)}
                   placeholder="Tell us about your inverter setup, facility machinery, or load management goals..."
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white resize-none transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white resize-none transition-colors"
                 />
                 <button
                   type="submit"
                   disabled={demoSubmitting}
-                  className="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold shadow-lg shadow-emerald-500/30 disabled:opacity-50"
+                  className="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold shadow-lg shadow-indigo-500/30 disabled:opacity-50"
                 >
                   <span>{demoSubmitting ? "Submitting Request..." : "Submit Demo Request"}</span>
                   <Send className="w-4 h-4" />
@@ -294,7 +294,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                   value={loginEmail}
                   onChange={(e) => setLoginEmail(e.target.value)}
                   placeholder="name@company.com"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                 />
               </div>
               <div>
@@ -305,13 +305,13 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                   value={loginPassword}
                   onChange={(e) => setLoginPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                 />
               </div>
               <button
                 type="submit"
                 disabled={loginSubmitting}
-                className="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold shadow-lg shadow-emerald-500/30 disabled:opacity-50"
+                className="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold shadow-lg shadow-indigo-500/30 disabled:opacity-50"
               >
                 {loginSubmitting ? "Signing in..." : "Sign In to Dashboard"}
               </button>
@@ -320,7 +320,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                 <button
                   type="button"
                   onClick={() => onSwitchModal("signup")}
-                  className="text-emerald-600 font-bold hover:underline"
+                  className="text-indigo-600 font-bold hover:underline"
                 >
                   Sign Up Free
                 </button>
@@ -358,7 +358,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                     value={signupFirstName}
                     onChange={(e) => setSignupFirstName(e.target.value)}
                     placeholder="John"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                   />
                 </div>
                 <div>
@@ -369,7 +369,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                     value={signupLastName}
                     onChange={(e) => setSignupLastName(e.target.value)}
                     placeholder="Doe"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                   />
                 </div>
               </div>
@@ -381,7 +381,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                   value={signupEmail}
                   onChange={(e) => setSignupEmail(e.target.value)}
                   placeholder="name@company.com"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                 />
               </div>
               <div>
@@ -392,13 +392,13 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                   value={signupPassword}
                   onChange={(e) => setSignupPassword(e.target.value)}
                   placeholder="Min 8 characters"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:bg-white transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
                 />
               </div>
               <button
                 type="submit"
                 disabled={signupSubmitting}
-                className="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold shadow-lg shadow-emerald-500/30 disabled:opacity-50"
+                className="button-primary w-full justify-center py-3 text-sm mt-2 font-extrabold shadow-lg shadow-indigo-500/30 disabled:opacity-50"
               >
                 {signupSubmitting ? "Creating Account..." : "Create Free Account"}
               </button>
@@ -407,7 +407,7 @@ export function Modals({ activeModal, onClose, onSwitchModal }: ModalsProps) {
                 <button
                   type="button"
                   onClick={() => onSwitchModal("login")}
-                  className="text-emerald-600 font-bold hover:underline"
+                  className="text-indigo-600 font-bold hover:underline"
                 >
                   Sign In
                 </button>

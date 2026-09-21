@@ -75,8 +75,8 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
     <section id="waitlist" className="mx-auto max-w-[1320px] px-4 pb-16 sm:pb-24 pt-8 sm:pt-12 sm:px-6 lg:px-10">
       <div className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-black p-6 sm:p-14 lg:p-20 text-center shadow-2xl">
         {/* Ambient Radial Glows */}
-        <div className="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full bg-emerald-500/15 blur-[120px]" />
-        <div className="pointer-events-none absolute -bottom-20 right-10 w-[300px] h-[300px] rounded-full bg-teal-500/10 blur-[100px]" />
+        <div className="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full bg-indigo-500/15 blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-20 right-10 w-[300px] h-[300px] rounded-full bg-sky-500/10 blur-[100px]" />
 
         <div className="relative z-10 max-w-3xl mx-auto">
           {/* Headline */}
@@ -95,7 +95,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
             {!submittedQueueNumber ? (
               <form
                 onSubmit={handleSubmit}
-                className="relative flex flex-col sm:flex-row items-stretch gap-3 p-2 rounded-2xl bg-white/[0.07] border border-white/15 backdrop-blur-xl shadow-2xl focus-within:border-emerald-400 focus-within:ring-2 focus-within:ring-emerald-500/20 transition-all"
+                className="relative flex flex-col sm:flex-row items-stretch gap-3 p-2 rounded-2xl bg-white/[0.07] border border-white/15 backdrop-blur-xl shadow-2xl focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-500/20 transition-all"
               >
                 <div className="relative flex-1 flex items-center">
                   <Mail className="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none" />
@@ -111,22 +111,22 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="button-primary justify-center px-7 py-3.5 text-sm font-extrabold shadow-lg shadow-emerald-500/30 whitespace-nowrap disabled:opacity-50"
+                  className="button-primary justify-center px-7 py-3.5 text-sm font-extrabold shadow-lg shadow-indigo-500/30 whitespace-nowrap disabled:opacity-50"
                 >
                   <span>{isSubmitting ? "Securing Spot..." : "Join Priority Waitlist"}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </form>
             ) : (
-              <div className="p-6 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-left backdrop-blur-xl animate-in fade-in zoom-in-95 duration-300">
+              <div className="p-6 rounded-2xl bg-indigo-950/80 border border-indigo-500/40 text-left backdrop-blur-xl animate-in fade-in zoom-in-95 duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex-shrink-0">
+                  <div className="p-2.5 rounded-xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex-shrink-0">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
                       <h4 className="text-sm font-extrabold text-white">You&apos;re on the priority list!</h4>
-                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/30">
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-indigo-400/20 text-indigo-300 border border-indigo-400/30">
                         {submittedQueueNumber}
                       </span>
                     </div>
@@ -148,13 +148,13 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
             {/* Social Proof & Badges */}
             <div className="mt-6 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-[11px] font-medium text-slate-400">
               <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" /> Zero spam • Strict privacy
+                <ShieldCheck className="w-4 h-4 text-indigo-400" /> Zero spam • Strict privacy
               </span>
               <span className="flex items-center gap-1.5">
                 <Zap className="w-4 h-4 text-amber-400" /> Batch 01 Allocations
               </span>
               <span className="flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-emerald-400" /> 1,200+ early subscribers
+                <Users className="w-4 h-4 text-indigo-400" /> 1,200+ early subscribers
               </span>
             </div>
 
@@ -165,7 +165,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
                 <button
                   type="button"
                   onClick={onRequestDemo}
-                  className="font-bold text-emerald-400 hover:text-emerald-300 transition-colors underline underline-offset-4"
+                  className="font-bold text-indigo-400 hover:text-indigo-300 transition-colors underline underline-offset-4"
                 >
                   Request Live Demo &rarr;
                 </button>

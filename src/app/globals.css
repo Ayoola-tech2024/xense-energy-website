@@ -40,7 +40,7 @@ body {
   left: -10%;
   width: 500px;
   height: 500px;
-  background: #d1fae5;
+  background: #c7d2fe;
   opacity: 0.25;
 }
 .ambient-two {
@@ -48,7 +48,7 @@ body {
   top: 45%;
   width: 520px;
   height: 520px;
-  background: #e0f2fe;
+  background: #bae6fd;
   opacity: 0.25;
 }
 
@@ -77,24 +77,24 @@ body {
 }
 .button-primary {
   padding: 0.75rem 1.25rem;
-  background: #059669;
+  background: #4f46e5;
   color: white;
-  box-shadow: 0 8px 20px -2px rgba(5, 150, 105, 0.28);
+  box-shadow: 0 8px 20px -2px rgba(79, 70, 229, 0.28);
 }
 .button-primary:hover {
-  background: #047857;
-  box-shadow: 0 12px 28px -2px rgba(5, 150, 105, 0.38);
+  background: #4338ca;
+  box-shadow: 0 12px 28px -2px rgba(79, 70, 229, 0.38);
   transform: translateY(-1.5px);
 }
 .button-emerald {
   padding: 0.75rem 1.25rem;
-  background: #059669;
+  background: #4f46e5;
   color: white;
-  box-shadow: 0 8px 20px -2px rgba(5, 150, 105, 0.25);
+  box-shadow: 0 8px 20px -2px rgba(79, 70, 229, 0.25);
 }
 .button-emerald:hover {
-  background: #047857;
-  box-shadow: 0 12px 28px -2px rgba(5, 150, 105, 0.35);
+  background: #4338ca;
+  box-shadow: 0 12px 28px -2px rgba(79, 70, 229, 0.35);
   transform: translateY(-1.5px);
 }
 .button-secondary {
@@ -117,7 +117,7 @@ body {
   transition: color 0.15s;
 }
 .nav-link:hover {
-  color: #059669;
+  color: #4f46e5;
 }
 
 .live-dot {
@@ -125,8 +125,8 @@ body {
   height: 7px;
   width: 7px;
   border-radius: 999px;
-  background: #10b981;
-  box-shadow: 0 0 10px #10b981;
+  background: #4f46e5;
+  box-shadow: 0 0 10px #4f46e5;
 }
 
 .section-title {
@@ -147,14 +147,14 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(110deg, #059669 0%, #0d9488 45%, #0284c7 100%);
+  background: linear-gradient(110deg, #4f46e5 0%, #3b82f6 45%, #0284c7 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .text-gradient-hero {
-  background: linear-gradient(110deg, #34d399 0%, #10b981 50%, #38bdf8 100%);
+  background: linear-gradient(110deg, #818cf8 0%, #60a5fa 50%, #38bdf8 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -168,7 +168,7 @@ body {
   -webkit-appearance: none;
   border-radius: 999px;
   outline: none;
-  background: linear-gradient(to right, #059669 0%, #10b981 var(--progress, 78%), #e2e8f0 var(--progress, 78%), #e2e8f0 100%);
+  background: linear-gradient(to right, #4f46e5 0%, #60a5fa var(--progress, 78%), #e2e8f0 var(--progress, 78%), #e2e8f0 100%);
   cursor: pointer;
 }
 .soc-slider::-webkit-slider-thumb {
@@ -178,8 +178,8 @@ body {
   -webkit-appearance: none;
   border: 3px solid #ffffff;
   border-radius: 999px;
-  background: #059669;
-  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.35), 0 4px 12px rgba(5, 150, 105, 0.3);
+  background: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.35), 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
 .mockup-phone {

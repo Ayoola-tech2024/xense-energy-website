@@ -262,7 +262,7 @@ export default function AdminDashboardPage() {
   if (checkingAuth) {
     return (
       <div className="min-h-screen bg-[#f8fafc] flex flex-col items-center justify-center p-4 text-slate-500 font-mono">
-        <RefreshCw className="w-6 h-6 animate-spin text-emerald-600 mb-3" />
+        <RefreshCw className="w-6 h-6 animate-spin text-indigo-600 mb-3" />
         <p className="text-xs text-slate-600 font-medium">Verifying authorized administrative session...</p>
       </div>
     );
@@ -281,7 +281,7 @@ export default function AdminDashboardPage() {
               window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
             }}
             style={{ touchAction: "manipulation" }}
-            className="text-4xl font-extrabold border-r border-slate-300 pr-5 text-slate-900 tracking-tight cursor-pointer hover:text-emerald-600 transition-colors touch-manipulation"
+            className="text-4xl font-extrabold border-r border-slate-300 pr-5 text-slate-900 tracking-tight cursor-pointer hover:text-indigo-600 transition-colors touch-manipulation"
             title="Click to reveal administrative door"
           >
             404
@@ -292,7 +292,7 @@ export default function AdminDashboardPage() {
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="text-xs text-slate-500 hover:text-emerald-600 transition-colors font-medium"
+            className="text-xs text-slate-500 hover:text-indigo-600 transition-colors font-medium"
           >
             &larr; Return to Homepage
           </Link>
@@ -302,7 +302,7 @@ export default function AdminDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-[#0f172a] font-sans pb-20 selection:bg-emerald-500/20">
+    <div className="min-h-screen bg-[#f8fafc] text-[#0f172a] font-sans pb-20 selection:bg-indigo-500/20">
       {/* Top CEO Executive Header */}
       <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 backdrop-blur-md px-4 py-3.5 sm:px-8 shadow-xs">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
@@ -315,7 +315,7 @@ export default function AdminDashboardPage() {
                 <span className="text-base font-extrabold text-slate-900 tracking-tight">
                   Xense Energy
                 </span>
-                <span className="rounded-md bg-emerald-50 px-2 py-0.5 text-[10px] font-mono font-extrabold text-emerald-700 border border-emerald-200">
+                <span className="rounded-md bg-indigo-50 px-2 py-0.5 text-[10px] font-mono font-extrabold text-indigo-700 border border-indigo-200">
                   CEO EXECUTIVE PANEL
                 </span>
               </div>
@@ -326,8 +326,8 @@ export default function AdminDashboardPage() {
           </div>
 
           <div className="flex items-center gap-2.5">
-            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-mono font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 border border-indigo-200 text-indigo-700 text-[11px] font-mono font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
               <span>CEO AUTHENTICATED</span>
             </div>
 
@@ -337,7 +337,7 @@ export default function AdminDashboardPage() {
               disabled={loading}
               className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900 shadow-xs transition-colors disabled:opacity-50"
             >
-              <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-emerald-600" : ""}`} />
+              <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-indigo-600" : ""}`} />
               <span className="hidden sm:inline">Refresh</span>
             </button>
 
@@ -345,7 +345,7 @@ export default function AdminDashboardPage() {
               type="button"
               onClick={exportToCSV}
               disabled={leads.length === 0}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white shadow-sm transition-all active:scale-95 disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 px-3 py-1.5 text-xs font-bold text-white shadow-sm transition-all active:scale-95 disabled:opacity-50"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Export CSV</span>
@@ -381,7 +381,7 @@ export default function AdminDashboardPage() {
           <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow transition-shadow">
             <div className="flex items-center justify-between text-slate-500">
               <span className="text-xs font-bold uppercase tracking-wider">Total Inquiries</span>
-              <Users className="w-4 h-4 text-emerald-600" />
+              <Users className="w-4 h-4 text-indigo-600" />
             </div>
             <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono">
               {metrics.total}
@@ -393,9 +393,9 @@ export default function AdminDashboardPage() {
           <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow transition-shadow">
             <div className="flex items-center justify-between text-slate-500">
               <span className="text-xs font-bold uppercase tracking-wider">Live Demos</span>
-              <CalendarCheck className="w-4 h-4 text-emerald-600" />
+              <CalendarCheck className="w-4 h-4 text-indigo-600" />
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-emerald-600 font-mono">
+            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-indigo-600 font-mono">
               {metrics.demos}
             </div>
             <div className="mt-1 text-[11px] text-slate-500">High-intent consultation</div>
@@ -456,7 +456,7 @@ export default function AdminDashboardPage() {
                   onClick={() => setActiveFilter(pill.id as any)}
                   className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
                     activeFilter === pill.id
-                      ? "bg-emerald-600 text-white shadow-xs"
+                      ? "bg-indigo-600 text-white shadow-xs"
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900"
                   }`}
                 >
@@ -482,7 +482,7 @@ export default function AdminDashboardPage() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search name, email, phone..."
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 pl-9 pr-4 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:bg-white focus:outline-none transition-colors"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 pl-9 pr-4 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-indigo-600 focus:bg-white focus:outline-none transition-colors"
               />
             </div>
           </div>
@@ -505,7 +505,7 @@ export default function AdminDashboardPage() {
 
           {loading ? (
             <div className="p-16 text-center text-slate-500">
-              <RefreshCw className="w-6 h-6 animate-spin mx-auto text-emerald-600 mb-2" />
+              <RefreshCw className="w-6 h-6 animate-spin mx-auto text-indigo-600 mb-2" />
               <p className="text-xs font-medium">Loading live records from database...</p>
             </div>
           ) : filteredLeads.length === 0 ? (
@@ -538,7 +538,7 @@ export default function AdminDashboardPage() {
                           </span>
 
                           {lead.queue_number && (
-                            <span className="rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 font-mono text-[10px] font-bold text-emerald-700">
+                            <span className="rounded-full bg-indigo-50 border border-indigo-200 px-2.5 py-0.5 font-mono text-[10px] font-bold text-indigo-700">
                               {lead.queue_number}
                             </span>
                           )}
@@ -546,7 +546,7 @@ export default function AdminDashboardPage() {
                           <span
                             className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
                               isDemo
-                                ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                                ? "bg-indigo-50 text-indigo-700 border border-indigo-200"
                                 : "bg-sky-50 text-sky-700 border border-sky-200"
                             }`}
                           >
@@ -573,7 +573,7 @@ export default function AdminDashboardPage() {
                         <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600">
                           <a
                             href={`mailto:${lead.email}`}
-                            className="inline-flex items-center gap-1.5 text-emerald-600 hover:text-emerald-800 hover:underline font-semibold"
+                            className="inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 hover:underline font-semibold"
                           >
                             <Mail className="w-3.5 h-3.5" />
                             <span>{lead.email}</span>
@@ -584,7 +584,7 @@ export default function AdminDashboardPage() {
                               href={`tel:${lead.phone}`}
                               className="inline-flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-medium"
                             >
-                              <Phone className="w-3.5 h-3.5 text-emerald-600" />
+                              <Phone className="w-3.5 h-3.5 text-indigo-600" />
                               <span>{lead.phone}</span>
                             </a>
                           )}
@@ -623,7 +623,7 @@ export default function AdminDashboardPage() {
                                 [lead.id]: e.target.value,
                               }))
                             }
-                            className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:bg-white focus:outline-none transition-colors"
+                            className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-indigo-600 focus:bg-white focus:outline-none transition-colors"
                           />
                           <button
                             type="button"
@@ -646,7 +646,7 @@ export default function AdminDashboardPage() {
                                 href={formatWhatsAppUrl(lead.phone, lead.full_name)}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 text-xs font-bold shadow-xs transition-all"
+                                className="inline-flex items-center gap-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 text-xs font-bold shadow-xs transition-all"
                                 title="Chat on WhatsApp"
                               >
                                 <MessageSquare className="w-3.5 h-3.5" />
@@ -696,7 +696,7 @@ export default function AdminDashboardPage() {
                                 : lead.status === "qualified"
                                 ? "bg-amber-50 border-amber-200 text-amber-800"
                                 : lead.status === "converted"
-                                ? "bg-emerald-50 border-emerald-200 text-emerald-800"
+                                ? "bg-indigo-50 border-indigo-200 text-indigo-800"
                                 : "bg-slate-100 border-slate-200 text-slate-700"
                             }`}
                           >

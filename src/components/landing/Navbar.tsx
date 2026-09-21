@@ -68,7 +68,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             <span className="block text-sm font-extrabold tracking-[0.18em] text-slate-900">
               XENSE
             </span>
-            <span className="mt-1 block text-[8px] font-bold tracking-[0.28em] text-emerald-600">
+            <span className="mt-1 block text-[8px] font-bold tracking-[0.28em] text-indigo-600">
               ENERGY SYSTEMS
             </span>
           </span>
@@ -76,19 +76,19 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
 
         {/* Desktop Navigation Links */}
         <div className="hidden items-center gap-8 text-xs font-bold text-slate-600 lg:flex">
-          <Link href="#modes" className="transition-colors hover:text-emerald-600">
+          <Link href="#modes" className="transition-colors hover:text-indigo-600">
             Operating Modes
           </Link>
-          <Link href="#ecosystem" className="transition-colors hover:text-emerald-600">
+          <Link href="#ecosystem" className="transition-colors hover:text-indigo-600">
             Products
           </Link>
-          <Link href="#dashboard" className="transition-colors hover:text-emerald-600">
+          <Link href="#dashboard" className="transition-colors hover:text-indigo-600">
             App &amp; Dashboard
           </Link>
-          <Link href="#simulator" className="transition-colors hover:text-emerald-600">
+          <Link href="#simulator" className="transition-colors hover:text-indigo-600">
             Simulator
           </Link>
-          <Link href="#waitlist" className="font-bold text-emerald-600 transition-colors hover:text-emerald-700">
+          <Link href="#waitlist" className="font-bold text-indigo-600 transition-colors hover:text-indigo-700">
             Join Waitlist
           </Link>
         </div>
@@ -112,9 +112,9 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           <button
             type="button"
             onClick={() => onOpenModal("demo")}
-            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/25 transition-all hover:bg-emerald-700 hover:shadow-emerald-500/35 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-indigo-500/25 transition-all hover:bg-indigo-700 hover:shadow-indigo-500/35 active:scale-95 cursor-pointer"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-300 shadow-[0_0_8px_#34d399]"></span>
+            <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_#818cf8]"></span>
             <span>Request Demo</span>
           </button>
         </div>
@@ -165,7 +165,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             <Link
               href="#waitlist"
               onClick={() => setMobileMenuOpen(false)}
-              className="rounded-lg px-3 py-2.5 font-bold text-emerald-600 transition-colors hover:bg-slate-100"
+              className="rounded-lg px-3 py-2.5 font-bold text-indigo-600 transition-colors hover:bg-slate-100"
             >
               Join Waitlist
             </Link>
@@ -176,7 +176,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
                   setMobileMenuOpen(false);
                   onOpenModal("demo");
                 }}
-                className="w-full rounded-xl bg-emerald-600 px-4 py-3 text-center text-sm font-bold text-white shadow-md shadow-emerald-500/25 cursor-pointer"
+                className="w-full rounded-xl bg-indigo-600 px-4 py-3 text-center text-sm font-bold text-white shadow-md shadow-indigo-500/25 cursor-pointer"
               >
                 Request Demo
               </button>
