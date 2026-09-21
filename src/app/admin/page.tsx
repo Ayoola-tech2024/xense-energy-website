@@ -16,13 +16,8 @@ import {
   Clock,
   ShieldCheck,
   ExternalLink,
-  ChevronRight,
-  Filter,
-  CheckCircle2,
   AlertCircle,
-  Home,
   LogOut,
-  Terminal,
 } from "lucide-react";
 
 export interface LeadRecord {
@@ -126,50 +121,55 @@ export default function AdminDashboardPage() {
         setLeads((prev) =>
           prev.map((l) => (l.id === id ? { ...l, status: newStatus } : l))
         );
+      } else {
+        alert("Failed to update status on server.");
       }
     } catch (err) {
-      console.error("Failed to update status:", err);
+      console.error("Error updating lead status:", err);
+      alert("Network error updating status.");
     } finally {
       setUpdatingId(null);
     }
   };
 
-  // Save lead internal notes securely via server API
+  // Save internal notes securely via server API
   const saveLeadNotes = async (id: string) => {
-    const noteContent = notesDrafts[id];
-    if (noteContent === undefined) return;
+    const noteText = notesDrafts[id];
+    if (noteText === undefined) return;
 
     setIsSavingNotes(id);
     try {
       const res = await fetch("/api/admin/leads", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, notes: noteContent }),
+        body: JSON.stringify({ id, notes: noteText }),
       });
 
       if (res.ok) {
         setLeads((prev) =>
-          prev.map((l) => (l.id === id ? { ...l, notes: noteContent } : l))
+          prev.map((l) => (l.id === id ? { ...l, notes: noteText } : l))
         );
+      } else {
+        alert("Failed to save note.");
       }
     } catch (err) {
-      console.error("Failed to save note:", err);
+      console.error("Error saving notes:", err);
+      alert("Network error saving notes.");
     } finally {
       setIsSavingNotes(null);
     }
   };
 
-  // Helper to format WhatsApp phone number (strip spaces, symbols)
-  const formatWhatsAppUrl = (phone: string | null, name: string | null) => {
-    if (!phone) return "#";
-    const cleaned = phone.replace(/[^0-9]/g, "");
-    const msg = encodeURIComponent(
-      `Hello ${name || "there"}, thank you for contacting Xense Energy regarding your solar load control inquiry. When is a convenient time for your live consultation?`
+  // Helper to format WhatsApp click-to-chat
+  const formatWhatsAppUrl = (phone: string, name?: string | null) => {
+    const cleaned = phone.replace(/[^\d+]/g, "").replace(/^\+/, "");
+    const greeting = encodeURIComponent(
+      `Hello ${name || "there"}, this is the Xense Energy Executive Desk following up on your consultation inquiry.`
     );
-    return `https://wa.me/${cleaned}?text=${msg}`;
+    return `https://wa.me/${cleaned}?text=${greeting}`;
   };
 
-  // KPI Metrics Calculation
+  // Calculated Metrics
   const metrics = useMemo(() => {
     const total = leads.length;
     const demos = leads.filter((l) => l.source === "demo_request").length;
@@ -187,7 +187,7 @@ export default function AdminDashboardPage() {
   // Filtered Leads
   const filteredLeads = useMemo(() => {
     return leads.filter((lead) => {
-      // Filter tab
+      // Category filter
       if (activeFilter === "demo_request" && lead.source !== "demo_request") return false;
       if (activeFilter === "waitlist" && lead.source !== "waitlist") return false;
       if (activeFilter === "new" && lead.status !== "new") return false;
@@ -261,72 +261,68 @@ export default function AdminDashboardPage() {
 
   if (checkingAuth) {
     return (
-      <div className="min-h-screen bg-[#000000] flex flex-col items-center justify-center p-4 text-slate-400 font-mono">
-        <RefreshCw className="w-5 h-5 animate-spin text-slate-600 mb-3" />
-        <p className="text-xs text-slate-600">Connecting to secure host...</p>
+      <div className="min-h-screen bg-[#f8fafc] flex flex-col items-center justify-center p-4 text-slate-500 font-mono">
+        <RefreshCw className="w-6 h-6 animate-spin text-indigo-600 mb-3" />
+        <p className="text-xs text-slate-600 font-medium">Verifying authorized administrative session...</p>
       </div>
     );
   }
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#000000] text-slate-200 flex flex-col items-center justify-center font-sans select-none px-4">
+      <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col items-center justify-center font-sans select-none px-4">
         <div className="flex items-center gap-5">
           <h1
             onClick={() => {
               window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
             }}
-            className="text-4xl font-extrabold border-r border-slate-800 pr-5 text-white tracking-tight cursor-pointer hover:text-cyan-400 transition-colors"
-            title="Click to reveal"
+            className="text-4xl font-extrabold border-r border-slate-300 pr-5 text-slate-900 tracking-tight cursor-pointer hover:text-indigo-600 transition-colors"
+            title="Click to reveal administrative door"
           >
             404
           </h1>
-          <p className="text-sm font-normal text-slate-400">This page could not be found.</p>
+          <p className="text-sm font-normal text-slate-600">This page could not be found.</p>
         </div>
 
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="text-xs text-slate-600 hover:text-slate-400 transition-colors"
+            className="text-xs text-slate-500 hover:text-indigo-600 transition-colors font-medium"
           >
-            Return to Homepage
+            &larr; Return to Homepage
           </Link>
-        </div>
-
-        <div className="fixed bottom-4 text-center text-[10px] text-slate-800 font-mono">
-          SEC::PROTECTED
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 font-sans pb-20 selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-[#f8fafc] text-[#0f172a] font-sans pb-20 selection:bg-indigo-500/20">
       {/* Top CEO Executive Header */}
-      <header className="sticky top-0 z-40 border-b border-slate-800 bg-[#0d1322]/90 backdrop-blur-md px-4 py-3.5 sm:px-8">
+      <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 backdrop-blur-md px-4 py-3.5 sm:px-8 shadow-xs">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div className="flex items-center gap-3.5">
-            <div className="relative h-9 w-9 rounded-xl overflow-hidden bg-white p-1 border border-slate-700 shadow flex items-center justify-center">
+            <div className="relative h-9 w-9 rounded-xl overflow-hidden bg-white p-1 border border-slate-200 shadow-sm flex items-center justify-center">
               <Image src="/assets/logo.png" alt="Xense Logo" width={28} height={28} className="object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-base font-extrabold text-white tracking-tight">
+                <span className="text-base font-extrabold text-slate-900 tracking-tight">
                   Xense Energy
                 </span>
-                <span className="rounded-md bg-indigo-500/20 px-2 py-0.5 text-[10px] font-mono font-extrabold text-indigo-400 border border-indigo-500/30">
+                <span className="rounded-md bg-indigo-50 px-2 py-0.5 text-[10px] font-mono font-extrabold text-indigo-700 border border-indigo-200">
                   CEO EXECUTIVE PANEL
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-xs text-slate-500 font-medium">
                 Live Lead Pipeline &amp; Customer Consultation Desk
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-2.5">
-            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-mono font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>CEO AUTHENTICATED</span>
             </div>
 
@@ -334,9 +330,9 @@ export default function AdminDashboardPage() {
               type="button"
               onClick={fetchLeads}
               disabled={loading}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-xs font-semibold text-slate-200 hover:bg-slate-700 hover:text-white transition-colors disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900 shadow-xs transition-colors disabled:opacity-50"
             >
-              <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-indigo-400" : ""}`} />
+              <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-indigo-600" : ""}`} />
               <span className="hidden sm:inline">Refresh</span>
             </button>
 
@@ -344,7 +340,7 @@ export default function AdminDashboardPage() {
               type="button"
               onClick={exportToCSV}
               disabled={leads.length === 0}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-3 py-1.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all active:scale-95 disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white shadow-sm transition-all active:scale-95 disabled:opacity-50"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Export CSV</span>
@@ -353,7 +349,7 @@ export default function AdminDashboardPage() {
             <Link
               href="/"
               target="_blank"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-800/50 px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 shadow-xs transition-colors"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">View Website</span>
@@ -362,7 +358,7 @@ export default function AdminDashboardPage() {
             <button
               type="button"
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-rose-500/30 bg-rose-500/10 hover:bg-rose-500/20 px-3 py-1.5 text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-rose-200 bg-rose-50 hover:bg-rose-100 px-3 py-1.5 text-xs font-bold text-rose-700 hover:text-rose-800 transition-colors shadow-xs"
               title="Sign out of Admin Desk"
             >
               <LogOut className="w-3.5 h-3.5" />
@@ -377,68 +373,68 @@ export default function AdminDashboardPage() {
         {/* KPI Top Cards */}
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-5 mb-8">
           {/* Total Leads */}
-          <div className="rounded-2xl border border-slate-800 bg-[#0f1626] p-4 sm:p-5 shadow-lg">
-            <div className="flex items-center justify-between text-slate-400">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow transition-shadow">
+            <div className="flex items-center justify-between text-slate-500">
               <span className="text-xs font-bold uppercase tracking-wider">Total Inquiries</span>
-              <Users className="w-4 h-4 text-indigo-400" />
+              <Users className="w-4 h-4 text-indigo-600" />
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-white font-mono">
+            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono">
               {metrics.total}
             </div>
-            <div className="mt-1 text-[11px] text-slate-400">All captured prospects</div>
+            <div className="mt-1 text-[11px] text-slate-500">All captured prospects</div>
           </div>
 
           {/* Demo Requests */}
-          <div className="rounded-2xl border border-slate-800 bg-[#0f1626] p-4 sm:p-5 shadow-lg">
-            <div className="flex items-center justify-between text-slate-400">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow transition-shadow">
+            <div className="flex items-center justify-between text-slate-500">
               <span className="text-xs font-bold uppercase tracking-wider">Live Demos</span>
-              <CalendarCheck className="w-4 h-4 text-emerald-400" />
+              <CalendarCheck className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">
+            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-emerald-600 font-mono">
               {metrics.demos}
             </div>
-            <div className="mt-1 text-[11px] text-slate-400">High-intent consultation</div>
+            <div className="mt-1 text-[11px] text-slate-500">High-intent consultation</div>
           </div>
 
           {/* Waitlist Subscribers */}
-          <div className="rounded-2xl border border-slate-800 bg-[#0f1626] p-4 sm:p-5 shadow-lg">
-            <div className="flex items-center justify-between text-slate-400">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow transition-shadow">
+            <div className="flex items-center justify-between text-slate-500">
               <span className="text-xs font-bold uppercase tracking-wider">Waitlist</span>
-              <Mail className="w-4 h-4 text-sky-400" />
+              <Mail className="w-4 h-4 text-sky-600" />
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-sky-400 font-mono">
+            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-sky-600 font-mono">
               {metrics.waitlist}
             </div>
-            <div className="mt-1 text-[11px] text-slate-400">Hardware queue allocations</div>
+            <div className="mt-1 text-[11px] text-slate-500">Hardware queue allocations</div>
           </div>
 
           {/* High Priority Commercial */}
-          <div className="rounded-2xl border border-slate-800 bg-[#0f1626] p-4 sm:p-5 shadow-lg">
-            <div className="flex items-center justify-between text-slate-400">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow transition-shadow">
+            <div className="flex items-center justify-between text-slate-500">
               <span className="text-xs font-bold uppercase tracking-wider">High Value</span>
-              <Zap className="w-4 h-4 text-amber-400" />
+              <Zap className="w-4 h-4 text-amber-600" />
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-amber-400 font-mono">
+            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-amber-600 font-mono">
               {metrics.highPriority}
             </div>
-            <div className="mt-1 text-[11px] text-slate-400">Commercial &amp; Mini-Grid</div>
+            <div className="mt-1 text-[11px] text-slate-500">Commercial &amp; Mini-Grid</div>
           </div>
 
           {/* Action Required (New) */}
-          <div className="rounded-2xl border border-rose-900/40 bg-rose-950/20 p-4 sm:p-5 shadow-lg">
-            <div className="flex items-center justify-between text-rose-300">
+          <div className="rounded-2xl border border-rose-200 bg-rose-50/60 p-4 sm:p-5 shadow-sm hover:shadow transition-shadow">
+            <div className="flex items-center justify-between text-rose-700">
               <span className="text-xs font-bold uppercase tracking-wider">Action Needed</span>
-              <AlertCircle className="w-4 h-4 text-rose-400" />
+              <AlertCircle className="w-4 h-4 text-rose-600" />
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-rose-400 font-mono">
+            <div className="mt-2 text-2xl sm:text-3xl font-extrabold text-rose-700 font-mono">
               {metrics.newItems}
             </div>
-            <div className="mt-1 text-[11px] text-rose-300/80">Pending CEO / Sales call</div>
+            <div className="mt-1 text-[11px] text-rose-600/90 font-medium">Pending CEO / Sales call</div>
           </div>
         </div>
 
         {/* Filter Controls & Search Bar */}
-        <div className="rounded-2xl border border-slate-800 bg-[#0f1626] p-4 mb-6 shadow-md">
+        <div className="rounded-2xl border border-slate-200 bg-white p-4 mb-6 shadow-sm">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             {/* Filter Pills */}
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
@@ -455,16 +451,16 @@ export default function AdminDashboardPage() {
                   onClick={() => setActiveFilter(pill.id as any)}
                   className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
                     activeFilter === pill.id
-                      ? "bg-indigo-600 text-white shadow-sm shadow-indigo-600/30"
-                      : "bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white"
+                      ? "bg-indigo-600 text-white shadow-xs"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900"
                   }`}
                 >
                   <span>{pill.label}</span>
                   <span
                     className={`rounded-full px-1.5 py-0.2 text-[10px] font-mono ${
                       activeFilter === pill.id
-                        ? "bg-white/20 text-white"
-                        : "bg-slate-900/60 text-slate-400"
+                        ? "bg-white/25 text-white font-bold"
+                        : "bg-slate-200 text-slate-700"
                     }`}
                   >
                     {pill.count}
@@ -481,42 +477,42 @@ export default function AdminDashboardPage() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search name, email, phone..."
-                className="w-full rounded-xl border border-slate-700 bg-slate-900/80 pl-9 pr-4 py-2 text-xs text-white placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none transition-colors"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 pl-9 pr-4 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-indigo-600 focus:bg-white focus:outline-none transition-colors"
               />
             </div>
           </div>
         </div>
 
         {/* Live Leads Table / Cards */}
-        <div className="rounded-2xl border border-slate-800 bg-[#0f1626] overflow-hidden shadow-xl">
-          <div className="border-b border-slate-800 px-6 py-4 flex items-center justify-between">
+        <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <div className="border-b border-slate-200 bg-slate-50/75 px-6 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <h3 className="text-sm font-bold text-white">Prospective Clients</h3>
-              <span className="text-xs text-slate-400">
+              <h3 className="text-sm font-extrabold text-slate-900">Prospective Clients</h3>
+              <span className="text-xs text-slate-500 font-medium">
                 ({filteredLeads.length} displayed)
               </span>
             </div>
-            <div className="text-[11px] text-slate-400 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5" />
+            <div className="text-[11px] text-slate-500 flex items-center gap-1.5 font-medium">
+              <Clock className="w-3.5 h-3.5 text-slate-400" />
               <span>Last synced: {lastRefreshed.toLocaleTimeString()}</span>
             </div>
           </div>
 
           {loading ? (
-            <div className="p-16 text-center text-slate-400">
-              <RefreshCw className="w-6 h-6 animate-spin mx-auto text-indigo-400 mb-2" />
-              <p className="text-xs">Loading live records from database...</p>
+            <div className="p-16 text-center text-slate-500">
+              <RefreshCw className="w-6 h-6 animate-spin mx-auto text-indigo-600 mb-2" />
+              <p className="text-xs font-medium">Loading live records from database...</p>
             </div>
           ) : filteredLeads.length === 0 ? (
-            <div className="p-16 text-center text-slate-400">
-              <Users className="w-8 h-8 mx-auto text-slate-600 mb-2" />
-              <p className="text-sm font-semibold text-slate-300">No leads found</p>
+            <div className="p-16 text-center text-slate-500">
+              <Users className="w-8 h-8 mx-auto text-slate-400 mb-2" />
+              <p className="text-sm font-bold text-slate-800">No leads found</p>
               <p className="text-xs text-slate-500 mt-1">
                 Try clearing your search term or selecting another filter pill.
               </p>
             </div>
           ) : (
-            <div className="divide-y divide-slate-800/80">
+            <div className="divide-y divide-slate-100">
               {filteredLeads.map((lead) => {
                 const isDemo = lead.source === "demo_request";
                 const isHp =
@@ -526,18 +522,18 @@ export default function AdminDashboardPage() {
                 return (
                   <div
                     key={lead.id}
-                    className="p-4 sm:p-6 hover:bg-slate-850/40 transition-colors"
+                    className="p-4 sm:p-6 hover:bg-slate-50/70 transition-colors"
                   >
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                       {/* Left: Lead Identity & Ticket */}
                       <div className="space-y-1.5 flex-1">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-sm font-extrabold text-white">
+                          <span className="text-sm font-extrabold text-slate-900">
                             {lead.full_name || "Waitlist Subscriber"}
                           </span>
 
                           {lead.queue_number && (
-                            <span className="rounded-full bg-indigo-500/20 border border-indigo-500/30 px-2.5 py-0.5 font-mono text-[10px] font-bold text-indigo-300">
+                            <span className="rounded-full bg-indigo-50 border border-indigo-200 px-2.5 py-0.5 font-mono text-[10px] font-bold text-indigo-700">
                               {lead.queue_number}
                             </span>
                           )}
@@ -545,20 +541,20 @@ export default function AdminDashboardPage() {
                           <span
                             className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
                               isDemo
-                                ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
-                                : "bg-sky-500/20 text-sky-300 border border-sky-500/30"
+                                ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                                : "bg-sky-50 text-sky-700 border border-sky-200"
                             }`}
                           >
                             {isDemo ? "Live Demo Request" : "Waitlist"}
                           </span>
 
                           {isHp && (
-                            <span className="rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 text-[9px] font-bold font-mono">
+                            <span className="rounded-full bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 text-[9px] font-bold font-mono">
                               HIGH VALUE FACILITY
                             </span>
                           )}
 
-                          <span className="text-[11px] text-slate-500 font-mono">
+                          <span className="text-[11px] text-slate-400 font-mono">
                             {new Date(lead.created_at).toLocaleString([], {
                               month: "short",
                               day: "numeric",
@@ -569,10 +565,10 @@ export default function AdminDashboardPage() {
                         </div>
 
                         {/* Contact details */}
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-slate-300">
+                        <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600">
                           <a
                             href={`mailto:${lead.email}`}
-                            className="inline-flex items-center gap-1.5 text-indigo-400 hover:underline"
+                            className="inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 hover:underline font-semibold"
                           >
                             <Mail className="w-3.5 h-3.5" />
                             <span>{lead.email}</span>
@@ -581,16 +577,16 @@ export default function AdminDashboardPage() {
                           {lead.phone && (
                             <a
                               href={`tel:${lead.phone}`}
-                              className="inline-flex items-center gap-1.5 text-slate-300 hover:text-white"
+                              className="inline-flex items-center gap-1.5 text-slate-700 hover:text-slate-900 font-medium"
                             >
-                              <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                              <Phone className="w-3.5 h-3.5 text-emerald-600" />
                               <span>{lead.phone}</span>
                             </a>
                           )}
 
                           {lead.system_type && (
-                            <span className="inline-flex items-center gap-1.5 text-slate-400 font-mono text-[11px]">
-                              <Zap className="w-3.5 h-3.5 text-amber-400" />
+                            <span className="inline-flex items-center gap-1.5 text-slate-500 font-mono text-[11px]">
+                              <Zap className="w-3.5 h-3.5 text-amber-500" />
                               <span>{lead.system_type}</span>
                             </span>
                           )}
@@ -598,7 +594,7 @@ export default function AdminDashboardPage() {
 
                         {/* Customer message if consultation requested */}
                         {lead.message && (
-                          <div className="mt-2 rounded-xl bg-slate-900/90 border border-slate-800 p-3 text-xs text-slate-300 leading-relaxed font-normal">
+                          <div className="mt-2 rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs text-slate-700 leading-relaxed font-normal">
                             <span className="text-[10px] font-mono uppercase text-slate-500 font-bold block mb-0.5">
                               Inquiry Note:
                             </span>
@@ -622,13 +618,13 @@ export default function AdminDashboardPage() {
                                 [lead.id]: e.target.value,
                               }))
                             }
-                            className="flex-1 rounded-lg border border-slate-800 bg-slate-900/60 px-3 py-1.5 text-xs text-slate-200 placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none"
+                            className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-indigo-600 focus:bg-white focus:outline-none transition-colors"
                           />
                           <button
                             type="button"
                             onClick={() => saveLeadNotes(lead.id)}
                             disabled={isSavingNotes === lead.id}
-                            className="rounded-lg bg-slate-800 px-3 py-1.5 text-[11px] font-bold text-slate-300 hover:bg-slate-700 hover:text-white transition-colors"
+                            className="rounded-lg bg-slate-100 border border-slate-200 px-3 py-1.5 text-[11px] font-bold text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors"
                           >
                             {isSavingNotes === lead.id ? "Saving..." : "Save Note"}
                           </button>
@@ -645,7 +641,7 @@ export default function AdminDashboardPage() {
                                 href={formatWhatsAppUrl(lead.phone, lead.full_name)}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-2 text-xs font-extrabold shadow-sm transition-all"
+                                className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 text-xs font-bold shadow-xs transition-all"
                                 title="Chat on WhatsApp"
                               >
                                 <MessageSquare className="w-3.5 h-3.5" />
@@ -654,10 +650,10 @@ export default function AdminDashboardPage() {
 
                               <a
                                 href={`tel:${lead.phone}`}
-                                className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 text-xs font-bold transition-all"
+                                className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 px-3 py-2 text-xs font-bold transition-all shadow-xs"
                                 title="Call directly"
                               >
-                                <Phone className="w-3.5 h-3.5" />
+                                <Phone className="w-3.5 h-3.5 text-slate-500" />
                                 <span>Call</span>
                               </a>
                             </>
@@ -665,10 +661,10 @@ export default function AdminDashboardPage() {
 
                           <a
                             href={`mailto:${lead.email}?subject=Xense%20Energy%20Inquiry%20(${lead.queue_number || "Follow-up"})`}
-                            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 text-xs font-bold transition-all"
+                            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 px-3 py-2 text-xs font-bold transition-all shadow-xs"
                             title="Send Email"
                           >
-                            <Mail className="w-3.5 h-3.5" />
+                            <Mail className="w-3.5 h-3.5 text-slate-500" />
                             <span>Email</span>
                           </a>
                         </div>
@@ -687,16 +683,16 @@ export default function AdminDashboardPage() {
                                 e.target.value as LeadRecord["status"]
                               )
                             }
-                            className={`rounded-xl px-3 py-1.5 text-xs font-bold focus:outline-none border transition-colors ${
+                            className={`rounded-xl px-3 py-1.5 text-xs font-bold focus:outline-none border transition-colors shadow-xs ${
                               lead.status === "new"
-                                ? "bg-rose-950/40 border-rose-500/40 text-rose-300"
+                                ? "bg-rose-50 border-rose-200 text-rose-800"
                                 : lead.status === "contacted"
-                                ? "bg-indigo-950/40 border-indigo-500/40 text-indigo-300"
+                                ? "bg-indigo-50 border-indigo-200 text-indigo-800"
                                 : lead.status === "qualified"
-                                ? "bg-amber-950/40 border-amber-500/40 text-amber-300"
+                                ? "bg-amber-50 border-amber-200 text-amber-800"
                                 : lead.status === "converted"
-                                ? "bg-emerald-950/40 border-emerald-500/40 text-emerald-300"
-                                : "bg-slate-900 border-slate-700 text-slate-400"
+                                ? "bg-emerald-50 border-emerald-200 text-emerald-800"
+                                : "bg-slate-100 border-slate-200 text-slate-700"
                             }`}
                           >
                             <option value="new">🔴 Needs Contact</option>
