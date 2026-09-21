@@ -73,16 +73,16 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
 
   return (
     <section id="waitlist" className="mx-auto max-w-[1320px] px-4 pb-16 sm:pb-24 pt-8 sm:pt-12 sm:px-6 lg:px-10">
-      <div className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-black p-6 sm:p-14 lg:p-20 text-center shadow-2xl">
+      <div className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-black p-6 sm:p-14 lg:p-20 text-center shadow-2xl">
         {/* Ambient Radial Glows */}
-        <div className="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full bg-indigo-500/15 blur-[120px]" />
-        <div className="pointer-events-none absolute -bottom-20 right-10 w-[300px] h-[300px] rounded-full bg-emerald-500/10 blur-[100px]" />
+        <div className="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full bg-emerald-500/15 blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-20 right-10 w-[300px] h-[300px] rounded-full bg-teal-500/10 blur-[100px]" />
 
         <div className="relative z-10 max-w-3xl mx-auto">
           {/* Headline */}
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
             Be first in line for <br />
-            <span className="text-gradient">Xense Energy.</span>
+            <span className="text-gradient-hero">Xense Energy.</span>
           </h2>
 
           {/* Copy */}
@@ -95,7 +95,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
             {!submittedQueueNumber ? (
               <form
                 onSubmit={handleSubmit}
-                className="relative flex flex-col sm:flex-row items-stretch gap-3 p-2 rounded-2xl bg-white/[0.07] border border-white/15 backdrop-blur-xl shadow-2xl focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-500/20 transition-all"
+                className="relative flex flex-col sm:flex-row items-stretch gap-3 p-2 rounded-2xl bg-white/[0.07] border border-white/15 backdrop-blur-xl shadow-2xl focus-within:border-emerald-400 focus-within:ring-2 focus-within:ring-emerald-500/20 transition-all"
               >
                 <div className="relative flex-1 flex items-center">
                   <Mail className="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none" />
@@ -111,7 +111,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="button-primary justify-center px-7 py-3.5 text-sm font-extrabold shadow-lg shadow-indigo-500/30 whitespace-nowrap disabled:opacity-50"
+                  className="button-primary justify-center px-7 py-3.5 text-sm font-extrabold shadow-lg shadow-emerald-500/30 whitespace-nowrap disabled:opacity-50"
                 >
                   <span>{isSubmitting ? "Securing Spot..." : "Join Priority Waitlist"}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -154,7 +154,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
                 <Zap className="w-4 h-4 text-amber-400" /> Batch 01 Allocations
               </span>
               <span className="flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-indigo-400" /> 1,200+ early subscribers
+                <Users className="w-4 h-4 text-emerald-400" /> 1,200+ early subscribers
               </span>
             </div>
 
@@ -165,7 +165,7 @@ export function WaitlistSection({ onRequestDemo }: WaitlistSectionProps) {
                 <button
                   type="button"
                   onClick={onRequestDemo}
-                  className="font-bold text-indigo-400 hover:text-indigo-300 transition-colors underline underline-offset-4"
+                  className="font-bold text-emerald-400 hover:text-emerald-300 transition-colors underline underline-offset-4"
                 >
                   Request Live Demo &rarr;
                 </button>

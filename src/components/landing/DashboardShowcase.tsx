@@ -10,16 +10,16 @@ interface DashboardShowcaseProps {
 export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProps) {
   return (
     <section id="dashboard" className="mx-auto max-w-[1320px] scroll-mt-24 px-4 py-14 sm:py-20 sm:px-6 lg:px-10">
-      <div className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 px-6 py-12 sm:px-12 sm:py-16 lg:px-16 shadow-2xl">
-        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl"></div>
-        <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-emerald-600/15 blur-3xl"></div>
+      <div className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-6 py-12 sm:px-12 sm:py-16 lg:px-16 shadow-2xl">
+        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-emerald-500/15 blur-3xl"></div>
+        <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-teal-500/10 blur-3xl"></div>
 
         <div className="relative grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14">
           {/* Left: Info */}
           <div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Full control. <br />
-              <span className="text-gradient">
+              <span className="text-gradient-hero">
                 From your palm.
               </span>
             </h2>
@@ -30,11 +30,11 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
             {/* Feature Pills */}
             <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-2.5">
               <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3.5 py-1.5 text-[11px] font-semibold text-slate-200 backdrop-blur-md transition-colors hover:bg-white/[0.12] sm:px-4 sm:py-2 sm:text-xs">
-                <BarChart2 className="h-3.5 w-3.5 text-indigo-400" />
+                <BarChart2 className="h-3.5 w-3.5 text-emerald-400" />
                 Live Analytics
               </div>
               <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3.5 py-1.5 text-[11px] font-semibold text-slate-200 backdrop-blur-md transition-colors hover:bg-white/[0.12] sm:px-4 sm:py-2 sm:text-xs">
-                <Cpu className="h-3.5 w-3.5 text-emerald-400" />
+                <Cpu className="h-3.5 w-3.5 text-teal-300" />
                 Load Decisions
               </div>
               <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3.5 py-1.5 text-[11px] font-semibold text-slate-200 backdrop-blur-md transition-colors hover:bg-white/[0.12] sm:px-4 sm:py-2 sm:text-xs">
@@ -42,11 +42,11 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
                 Smart Alerts
               </div>
               <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3.5 py-1.5 text-[11px] font-semibold text-slate-200 backdrop-blur-md transition-colors hover:bg-white/[0.12] sm:px-4 sm:py-2 sm:text-xs">
-                <Settings className="h-3.5 w-3.5 text-sky-400" />
+                <Settings className="h-3.5 w-3.5 text-emerald-400" />
                 Remote Control
               </div>
               <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3.5 py-1.5 text-[11px] font-semibold text-slate-200 backdrop-blur-md transition-colors hover:bg-white/[0.12] sm:px-4 sm:py-2 sm:text-xs">
-                <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+                <ShieldCheck className="h-3.5 w-3.5 text-teal-300" />
                 Priority Lists
               </div>
             </div>
@@ -55,7 +55,7 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
               <button
                 type="button"
                 onClick={() => onOpenModal("demo")}
-                className="button-primary justify-center text-xs sm:text-sm px-6 py-3.5 font-bold shadow-lg shadow-indigo-500/30"
+                className="button-primary justify-center text-xs sm:text-sm px-6 py-3.5 font-bold shadow-lg shadow-emerald-500/30"
               >
                 <span>Request a Live Demo</span>
                 <Play className="h-4 w-4" />
@@ -88,7 +88,7 @@ export default function DashboardShowcase({ onOpenModal }: DashboardShowcaseProp
                   Solar Today
                 </div>
                 <div className="font-mono text-base font-extrabold text-slate-900">
-                  32.4 <span className="text-xs text-indigo-600">kWh</span>
+                  32.4 <span className="text-xs text-amber-500">kWh</span>
                 </div>
               </div>
               <div className="absolute -right-10 bottom-20 hidden glass-card bg-white/95 px-3.5 py-2.5 shadow-xl border-slate-200 sm:block">

@@ -46,7 +46,7 @@ export default function BatterySimulator() {
                 </div>
               </div>
               <div className="text-right">
-                <span className="font-mono text-4xl font-extrabold tracking-[-0.08em] text-indigo-600 sm:text-5xl">
+                <span className="font-mono text-4xl font-extrabold tracking-[-0.08em] text-emerald-600 sm:text-5xl">
                   {soc}
                 </span>
                 <span className="ml-1 font-mono text-base text-slate-400 sm:text-lg">%</span>
@@ -67,7 +67,7 @@ export default function BatterySimulator() {
               <div className="mt-3 flex justify-between font-mono text-[8px] font-bold text-slate-500 sm:text-[9px]">
                 <span className="text-rose-600">0% CRITICAL</span>
                 <span className="text-amber-600">35% CHILLERS</span>
-                <span className="text-indigo-600">50% CLIMATE</span>
+                <span className="text-teal-600">50% CLIMATE</span>
                 <span className="text-emerald-600">100% FULL</span>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function BatterySimulator() {
                 soc > 50
                   ? "border-emerald-200 bg-emerald-50"
                   : soc > 35
-                  ? "border-indigo-200 bg-indigo-50"
+                  ? "border-teal-200 bg-teal-50"
                   : "border-rose-200 bg-rose-50"
               }`}
             >
@@ -88,7 +88,7 @@ export default function BatterySimulator() {
                     soc > 50
                       ? "text-emerald-500"
                       : soc > 35
-                      ? "text-indigo-500"
+                      ? "text-teal-500"
                       : "text-rose-500"
                   }`}
                 >
@@ -139,7 +139,7 @@ export default function BatterySimulator() {
           <div className="space-y-3">
             <div className="mb-2 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-800">
               <span>Managed Home &amp; Facility Loads</span>
-              <span className="font-mono font-bold text-indigo-600 text-[10px]">
+              <span className="font-mono font-bold text-emerald-600 text-[10px]">
                 4 Priority Channels
               </span>
             </div>
@@ -271,15 +271,15 @@ export default function BatterySimulator() {
             </div>
 
             {/* Servers, Wi-Fi & CCTV */}
-            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-indigo-200/80 bg-indigo-50/30 p-3.5 sm:flex-nowrap sm:p-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-50/40 p-3.5 sm:flex-nowrap sm:p-4">
               <div className="flex items-center gap-3">
-                <span className="shrink-0 rounded-xl bg-indigo-100 p-2 sm:p-2.5 text-indigo-700">
+                <span className="shrink-0 rounded-xl bg-emerald-100 p-2 sm:p-2.5 text-emerald-700">
                   <Wifi className="h-4 w-4" />
                 </span>
                 <div>
                   <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-900 sm:gap-2">
                     Servers, Wi-Fi &amp; CCTV Security
-                    <span className="rounded border border-indigo-200 bg-indigo-100 px-1.5 py-0.5 font-mono text-[8px] font-bold text-indigo-800 sm:text-[9px]">
+                    <span className="rounded border border-emerald-300 bg-emerald-100 px-1.5 py-0.5 font-mono text-[8px] font-bold text-emerald-800 sm:text-[9px]">
                       ALWAYS ON
                     </span>
                   </div>
@@ -289,8 +289,8 @@ export default function BatterySimulator() {
                 </div>
               </div>
               <div className="shrink-0 text-right">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider text-indigo-800 sm:text-[9px]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-600"></span> ALWAYS ON
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider text-emerald-800 sm:text-[9px]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_#10b981]"></span> ALWAYS ON
                 </span>
               </div>
             </div>

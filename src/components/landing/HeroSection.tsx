@@ -30,7 +30,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
         <div className="max-w-3xl">
           <h1 className="max-w-4xl text-3xl font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl sm:leading-[1.02] sm:tracking-[-0.05em] md:text-6xl lg:text-[70px]">
             Intelligent Energy Control{" "}
-            <span className="text-gradient">
+            <span className="text-gradient-hero">
               for Homes, Businesses &amp; Industry.
             </span>
           </h1>
@@ -43,7 +43,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
             <button
               type="button"
               onClick={() => onOpenModal("demo")}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 text-xs font-extrabold text-white shadow-xl shadow-indigo-500/30 transition-all hover:bg-indigo-700 hover:shadow-indigo-500/40 active:scale-95 sm:px-7 sm:py-4 sm:text-sm cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-xs font-extrabold text-white shadow-xl shadow-emerald-500/30 transition-all hover:bg-emerald-700 hover:shadow-emerald-500/40 active:scale-95 sm:px-7 sm:py-4 sm:text-sm cursor-pointer"
             >
               <span>Request Demo &amp; Presentation</span>
               <ArrowRight className="h-4 w-4" />
@@ -54,7 +54,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-xs font-bold text-white backdrop-blur-md transition-all hover:bg-white/20 active:scale-95 sm:px-7 sm:py-4 sm:text-sm cursor-pointer"
             >
               <span>Create Free Account</span>
-              <UserPlus className="h-4 w-4 text-indigo-300" />
+              <UserPlus className="h-4 w-4 text-emerald-300" />
             </button>
           </div>
 
@@ -69,7 +69,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
               </div>
             </div>
             <div className="px-3 sm:px-4">
-              <div className="font-mono text-xl font-extrabold text-indigo-400 sm:text-2xl">
+              <div className="font-mono text-xl font-extrabold text-teal-300 sm:text-2xl">
                 5–500kVA+
               </div>
               <div className="mt-1 text-[8px] font-extrabold uppercase tracking-[0.14em] text-slate-400 sm:text-[9px]">
