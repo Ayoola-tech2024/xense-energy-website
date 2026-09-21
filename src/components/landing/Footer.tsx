@@ -62,7 +62,19 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
               className="object-contain"
             />
           </div>
-          <span className="text-[10px] font-mono font-extrabold uppercase tracking-[0.14em] text-slate-800">
+          <span
+            onClick={() => {
+              const current = Number(sessionStorage.getItem("xense_copy_clicks") || "0") + 1;
+              if (current >= 3) {
+                sessionStorage.removeItem("xense_copy_clicks");
+                window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
+              } else {
+                sessionStorage.setItem("xense_copy_clicks", String(current));
+                setTimeout(() => sessionStorage.removeItem("xense_copy_clicks"), 2000);
+              }
+            }}
+            className="text-[10px] font-mono font-extrabold uppercase tracking-[0.14em] text-slate-800 select-none cursor-default"
+          >
             © 2026 Xense Energy Systems • All Rights Reserved
           </span>
         </div>
@@ -83,14 +95,14 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
           ))}
         </div>
 
-        {/* Right: Quick Links */}
-        <div className="flex flex-wrap items-center gap-5 text-[10px] font-mono font-bold uppercase tracking-[0.14em] text-slate-600">
+        {/* Right: Quick Action Links */}
+        <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-500">
           <button
             type="button"
             onClick={onOpenLogin}
             className="hover:text-indigo-600 transition-colors"
           >
-            Sign In
+            Client Login
           </button>
           <button
             type="button"
@@ -106,12 +118,6 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
           >
             Request Demo
           </button>
-          <a
-            href="/admin"
-            className="text-slate-400 hover:text-slate-800 transition-colors border-l border-slate-200 pl-4"
-          >
-            Admin Portal
-          </a>
         </div>
       </div>
     </footer>

@@ -22,13 +22,8 @@ import {
   AlertCircle,
   Home,
   LogOut,
-  Lock,
-  KeyRound,
-  Eye,
-  EyeOff,
-  ArrowRight,
+  Terminal,
 } from "lucide-react";
-import { insforge } from "@/lib/insforge";
 
 export interface LeadRecord {
   id: string;
@@ -48,14 +43,6 @@ export default function AdminDashboardPage() {
   // Authentication State
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [checkingAuth, setCheckingAuth] = useState(true);
-  const [authMethod, setAuthMethod] = useState<"passcode" | "account">("passcode");
-  const [passcode, setPasscode] = useState("");
-  const [showPasscode, setShowPasscode] = useState(false);
-  const [adminEmail, setAdminEmail] = useState("");
-  const [adminPassword, setAdminPassword] = useState("");
-  const [showAdminPassword, setShowAdminPassword] = useState(false);
-  const [authError, setAuthError] = useState<string | null>(null);
-  const [authSubmitting, setAuthSubmitting] = useState(false);
 
   // Leads Data State
   const [leads, setLeads] = useState<LeadRecord[]>([]);
@@ -69,123 +56,38 @@ export default function AdminDashboardPage() {
   const [notesDrafts, setNotesDrafts] = useState<Record<string, string>>({});
   const [isSavingNotes, setIsSavingNotes] = useState<string | null>(null);
 
-  // Check authentication on initial load
-  useEffect(() => {
-    const isAuth = localStorage.getItem("xense_admin_authenticated") === "true";
-    if (isAuth) {
-      setIsAuthenticated(true);
-      fetchLeads();
+  // Check authentication on initial load via server session
+  const checkAuth = async () => {
+    try {
+      const res = await fetch("/api/admin/session", { cache: "no-store" });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.authenticated) {
+          setIsAuthenticated(true);
+          fetchLeads();
+          return;
+        }
+      }
+      setIsAuthenticated(false);
+    } catch {
+      setIsAuthenticated(false);
+    } finally {
+      setCheckingAuth(false);
     }
-    setCheckingAuth(false);
+  };
+
+  useEffect(() => {
+    checkAuth();
   }, []);
 
-  // Handle Passcode Login
-  const handlePasscodeLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    setAuthError(null);
-
-    const configuredPass = process.env.NEXT_PUBLIC_ADMIN_PASSCODE?.trim();
-    const validPasscodes = [
-      configuredPass,
-      "xense-admin-2026",
-      "XenseAdmin2026",
-      "xense2026!",
-    ].filter(Boolean);
-
-    if (!passcode.trim()) {
-      setAuthError("Please enter the Executive Passcode");
-      return;
-    }
-
-    if (validPasscodes.includes(passcode.trim())) {
-      localStorage.setItem("xense_admin_authenticated", "true");
-      setIsAuthenticated(true);
-      fetchLeads();
-    } else {
-      setAuthError("Invalid Executive Passcode. Access denied.");
-    }
-  };
-
-  // Handle InsForge Account Login
-  const handleAccountLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!adminEmail.trim() || !adminPassword) {
-      setAuthError("Please enter your admin email and password");
-      return;
-    }
-
-    setAuthSubmitting(true);
-    setAuthError(null);
-
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_INSFORGE_URL}/api/auth/sessions`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: adminEmail.trim(),
-            password: adminPassword,
-          }),
-        }
-      );
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.message || data.error || "Authentication failed. Invalid admin credentials.");
-      }
-
-      localStorage.setItem("xense_admin_authenticated", "true");
-      if (data.accessToken) {
-        localStorage.setItem("xense_auth_token", data.accessToken);
-      }
-      setIsAuthenticated(true);
-      fetchLeads();
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Authentication error occurred";
-      setAuthError(msg);
-    } finally {
-      setAuthSubmitting(false);
-    }
-  };
-
-  // Handle Logout
-  const handleLogout = () => {
-    localStorage.removeItem("xense_admin_authenticated");
-    localStorage.removeItem("xense_auth_token");
-    setIsAuthenticated(false);
-    setLeads([]);
-    setPasscode("");
-    setAdminEmail("");
-    setAdminPassword("");
-    setAuthError(null);
-  };
-
-  // Fetch leads from InsForge
+  // Fetch leads securely from server API
   const fetchLeads = async () => {
     setLoading(true);
     try {
-      // First try via SDK
-      const { data, error } = await insforge.database
-        .from("leads")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      if (!error && data) {
-        setLeads(data as LeadRecord[]);
-      } else {
-        // Fallback to direct REST API
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_INSFORGE_URL}/api/database/records/leads?order=created_at.desc`,
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_INSFORGE_ANON_KEY}`,
-            },
-          }
-        );
-        if (res.ok) {
-          const restData = await res.json();
-          setLeads(Array.isArray(restData) ? restData : restData.data || []);
-        }
+      const res = await fetch("/api/admin/leads", { cache: "no-store" });
+      if (res.ok) {
+        const json = await res.json();
+        setLeads(json.data || []);
       }
       setLastRefreshed(new Date());
     } catch (err) {
@@ -201,33 +103,30 @@ export default function AdminDashboardPage() {
     return () => clearInterval(interval);
   }, [isAuthenticated]);
 
-  // Update lead status
+  // Handle Logout via server session deletion
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/admin/session", { method: "DELETE" });
+    } catch {}
+    setIsAuthenticated(false);
+    setLeads([]);
+  };
+
+  // Update lead status securely via server API
   const updateLeadStatus = async (id: string, newStatus: LeadRecord["status"]) => {
     setUpdatingId(id);
     try {
-      const { error } = await insforge.database
-        .from("leads")
-        .update({ status: newStatus })
-        .eq("id", id);
+      const res = await fetch("/api/admin/leads", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, status: newStatus }),
+      });
 
-      if (error) {
-        // REST fallback
-        await fetch(
-          `${process.env.NEXT_PUBLIC_INSFORGE_URL}/api/database/records/leads?id=eq.${id}`,
-          {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_INSFORGE_ANON_KEY}`,
-            },
-            body: JSON.stringify({ status: newStatus }),
-          }
+      if (res.ok) {
+        setLeads((prev) =>
+          prev.map((l) => (l.id === id ? { ...l, status: newStatus } : l))
         );
       }
-
-      setLeads((prev) =>
-        prev.map((l) => (l.id === id ? { ...l, status: newStatus } : l))
-      );
     } catch (err) {
       console.error("Failed to update status:", err);
     } finally {
@@ -235,21 +134,24 @@ export default function AdminDashboardPage() {
     }
   };
 
-  // Save lead internal notes
+  // Save lead internal notes securely via server API
   const saveLeadNotes = async (id: string) => {
     const noteContent = notesDrafts[id];
     if (noteContent === undefined) return;
 
     setIsSavingNotes(id);
     try {
-      await insforge.database
-        .from("leads")
-        .update({ notes: noteContent })
-        .eq("id", id);
+      const res = await fetch("/api/admin/leads", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, notes: noteContent }),
+      });
 
-      setLeads((prev) =>
-        prev.map((l) => (l.id === id ? { ...l, notes: noteContent } : l))
-      );
+      if (res.ok) {
+        setLeads((prev) =>
+          prev.map((l) => (l.id === id ? { ...l, notes: noteContent } : l))
+        );
+      }
     } catch (err) {
       console.error("Failed to save note:", err);
     } finally {
@@ -359,201 +261,40 @@ export default function AdminDashboardPage() {
 
   if (checkingAuth) {
     return (
-      <div className="min-h-screen bg-[#090d16] flex flex-col items-center justify-center p-4 text-slate-200">
-        <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center animate-pulse mb-4">
-          <Lock className="w-6 h-6 text-indigo-400" />
-        </div>
-        <p className="text-xs font-mono text-slate-400">Verifying security credentials...</p>
+      <div className="min-h-screen bg-[#000000] flex flex-col items-center justify-center p-4 text-slate-400 font-mono">
+        <RefreshCw className="w-5 h-5 animate-spin text-slate-600 mb-3" />
+        <p className="text-xs text-slate-600">Connecting to secure host...</p>
       </div>
     );
   }
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#090d16] flex flex-col justify-center items-center px-4 py-12 selection:bg-indigo-500 selection:text-white relative overflow-hidden">
-        {/* Ambient Glows */}
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="min-h-screen bg-[#000000] text-slate-200 flex flex-col items-center justify-center font-sans select-none px-4">
+        <div className="flex items-center gap-5">
+          <h1
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
+            }}
+            className="text-4xl font-extrabold border-r border-slate-800 pr-5 text-white tracking-tight cursor-pointer hover:text-cyan-400 transition-colors"
+            title="Click to reveal"
+          >
+            404
+          </h1>
+          <p className="text-sm font-normal text-slate-400">This page could not be found.</p>
+        </div>
 
-        <div className="w-full max-w-md relative z-10">
-          {/* Brand Header */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-[#0f172a] border border-slate-800 shadow-xl mb-4 relative group">
-              <div className="absolute inset-0 bg-indigo-500/20 rounded-2xl blur-md -z-10 group-hover:bg-indigo-500/30 transition-all" />
-              <div className="relative h-12 w-12 rounded-xl overflow-hidden bg-white p-1.5 flex items-center justify-center">
-                <Image src="/assets/logo.png" alt="Xense Logo" width={36} height={36} className="object-contain" priority />
-              </div>
-            </div>
-            
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-indigo-500/15 text-indigo-400 border border-indigo-500/30">
-                <Lock className="w-3 h-3" />
-                Restricted Executive Access
-              </span>
-            </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="/"
+            className="text-xs text-slate-600 hover:text-slate-400 transition-colors"
+          >
+            Return to Homepage
+          </Link>
+        </div>
 
-            <h1 className="text-2xl font-black text-white tracking-tight">
-              Xense Energy CEO Portal
-            </h1>
-            <p className="mt-1.5 text-xs text-slate-400 leading-relaxed max-w-xs mx-auto">
-              Confidential customer leads, hardware consultation queue, and executive metrics.
-            </p>
-          </div>
-
-          {/* Login Card */}
-          <div className="rounded-3xl border border-slate-800 bg-[#0d1424]/90 backdrop-blur-xl p-6 sm:p-8 shadow-2xl">
-            {/* Tabs */}
-            <div className="flex rounded-xl bg-slate-900/80 p-1 border border-slate-800 mb-6">
-              <button
-                type="button"
-                onClick={() => { setAuthMethod("passcode"); setAuthError(null); }}
-                className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-bold rounded-lg transition-all ${
-                  authMethod === "passcode"
-                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
-                    : "text-slate-400 hover:text-slate-200"
-                }`}
-              >
-                <KeyRound className="w-3.5 h-3.5" />
-                <span>Executive PIN</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => { setAuthMethod("account"); setAuthError(null); }}
-                className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-bold rounded-lg transition-all ${
-                  authMethod === "account"
-                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
-                    : "text-slate-400 hover:text-slate-200"
-                }`}
-              >
-                <Users className="w-3.5 h-3.5" />
-                <span>InsForge Account</span>
-              </button>
-            </div>
-
-            {/* Error Alert */}
-            {authError && (
-              <div className="mb-5 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-xs text-red-300 flex items-start gap-2.5">
-                <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
-                <span className="leading-relaxed">{authError}</span>
-              </div>
-            )}
-
-            {/* Tab 1: Executive Passcode */}
-            {authMethod === "passcode" && (
-              <form onSubmit={handlePasscodeLogin} className="space-y-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
-                    Executive Master Passcode
-                  </label>
-                  <div className="relative">
-                    <input
-                      type={showPasscode ? "text" : "password"}
-                      value={passcode}
-                      onChange={(e) => setPasscode(e.target.value)}
-                      placeholder="Enter admin passcode..."
-                      required
-                      autoFocus
-                      className="w-full rounded-xl border border-slate-700 bg-slate-900/90 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none pr-10 transition-colors"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPasscode(!showPasscode)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1"
-                    >
-                      {showPasscode ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                    </button>
-                  </div>
-                  <p className="mt-2 text-[11px] text-slate-500">
-                    Default: <code className="text-indigo-300 font-mono">xense-admin-2026</code> (configurable in Vercel)
-                  </p>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-bold py-3 text-sm shadow-lg shadow-indigo-600/25 transition-all active:scale-[0.98]"
-                >
-                  <Lock className="w-4 h-4" />
-                  <span>Unlock Admin Desk</span>
-                </button>
-              </form>
-            )}
-
-            {/* Tab 2: InsForge Account */}
-            {authMethod === "account" && (
-              <form onSubmit={handleAccountLogin} className="space-y-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
-                    Administrator Email
-                  </label>
-                  <input
-                    type="email"
-                    value={adminEmail}
-                    onChange={(e) => setAdminEmail(e.target.value)}
-                    placeholder="admin@xense.energy"
-                    required
-                    autoFocus
-                    className="w-full rounded-xl border border-slate-700 bg-slate-900/90 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
-                    Password
-                  </label>
-                  <div className="relative">
-                    <input
-                      type={showAdminPassword ? "text" : "password"}
-                      value={adminPassword}
-                      onChange={(e) => setAdminPassword(e.target.value)}
-                      placeholder="••••••••"
-                      required
-                      className="w-full rounded-xl border border-slate-700 bg-slate-900/90 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none pr-10 transition-colors"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowAdminPassword(!showAdminPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1"
-                    >
-                      {showAdminPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                    </button>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={authSubmitting}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-bold py-3 text-sm shadow-lg shadow-indigo-600/25 transition-all active:scale-[0.98] disabled:opacity-60"
-                >
-                  {authSubmitting ? (
-                    <>
-                      <RefreshCw className="w-4 h-4 animate-spin" />
-                      <span>Authenticating...</span>
-                    </>
-                  ) : (
-                    <>
-                      <ShieldCheck className="w-4 h-4" />
-                      <span>Sign In with InsForge</span>
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-
-            {/* Return Link */}
-            <div className="mt-6 pt-6 border-t border-slate-800/80 text-center">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors"
-              >
-                <Home className="w-3.5 h-3.5" />
-                <span>Return to Public Website</span>
-              </Link>
-            </div>
-          </div>
-
-          <p className="mt-6 text-center text-[11px] text-slate-500">
-            Protected by Xense Security • All unauthorized attempts are blocked
-          </p>
+        <div className="fixed bottom-4 text-center text-[10px] text-slate-800 font-mono">
+          SEC::PROTECTED
         </div>
       </div>
     );

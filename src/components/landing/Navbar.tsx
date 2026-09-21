@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
 interface NavbarProps {
@@ -11,12 +11,29 @@ interface NavbarProps {
 
 export default function Navbar({ onOpenModal }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const clickCountRef = useRef(0);
+  const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    clickCountRef.current += 1;
+    if (clickCountRef.current >= 5) {
+      e.preventDefault();
+      clickCountRef.current = 0;
+      window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
+      return;
+    }
+
+    if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
+    clickTimerRef.current = setTimeout(() => {
+      clickCountRef.current = 0;
+    }, 2500);
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-10">
       <nav className="mx-auto flex max-w-[1320px] items-center justify-between rounded-2xl border border-slate-200/90 bg-white/90 px-4 py-3 shadow-lg shadow-slate-200/40 backdrop-blur-xl sm:px-6">
-        <Link href="#top" className="flex items-center gap-3 group">
-          <div className="relative h-9 w-9 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-sm transition-transform group-hover:scale-105">
+        <div onClick={handleLogoClick} className="flex items-center gap-3 group cursor-pointer select-none">
+          <div className="relative h-9 w-9 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-sm transition-transform group-hover:scale-105 active:scale-95">
             <Image
               src="/assets/logo.png"
               alt="Xense Energy Logo"
@@ -33,7 +50,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
               ENERGY SYSTEMS
             </span>
           </span>
-        </Link>
+        </div>
 
         {/* Desktop Navigation Links */}
         <div className="hidden items-center gap-8 text-xs font-bold text-slate-600 lg:flex">
