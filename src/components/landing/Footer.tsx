@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 
 interface FooterProps {
@@ -48,6 +49,36 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
     },
   ];
 
+  const lastTouchEndRef = useRef(0);
+
+  const registerEasterEggClick = (e: React.MouseEvent | React.TouchEvent) => {
+    const current = Number(sessionStorage.getItem("xense_copy_clicks") || "0") + 1;
+    if (current >= 3) {
+      if ("preventDefault" in e) e.preventDefault();
+      sessionStorage.removeItem("xense_copy_clicks");
+      window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
+    } else {
+      sessionStorage.setItem("xense_copy_clicks", String(current));
+      setTimeout(() => sessionStorage.removeItem("xense_copy_clicks"), 2000);
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const now = Date.now();
+    // Intercept rapid consecutive taps to prevent native mobile double-tap zoom
+    if (now - lastTouchEndRef.current <= 500) {
+      e.preventDefault();
+    }
+    lastTouchEndRef.current = now;
+    registerEasterEggClick(e);
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    // Avoid duplicate firing on devices that trigger both touchend and click
+    if (Date.now() - lastTouchEndRef.current < 500) return;
+    registerEasterEggClick(e);
+  };
+
   return (
     <footer className="relative z-10 border-t border-slate-200 bg-white px-4 py-10 sm:px-6 lg:px-10">
       <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-6 text-[10px] font-mono uppercase tracking-[0.14em] text-slate-600 sm:flex-row sm:items-center">
@@ -63,17 +94,10 @@ export function Footer({ onOpenLogin, onOpenSignup, onOpenDemo }: FooterProps) {
             />
           </div>
           <span
-            onClick={() => {
-              const current = Number(sessionStorage.getItem("xense_copy_clicks") || "0") + 1;
-              if (current >= 3) {
-                sessionStorage.removeItem("xense_copy_clicks");
-                window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
-              } else {
-                sessionStorage.setItem("xense_copy_clicks", String(current));
-                setTimeout(() => sessionStorage.removeItem("xense_copy_clicks"), 2000);
-              }
-            }}
-            className="font-extrabold text-slate-800 select-none cursor-default"
+            onClick={handleClick}
+            onTouchEnd={handleTouchEnd}
+            style={{ touchAction: "manipulation" }}
+            className="font-extrabold text-slate-800 select-none cursor-default touch-manipulation"
           >
             © 2026 Xense Energy Systems • All Rights Reserved
           </span>

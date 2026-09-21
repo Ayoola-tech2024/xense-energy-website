@@ -276,7 +276,12 @@ export default function AdminDashboardPage() {
             onClick={() => {
               window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
             }}
-            className="text-4xl font-extrabold border-r border-slate-300 pr-5 text-slate-900 tracking-tight cursor-pointer hover:text-indigo-600 transition-colors"
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
+            }}
+            style={{ touchAction: "manipulation" }}
+            className="text-4xl font-extrabold border-r border-slate-300 pr-5 text-slate-900 tracking-tight cursor-pointer hover:text-indigo-600 transition-colors touch-manipulation"
             title="Click to reveal administrative door"
           >
             404

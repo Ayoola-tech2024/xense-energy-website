@@ -13,11 +13,12 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const clickCountRef = useRef(0);
   const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const lastTouchEndRef = useRef(0);
 
-  const handleLogoClick = (e: React.MouseEvent) => {
+  const registerEasterEggClick = (e: React.MouseEvent | React.TouchEvent) => {
     clickCountRef.current += 1;
     if (clickCountRef.current >= 5) {
-      e.preventDefault();
+      if ("preventDefault" in e) e.preventDefault();
       clickCountRef.current = 0;
       window.dispatchEvent(new CustomEvent("xense:open-easter-egg"));
       return;
@@ -29,10 +30,31 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
     }, 2500);
   };
 
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const now = Date.now();
+    // Intercept rapid consecutive taps to prevent native mobile double-tap zoom
+    if (now - lastTouchEndRef.current <= 500) {
+      e.preventDefault();
+    }
+    lastTouchEndRef.current = now;
+    registerEasterEggClick(e);
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    // Avoid duplicate firing on devices that trigger both touchend and click
+    if (Date.now() - lastTouchEndRef.current < 500) return;
+    registerEasterEggClick(e);
+  };
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-10">
       <nav className="mx-auto flex max-w-[1320px] items-center justify-between rounded-2xl border border-slate-200/90 bg-white/90 px-4 py-3 shadow-lg shadow-slate-200/40 backdrop-blur-xl sm:px-6">
-        <div onClick={handleLogoClick} className="flex items-center gap-3 group cursor-pointer select-none">
+        <div
+          onClick={handleClick}
+          onTouchEnd={handleTouchEnd}
+          style={{ touchAction: "manipulation" }}
+          className="flex items-center gap-3 group cursor-pointer select-none touch-manipulation"
+        >
           <div className="relative h-9 w-9 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-sm transition-transform group-hover:scale-105 active:scale-95">
             <Image
               src="/assets/logo.png"

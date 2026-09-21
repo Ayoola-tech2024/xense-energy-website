@@ -4,6 +4,18 @@
   color-scheme: light;
 }
 
+html,
+body,
+button,
+a,
+input,
+select,
+textarea,
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   margin: 0;
   min-width: 320px;
