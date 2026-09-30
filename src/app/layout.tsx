@@ -11,10 +11,36 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://xense-energy-website.vercel.app"),
-  title: "Xense Energy — Intelligent Solar Automation & Smart Load Control",
+  metadataBase: new URL("https://xenseenergy.com"),
+  title: {
+    default: "Xense Energy Systems — Intelligent Energy Management & Automation",
+    template: "%s | Xense Energy Systems",
+  },
   description:
-    "Intelligent solar automation, real-time battery protection, and autonomous load shedding for modern homes and commercial facilities.",
+    "Xense Energy Systems delivers intelligent multi-source power control, real-time energy monitoring, and AI-powered load automation for modern homes and commercial facilities.",
+  keywords: [
+    "energy management system Nigeria",
+    "intelligent power control",
+    "automatic transfer switch",
+    "load monitoring system",
+    "fuel accountability system",
+    "generator monitoring Nigeria",
+    "solar energy automation",
+    "Xense Energy",
+    "Port Harcourt energy solutions",
+    "smart load control",
+  ],
+  authors: [{ name: "Xense Energy Systems", url: "https://xenseenergy.com" }],
+  creator: "Xense Energy Systems",
+  publisher: "Xense Energy Systems",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  verification: {
+    google: "VwwzF-ziAitbSJ4EEfIsjjDSVN9iWfym0zXngw_uIlE",
+  },
   icons: {
     icon: [
       { url: "/assets/logo.png", type: "image/png" },
@@ -24,19 +50,20 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   openGraph: {
-    title: "Xense Energy — Intelligent Solar Automation",
+    title: "Xense Energy Systems — Intelligent Energy Management & Automation",
     description:
-      "Intelligent solar automation, real-time battery protection, and autonomous load shedding for modern homes and commercial facilities.",
-    images: [{ url: "/assets/logo.png", width: 800, height: 800, alt: "Xense Energy" }],
-    siteName: "Xense Energy",
-    locale: "en_US",
+      "Intelligent multi-source power control, real-time energy monitoring, and AI-powered load automation. Built for Nigerian businesses.",
+    url: "https://xenseenergy.com",
+    images: [{ url: "/assets/logo.png", width: 800, height: 800, alt: "Xense Energy Systems" }],
+    siteName: "Xense Energy Systems",
+    locale: "en_NG",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xense Energy — Intelligent Solar Automation",
+    title: "Xense Energy Systems — Intelligent Energy Management & Automation",
     description:
-      "Intelligent solar automation, real-time battery protection, and autonomous load shedding for modern homes and commercial facilities.",
+      "Intelligent multi-source power control, real-time energy monitoring, and AI-powered load automation.",
     images: ["/assets/logo.png"],
   },
 };
@@ -60,6 +87,30 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Xense Energy Systems",
+              description:
+                "Intelligent multi-source power control, real-time energy monitoring, and AI-powered load automation for businesses in Nigeria.",
+              url: "https://xenseenergy.com",
+              logo: "https://xenseenergy.com/assets/logo.png",
+              image: "https://xenseenergy.com/assets/logo.png",
+              telephone: "+2347036791927",
+              email: "info@xenseenergy.com",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Port Harcourt",
+                addressRegion: "Rivers State",
+                addressCountry: "NG",
+              },
+              areaServed: "Nigeria",
+            }),
+          }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#f8fafc] text-[#0f172a] selection:bg-indigo-500/20 font-sans">
