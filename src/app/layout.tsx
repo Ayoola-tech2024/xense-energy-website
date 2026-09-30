@@ -131,8 +131,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#f8fafc] text-[#0f172a] selection:bg-indigo-500/20 font-sans">
-        <div className="ambient ambient-one" />
-        <div className="ambient ambient-two" />
         {children}
         <ExecutiveEasterEggModal />
         <SpeedInsights />

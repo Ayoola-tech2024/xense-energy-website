@@ -48,14 +48,14 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-10">
-      <nav className="mx-auto flex max-w-[1320px] items-center justify-between rounded-2xl border border-slate-200/90 bg-white/90 px-4 py-3 shadow-lg shadow-slate-200/40 backdrop-blur-xl sm:px-6">
+      <nav className="mx-auto flex max-w-[1320px] items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-sm backdrop-blur-md sm:px-6">
         <div
           onClick={handleClick}
           onTouchEnd={handleTouchEnd}
           style={{ touchAction: "manipulation" }}
           className="flex items-center gap-3 group cursor-pointer select-none touch-manipulation"
         >
-          <div className="relative h-9 w-9 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-sm transition-transform group-hover:scale-105 active:scale-95">
+          <div className="relative h-9 w-9 overflow-hidden rounded-xl bg-slate-50 p-1 transition-transform group-hover:scale-105 active:scale-95">
             <Image
               src="/assets/logo.png"
               alt="Xense Energy Logo"
@@ -112,9 +112,9 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           <button
             type="button"
             onClick={() => onOpenModal("demo")}
-            className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-indigo-500/25 transition-all hover:bg-indigo-700 hover:shadow-indigo-500/35 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-bold text-white transition-all hover:bg-indigo-700 active:scale-95 cursor-pointer"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_#818cf8]"></span>
+            <span className="h-1.5 w-1.5 rounded-full bg-indigo-300"></span>
             <span>Request Demo</span>
           </button>
         </div>
@@ -132,7 +132,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
 
       {/* Mobile Dropdown */}
       {mobileMenuOpen && (
-        <div className="mx-auto mt-2 max-w-[1320px] rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-2xl backdrop-blur-xl sm:hidden">
+        <div className="mx-auto mt-2 max-w-[1320px] rounded-2xl bg-white p-4 shadow-lg sm:hidden">
           <div className="grid gap-1 text-sm font-semibold text-slate-700">
             <Link
               href="#modes"
