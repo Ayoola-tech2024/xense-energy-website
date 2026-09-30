@@ -8,6 +8,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  themeColor: "#07090e",
 };
 
 export const metadata: Metadata = {
@@ -33,10 +34,19 @@ export const metadata: Metadata = {
   authors: [{ name: "Xense Energy Systems", url: "https://xenseenergy.com" }],
   creator: "Xense Energy Systems",
   publisher: "Xense Energy Systems",
+  alternates: {
+    canonical: "https://xenseenergy.com",
+  },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   verification: {
     google: "VwwzF-ziAitbSJ4EEfIsjjDSVN9iWfym0zXngw_uIlE",
@@ -54,7 +64,14 @@ export const metadata: Metadata = {
     description:
       "Intelligent multi-source power control, real-time energy monitoring, and AI-powered load automation. Built for Nigerian businesses.",
     url: "https://xenseenergy.com",
-    images: [{ url: "/assets/logo.png", width: 800, height: 800, alt: "Xense Energy Systems" }],
+    images: [
+      {
+        url: "/assets/og-card.png",
+        width: 1200,
+        height: 630,
+        alt: "Xense Energy Systems — Next-Generation Power Management",
+      },
+    ],
     siteName: "Xense Energy Systems",
     locale: "en_NG",
     type: "website",
@@ -64,7 +81,7 @@ export const metadata: Metadata = {
     title: "Xense Energy Systems — Intelligent Energy Management & Automation",
     description:
       "Intelligent multi-source power control, real-time energy monitoring, and AI-powered load automation.",
-    images: ["/assets/logo.png"],
+    images: ["/assets/og-card.png"],
   },
 };
 
@@ -99,7 +116,7 @@ export default function RootLayout({
                 "Intelligent multi-source power control, real-time energy monitoring, and AI-powered load automation for businesses in Nigeria.",
               url: "https://xenseenergy.com",
               logo: "https://xenseenergy.com/assets/logo.png",
-              image: "https://xenseenergy.com/assets/logo.png",
+              image: "https://xenseenergy.com/assets/og-card.png",
               telephone: "+2347036791927",
               email: "info@xenseenergy.com",
               address: {
